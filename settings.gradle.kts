@@ -121,6 +121,24 @@ dependencyResolutionManagement {
 
         exclusiveContent {
             forRepository {
+                ivy("https://github.com/WebAssembly/binaryen/releases/download") {
+                    name = "Binaryen"
+                    patternLayout {
+                        artifact("version_[revision]/[artifact]-version_[revision]-[classifier].[ext]")
+                    }
+                    metadataSources {
+                        artifact()
+                    }
+                }
+            }
+
+            filter {
+                includeModule("com.github.webassembly", "binaryen")
+            }
+        }
+
+        exclusiveContent {
+            forRepository {
                 google()
             }
 
@@ -156,3 +174,4 @@ rootProject.name = "kiro"
 include(":kiro-ui:kiro-ui-core")
 include(":kiro-ui:kiro-ui-icons")
 include(":kiro-ui:kiro-ui-components")
+include(":kiro-gallery")
