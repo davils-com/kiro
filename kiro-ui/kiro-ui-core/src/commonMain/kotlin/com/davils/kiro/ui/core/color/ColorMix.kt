@@ -33,7 +33,7 @@ private const val HALF_TURN: Double = 180.0
  * @param other the color to mix in.
  * @param amount how much of [other] to mix in, from 0 for none to 1 for only [other]; values outside are clamped.
  * @return the mixed color.
- * @since 0.1.0
+ * @since 1.0.0
  */
 public fun Color.mix(other: Color, amount: Float): Color {
     val weight = amount.toDouble().coerceIn(minimumValue = 0.0, maximumValue = 1.0)

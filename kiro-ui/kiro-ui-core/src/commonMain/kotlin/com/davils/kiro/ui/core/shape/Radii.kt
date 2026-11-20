@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.dp
  * @property xl2 the radius twice extra large.
  * @property xl3 the radius three times extra large.
  * @property xl4 the radius four times extra large.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class Radii(
@@ -53,7 +53,7 @@ public class Radii(
      * @param xl3 the new value of [xl3].
      * @param xl4 the new value of [xl4].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         sm: Dp = this.sm,
@@ -99,13 +99,13 @@ public class Radii(
     /**
      * Builds the radii of a theme.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public companion object {
         /**
          * The base radius of Kiro, the radius [lg] of the default radii.
          *
-         * @since 0.1.0
+         * @since 1.0.0
          */
         public val DefaultBase: Dp = 10.dp
 
@@ -115,7 +115,7 @@ public class Radii(
          * @param base the radius [lg]; every other radius is a multiple of it.
          * @param factors the factors of the other radii.
          * @return the radii.
-         * @since 0.1.0
+         * @since 1.0.0
          */
         public fun from(base: Dp = DefaultBase, factors: RadiusFactors = RadiusFactors()): Radii = Radii(
             sm = base * factors.sm,

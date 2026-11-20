@@ -37,7 +37,7 @@ import androidx.compose.ui.input.pointer.pointerInput
  * The [InputModality] of the composition, or null outside of a [com.davils.kiro.ui.core.ThemeProvider], where every
  * focus counts as visible.
  *
- * @since 0.1.0
+ * @since 1.0.0
  */
 public val LocalInputModality: ProvidableCompositionLocal<InputModality?> = staticCompositionLocalOf { null }
 
@@ -46,7 +46,7 @@ public val LocalInputModality: ProvidableCompositionLocal<InputModality?> = stat
  * is when the control shows its focus ring.
  *
  * @return a state that is true while the focus is visible.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Composable
 public fun InteractionSource.collectIsFocusVisibleAsState(): State<Boolean> {

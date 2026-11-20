@@ -50,7 +50,7 @@ dependencyResolutionManagement {
 ```kotlin
 // build.gradle.kts
 dependencies {
-    implementation("com.davils:kiro-ui-components:0.1.0")
+    implementation("com.davils:kiro-ui-components:1.0.0")
 }
 ```
 

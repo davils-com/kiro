@@ -22,14 +22,14 @@ import androidx.compose.runtime.Immutable
  * A shadow made of layers, drawn like a CSS box shadow: the first layer lies on top.
  *
  * @param layers the layers of the shadow; the list is copied, so later changes to it do not reach the shadow.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class BoxShadow(layers: List<ShadowLayer>) {
     /**
      * The layers of the shadow, from top to bottom. The list cannot be changed.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public val layers: List<ShadowLayer> = buildList { addAll(layers) }
 
@@ -38,7 +38,7 @@ public class BoxShadow(layers: List<ShadowLayer>) {
      *
      * @param layers the new layers.
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(layers: List<ShadowLayer> = this.layers): BoxShadow = BoxShadow(layers = layers)
 
@@ -51,13 +51,13 @@ public class BoxShadow(layers: List<ShadowLayer>) {
     /**
      * The shadows that every theme knows.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public companion object {
         /**
          * A shadow without any layer, which draws nothing.
          *
-         * @since 0.1.0
+         * @since 1.0.0
          */
         public val None: BoxShadow = BoxShadow(layers = emptyList())
     }

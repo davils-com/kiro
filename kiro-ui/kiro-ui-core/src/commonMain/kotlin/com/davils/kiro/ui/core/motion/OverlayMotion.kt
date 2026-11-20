@@ -30,7 +30,7 @@ import kotlin.time.Duration.Companion.milliseconds
  * @property initialAlpha the alpha an overlay starts from and fades back to.
  * @property initialScale the scale an overlay starts from and shrinks back to.
  * @property slideDistance the distance an overlay slides in from its anchor.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class OverlayMotion(
@@ -49,7 +49,7 @@ public class OverlayMotion(
      * @param initialScale the new value of [initialScale].
      * @param slideDistance the new value of [slideDistance].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         enterDuration: Duration = this.enterDuration,

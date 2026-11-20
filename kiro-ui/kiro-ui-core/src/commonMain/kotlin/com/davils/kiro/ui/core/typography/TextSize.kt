@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.TextUnit
  *
  * @property fontSize the font size.
  * @property lineHeight the line height.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class TextSize(
@@ -37,7 +37,7 @@ public class TextSize(
      * @param fontSize the new value of [fontSize].
      * @param lineHeight the new value of [lineHeight].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(fontSize: TextUnit = this.fontSize, lineHeight: TextUnit = this.lineHeight): TextSize = TextSize(
         fontSize = fontSize,

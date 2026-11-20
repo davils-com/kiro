@@ -25,6 +25,6 @@ import androidx.compose.ui.graphics.Color
  * [com.davils.kiro.ui.core.color.Colors.foreground] of its theme, and every surface sets it to the foreground of its
  * own style. Outside of a theme it is [Color.Unspecified], so that text falls back to the default of Compose.
  *
- * @since 0.1.0
+ * @since 1.0.0
  */
 public val LocalContentColor: ProvidableCompositionLocal<Color> = compositionLocalOf { Color.Unspecified }

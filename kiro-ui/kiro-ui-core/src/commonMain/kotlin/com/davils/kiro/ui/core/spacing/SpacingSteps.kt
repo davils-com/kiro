@@ -23,6 +23,6 @@ import androidx.compose.ui.unit.Dp
  *
  * @param steps the number of steps; it may be a fraction or negative.
  * @return [Spacing.unit] times [steps].
- * @since 0.1.0
+ * @since 1.0.0
  */
 public operator fun Spacing.invoke(steps: Float): Dp = unit * steps

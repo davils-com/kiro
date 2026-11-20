@@ -22,7 +22,7 @@ import androidx.compose.runtime.Immutable
  * The motion that runs on its own, such as a spinner or a shimmer.
  *
  * @property speed the factor of the speed of ambient animations; 2 runs them twice as fast.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class AmbientMotion(
@@ -33,7 +33,7 @@ public class AmbientMotion(
      *
      * @param speed the new value of [speed].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(speed: Float = this.speed): AmbientMotion = AmbientMotion(
         speed = speed,

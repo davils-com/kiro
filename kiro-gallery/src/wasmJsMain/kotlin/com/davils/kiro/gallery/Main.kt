@@ -26,7 +26,7 @@ import androidx.compose.ui.window.ComposeViewport
 /**
  * Starts the gallery of Kiro in the browser, filling the page it is loaded into.
  *
- * @since 0.1.0
+ * @since 1.0.0
  */
 @OptIn(ExperimentalComposeUiApi::class)
 public fun main() {

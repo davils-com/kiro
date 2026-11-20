@@ -30,7 +30,7 @@ import com.davils.kiro.ui.core.Theme
  * @property name the name of the component, such as `button`.
  * @param default derives the default style of the component from the tokens of a theme; it must not read anything
  * but the theme, so that equal themes give equal styles.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class StyleKey<T : Any>(
@@ -42,7 +42,7 @@ public class StyleKey<T : Any>(
      *
      * @param theme the theme whose tokens the style follows.
      * @return the default style.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun defaultFor(theme: Theme): T = default(theme)
 

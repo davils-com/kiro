@@ -24,21 +24,21 @@ import androidx.compose.runtime.Immutable
  * @property icon the icon.
  * @param tags the words that describe the icon; the list is copied.
  * @param categories the categories the icon belongs to; the list is copied.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class IconEntry(public val icon: IconGraphic, tags: List<String>, categories: List<String>) {
     /**
      * The words that describe the icon. The list cannot be changed.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public val tags: List<String> = buildList { addAll(tags) }
 
     /**
      * The categories the icon belongs to. The list cannot be changed.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public val categories: List<String> = buildList { addAll(categories) }
 

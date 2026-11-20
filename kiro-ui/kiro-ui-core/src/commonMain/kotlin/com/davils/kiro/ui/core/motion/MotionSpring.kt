@@ -23,7 +23,7 @@ import androidx.compose.runtime.Immutable
  *
  * @property dampingRatio the damping ratio; 1 settles without bouncing, less bounces.
  * @property stiffness the stiffness; the higher, the faster the spring settles.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class MotionSpring(
@@ -36,7 +36,7 @@ public class MotionSpring(
      * @param dampingRatio the new value of [dampingRatio].
      * @param stiffness the new value of [stiffness].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(dampingRatio: Float = this.dampingRatio, stiffness: Float = this.stiffness): MotionSpring =
         MotionSpring(

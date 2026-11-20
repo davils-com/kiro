@@ -24,7 +24,7 @@ import androidx.compose.runtime.Immutable
  * @property faint the alpha of the faint layers of the smallest shadows.
  * @property soft the alpha of the layers of the medium shadows.
  * @property deep the alpha of the layer of the deepest shadow.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class ShadowStrength(
@@ -39,7 +39,7 @@ public class ShadowStrength(
      * @param soft the new value of [soft].
      * @param deep the new value of [deep].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(faint: Float = this.faint, soft: Float = this.soft, deep: Float = this.deep): ShadowStrength =
         ShadowStrength(

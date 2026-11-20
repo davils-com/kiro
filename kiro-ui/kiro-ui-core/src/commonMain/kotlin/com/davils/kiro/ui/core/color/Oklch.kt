@@ -25,7 +25,7 @@ import androidx.compose.runtime.Immutable
  * @property chroma the colorfulness, from 0 for a gray upwards.
  * @property hue the hue angle in degrees, from 0 up to 360.
  * @property alpha the opacity, from 0 for transparent to 1 for opaque.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class Oklch(
@@ -42,7 +42,7 @@ public class Oklch(
      * @param hue the new value of [hue].
      * @param alpha the new value of [alpha].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         lightness: Double = this.lightness,

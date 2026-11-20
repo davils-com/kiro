@@ -48,7 +48,7 @@ import com.davils.kiro.ui.core.typography.Typography
  * @property components the overrides of the styles of the components.
  * @property isDark whether the theme is dark, which some styles use to pick their tints.
  * @property localeList the languages text is shaped for, or null for the languages of the platform.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class Theme(
@@ -81,7 +81,7 @@ public class Theme(
      * @param isDark the new value of [isDark].
      * @param localeList the new value of [localeList].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         colors: Colors = this.colors,
@@ -147,14 +147,14 @@ public class Theme(
     /**
      * The themes that ship with Kiro and the theme of the current composition.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public companion object {
         /**
          * The theme of the current composition: the theme of the nearest [ThemeProvider], or the light theme
          * outside of any provider.
          *
-         * @since 0.1.0
+         * @since 1.0.0
          */
         public val current: Theme
             @Composable
@@ -166,7 +166,7 @@ public class Theme(
          *
          * @param colors the colors of the theme.
          * @return the light theme.
-         * @since 0.1.0
+         * @since 1.0.0
          */
         public fun light(colors: Colors = Colors.light()): Theme = Theme(colors = colors)
 
@@ -175,7 +175,7 @@ public class Theme(
          *
          * @param colors the colors of the theme.
          * @return the dark theme.
-         * @since 0.1.0
+         * @since 1.0.0
          */
         public fun dark(colors: Colors = Colors.dark()): Theme = Theme(colors = colors, isDark = true)
     }

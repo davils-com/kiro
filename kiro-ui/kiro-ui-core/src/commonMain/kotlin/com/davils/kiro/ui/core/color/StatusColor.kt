@@ -25,7 +25,7 @@ import androidx.compose.ui.graphics.Color
  * @property foreground the color of text and icons that show the status.
  * @property surface the color of a surface that shows the status.
  * @property border the color of the border of such a surface.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class StatusColor(
@@ -40,7 +40,7 @@ public class StatusColor(
      * @param surface the new value of [surface].
      * @param border the new value of [border].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         foreground: Color = this.foreground,

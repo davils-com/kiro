@@ -30,14 +30,14 @@ import com.davils.kiro.ui.core.Theme
  * A [ComponentStyles] is immutable; [with] and [without] return new instances. It is compared by identity of its
  * overrides, because functions cannot be compared by their behaviour.
  *
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class ComponentStyles private constructor(private val overrides: List<StyleOverride<*>>) {
     /**
      * The keys that have at least one override, in the order in which they were first overridden.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public val keys: List<StyleKey<*>>
         get() = buildList { overrides.forEach { override -> if (override.key !in this) add(override.key) } }
@@ -49,7 +49,7 @@ public class ComponentStyles private constructor(private val overrides: List<Sty
      * @param key the key of the component.
      * @param override returns the style to use from the theme and the style it replaces.
      * @return the styles with the override.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun <T : Any> with(key: StyleKey<T>, override: (theme: Theme, style: T) -> T): ComponentStyles {
         val added = buildList {
@@ -64,7 +64,7 @@ public class ComponentStyles private constructor(private val overrides: List<Sty
      *
      * @param key the key of the component.
      * @return the styles without the overrides of [key].
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun without(key: StyleKey<*>): ComponentStyles {
         val kept = buildList { overrides.forEach { override -> if (override.key !== key) add(override) } }
@@ -78,7 +78,7 @@ public class ComponentStyles private constructor(private val overrides: List<Sty
      * @param key the key of the component.
      * @param theme the theme whose tokens the default follows and which every override receives.
      * @return the style.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun <T : Any> resolve(key: StyleKey<T>, theme: Theme): T {
         val default = key.defaultFor(theme)
@@ -94,13 +94,13 @@ public class ComponentStyles private constructor(private val overrides: List<Sty
     /**
      * The styles every theme starts from.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public companion object {
         /**
          * Styles without any override, so that every component takes its default.
          *
-         * @since 0.1.0
+         * @since 1.0.0
          */
         public val Default: ComponentStyles = ComponentStyles(overrides = emptyList())
     }

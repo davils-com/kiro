@@ -22,6 +22,6 @@ package com.davils.kiro.ui.icons.lucide
  *
  * Lucide is licensed under the ISC License; its notice ships with Kiro.
  *
- * @since 0.1.0
+ * @since 1.0.0
  */
 public object Lucide

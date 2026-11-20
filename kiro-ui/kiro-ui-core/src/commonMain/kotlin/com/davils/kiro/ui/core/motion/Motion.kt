@@ -28,7 +28,7 @@ import androidx.compose.runtime.Immutable
  * @property ambient the motion that runs on its own.
  * @property isReduced whether motion is reduced, as the user may ask the system; components then change without
  *   transitions.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class Motion(
@@ -49,7 +49,7 @@ public class Motion(
      * @param ambient the new value of [ambient].
      * @param isReduced the new value of [isReduced].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         durations: Durations = this.durations,

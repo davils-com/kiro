@@ -28,7 +28,7 @@ import androidx.compose.runtime.Immutable
  * @property isSelected whether the control is selected or checked.
  * @property isExpanded whether the control is expanded, such as an open trigger.
  * @property isInvalid whether the value of the control is invalid.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class InteractionState(
@@ -51,7 +51,7 @@ public class InteractionState(
      * @param isExpanded the new value of [isExpanded].
      * @param isInvalid the new value of [isInvalid].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         isHovered: Boolean = this.isHovered,

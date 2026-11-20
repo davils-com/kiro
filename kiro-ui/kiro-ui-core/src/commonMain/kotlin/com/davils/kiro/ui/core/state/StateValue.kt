@@ -31,7 +31,7 @@ import androidx.compose.runtime.Immutable
  * @property selected the value while selected.
  * @property expanded the value while expanded.
  * @property invalid the value while invalid.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class StateValue<out T>(
@@ -56,7 +56,7 @@ public class StateValue<out T>(
      * @param expanded the new value of [expanded].
      * @param invalid the new value of [invalid].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         default: @UnsafeVariance T = this.default,

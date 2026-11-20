@@ -32,7 +32,7 @@ import com.davils.kiro.ui.core.IconTokens
  * @property isNonScalingStroke whether strokes keep their width in dp whatever the size, or null for the choice of the
  *   theme.
  * @property color the color of the icon, or [Color.Unspecified] for the content color.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class IconStyle(
@@ -49,7 +49,7 @@ public class IconStyle(
      * @param isNonScalingStroke the new value of [isNonScalingStroke].
      * @param color the new value of [color].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         size: Dp = this.size,
@@ -70,7 +70,7 @@ public class IconStyle(
      * @param tokens the icon tokens of the theme.
      * @param contentColor the color of the content the icon sits in.
      * @return a style in which every value is specified.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun resolve(tokens: IconTokens, contentColor: Color): IconStyle = IconStyle(
         size = size.takeOrElse { tokens.size },

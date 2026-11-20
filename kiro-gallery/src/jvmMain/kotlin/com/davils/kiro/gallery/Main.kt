@@ -23,7 +23,7 @@ private const val SCREEN_MENU_BAR_PROPERTY: String = "apple.laf.useScreenMenuBar
 /**
  * Starts the gallery of Kiro as a desktop application.
  *
- * @since 0.1.0
+ * @since 1.0.0
  */
 public fun main() {
     System.setProperty(SCREEN_MENU_BAR_PROPERTY, true.toString())

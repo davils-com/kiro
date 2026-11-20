@@ -23,7 +23,7 @@ import androidx.compose.runtime.Immutable
  *
  * @property spatial the spring of moving things, such as a thumb.
  * @property effects the spring of effects, such as a fade.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class MotionSprings(
@@ -36,7 +36,7 @@ public class MotionSprings(
      * @param spatial the new value of [spatial].
      * @param effects the new value of [effects].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(spatial: MotionSpring = this.spatial, effects: MotionSpring = this.effects): MotionSprings =
         MotionSprings(

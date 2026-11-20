@@ -29,7 +29,7 @@ import androidx.compose.ui.text.font.FontFamily
  * @property sans the family of body text and controls.
  * @property heading the family of headings.
  * @property mono the family of code and of tabular numbers.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class FontFamilies(
@@ -48,7 +48,7 @@ public class FontFamilies(
      * @param heading the new value of [heading].
      * @param mono the new value of [mono].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         sans: FontFamily = this.sans,
@@ -70,13 +70,13 @@ public class FontFamilies(
     /**
      * The font families every theme can use.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public companion object {
         /**
          * The fonts that ship with Kiro: Inter for body text, Archivo Expanded for headings and Geist Mono for code.
          *
-         * @since 0.1.0
+         * @since 1.0.0
          */
         public val Bundled: FontFamilies = FontFamilies(
             sans = FontFamily.SansSerif,
@@ -87,7 +87,7 @@ public class FontFamilies(
         /**
          * The generic families of the platform, for applications that ship no fonts of their own.
          *
-         * @since 0.1.0
+         * @since 1.0.0
          */
         public val System: FontFamilies = FontFamilies(
             sans = FontFamily.SansSerif,

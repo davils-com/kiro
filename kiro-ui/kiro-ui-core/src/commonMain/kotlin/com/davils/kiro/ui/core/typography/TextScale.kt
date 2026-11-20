@@ -35,7 +35,7 @@ import androidx.compose.ui.unit.sp
  * @property xl7 the size seven times extra large.
  * @property xl8 the size eight times extra large.
  * @property xl9 the size nine times extra large.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class TextScale(
@@ -70,7 +70,7 @@ public class TextScale(
      * @param xl8 the new value of [xl8].
      * @param xl9 the new value of [xl9].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         xs: TextSize = this.xs,

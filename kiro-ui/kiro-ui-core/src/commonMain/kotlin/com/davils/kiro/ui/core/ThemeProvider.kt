@@ -45,7 +45,7 @@ internal val LocalTheme: ProvidableCompositionLocal<Theme> = staticCompositionLo
  *
  * @param theme the theme of the content.
  * @param content the content.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Composable
 public fun ThemeProvider(theme: Theme, content: @Composable () -> Unit) {
@@ -58,7 +58,7 @@ public fun ThemeProvider(theme: Theme, content: @Composable () -> Unit) {
  *
  * @param theme the theme of the content.
  * @param content the content.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Composable
 public fun ApplicationThemeProvider(theme: Theme, content: @Composable () -> Unit) {

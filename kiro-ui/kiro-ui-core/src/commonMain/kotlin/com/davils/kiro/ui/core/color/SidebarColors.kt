@@ -30,7 +30,7 @@ import androidx.compose.ui.graphics.Color
  * @property accentForeground the color of text and icons on [accent].
  * @property border the color of the borders of the sidebar.
  * @property ring the color of the focus ring inside the sidebar.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class SidebarColors(
@@ -55,7 +55,7 @@ public class SidebarColors(
      * @param border the new value of [border].
      * @param ring the new value of [ring].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         background: Color = this.background,

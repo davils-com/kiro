@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
  *
  * @property thin the width of ordinary borders and separators.
  * @property thick the width of emphasized borders, such as the one of a selected item.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class BorderWidths(
@@ -38,7 +38,7 @@ public class BorderWidths(
      * @param thin the new value of [thin].
      * @param thick the new value of [thick].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(thin: Dp = this.thin, thick: Dp = this.thick): BorderWidths = BorderWidths(
         thin = thin,

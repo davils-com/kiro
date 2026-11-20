@@ -29,7 +29,7 @@ import androidx.compose.runtime.setValue
  * it sees. The state is snapshot state, so reading [isKeyboard] in a composition recomposes it on a change. It is not
  * safe to change from several threads at once; change it from the thread of the composition.
  *
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Stable
 public class InputModality {
@@ -37,7 +37,7 @@ public class InputModality {
      * Whether the last input came from the keyboard; false until the first key is pressed and after every press of a
      * pointer.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public var isKeyboard: Boolean by mutableStateOf(false)
         private set
@@ -45,7 +45,7 @@ public class InputModality {
     /**
      * Records that a key was pressed.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun onKeyboard() {
         isKeyboard = true
@@ -54,7 +54,7 @@ public class InputModality {
     /**
      * Records that a pointer was pressed.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun onPointer() {
         isKeyboard = false

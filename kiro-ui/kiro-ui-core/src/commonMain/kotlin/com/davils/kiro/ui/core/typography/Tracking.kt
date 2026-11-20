@@ -33,7 +33,7 @@ private const val TIGHT: Double = 0.025
  * @property wide a wide spacing.
  * @property wider a wider spacing.
  * @property widest the widest spacing.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class Tracking(
@@ -54,7 +54,7 @@ public class Tracking(
      * @param wider the new value of [wider].
      * @param widest the new value of [widest].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         tighter: TextUnit = this.tighter,

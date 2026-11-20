@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.dp
  * @property blur the blur radius of the layer.
  * @property spread how far the layer grows beyond the shape, or shrinks into it when negative.
  * @property color the color of the layer.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class ShadowLayer(
@@ -48,7 +48,7 @@ public class ShadowLayer(
      * @param spread the new value of [spread].
      * @param color the new value of [color].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         offsetX: Dp = this.offsetX,

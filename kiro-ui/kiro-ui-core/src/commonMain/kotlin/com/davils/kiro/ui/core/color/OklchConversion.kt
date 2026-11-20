@@ -42,7 +42,7 @@ private const val ENCODED_OFFSET: Double = 0.055
  * @param hue the hue angle in degrees.
  * @param alpha the opacity, from 0 for transparent to 1 for opaque; values outside are clamped.
  * @return the color, with every channel that falls outside of sRGB clamped into it.
- * @since 0.1.0
+ * @since 1.0.0
  */
 public fun oklch(lightness: Double, chroma: Double, hue: Double, alpha: Double = 1.0): Color =
     Oklch(lightness = lightness, chroma = chroma, hue = hue, alpha = alpha).toColor()
@@ -51,7 +51,7 @@ public fun oklch(lightness: Double, chroma: Double, hue: Double, alpha: Double =
  * Returns the sRGB color of this OKLCH color.
  *
  * @return the color, with every channel that falls outside of sRGB clamped into it.
- * @since 0.1.0
+ * @since 1.0.0
  */
 public fun Oklch.toColor(): Color {
     val radians = hue * PI / HALF_TURN_DEGREES
@@ -75,7 +75,7 @@ public fun Oklch.toColor(): Color {
  * Returns this color in the OKLCH color space.
  *
  * @return the OKLCH color, with a hue from 0 up to 360 degrees.
- * @since 0.1.0
+ * @since 1.0.0
  */
 public fun Color.toOklch(): Oklch {
     val linearRed = decode(red.toDouble())

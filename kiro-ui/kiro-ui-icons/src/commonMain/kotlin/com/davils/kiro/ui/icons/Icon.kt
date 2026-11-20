@@ -39,7 +39,7 @@ import com.davils.kiro.ui.core.content.LocalContentColor
  * @param contentDescription what the icon means, or null if it only decorates text that says so.
  * @param modifier the modifier of the icon.
  * @param style how the icon is drawn.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Composable
 public fun Icon(

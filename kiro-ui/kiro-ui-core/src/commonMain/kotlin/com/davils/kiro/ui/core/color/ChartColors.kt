@@ -27,7 +27,7 @@ import androidx.compose.ui.graphics.Color
  * @property third the color of the third series.
  * @property fourth the color of the fourth series.
  * @property fifth the color of the fifth series.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class ChartColors(
@@ -46,7 +46,7 @@ public class ChartColors(
      * @param fourth the new value of [fourth].
      * @param fifth the new value of [fifth].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         first: Color = this.first,

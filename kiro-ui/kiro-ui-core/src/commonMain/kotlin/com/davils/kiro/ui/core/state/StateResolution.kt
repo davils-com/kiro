@@ -26,7 +26,7 @@ package com.davils.kiro.ui.core.state
  * @param T the type of the value.
  * @param state the interaction state of the control.
  * @return the value for [state].
- * @since 0.1.0
+ * @since 1.0.0
  */
 public fun <T> StateValue<T>.resolve(state: InteractionState): T = disabled.whenever(state.isDisabled)
     ?: invalid.whenever(state.isInvalid)

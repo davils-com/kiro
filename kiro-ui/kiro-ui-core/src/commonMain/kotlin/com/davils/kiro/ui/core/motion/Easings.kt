@@ -29,7 +29,7 @@ import androidx.compose.runtime.Immutable
  * @property ease the curve of the CSS keyword `ease`.
  * @property outExpo a curve that starts fast and settles slowly.
  * @property emphasized the curve of an emphasized change.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class Easings(
@@ -50,7 +50,7 @@ public class Easings(
      * @param outExpo the new value of [outExpo].
      * @param emphasized the new value of [emphasized].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         standard: Easing = this.standard,

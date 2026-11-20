@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
  * @property size the width and height of an icon.
  * @property strokeWidth the width of the strokes of an icon, in units of its 24 by 24 canvas.
  * @property isNonScalingStroke whether the strokes keep [strokeWidth] in dp whatever the size of the icon.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class IconTokens(
@@ -41,7 +41,7 @@ public class IconTokens(
      * @param strokeWidth the new value of [strokeWidth].
      * @param isNonScalingStroke the new value of [isNonScalingStroke].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         size: Dp = this.size,

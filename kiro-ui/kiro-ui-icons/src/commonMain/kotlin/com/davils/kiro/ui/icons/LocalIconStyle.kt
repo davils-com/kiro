@@ -23,6 +23,6 @@ import androidx.compose.runtime.staticCompositionLocalOf
  * The style of the icons in the current content. Components set it to the icon style of their own style, so that an
  * icon placed in them takes their size and color. By default every value is unspecified and comes from the theme.
  *
- * @since 0.1.0
+ * @since 1.0.0
  */
 public val LocalIconStyle: ProvidableCompositionLocal<IconStyle> = staticCompositionLocalOf { IconStyle() }

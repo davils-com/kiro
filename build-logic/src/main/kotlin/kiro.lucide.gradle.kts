@@ -35,7 +35,7 @@ val generateLucideIcons = tasks.register<GenerateLucideIcons>("generateLucideIco
     archive.from(lucideArchive)
     packageName = "com.davils.kiro.ui.icons.lucide"
     release = "lucide-icons $lucideVersion"
-    since = "0.1.0"
+    since = "1.0.0"
     outputDirectory = layout.buildDirectory.dir("generated/lucide/kotlin")
 }
 

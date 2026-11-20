@@ -49,7 +49,7 @@ import androidx.compose.ui.graphics.Color
  * @property chart the colors of the series of a chart.
  * @property sidebar the colors of a sidebar.
  * @property status the colors of the status of a message, such as an alert or a toast.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class Colors(
@@ -110,7 +110,7 @@ public class Colors(
      * @param sidebar the new value of [sidebar].
      * @param status the new value of [status].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         background: Color = this.background,
@@ -232,14 +232,14 @@ public class Colors(
     /**
      * The color schemes that ship with Kiro.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public companion object {
         /**
          * Returns the light color scheme of Kiro: dark text on white surfaces with a violet primary color.
          *
          * @return the light color scheme.
-         * @since 0.1.0
+         * @since 1.0.0
          */
         public fun light(): Colors = ColorPresets.light
 
@@ -247,7 +247,7 @@ public class Colors(
          * Returns the dark color scheme of Kiro: light text on near black surfaces with a violet primary color.
          *
          * @return the dark color scheme.
-         * @since 0.1.0
+         * @since 1.0.0
          */
         public fun dark(): Colors = ColorPresets.dark
     }

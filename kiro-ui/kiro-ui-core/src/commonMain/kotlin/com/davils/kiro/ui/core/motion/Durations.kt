@@ -26,7 +26,7 @@ import kotlin.time.Duration.Companion.milliseconds
  * @property short the duration of small changes, such as a color on hover.
  * @property medium the duration of medium changes, such as an expanding panel.
  * @property long the duration of large changes, such as a sheet sliding in.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class Durations(
@@ -41,7 +41,7 @@ public class Durations(
      * @param medium the new value of [medium].
      * @param long the new value of [long].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         short: Duration = this.short,

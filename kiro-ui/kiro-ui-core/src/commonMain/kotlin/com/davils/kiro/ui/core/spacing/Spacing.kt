@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
  * of Tailwind CSS, so changing the unit scales every component at once.
  *
  * @property unit the length of one step.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class Spacing(
@@ -36,7 +36,7 @@ public class Spacing(
      *
      * @param unit the new value of [unit].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(unit: Dp = this.unit): Spacing = Spacing(
         unit = unit,

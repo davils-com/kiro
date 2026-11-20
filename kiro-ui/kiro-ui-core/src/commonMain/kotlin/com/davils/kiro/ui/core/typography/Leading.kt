@@ -29,7 +29,7 @@ import androidx.compose.ui.unit.em
  * @property normal the normal line height.
  * @property relaxed a relaxed line height.
  * @property loose a loose line height.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class Leading(
@@ -50,7 +50,7 @@ public class Leading(
      * @param relaxed the new value of [relaxed].
      * @param loose the new value of [loose].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         none: TextUnit = this.none,

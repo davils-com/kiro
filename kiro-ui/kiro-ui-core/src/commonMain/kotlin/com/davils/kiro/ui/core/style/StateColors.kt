@@ -27,7 +27,7 @@ import com.davils.kiro.ui.core.state.StateValue
  * @property content the colors of text and icons.
  * @property border the colors of the border.
  * @property ring the colors of the focus ring.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class StateColors(
@@ -44,7 +44,7 @@ public class StateColors(
      * @param border the new value of [border].
      * @param ring the new value of [ring].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         container: StateValue<Color> = this.container,

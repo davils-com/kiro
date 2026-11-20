@@ -23,7 +23,7 @@ import androidx.compose.runtime.Immutable
  *
  * @property data the path data, such as `M7 7h10v10`.
  * @property isFilled whether the path is filled as well as stroked.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class IconPath(
@@ -36,7 +36,7 @@ public class IconPath(
      * @param data the new value of [data].
      * @param isFilled the new value of [isFilled].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(data: String = this.data, isFilled: Boolean = this.isFilled): IconPath = IconPath(
         data = data,

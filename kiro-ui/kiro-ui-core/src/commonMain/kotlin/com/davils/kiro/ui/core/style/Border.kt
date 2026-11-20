@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.Dp
  *
  * @property width the width of the border.
  * @property color the color of the border.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class Border(
@@ -38,7 +38,7 @@ public class Border(
      * @param width the new value of [width].
      * @param color the new value of [color].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(width: Dp = this.width, color: Color = this.color): Border = Border(
         width = width,

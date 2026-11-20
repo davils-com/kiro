@@ -27,7 +27,7 @@ import com.davils.kiro.ui.core.Theme
  * The style is resolved on every read, so keep the default of a key and its overrides cheap: they should only
  * assemble values of the theme.
  *
- * @since 0.1.0
+ * @since 1.0.0
  */
 public val <T : Any> StyleKey<T>.current: T
     @Composable

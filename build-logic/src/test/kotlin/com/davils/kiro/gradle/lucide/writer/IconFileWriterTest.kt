@@ -24,7 +24,7 @@ import io.kotest.matchers.string.shouldContain
 
 private const val PACKAGE: String = "com.example.icons"
 
-private val PROVENANCE: Provenance = Provenance(release = "lucide-icons 1.71.0", since = "0.1.0")
+private val PROVENANCE: Provenance = Provenance(release = "lucide-icons 1.71.0", since = "1.0.0")
 
 class IconFileWriterTest : FunSpec({
     val icon = LucideIcon(
@@ -69,7 +69,7 @@ class IconFileWriterTest : FunSpec({
 
         test("documents the icon as public API with the release it was drawn from") {
             source shouldContain "The Lucide icon `arrow-up`, drawn from its SVG in lucide-icons 1.71.0."
-            source shouldContain "@since 0.1.0"
+            source shouldContain "@since 1.0.0"
         }
 
         test("marks the icon and its backing property as generated, with the SVG it came from") {

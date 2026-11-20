@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.dp
  * @property lg a large shadow, such as the one of a menu.
  * @property xl an extra large shadow.
  * @property xl2 the deepest shadow, such as the one of a dialog.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class Shadows(
@@ -53,7 +53,7 @@ public class Shadows(
      * @param xl the new value of [xl].
      * @param xl2 the new value of [xl2].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         xs2: BoxShadow = this.xs2,
@@ -99,7 +99,7 @@ public class Shadows(
     /**
      * Builds the elevation of a theme.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public companion object {
         /**
@@ -108,7 +108,7 @@ public class Shadows(
          * @param color the color of every shadow, usually the shadow color of the theme.
          * @param strength the strengths of the layers, applied as the alpha of [color].
          * @return the shadows.
-         * @since 0.1.0
+         * @since 1.0.0
          */
         public fun from(color: Color, strength: ShadowStrength = ShadowStrength()): Shadows {
             val faint = color.copy(alpha = strength.faint)

@@ -27,7 +27,7 @@ import androidx.compose.runtime.Immutable
  * @property xl2 the factor of the radius twice extra large.
  * @property xl3 the factor of the radius three times extra large.
  * @property xl4 the factor of the radius four times extra large.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class RadiusFactors(
@@ -48,7 +48,7 @@ public class RadiusFactors(
      * @param xl3 the new value of [xl3].
      * @param xl4 the new value of [xl4].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         sm: Float = this.sm,

@@ -29,7 +29,7 @@ private const val LUCIDE_VIEWPORT: Float = 24f
  * @param name the name of the icon, such as `arrow-up-right`.
  * @param paths the paths of the icon; the list is copied.
  * @param viewportSize the width and height of the canvas the paths are drawn on.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class IconGraphic(
@@ -40,7 +40,7 @@ public class IconGraphic(
     /**
      * The paths of the icon, drawn in this order. The list cannot be changed.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public val paths: List<IconPath> = buildList { addAll(paths) }
 
@@ -51,7 +51,7 @@ public class IconGraphic(
      * @param paths the new value of [paths].
      * @param viewportSize the new value of [viewportSize].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         name: String = this.name,

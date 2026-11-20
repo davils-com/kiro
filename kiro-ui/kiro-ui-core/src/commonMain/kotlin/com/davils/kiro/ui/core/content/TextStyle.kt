@@ -24,6 +24,6 @@ import androidx.compose.ui.text.TextStyle
  * The style of text in the current content. A [com.davils.kiro.ui.core.ThemeProvider] sets it to the body text of
  * its theme, and components set it to the text style of their own style.
  *
- * @since 0.1.0
+ * @since 1.0.0
  */
 public val LocalTextStyle: ProvidableCompositionLocal<TextStyle> = compositionLocalOf { TextStyle.Default }

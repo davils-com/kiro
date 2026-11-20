@@ -24,7 +24,7 @@ import io.kotest.matchers.string.shouldNotContain
 
 private const val PACKAGE: String = "com.example.icons"
 
-private val PROVENANCE: Provenance = Provenance(release = "lucide-icons 1.71.0", since = "0.1.0")
+private val PROVENANCE: Provenance = Provenance(release = "lucide-icons 1.71.0", since = "1.0.0")
 
 private fun iconsOf(count: Int): List<LucideIcon> = (0 until count).map { index ->
     LucideIcon(

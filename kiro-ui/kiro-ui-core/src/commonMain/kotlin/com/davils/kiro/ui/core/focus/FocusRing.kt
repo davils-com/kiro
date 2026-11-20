@@ -25,7 +25,7 @@ import androidx.compose.ui.unit.dp
  *
  * @property width the width of the ring.
  * @property alpha the alpha of the ring color, from 0 for invisible to 1 for opaque.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class FocusRing(
@@ -38,7 +38,7 @@ public class FocusRing(
      * @param width the new value of [width].
      * @param alpha the new value of [alpha].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(width: Dp = this.width, alpha: Float = this.alpha): FocusRing = FocusRing(
         width = width,

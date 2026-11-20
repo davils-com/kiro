@@ -25,7 +25,7 @@ import androidx.compose.runtime.Immutable
  * @property scale the type scale.
  * @property tracking the letter spacings.
  * @property leading the line heights.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class Typography(
@@ -42,7 +42,7 @@ public class Typography(
      * @param tracking the new value of [tracking].
      * @param leading the new value of [leading].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         families: FontFamilies = this.families,

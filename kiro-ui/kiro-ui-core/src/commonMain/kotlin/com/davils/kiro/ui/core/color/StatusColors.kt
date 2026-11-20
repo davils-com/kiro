@@ -25,7 +25,7 @@ import androidx.compose.runtime.Immutable
  * @property success the colors of a success.
  * @property warning the colors of a warning.
  * @property error the colors of an error.
- * @since 0.1.0
+ * @since 1.0.0
  */
 @Immutable
 public class StatusColors(
@@ -42,7 +42,7 @@ public class StatusColors(
      * @param warning the new value of [warning].
      * @param error the new value of [error].
      * @return the copy.
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         info: StatusColor = this.info,
