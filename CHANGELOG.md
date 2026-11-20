@@ -16,3 +16,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   by the build, with the `Icon` composable and a catalog for search.
 - **The components of Kiro in `kiro-ui-components`**, migrated from the user interface of Kide to Compose
   Multiplatform for the JVM and WebAssembly, without Material and without localization of their own.
+- **The gallery of Kiro in `kiro-gallery`**, which shows every component in the light and the dark theme with the
+  source of its demo, as a desktop application and in the browser.
+
+### Fixed
+
+- **The scopes of the components carry their public names.** The public interfaces of the scopes, such as
+  `MenubarScope` and `CardScope`, had been named after their internal implementations.

@@ -13,7 +13,8 @@ to the same standard as Kore. Where this file is silent, the rules of Kore apply
 | `kiro-ui/kiro-ui-icons` | `com.davils:kiro-ui-icons` | The `Icon` composable and the complete Lucide set, generated from the SVGs of the pinned Lucide release |
 | `kiro-ui/kiro-ui-components` | `com.davils:kiro-ui-components` | The components, from buttons and inputs to menus, dialogs, tables, calendars and charts |
 | `build-logic` | - | One convention plugin per Kreate concern, composed by `kiro.kotlin-library`, `kiro.ui-library` and `kiro.root`, and the Lucide generator |
-| `kiro-application`, `kiro-gallery` | - | Not part of the build yet; nothing in them is touched until they are planned |
+| `kiro-gallery` | - | The gallery: every component in a light and a dark theme with its source, as a desktop application and in the browser; never published |
+| `kiro-application` | - | Not part of the build yet; nothing in it is touched until it is planned |
 
 The root package of a module is `com.davils.kiro.<module without kiro- and with dots>`, such as `com.davils.kiro.ui.core`,
 and its `Automatic-Module-Name` has the same name.
@@ -94,7 +95,7 @@ The test rules of Kore apply. In addition:
 ## Build
 
 - Every module applies exactly one plugin and declares nothing but its description and its dependencies: `kiro.lucide`
-  for `kiro-ui-icons`, `kiro.ui-library` for the other modules.
+  for `kiro-ui-icons`, `kiro.gallery` for `kiro-gallery`, `kiro.ui-library` for the other modules.
 - The convention plugins follow Kore, with `kiro.` instead of `kore.`. Kiro adds:
 
   | Plugin | Configures |
@@ -102,14 +103,16 @@ The test rules of Kore apply. In addition:
   | `kiro.compose` | The Compose compiler and Compose Multiplatform, the exclusion of Material, the Compose test libraries of the JVM tests and the package of the generated resource class |
   | `kiro.ui-library` | `kiro.kotlin-library` and `kiro.compose` for a module of the user interface |
   | `kiro.lucide` | The `lucide` configuration and the `generateLucideIcons` task, whose output is part of `commonMain` |
+  | `kiro.gallery` | The gallery as an application: the desktop main class, the executable of the browser, Binaryen from the repositories of the settings and the sources of the demos as Compose resources; it applies neither publishing nor API validation, documentation or coverage |
 
 - **The Lucide generator is the one exception** to the rule of Kore that `build-logic` holds no classes and no tasks
   of its own. It lives in `build-logic/src/main/kotlin/com/davils/kiro/gradle/lucide`, reads the SVGs and metadata of
   the pinned release archive of Lucide, never draws an icon by hand, writes one file per icon with the license header,
   KDoc and `@DavilsGenerated`, and is tested by Kotest in `build-logic/src/test/kotlin`. A new icon set or a new
   generator is agreed on with a maintainer first.
-- Lucide comes from its GitHub releases through an `exclusiveContent` Ivy repository in the settings, the artifacts of
-  AndroidX that Compose needs from Google through another one. Everything else follows the repository rules of Kore.
+- Lucide and Binaryen come from their GitHub releases through `exclusiveContent` Ivy repositories in the settings,
+  the artifacts of AndroidX that Compose needs from Google through another one. `gradle/verification-metadata.xml` names
+  the Binaryen and Node.js archives of every platform the pipeline runs on. Everything else follows the repository rules of Kore.
 - **Coverage** is verified on the JVM at 97 % of lines and instructions and 70 % of branches; the branches of a
   composable are many small layout decisions that the JVM tests reach only in part.
 - The assurance gate follows Kore, except that, as in Kide, only CRITICAL findings can never be ignored: Compose
@@ -119,6 +122,14 @@ The test rules of Kore apply. In addition:
 - Google Maven serves no signatures for the POMs of AndroidX; their SHA-256 sums are recorded in
   `gradle/verification-metadata.xml`, checked against the repository, and the marker POM of the serialization plugin of
   `build-logic` trusts the different sums of the Gradle Plugin Portal and Maven Central.
+
+## Gallery
+
+- Every component has a demo in `kiro-gallery/src/commonMain/kotlin/com/davils/kiro/gallery/demo`, named `<Name>Demo.kt`
+  and listed in `Demos.kt`. The gallery shows the source of that file, so a demo is written to be read: short, with
+  the values a user would write.
+- The gallery runs with `./gradlew :kiro-gallery:run` on the desktop and is built for the browser with
+  `./gradlew :kiro-gallery:wasmJsBrowserDistribution`.
 
 ## Public API
 

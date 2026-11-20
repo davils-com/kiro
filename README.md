@@ -54,6 +54,20 @@ dependencies {
 }
 ```
 
+## Gallery
+
+`kiro-gallery` shows every component in the light and the dark theme, next to the source of its demo:
+
+```bash
+./gradlew :kiro-gallery:run
+```
+
+```bash
+./gradlew :kiro-gallery:wasmJsBrowserDistribution
+```
+
+The second command writes the browser version to `kiro-gallery/build/dist/wasmJs/productionExecutable`.
+
 ## Building
 
 `./gradlew check` builds, tests and verifies everything; it needs JDK 25 and network access. The rules for
