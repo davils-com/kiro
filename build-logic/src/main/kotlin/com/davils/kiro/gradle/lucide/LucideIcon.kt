@@ -22,4 +22,5 @@ internal data class LucideIcon(
     val paths: List<GeneratedPath>,
     val tags: List<String>,
     val categories: List<String>,
+    val fileName: String = propertyName,
 )

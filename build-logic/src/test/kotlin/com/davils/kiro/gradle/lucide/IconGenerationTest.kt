@@ -69,6 +69,19 @@ class IconGenerationTest : FunSpec({
             files.last().toString() shouldNotContain "BadgeCent"
         }
 
+        test("names the files of icons that differ only in case after their words") {
+            val sources = listOf(
+                LucideSource(name = "letters", svg = ARROW_SVG, metadata = ARROW_METADATA),
+                LucideSource(name = "letter-s", svg = ARROW_SVG, metadata = ARROW_METADATA),
+                LucideSource(name = ARROW, svg = ARROW_SVG, metadata = ARROW_METADATA),
+            )
+
+            val files = IconGeneration.generate(sources = sources, packageName = PACKAGE, provenance = PROVENANCE)
+
+            files.map { file -> file.name } shouldBe listOf("Arrow", "Letter_S", "Letters", CATALOG_FILE)
+            files[1].toString() shouldContain "Lucide.LetterS"
+        }
+
         test("refuses icons whose property names clash") {
             val sources = listOf(
                 LucideSource(name = "arrow-up", svg = ARROW_SVG, metadata = ARROW_METADATA),

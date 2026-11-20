@@ -38,7 +38,7 @@ internal object IconFileWriter {
         property.addKdoc(ICON_KDOC, icon.name, provenance.release, provenance.since)
         property.addAnnotation(provenance.annotation(input))
         property.getter(getter.build())
-        val file = FileSpec.builder(packageName, icon.propertyName)
+        val file = FileSpec.builder(packageName, icon.fileName)
         file.indent(INDENT)
         file.addProperty(property.build())
         file.addProperty(backing)

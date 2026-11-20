@@ -4161,10 +4161,6 @@ public final class com/davils/kiro/ui/icons/lucide/LetterRKt {
 	public static final fun getLetterR (Lcom/davils/kiro/ui/icons/lucide/Lucide;)Lcom/davils/kiro/ui/icons/IconGraphic;
 }
 
-public final class com/davils/kiro/ui/icons/lucide/LetterSKt {
-	public static final fun getLetterS (Lcom/davils/kiro/ui/icons/lucide/Lucide;)Lcom/davils/kiro/ui/icons/IconGraphic;
-}
-
 public final class com/davils/kiro/ui/icons/lucide/LetterSpacingKt {
 	public static final fun getLetterSpacing (Lcom/davils/kiro/ui/icons/lucide/Lucide;)Lcom/davils/kiro/ui/icons/IconGraphic;
 }
@@ -4195,6 +4191,10 @@ public final class com/davils/kiro/ui/icons/lucide/LetterYKt {
 
 public final class com/davils/kiro/ui/icons/lucide/LetterZKt {
 	public static final fun getLetterZ (Lcom/davils/kiro/ui/icons/lucide/Lucide;)Lcom/davils/kiro/ui/icons/IconGraphic;
+}
+
+public final class com/davils/kiro/ui/icons/lucide/Letter_SKt {
+	public static final fun getLetterS (Lcom/davils/kiro/ui/icons/lucide/Lucide;)Lcom/davils/kiro/ui/icons/IconGraphic;
 }
 
 public final class com/davils/kiro/ui/icons/lucide/LettersKt {

@@ -24,3 +24,8 @@ internal fun propertyNameOf(iconName: String): String {
     require(PROPERTY_NAME.matches(name)) { "The icon $iconName gives no valid property name." }
     return name
 }
+
+internal fun fileNameOf(iconName: String): String {
+    val words = iconName.split('-')
+    return words.joinToString("_") { word -> word.take(1).uppercase() + word.drop(1) }
+}

@@ -27,8 +27,9 @@ import com.squareup.kotlinpoet.FileSpec
 
 internal object IconGeneration {
     fun generate(sources: List<LucideSource>, packageName: String, provenance: Provenance): List<FileSpec> {
-        val icons = sources.mapNotNull(::iconOf).sortedBy { icon -> icon.name }
-        requireUniqueProperties(icons)
+        val named = sources.mapNotNull(::iconOf).sortedBy { icon -> icon.name }
+        requireUniqueProperties(named)
+        val icons = withDistinctFileNames(named)
         val iconFiles = icons.map { icon -> IconFileWriter.write(icon = icon, packageName = packageName, provenance = provenance) }
         return iconFiles + CatalogWriter.write(icons = icons, packageName = packageName, provenance = provenance)
     }
@@ -44,6 +45,14 @@ internal object IconGeneration {
             tags = metadata.tags,
             categories = metadata.categories,
         )
+    }
+
+    private fun withDistinctFileNames(icons: List<LucideIcon>): List<LucideIcon> {
+        val folded = icons.groupBy { icon -> icon.propertyName.lowercase() }
+        return icons.map { icon ->
+            val group = folded.getValue(icon.propertyName.lowercase())
+            icon.takeIf { group.size == 1 } ?: icon.copy(fileName = fileNameOf(icon.name))
+        }
     }
 
     private fun requireUniqueProperties(icons: List<LucideIcon>) {
