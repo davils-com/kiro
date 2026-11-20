@@ -24,7 +24,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.layoutId
-import com.davils.kiro.ui.components.InlineScopeImpl
+import com.davils.kiro.ui.components.InlineScope
 import com.davils.kiro.ui.components.button.Button
 import com.davils.kiro.ui.components.button.ButtonStyle
 import com.davils.kiro.ui.components.button.ButtonVariant
@@ -59,7 +59,7 @@ public fun InputGroupButton(
     size: InputGroupButtonSize = InputGroupButtonSize.Xs,
     enabled: Boolean = true,
     style: ButtonStyle = inputGroupButtonStyle(variant, size),
-    content: @Composable InlineScopeImpl.() -> Unit,
+    content: @Composable InlineScope.() -> Unit,
 ) {
     Button(
         onClick = onClick,

@@ -27,8 +27,8 @@ import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import com.davils.kiro.ui.components.menu.MenuController
 import com.davils.kiro.ui.components.menu.MenuPanel
-import com.davils.kiro.ui.components.menu.MenuScope
 import com.davils.kiro.ui.components.menu.MenuScopeImpl
+import com.davils.kiro.ui.components.menu.MenuScope
 import com.davils.kiro.ui.components.menu.MenuStyle
 import com.davils.kiro.ui.components.menu.menuStyle
 import com.davils.kiro.ui.components.primitive.overlay.Align
@@ -43,9 +43,9 @@ public fun DropdownMenu(
     modifier: Modifier = Modifier,
     placement: Placement = Placement(align = Align.Start),
     style: MenuStyle = menuStyle(),
-    content: MenuScopeImpl.() -> Unit,
+    content: MenuScope.() -> Unit,
 ) {
-    val entries = MenuScope().apply(content).entries
+    val entries = MenuScopeImpl().apply(content).entries
     var anchorWidth by remember { mutableIntStateOf(0) }
     val anchor = with(LocalDensity.current) { anchorWidth.toDp() }
     Box(modifier = modifier.onSizeChanged { size -> anchorWidth = size.width }) {

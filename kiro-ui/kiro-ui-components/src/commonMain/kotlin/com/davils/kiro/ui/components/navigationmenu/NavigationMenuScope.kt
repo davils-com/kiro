@@ -19,23 +19,11 @@ package com.davils.kiro.ui.components.navigationmenu
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.runtime.Composable
 import com.davils.kiro.ui.components.menu.MenuScope
-import com.davils.kiro.ui.components.menu.MenuScopeImpl
 
-internal class NavigationMenuScope : NavigationMenuScopeImpl {
-    private val collected = mutableListOf<NavigationEntry>()
+public interface NavigationMenuScope {
+    public fun item(label: String, content: @Composable ColumnScope.() -> Unit)
 
-    val entries: List<NavigationEntry> get() = collected.toList()
+    public fun link(label: String, onClick: () -> Unit, isActive: Boolean = false)
 
-    override fun item(label: String, content: @Composable ColumnScope.() -> Unit) {
-        collected += NavigationEntry(label = label, content = content, onClick = null, isActive = false)
-    }
-
-    override fun link(label: String, onClick: () -> Unit, isActive: Boolean) {
-        collected += NavigationEntry(label = label, content = null, onClick = onClick, isActive = isActive)
-    }
-
-    override fun menu(label: String, content: MenuScopeImpl.() -> Unit) {
-        val menu = MenuScope().apply(content).entries
-        collected += NavigationEntry(label = label, content = null, onClick = null, isActive = false, menu = menu)
-    }
+    public fun menu(label: String, content: MenuScope.() -> Unit)
 }

@@ -58,7 +58,7 @@ public fun InputGroup(
     enabled: Boolean = true,
     isInvalid: Boolean = false,
     style: InputGroupStyle = inputGroupStyle(),
-    content: InputGroupScopeImpl.() -> Unit,
+    content: InputGroupScope.() -> Unit,
 ) {
     InputGroupLayout(
         modifier = modifier,
@@ -77,9 +77,9 @@ internal fun InputGroupLayout(
     isInvalid: Boolean,
     style: InputGroupStyle,
     focus: FocusRequester,
-    content: InputGroupScopeImpl.() -> Unit,
+    content: InputGroupScope.() -> Unit,
 ) {
-    val scope = InputGroupScope().apply(content)
+    val scope = InputGroupScopeImpl().apply(content)
     val addons = scope.addons
     val control = scope.control
     val source = remember { MutableInteractionSource() }

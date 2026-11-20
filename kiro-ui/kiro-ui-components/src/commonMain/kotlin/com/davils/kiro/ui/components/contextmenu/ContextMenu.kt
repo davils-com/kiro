@@ -33,8 +33,8 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import com.davils.kiro.ui.components.menu.MenuController
 import com.davils.kiro.ui.components.menu.MenuPanel
-import com.davils.kiro.ui.components.menu.MenuScope
 import com.davils.kiro.ui.components.menu.MenuScopeImpl
+import com.davils.kiro.ui.components.menu.MenuScope
 import com.davils.kiro.ui.components.menu.MenuStyle
 import com.davils.kiro.ui.components.menu.menuStyle
 import com.davils.kiro.ui.components.menu.rememberMenuCascade
@@ -48,12 +48,12 @@ private val MIN_WIDTH = 144.dp
 
 @Composable
 public fun ContextMenu(
-    menu: MenuScopeImpl.() -> Unit,
+    menu: MenuScope.() -> Unit,
     modifier: Modifier = Modifier,
     style: MenuStyle = menuStyle(),
     content: @Composable () -> Unit,
 ) {
-    val entries = MenuScope().apply(menu).entries
+    val entries = MenuScopeImpl().apply(menu).entries
     var isOpen by remember { mutableStateOf(false) }
     var position by remember { mutableStateOf(Offset.Zero) }
     val cascade = rememberMenuCascade { isOpen = false }

@@ -57,9 +57,9 @@ import com.davils.kiro.ui.core.focus.collectIsFocusVisibleAsState
 public fun Menubar(
     modifier: Modifier = Modifier,
     style: MenubarStyle = menubarStyle(),
-    content: MenubarScopeImpl.() -> Unit,
+    content: MenubarScope.() -> Unit,
 ) {
-    val menus = MenubarScope().apply(content).menus
+    val menus = MenubarScopeImpl().apply(content).menus
     var open by remember { mutableStateOf<Int?>(null) }
     var focused by remember { mutableStateOf<Int?>(null) }
     var pointed by remember { mutableStateOf<Int?>(null) }

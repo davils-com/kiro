@@ -20,11 +20,17 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.runtime.Composable
 
-public interface AccordionScopeImpl<T> {
-    public fun item(
+internal class AccordionScopeImpl<T> : AccordionScope<T> {
+    private val collected = mutableListOf<AccordionEntry<T>>()
+
+    val entries: List<AccordionEntry<T>> get() = collected.toList()
+
+    override fun item(
         value: T,
-        enabled: Boolean = true,
+        enabled: Boolean,
         trigger: @Composable RowScope.() -> Unit,
         content: @Composable ColumnScope.() -> Unit,
-    )
+    ) {
+        collected += AccordionEntry(value = value, isEnabled = enabled, trigger = trigger, content = content)
+    }
 }

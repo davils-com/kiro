@@ -42,7 +42,7 @@ import androidx.compose.ui.semantics.hideFromAccessibility
 import androidx.compose.ui.semantics.isTraversalGroup
 import androidx.compose.ui.semantics.semantics
 import com.davils.kiro.ui.components.dropdownmenu.DropdownMenu
-import com.davils.kiro.ui.components.menu.MenuScopeImpl
+import com.davils.kiro.ui.components.menu.MenuScope
 import com.davils.kiro.ui.components.primitive.colorTransition
 import com.davils.kiro.ui.components.primitive.interaction.animateColor
 import com.davils.kiro.ui.components.primitive.interaction.pressableCursor
@@ -134,7 +134,7 @@ public fun BreadcrumbEllipsis(
     contentDescription: String,
     modifier: Modifier = Modifier,
     style: BreadcrumbStyle = breadcrumbStyle(),
-    menu: (MenuScopeImpl.() -> Unit)? = null,
+    menu: (MenuScope.() -> Unit)? = null,
 ) {
     val described = modifier.semantics { this.contentDescription = contentDescription }
     if (menu == null) {

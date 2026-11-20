@@ -16,8 +16,17 @@
 
 package com.davils.kiro.ui.components.nativeselect
 
-public interface NativeSelectScopeImpl<T> {
-    public fun option(value: T, label: String, enabled: Boolean = true)
+internal class NativeSelectScopeImpl<T> : NativeSelectScope<T> {
+    private val collected = mutableListOf<NativeSelectEntry<T>>()
 
-    public fun group(label: String, content: NativeSelectScopeImpl<T>.() -> Unit)
+    val entries: List<NativeSelectEntry<T>> get() = collected.toList()
+
+    override fun option(value: T, label: String, enabled: Boolean) {
+        collected += NativeSelectEntry.Option(value = value, label = label, isEnabled = enabled)
+    }
+
+    override fun group(label: String, content: NativeSelectScope<T>.() -> Unit) {
+        collected += NativeSelectEntry.Group(label = label)
+        content()
+    }
 }

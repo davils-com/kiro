@@ -36,9 +36,9 @@ public fun ButtonGroup(
     modifier: Modifier = Modifier,
     orientation: Orientation = Orientation.Horizontal,
     style: ButtonGroupStyle = buttonGroupStyle(),
-    content: ButtonGroupScopeImpl.() -> Unit,
+    content: ButtonGroupScope.() -> Unit,
 ) {
-    val items = ButtonGroupScope().apply(content).items
+    val items = ButtonGroupScopeImpl().apply(content).items
     val placed: @Composable () -> Unit = {
         items.forEachIndexed { index, item ->
             val position = GroupItem(

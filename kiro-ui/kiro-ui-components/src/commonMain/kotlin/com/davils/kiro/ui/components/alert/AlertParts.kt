@@ -21,11 +21,11 @@ import androidx.compose.ui.Modifier
 import com.davils.kiro.ui.components.text.Text
 
 @Composable
-public fun AlertScopeImpl.AlertTitle(text: String, modifier: Modifier = Modifier) {
+public fun AlertScope.AlertTitle(text: String, modifier: Modifier = Modifier) {
     Text(text = text, modifier = modifier, style = style.titleStyle)
 }
 
 @Composable
-public fun AlertScopeImpl.AlertDescription(text: String, modifier: Modifier = Modifier) {
+public fun AlertScope.AlertDescription(text: String, modifier: Modifier = Modifier) {
     Text(text = text, modifier = modifier, style = style.descriptionStyle, color = style.descriptionColor)
 }

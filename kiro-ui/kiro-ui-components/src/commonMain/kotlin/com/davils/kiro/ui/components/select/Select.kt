@@ -74,9 +74,9 @@ public fun <T> Select(
     enabled: Boolean = true,
     isInvalid: Boolean = false,
     style: SelectStyle = selectStyle(size),
-    content: SelectScopeImpl<T>.() -> Unit,
+    content: SelectScope<T>.() -> Unit,
 ) {
-    val scope = SelectScope(selected = selected, onSelect = onSelectedChange).apply(content)
+    val scope = SelectScopeImpl(selected = selected, onSelect = onSelectedChange).apply(content)
     var isOpen by remember { mutableStateOf(false) }
     var anchorWidth by remember { mutableIntStateOf(0) }
     val source = remember { MutableInteractionSource() }

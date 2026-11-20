@@ -18,21 +18,46 @@ package com.davils.kiro.ui.components.command
 
 import com.davils.kiro.ui.icons.IconGraphic
 
-public interface CommandGroupScopeImpl {
-    public fun item(
+internal class CommandGroupScopeImpl : CommandGroupScope {
+    private val collected = mutableListOf<CommandItem>()
+
+    val items: List<CommandItem>
+        get() = collected.toList()
+
+    override fun item(
         label: String,
         onSelect: () -> Unit,
-        enabled: Boolean = true,
-        icon: IconGraphic? = null,
-        shortcut: String? = null,
-        keywords: List<String> = emptyList(),
-        detail: String? = null,
-    )
+        enabled: Boolean,
+        icon: IconGraphic?,
+        shortcut: String?,
+        keywords: List<String>,
+        detail: String?,
+    ) {
+        collected += CommandItem(
+            label = label,
+            onSelect = onSelect,
+            isEnabled = enabled,
+            icon = icon,
+            shortcut = shortcut,
+            keywords = keywords,
+            detail = detail,
+        )
+    }
 
-    public fun page(
+    override fun page(
         label: String,
-        icon: IconGraphic? = null,
-        keywords: List<String> = emptyList(),
+        icon: IconGraphic?,
+        keywords: List<String>,
         content: CommandSectionsScope.() -> Unit,
-    )
+    ) {
+        collected += CommandItem(
+            label = label,
+            onSelect = {},
+            isEnabled = true,
+            icon = icon,
+            shortcut = null,
+            keywords = keywords,
+            page = SectionsScope().apply(content).sections,
+        )
+    }
 }

@@ -68,9 +68,9 @@ public fun <T> Accordion(
     modifier: Modifier = Modifier,
     isMultiple: Boolean = false,
     style: AccordionStyle = accordionStyle(),
-    content: AccordionScopeImpl<T>.() -> Unit,
+    content: AccordionScope<T>.() -> Unit,
 ) {
-    val entries = AccordionScope<T>().apply(content).entries
+    val entries = AccordionScopeImpl<T>().apply(content).entries
     val requesters = remember(entries.size) { List(entries.size) { FocusRequester() } }
     val enabled = entries.map { entry -> entry.isEnabled }
     Column(modifier = modifier.fillMaxWidth()) {

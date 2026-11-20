@@ -24,7 +24,7 @@ import com.davils.kiro.ui.icons.IconGraphic
 
 @LayoutScopeMarker
 @Immutable
-public interface InlineScopeImpl : RowScope {
+public interface InlineScope : RowScope {
     @Composable
     public fun Icon(icon: IconGraphic, placement: IconPlacement)
 }

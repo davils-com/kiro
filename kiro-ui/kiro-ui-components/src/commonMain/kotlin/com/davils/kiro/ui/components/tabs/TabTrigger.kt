@@ -45,7 +45,7 @@ import com.davils.kiro.ui.components.primitive.interaction.animate
 import com.davils.kiro.ui.components.primitive.interaction.animateColor
 import com.davils.kiro.ui.components.primitive.interaction.collectInteractionState
 import com.davils.kiro.ui.components.primitive.interaction.pressableCursor
-import com.davils.kiro.ui.components.primitive.layout.InlineScope
+import com.davils.kiro.ui.components.primitive.layout.InlineScopeImpl
 import com.davils.kiro.ui.components.primitive.surface.boxShadow
 import com.davils.kiro.ui.components.primitive.surface.surface
 import com.davils.kiro.ui.components.primitive.textfield.disabledAlphaOf
@@ -111,7 +111,7 @@ internal fun <T> TabTrigger(
             LocalTextStyle provides style.textStyle,
             LocalIconStyle provides IconStyle(size = style.iconSize),
         ) {
-            val inline = InlineScope(
+            val inline = InlineScopeImpl(
                 rowScope = this,
                 edgeInset = style.triggerHorizontalPadding - style.triggerIconEdgePadding,
             )

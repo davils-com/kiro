@@ -16,16 +16,8 @@
 
 package com.davils.kiro.ui.components.inputotp
 
-internal class InputOtpScope : InputOtpScopeImpl {
-    private val collected = mutableListOf<InputOtpPart>()
+public interface InputOtpScope {
+    public fun group(slots: IntRange)
 
-    val parts: List<InputOtpPart> get() = collected.toList()
-
-    override fun group(slots: IntRange) {
-        collected += InputOtpPart.Group(slots)
-    }
-
-    override fun separator() {
-        collected += InputOtpPart.Separator
-    }
+    public fun separator()
 }

@@ -16,46 +16,12 @@
 
 package com.davils.kiro.ui.components.table
 
-internal class TableScope : TableScopeImpl {
-    private val collected = mutableListOf<TableRowSpec>()
-    private val captions = mutableListOf<String>()
+public interface TableScope {
+    public fun header(content: TableRowScope.() -> Unit)
 
-    val rows: List<TableRowSpec> get() = bordered(collected.toList())
+    public fun row(isSelected: Boolean = false, onClick: (() -> Unit)? = null, content: TableRowScope.() -> Unit)
 
-    val caption: String? get() = captions.lastOrNull()
+    public fun footer(content: TableRowScope.() -> Unit)
 
-    override fun header(content: TableRowScopeImpl.() -> Unit) {
-        add(kind = TableRowKind.Head, isSelected = false, onClick = null, content = content)
-    }
-
-    override fun row(isSelected: Boolean, onClick: (() -> Unit)?, content: TableRowScopeImpl.() -> Unit) {
-        add(kind = TableRowKind.Body, isSelected = isSelected, onClick = onClick, content = content)
-    }
-
-    override fun footer(content: TableRowScopeImpl.() -> Unit) {
-        add(kind = TableRowKind.Foot, isSelected = false, onClick = null, content = content)
-    }
-
-    override fun caption(text: String) {
-        captions += text
-    }
-
-    private fun add(
-        kind: TableRowKind,
-        isSelected: Boolean,
-        onClick: (() -> Unit)?,
-        content: TableRowScopeImpl.() -> Unit,
-    ) {
-        val cells = TableRowScope().apply(content).cells
-        collected += TableRowSpec(kind = kind, isSelected = isSelected, onClick = onClick, cells = cells)
-    }
-}
-
-private fun bordered(rows: List<TableRowSpec>): List<TableRowSpec> {
-    val lastBody = rows.indexOfLast { row -> row.kind == TableRowKind.Body }
-    val firstFoot = rows.indexOfFirst { row -> row.kind == TableRowKind.Foot }
-    val lastFoot = rows.indexOfLast { row -> row.kind == TableRowKind.Foot }
-    return rows.mapIndexed { index, row ->
-        row.copy(hasTopBorder = index == firstFoot, hasBottomBorder = index != lastBody && index != lastFoot)
-    }
+    public fun caption(text: String)
 }

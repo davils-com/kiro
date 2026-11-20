@@ -31,11 +31,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextDecoration
-import com.davils.kiro.ui.components.InlineScopeImpl
+import com.davils.kiro.ui.components.InlineScope
 import com.davils.kiro.ui.components.primitive.interaction.animate
 import com.davils.kiro.ui.components.primitive.interaction.collectInteractionState
 import com.davils.kiro.ui.components.primitive.interaction.pressableCursor
-import com.davils.kiro.ui.components.primitive.layout.InlineScope
+import com.davils.kiro.ui.components.primitive.layout.InlineScopeImpl
 import com.davils.kiro.ui.components.primitive.surface.surface
 import com.davils.kiro.ui.core.content.LocalContentColor
 import com.davils.kiro.ui.core.content.LocalTextStyle
@@ -51,7 +51,7 @@ public fun Badge(
     onClick: (() -> Unit)? = null,
     style: BadgeStyle = badgeStyle(variant),
     interactionSource: MutableInteractionSource? = null,
-    content: @Composable InlineScopeImpl.() -> Unit,
+    content: @Composable InlineScope.() -> Unit,
 ) {
     val source = interactionSource ?: remember { MutableInteractionSource() }
     val state = source.collectInteractionState()
@@ -76,7 +76,7 @@ public fun Badge(
             LocalTextStyle provides textStyleOf(state, style),
             LocalIconStyle provides IconStyle(size = style.iconSize),
         ) {
-            InlineScope(rowScope = this, edgeInset = style.horizontalPadding - style.iconEdgePadding).content()
+            InlineScopeImpl(rowScope = this, edgeInset = style.horizontalPadding - style.iconEdgePadding).content()
         }
     }
 }

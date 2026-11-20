@@ -18,21 +18,35 @@ package com.davils.kiro.ui.components.inputgroup
 
 import androidx.compose.runtime.Composable
 import com.davils.kiro.ui.components.input.InputOptions
+import com.davils.kiro.ui.components.primitive.textfield.FieldText
 
-public interface InputGroupScopeImpl {
-    public fun addon(align: InputGroupAlign = InputGroupAlign.InlineStart, content: @Composable () -> Unit)
+internal class InputGroupScopeImpl : InputGroupScope {
+    private val collected = mutableListOf<GroupAddon>()
+    private var placed: GroupControl? = null
 
-    public fun input(
+    val addons: List<GroupAddon> get() = collected.toList()
+
+    val control: GroupControl get() = requireNotNull(placed) { "An input group needs an input or a textarea." }
+
+    override fun addon(align: InputGroupAlign, content: @Composable () -> Unit) {
+        collected += GroupAddon(align = align, content = content)
+    }
+
+    override fun input(value: String, onValueChange: (String) -> Unit, placeholder: String?, options: InputOptions) {
+        place(text = FieldText(value, onValueChange, placeholder), options = options, isSingleLine = true)
+    }
+
+    override fun textarea(
         value: String,
         onValueChange: (String) -> Unit,
-        placeholder: String? = null,
-        options: InputOptions = InputOptions(),
-    )
+        placeholder: String?,
+        options: InputOptions,
+    ) {
+        place(text = FieldText(value, onValueChange, placeholder), options = options, isSingleLine = false)
+    }
 
-    public fun textarea(
-        value: String,
-        onValueChange: (String) -> Unit,
-        placeholder: String? = null,
-        options: InputOptions = InputOptions(),
-    )
+    private fun place(text: FieldText, options: InputOptions, isSingleLine: Boolean) {
+        check(placed == null) { "An input group holds exactly one input or textarea." }
+        placed = GroupControl(text = text, options = options, isSingleLine = isSingleLine)
+    }
 }

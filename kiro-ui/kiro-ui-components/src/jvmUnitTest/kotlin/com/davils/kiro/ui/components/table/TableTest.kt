@@ -123,7 +123,7 @@ class TableTest : FunSpec({
         }
 
         test("rejects cells without a column") {
-            shouldThrow<IllegalArgumentException> { TableRowScope().cell(span = 0) {} }
+            shouldThrow<IllegalArgumentException> { TableRowScopeImpl().cell(span = 0) {} }
         }
     }
 })

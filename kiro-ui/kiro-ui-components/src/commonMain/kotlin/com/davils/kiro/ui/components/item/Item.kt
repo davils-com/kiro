@@ -48,7 +48,7 @@ public fun Item(
     style: ItemStyle = itemStyle(variant, size),
     header: (@Composable RowScope.() -> Unit)? = null,
     footer: (@Composable RowScope.() -> Unit)? = null,
-    content: @Composable ItemScopeImpl.() -> Unit,
+    content: @Composable ItemScope.() -> Unit,
 ) {
     val source = remember { MutableInteractionSource() }
     val state = source.collectInteractionState()
@@ -74,7 +74,7 @@ public fun Item(
                 horizontalArrangement = Arrangement.spacedBy(style.gap),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
-                ItemScope(rowScope = this, style = style).content()
+                ItemScopeImpl(rowScope = this, style = style).content()
             }
             footer?.let { slot -> ItemEdge(style = style, content = slot) }
         }

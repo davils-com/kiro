@@ -16,13 +16,8 @@
 
 package com.davils.kiro.ui.components.collapsible
 
-internal class CollapsibleScope(
-    override val isExpanded: Boolean,
-    val isEnabled: Boolean,
-    val style: CollapsibleStyle,
-    private val onExpandedChange: (Boolean) -> Unit,
-) : CollapsibleScopeImpl {
-    override fun toggle() {
-        if (isEnabled) onExpandedChange(!isExpanded)
-    }
+public interface CollapsibleScope {
+    public val isExpanded: Boolean
+
+    public fun toggle()
 }

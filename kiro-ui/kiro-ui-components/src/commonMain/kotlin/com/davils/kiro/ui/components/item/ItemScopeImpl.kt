@@ -16,12 +16,8 @@
 
 package com.davils.kiro.ui.components.item
 
-import androidx.compose.foundation.layout.LayoutScopeMarker
 import androidx.compose.foundation.layout.RowScope
-import androidx.compose.runtime.Immutable
 
-@LayoutScopeMarker
-@Immutable
-public interface ItemScopeImpl : RowScope {
-    public val style: ItemStyle
-}
+internal class ItemScopeImpl(rowScope: RowScope, override val style: ItemStyle) :
+    ItemScope,
+    RowScope by rowScope

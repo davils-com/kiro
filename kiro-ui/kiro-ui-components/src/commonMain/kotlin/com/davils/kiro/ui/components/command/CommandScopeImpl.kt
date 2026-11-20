@@ -18,13 +18,27 @@ package com.davils.kiro.ui.components.command
 
 import com.davils.kiro.ui.icons.IconGraphic
 
-public interface CommandScopeImpl : CommandSectionsScope {
-    public fun tab(
-        label: String,
-        icon: IconGraphic? = null,
-        placeholder: String? = null,
-        content: CommandSectionsScope.() -> Unit,
-    )
+internal class CommandScopeImpl : SectionsScope(), CommandScope {
+    private val collectedTabs = mutableListOf<CommandTab>()
+    private var all: CommandTab? = null
 
-    public fun allTab(label: String? = null, icon: IconGraphic? = null)
+    val tabs: List<CommandTab>
+        get() {
+            val combined = all?.copy(sections = collectedTabs.flatMap { tab -> tab.sections })
+            return listOfNotNull(combined) + collectedTabs
+        }
+
+    override fun tab(
+        label: String,
+        icon: IconGraphic?,
+        placeholder: String?,
+        content: CommandSectionsScope.() -> Unit,
+    ) {
+        val sections = SectionsScope().apply(content).sections
+        collectedTabs += CommandTab(label = label, icon = icon, placeholder = placeholder, sections = sections)
+    }
+
+    override fun allTab(label: String?, icon: IconGraphic?) {
+        all = CommandTab(label = label.orEmpty(), icon = icon, placeholder = null, sections = emptyList())
+    }
 }

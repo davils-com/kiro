@@ -35,19 +35,19 @@ import com.davils.kiro.ui.icons.IconStyle
 import com.davils.kiro.ui.icons.LocalIconStyle
 
 @Composable
-public fun EmptyScopeImpl.EmptyHeader(modifier: Modifier = Modifier, content: @Composable EmptyScopeImpl.() -> Unit) {
+public fun EmptyScope.EmptyHeader(modifier: Modifier = Modifier, content: @Composable EmptyScope.() -> Unit) {
     val emptyStyle = style
     Column(
         modifier = modifier.widthIn(max = emptyStyle.maxContentWidth),
         verticalArrangement = Arrangement.spacedBy(emptyStyle.headerGap),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        EmptyScope(columnScope = this, style = emptyStyle).content()
+        EmptyScopeImpl(columnScope = this, style = emptyStyle).content()
     }
 }
 
 @Composable
-public fun EmptyScopeImpl.EmptyMedia(
+public fun EmptyScope.EmptyMedia(
     modifier: Modifier = Modifier,
     variant: EmptyMediaVariant = EmptyMediaVariant.Default,
     content: @Composable BoxScope.() -> Unit,
@@ -60,17 +60,17 @@ public fun EmptyScopeImpl.EmptyMedia(
 }
 
 @Composable
-public fun EmptyScopeImpl.EmptyTitle(text: String, modifier: Modifier = Modifier) {
+public fun EmptyScope.EmptyTitle(text: String, modifier: Modifier = Modifier) {
     Text(text = text, modifier = modifier, style = style.titleStyle)
 }
 
 @Composable
-public fun EmptyScopeImpl.EmptyDescription(text: String, modifier: Modifier = Modifier) {
+public fun EmptyScope.EmptyDescription(text: String, modifier: Modifier = Modifier) {
     Text(text = text, modifier = modifier, style = style.descriptionStyle, color = style.descriptionColor)
 }
 
 @Composable
-public fun EmptyScopeImpl.EmptyContent(modifier: Modifier = Modifier, content: @Composable EmptyScopeImpl.() -> Unit) {
+public fun EmptyScope.EmptyContent(modifier: Modifier = Modifier, content: @Composable EmptyScope.() -> Unit) {
     val emptyStyle = style
     Column(
         modifier = modifier
@@ -79,7 +79,7 @@ public fun EmptyScopeImpl.EmptyContent(modifier: Modifier = Modifier, content: @
         verticalArrangement = Arrangement.spacedBy(emptyStyle.contentGap),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        EmptyScope(columnScope = this, style = emptyStyle).content()
+        EmptyScopeImpl(columnScope = this, style = emptyStyle).content()
     }
 }
 

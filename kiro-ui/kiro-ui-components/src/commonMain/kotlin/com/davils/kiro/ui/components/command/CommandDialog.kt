@@ -39,7 +39,7 @@ public fun CommandDialog(
     placeholder: String = Messages.Command.placeholder,
     emptyText: String = Messages.Command.empty,
     style: CommandStyle = commandStyle(),
-    content: CommandScopeImpl.() -> Unit,
+    content: CommandScope.() -> Unit,
 ) {
     ModalLayer(
         isOpen = open,

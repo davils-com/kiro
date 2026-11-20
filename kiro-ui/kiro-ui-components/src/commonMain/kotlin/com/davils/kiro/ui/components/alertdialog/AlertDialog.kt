@@ -32,7 +32,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.davils.kiro.ui.components.InlineScopeImpl
+import com.davils.kiro.ui.components.InlineScope
 import com.davils.kiro.ui.components.button.Button
 import com.davils.kiro.ui.components.button.ButtonVariant
 import com.davils.kiro.ui.components.dialog.BleedingFooter
@@ -151,7 +151,7 @@ public fun RowScope.AlertDialogAction(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     variant: ButtonVariant = ButtonVariant.Default,
-    content: @Composable InlineScopeImpl.() -> Unit,
+    content: @Composable InlineScope.() -> Unit,
 ) {
     Button(onClick = onClick, modifier = modifier.then(stretchOf(this)), variant = variant, content = content)
 }
@@ -161,7 +161,7 @@ public fun RowScope.AlertDialogCancel(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     variant: ButtonVariant = ButtonVariant.Outline,
-    content: @Composable InlineScopeImpl.() -> Unit,
+    content: @Composable InlineScope.() -> Unit,
 ) {
     Button(onClick = onClick, modifier = modifier.then(stretchOf(this)), variant = variant, content = content)
 }

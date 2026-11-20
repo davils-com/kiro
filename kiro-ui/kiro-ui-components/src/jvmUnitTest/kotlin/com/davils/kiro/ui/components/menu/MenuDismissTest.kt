@@ -48,7 +48,7 @@ private const val PDF: String = "PDF"
 private const val SETTLE: Long = 1_000L
 private val outside = Offset(x = 700f, y = 500f)
 
-private fun MenuScopeImpl.fileMenu(onNewTab: () -> Unit = {}) {
+private fun MenuScope.fileMenu(onNewTab: () -> Unit = {}) {
     item(label = NEW_TAB, onClick = onNewTab)
     sub(label = SHARE) {
         sub(label = EXPORT) { item(label = PDF, onClick = {}) }

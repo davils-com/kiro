@@ -92,9 +92,9 @@ class InputGroupTest : FunSpec({
 
     context("scope") {
         test("needs exactly one control") {
-            shouldThrow<IllegalArgumentException> { InputGroupScope().control }
+            shouldThrow<IllegalArgumentException> { InputGroupScopeImpl().control }
             shouldThrow<IllegalStateException> {
-                InputGroupScope().apply {
+                InputGroupScopeImpl().apply {
                     input(value = "", onValueChange = {})
                     textarea(value = "", onValueChange = {})
                 }

@@ -45,7 +45,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextOverflow
 import com.davils.kiro.ui.components.collapsible.Collapsible
 import com.davils.kiro.ui.components.collapsible.CollapsibleContent
-import com.davils.kiro.ui.components.collapsible.CollapsibleScopeImpl
+import com.davils.kiro.ui.components.collapsible.CollapsibleScope
 import com.davils.kiro.ui.components.collapsible.CollapsibleTrigger
 import com.davils.kiro.ui.components.primitive.colorTransition
 import com.davils.kiro.ui.components.primitive.interaction.animateColor
@@ -156,7 +156,7 @@ public fun TraceCollapsible(
     onExpandedChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
     style: TraceStyle = traceStyle(),
-    content: @Composable CollapsibleScopeImpl.() -> Unit,
+    content: @Composable CollapsibleScope.() -> Unit,
 ) {
     Collapsible(
         expanded = expanded,
@@ -168,7 +168,7 @@ public fun TraceCollapsible(
 }
 
 @Composable
-public fun CollapsibleScopeImpl.TraceCollapsibleTrigger(
+public fun CollapsibleScope.TraceCollapsibleTrigger(
     modifier: Modifier = Modifier,
     style: TraceStyle = traceStyle(),
     content: @Composable RowScope.() -> Unit,
@@ -183,7 +183,7 @@ public fun CollapsibleScopeImpl.TraceCollapsibleTrigger(
 }
 
 @Composable
-public fun CollapsibleScopeImpl.TraceCollapsibleContent(
+public fun CollapsibleScope.TraceCollapsibleContent(
     modifier: Modifier = Modifier,
     style: TraceStyle = traceStyle(),
     content: @Composable ColumnScope.() -> Unit,

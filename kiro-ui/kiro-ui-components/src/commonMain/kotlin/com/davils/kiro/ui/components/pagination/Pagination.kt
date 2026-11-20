@@ -31,7 +31,7 @@ import androidx.compose.ui.semantics.isTraversalGroup
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
 import com.davils.kiro.ui.components.IconPlacement
-import com.davils.kiro.ui.components.InlineScopeImpl
+import com.davils.kiro.ui.components.InlineScope
 import com.davils.kiro.ui.components.Messages
 import com.davils.kiro.ui.components.button.Button
 import com.davils.kiro.ui.components.button.ButtonSize
@@ -65,7 +65,7 @@ public fun PaginationLink(
     isActive: Boolean = false,
     size: ButtonSize = ButtonSize.Icon,
     enabled: Boolean = true,
-    content: @Composable InlineScopeImpl.() -> Unit,
+    content: @Composable InlineScope.() -> Unit,
 ) {
     val variant = ButtonVariant.Outline.takeIf { isActive } ?: ButtonVariant.Ghost
     Button(
@@ -129,7 +129,7 @@ private fun EdgeLink(
     modifier: Modifier,
     enabled: Boolean,
     style: PaginationStyle,
-    content: @Composable InlineScopeImpl.() -> Unit,
+    content: @Composable InlineScope.() -> Unit,
 ) {
     val base = buttonStyle(ButtonVariant.Ghost, ButtonSize.Default)
     Button(
@@ -143,7 +143,7 @@ private fun EdgeLink(
 }
 
 @Composable
-private fun InlineScopeImpl.EdgeIcon(icon: IconGraphic, placement: IconPlacement) {
+private fun InlineScope.EdgeIcon(icon: IconGraphic, placement: IconPlacement) {
     val scope = this
     Box(modifier = Modifier.mirroredInRtl()) { scope.Icon(icon = icon, placement = placement) }
 }

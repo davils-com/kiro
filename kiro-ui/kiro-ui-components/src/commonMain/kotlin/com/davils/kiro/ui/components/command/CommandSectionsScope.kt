@@ -17,7 +17,7 @@
 package com.davils.kiro.ui.components.command
 
 public interface CommandSectionsScope {
-    public fun group(heading: String? = null, content: CommandGroupScopeImpl.() -> Unit)
+    public fun group(heading: String? = null, content: CommandGroupScope.() -> Unit)
 
     public fun separator()
 }

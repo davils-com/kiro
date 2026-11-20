@@ -19,7 +19,7 @@ package com.davils.kiro.ui.components.menubar.native
 import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.input.key.KeyShortcut
 import com.davils.kiro.ui.components.menubar.MenubarMenu
-import com.davils.kiro.ui.components.menubar.MenubarScope
+import com.davils.kiro.ui.components.menubar.MenubarScopeImpl
 import com.davils.kiro.ui.icons.lucide.Lucide
 import com.davils.kiro.ui.icons.lucide.User
 import io.kotest.core.spec.style.FunSpec
@@ -29,7 +29,7 @@ import io.kotest.matchers.types.shouldBeInstanceOf
 private const val SELECTED: Int = 2
 
 private fun treeOf(clicks: MutableList<String>): List<MenubarMenu> {
-    val scope = MenubarScope()
+    val scope = MenubarScopeImpl()
     scope.menu(label = "File") {
         label(text = "Recent")
         item(label = "New", onClick = { clicks += "New" }, icon = Lucide.User, shortcut = "⌘N")

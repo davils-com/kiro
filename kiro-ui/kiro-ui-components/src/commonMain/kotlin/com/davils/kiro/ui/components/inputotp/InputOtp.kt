@@ -74,9 +74,9 @@ public fun InputOtp(
     enabled: Boolean = true,
     isInvalid: Boolean = false,
     style: InputOtpStyle = inputOtpStyle(),
-    layout: InputOtpScopeImpl.() -> Unit = { group(0 until length) },
+    layout: InputOtpScope.() -> Unit = { group(0 until length) },
 ) {
-    val parts = InputOtpScope().apply(layout).parts
+    val parts = InputOtpScopeImpl().apply(layout).parts
     val source = remember { MutableInteractionSource() }
     val isFocused by source.collectIsFocusedAsState()
     val active = minOf(value.length, length - 1).takeIf { isFocused }

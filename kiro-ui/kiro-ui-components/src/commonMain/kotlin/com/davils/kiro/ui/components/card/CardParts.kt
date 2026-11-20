@@ -35,10 +35,10 @@ import com.davils.kiro.ui.components.text.Text
 import com.davils.kiro.ui.core.style.Border
 
 @Composable
-public fun CardScopeImpl.CardHeader(
+public fun CardScope.CardHeader(
     modifier: Modifier = Modifier,
     action: (@Composable () -> Unit)? = null,
-    content: @Composable CardScopeImpl.() -> Unit,
+    content: @Composable CardScope.() -> Unit,
 ) {
     val cardStyle = style
     Row(
@@ -48,24 +48,24 @@ public fun CardScopeImpl.CardHeader(
         verticalAlignment = Alignment.Top,
     ) {
         Column(modifier = Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(cardStyle.headerGap)) {
-            CardScope(style = cardStyle).content()
+            CardScopeImpl(style = cardStyle).content()
         }
         action?.invoke()
     }
 }
 
 @Composable
-public fun CardScopeImpl.CardTitle(text: String, modifier: Modifier = Modifier) {
+public fun CardScope.CardTitle(text: String, modifier: Modifier = Modifier) {
     Text(text = text, modifier = modifier, style = style.titleStyle)
 }
 
 @Composable
-public fun CardScopeImpl.CardDescription(text: String, modifier: Modifier = Modifier) {
+public fun CardScope.CardDescription(text: String, modifier: Modifier = Modifier) {
     Text(text = text, modifier = modifier, style = style.descriptionStyle, color = style.descriptionColor)
 }
 
 @Composable
-public fun CardScopeImpl.CardContent(modifier: Modifier = Modifier, content: @Composable ColumnScope.() -> Unit) {
+public fun CardScope.CardContent(modifier: Modifier = Modifier, content: @Composable ColumnScope.() -> Unit) {
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -75,7 +75,7 @@ public fun CardScopeImpl.CardContent(modifier: Modifier = Modifier, content: @Co
 }
 
 @Composable
-public fun CardScopeImpl.CardFooter(modifier: Modifier = Modifier, content: @Composable RowScope.() -> Unit) {
+public fun CardScope.CardFooter(modifier: Modifier = Modifier, content: @Composable RowScope.() -> Unit) {
     val surface = Modifier.surface(shape = RectangleShape, color = style.footerContainer)
     Row(
         modifier = modifier

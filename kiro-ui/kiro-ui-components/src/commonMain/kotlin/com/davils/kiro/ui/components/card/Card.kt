@@ -32,13 +32,13 @@ public fun Card(
     modifier: Modifier = Modifier,
     size: CardSize = CardSize.Default,
     style: CardStyle = cardStyle(size),
-    content: @Composable CardScopeImpl.() -> Unit,
+    content: @Composable CardScope.() -> Unit,
 ) {
     val surface = Modifier.surface(shape = style.shape, color = style.container, ring = style.ring)
     val policy = remember(style.spacing) { CardMeasurePolicy(spacing = style.spacing) }
     CompositionLocalProvider(LocalContentColor provides style.content, LocalTextStyle provides style.textStyle) {
         Layout(
-            content = { CardScope(style = style).content() },
+            content = { CardScopeImpl(style = style).content() },
             modifier = modifier
                 .fillMaxWidth()
                 .then(surface)

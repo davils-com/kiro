@@ -49,7 +49,7 @@ public fun Command(
     placeholder: String = Messages.Command.placeholder,
     emptyText: String = Messages.Command.empty,
     style: CommandStyle = commandStyle(),
-    content: CommandScopeImpl.() -> Unit,
+    content: CommandScope.() -> Unit,
 ) {
     CommandLayout(
         modifier = modifier,
@@ -72,9 +72,9 @@ internal fun CommandLayout(
     style: CommandStyle,
     focus: FocusRequester,
     onClose: () -> Unit,
-    content: CommandScopeImpl.() -> Unit,
+    content: CommandScope.() -> Unit,
 ) {
-    val scope = CommandScope().apply(content)
+    val scope = CommandScopeImpl().apply(content)
     val tabs = scope.tabs
     val tab = tabs.getOrNull(state.tab)
     val page = pageOf(sections = tab?.sections ?: scope.sections, path = state.path)

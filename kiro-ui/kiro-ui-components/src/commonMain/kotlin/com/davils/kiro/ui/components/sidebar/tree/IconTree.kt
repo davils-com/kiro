@@ -26,9 +26,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import com.davils.kiro.ui.components.IconPlacement
-import com.davils.kiro.ui.components.InlineScopeImpl
+import com.davils.kiro.ui.components.InlineScope
 import com.davils.kiro.ui.components.dropdownmenu.DropdownMenu
-import com.davils.kiro.ui.components.menu.MenuScopeImpl
+import com.davils.kiro.ui.components.menu.MenuScope
 import com.davils.kiro.ui.components.primitive.overlay.Align
 import com.davils.kiro.ui.components.primitive.overlay.Placement
 import com.davils.kiro.ui.components.primitive.overlay.Side
@@ -90,7 +90,7 @@ private fun <T> Flyout(
 }
 
 @Composable
-private fun <T> InlineScopeImpl.Glyph(node: TreeNode<T>) {
+private fun <T> InlineScope.Glyph(node: TreeNode<T>) {
     val icon = node.icon
     if (icon == null) {
         Text(node.label.take(1))
@@ -99,11 +99,11 @@ private fun <T> InlineScopeImpl.Glyph(node: TreeNode<T>) {
     Icon(icon = icon, placement = IconPlacement.Inline)
 }
 
-private fun <T> MenuScopeImpl.menuOf(nodes: List<TreeNode<T>>, state: SidebarTreeState<T>) {
+private fun <T> MenuScope.menuOf(nodes: List<TreeNode<T>>, state: SidebarTreeState<T>) {
     nodes.forEach { node -> entryOf(node = node, state = state) }
 }
 
-private fun <T> MenuScopeImpl.entryOf(node: TreeNode<T>, state: SidebarTreeState<T>) {
+private fun <T> MenuScope.entryOf(node: TreeNode<T>, state: SidebarTreeState<T>) {
     when (node) {
         is TreeNode.Leaf<T> -> item(
             label = node.label,

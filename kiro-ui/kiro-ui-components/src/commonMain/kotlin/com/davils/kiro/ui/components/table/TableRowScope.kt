@@ -19,13 +19,6 @@ package com.davils.kiro.ui.components.table
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 
-internal class TableRowScope : TableRowScopeImpl {
-    private val collected = mutableListOf<TableCellSpec>()
-
-    val cells: List<TableCellSpec> get() = collected.toList()
-
-    override fun cell(span: Int, alignment: Alignment.Horizontal, content: @Composable () -> Unit) {
-        require(span >= 1) { "A table cell spans at least one column, not $span." }
-        collected += TableCellSpec(span = span, alignment = alignment, content = content)
-    }
+public interface TableRowScope {
+    public fun cell(span: Int = 1, alignment: Alignment.Horizontal = Alignment.Start, content: @Composable () -> Unit)
 }

@@ -18,6 +18,12 @@ package com.davils.kiro.ui.components.buttongroup
 
 import androidx.compose.runtime.Composable
 
-public interface ButtonGroupScopeImpl {
-    public fun item(content: @Composable () -> Unit)
+internal class ButtonGroupScopeImpl : ButtonGroupScope {
+    private val collected = mutableListOf<@Composable () -> Unit>()
+
+    val items: List<@Composable () -> Unit> get() = collected.toList()
+
+    override fun item(content: @Composable () -> Unit) {
+        collected += content
+    }
 }

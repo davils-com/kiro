@@ -56,9 +56,9 @@ public fun <T> ToggleGroup(
     isMultiple: Boolean = false,
     orientation: Orientation = Orientation.Horizontal,
     style: ToggleGroupStyle = toggleGroupStyle(),
-    content: ToggleGroupScopeImpl<T>.() -> Unit,
+    content: ToggleGroupScope<T>.() -> Unit,
 ) {
-    val entries = ToggleGroupScope<T>().apply(content).entries
+    val entries = ToggleGroupScopeImpl<T>().apply(content).entries
     val isJoined = style.spacing == 0.dp
     val itemStyle = itemStyleOf(style = style, isJoined = isJoined)
     val stretch = stretchOf(orientation)

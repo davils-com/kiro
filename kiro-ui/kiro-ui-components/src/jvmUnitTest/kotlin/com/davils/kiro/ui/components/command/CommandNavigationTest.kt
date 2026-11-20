@@ -45,7 +45,7 @@ private const val CORE: String = "core-01"
 private const val PORTS: String = "Ports"
 private const val UPLINK: String = "Gi1/0/48"
 
-private fun CommandScopeImpl.workspace(onRun: (String) -> Unit) {
+private fun CommandScope.workspace(onRun: (String) -> Unit) {
     allTab(label = ALL)
     tab(label = FILES, placeholder = "Search files...") {
         group(heading = FILES) { item(label = README, onSelect = { onRun(README) }, detail = "docs") }

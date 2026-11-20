@@ -16,9 +16,4 @@
 
 package com.davils.kiro.ui.components.card
 
-import androidx.compose.runtime.Immutable
-
-@Immutable
-public interface CardScopeImpl {
-    public val style: CardStyle
-}
+internal class CardScopeImpl(override val style: CardStyle) : CardScope

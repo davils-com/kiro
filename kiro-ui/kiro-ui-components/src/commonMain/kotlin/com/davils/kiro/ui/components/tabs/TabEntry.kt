@@ -18,12 +18,12 @@ package com.davils.kiro.ui.components.tabs
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
-import com.davils.kiro.ui.components.InlineScopeImpl
+import com.davils.kiro.ui.components.InlineScope
 
 @Immutable
 internal data class TabEntry<T>(
     val value: T,
     val isEnabled: Boolean,
     val content: (@Composable () -> Unit)?,
-    val label: @Composable InlineScopeImpl.() -> Unit,
+    val label: @Composable InlineScope.() -> Unit,
 )

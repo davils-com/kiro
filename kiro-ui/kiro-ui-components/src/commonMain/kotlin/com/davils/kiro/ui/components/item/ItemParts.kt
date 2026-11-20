@@ -36,7 +36,7 @@ import com.davils.kiro.ui.icons.LocalIconStyle
 private const val DESCRIPTION_LINES: Int = 2
 
 @Composable
-public fun ItemScopeImpl.ItemMedia(
+public fun ItemScope.ItemMedia(
     modifier: Modifier = Modifier,
     variant: ItemMediaVariant = ItemMediaVariant.Default,
     content: @Composable BoxScope.() -> Unit,
@@ -48,23 +48,23 @@ public fun ItemScopeImpl.ItemMedia(
 }
 
 @Composable
-public fun ItemScopeImpl.ItemContent(
+public fun ItemScope.ItemContent(
     modifier: Modifier = Modifier,
-    content: @Composable ItemContentScopeImpl.() -> Unit,
+    content: @Composable ItemContentScope.() -> Unit,
 ) {
     val itemStyle = style
     Column(modifier = modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(itemStyle.contentGap)) {
-        ItemContentScope(columnScope = this, style = itemStyle).content()
+        ItemContentScopeImpl(columnScope = this, style = itemStyle).content()
     }
 }
 
 @Composable
-public fun ItemContentScopeImpl.ItemTitle(text: String, modifier: Modifier = Modifier) {
+public fun ItemContentScope.ItemTitle(text: String, modifier: Modifier = Modifier) {
     Text(text = text, modifier = modifier, style = style.titleStyle, maxLines = 1, overflow = TextOverflow.Ellipsis)
 }
 
 @Composable
-public fun ItemContentScopeImpl.ItemDescription(text: String, modifier: Modifier = Modifier) {
+public fun ItemContentScope.ItemDescription(text: String, modifier: Modifier = Modifier) {
     Text(
         text = text,
         modifier = modifier,
@@ -76,7 +76,7 @@ public fun ItemContentScopeImpl.ItemDescription(text: String, modifier: Modifier
 }
 
 @Composable
-public fun ItemScopeImpl.ItemActions(modifier: Modifier = Modifier, content: @Composable RowScope.() -> Unit) {
+public fun ItemScope.ItemActions(modifier: Modifier = Modifier, content: @Composable RowScope.() -> Unit) {
     Row(
         modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(style.actionsGap),

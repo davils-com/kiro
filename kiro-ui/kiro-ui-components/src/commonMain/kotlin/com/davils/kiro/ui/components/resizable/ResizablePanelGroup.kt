@@ -55,9 +55,9 @@ public fun ResizablePanelGroup(
     orientation: Orientation = Orientation.Horizontal,
     isGripShown: Boolean = false,
     style: ResizableStyle = resizableStyle(),
-    content: ResizableScopeImpl.() -> Unit,
+    content: ResizableScope.() -> Unit,
 ) {
-    val panels = ResizableScope().apply(content).panels
+    val panels = ResizableScopeImpl().apply(content).panels
     require(panels.size == state.sizes.size) { "The group has ${panels.size} panels but ${state.sizes.size} sizes." }
     SideEffect { state.panels = panels }
     val parent = LocalResizableCoordinator.current

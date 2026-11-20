@@ -17,7 +17,14 @@
 package com.davils.kiro.ui.components.menubar
 
 import com.davils.kiro.ui.components.menu.MenuScopeImpl
+import com.davils.kiro.ui.components.menu.MenuScope
 
-public interface MenubarScopeImpl {
-    public fun menu(label: String, enabled: Boolean = true, content: MenuScopeImpl.() -> Unit)
+internal class MenubarScopeImpl : MenubarScope {
+    private val collected = mutableListOf<MenubarMenu>()
+
+    val menus: List<MenubarMenu> get() = collected.toList()
+
+    override fun menu(label: String, enabled: Boolean, content: MenuScope.() -> Unit) {
+        collected += MenubarMenu(label = label, isEnabled = enabled, entries = MenuScopeImpl().apply(content).entries)
+    }
 }

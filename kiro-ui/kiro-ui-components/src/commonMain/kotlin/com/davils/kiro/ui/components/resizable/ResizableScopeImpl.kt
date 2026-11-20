@@ -18,12 +18,24 @@ package com.davils.kiro.ui.components.resizable
 
 import androidx.compose.runtime.Composable
 
-public interface ResizableScopeImpl {
-    public fun panel(
-        minSize: Float = 0f,
-        maxSize: Float = 100f,
-        isCollapsible: Boolean = false,
-        collapsedSize: Float = 0f,
+internal class ResizableScopeImpl : ResizableScope {
+    private val collected = mutableListOf<ResizablePanel>()
+
+    val panels: List<ResizablePanel> get() = collected.toList()
+
+    override fun panel(
+        minSize: Float,
+        maxSize: Float,
+        isCollapsible: Boolean,
+        collapsedSize: Float,
         content: @Composable () -> Unit,
-    )
+    ) {
+        require(minSize <= maxSize) { "A panel needs a minimum size below its maximum, not $minSize > $maxSize." }
+        collected += ResizablePanel(
+            limits = minSize..maxSize,
+            isCollapsible = isCollapsible,
+            collapsedSize = collapsedSize,
+            content = content,
+        )
+    }
 }

@@ -46,7 +46,7 @@ public fun Alert(
     icon: IconGraphic? = null,
     action: (@Composable () -> Unit)? = null,
     style: AlertStyle = alertStyle(variant),
-    content: @Composable AlertScopeImpl.() -> Unit,
+    content: @Composable AlertScope.() -> Unit,
 ) {
     val surface = Modifier.surface(shape = style.shape, color = style.container, border = style.border)
     Box(
@@ -71,7 +71,7 @@ public fun Alert(
                     )
                 }
                 Column(verticalArrangement = Arrangement.spacedBy(style.gap)) {
-                    AlertScope(columnScope = this, style = style).content()
+                    AlertScopeImpl(columnScope = this, style = style).content()
                 }
             }
             action?.let { slot ->

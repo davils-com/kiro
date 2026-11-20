@@ -17,14 +17,8 @@
 package com.davils.kiro.ui.components.togglegroup
 
 import androidx.compose.runtime.Composable
-import com.davils.kiro.ui.components.InlineScopeImpl
+import com.davils.kiro.ui.components.InlineScope
 
-internal class ToggleGroupScope<T> : ToggleGroupScopeImpl<T> {
-    private val collected = mutableListOf<ToggleGroupEntry<T>>()
-
-    val entries: List<ToggleGroupEntry<T>> get() = collected.toList()
-
-    override fun item(value: T, enabled: Boolean, content: @Composable InlineScopeImpl.() -> Unit) {
-        collected += ToggleGroupEntry(value = value, isEnabled = enabled, content = content)
-    }
+public interface ToggleGroupScope<T> {
+    public fun item(value: T, enabled: Boolean = true, content: @Composable InlineScope.() -> Unit)
 }

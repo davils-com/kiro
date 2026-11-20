@@ -27,10 +27,10 @@ public fun FrameWindowScope.WindowMenubar(
     modifier: Modifier = Modifier,
     platform: DesktopPlatform = DesktopPlatform.current(),
     style: MenubarStyle = menubarStyle(),
-    content: MenubarScopeImpl.() -> Unit,
+    content: MenubarScope.() -> Unit,
 ) {
     if (platform == DesktopPlatform.MacOs) {
-        val menus = MenubarScope().apply(content).menus
+        val menus = MenubarScopeImpl().apply(content).menus
         NativeMenubar.Emit(window = this, menus = nativeMenusOf(menus))
         return
     }

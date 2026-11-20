@@ -41,8 +41,8 @@ import com.davils.kiro.ui.core.content.LocalContentColor
 import com.davils.kiro.ui.core.content.LocalTextStyle
 
 @Composable
-public fun Table(modifier: Modifier = Modifier, style: TableStyle = tableStyle(), content: TableScopeImpl.() -> Unit) {
-    val scope = TableScope().apply(content)
+public fun Table(modifier: Modifier = Modifier, style: TableStyle = tableStyle(), content: TableScope.() -> Unit) {
+    val scope = TableScopeImpl().apply(content)
     val rows = scope.rows
     val headHeight = with(LocalDensity.current) { style.headHeight.roundToPx() }
     val minimums = rows.map { row -> headHeight.takeIf { row.kind == TableRowKind.Head } ?: 0 }

@@ -38,9 +38,9 @@ public fun Collapsible(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
     style: CollapsibleStyle = collapsibleStyle(),
-    content: @Composable CollapsibleScopeImpl.() -> Unit,
+    content: @Composable CollapsibleScope.() -> Unit,
 ) {
-    val scope = CollapsibleScope(
+    val scope = CollapsibleScopeImpl(
         isExpanded = expanded,
         isEnabled = enabled,
         style = style,
@@ -50,11 +50,11 @@ public fun Collapsible(
 }
 
 @Composable
-public fun CollapsibleScopeImpl.CollapsibleTrigger(
+public fun CollapsibleScope.CollapsibleTrigger(
     modifier: Modifier = Modifier,
     content: @Composable RowScope.() -> Unit,
 ) {
-    val scope = this as CollapsibleScope
+    val scope = this as CollapsibleScopeImpl
     val toggled = {
         scope.toggle()
         true
@@ -74,11 +74,11 @@ public fun CollapsibleScopeImpl.CollapsibleTrigger(
 }
 
 @Composable
-public fun CollapsibleScopeImpl.CollapsibleContent(
+public fun CollapsibleScope.CollapsibleContent(
     modifier: Modifier = Modifier,
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    val scope = this as CollapsibleScope
+    val scope = this as CollapsibleScopeImpl
     AnimatedVisibility(
         visible = scope.isExpanded,
         modifier = modifier,

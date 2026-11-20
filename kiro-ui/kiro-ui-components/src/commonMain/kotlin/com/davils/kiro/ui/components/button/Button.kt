@@ -36,14 +36,14 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.zIndex
-import com.davils.kiro.ui.components.InlineScopeImpl
+import com.davils.kiro.ui.components.InlineScope
 import com.davils.kiro.ui.components.buttongroup.LocalGroupItem
 import com.davils.kiro.ui.components.buttongroup.joinedTo
 import com.davils.kiro.ui.components.buttongroup.shapeOr
 import com.davils.kiro.ui.components.primitive.interaction.animate
 import com.davils.kiro.ui.components.primitive.interaction.collectInteractionState
 import com.davils.kiro.ui.components.primitive.interaction.pressableCursor
-import com.davils.kiro.ui.components.primitive.layout.InlineScope
+import com.davils.kiro.ui.components.primitive.layout.InlineScopeImpl
 import com.davils.kiro.ui.components.primitive.surface.surface
 import com.davils.kiro.ui.core.content.LocalContentColor
 import com.davils.kiro.ui.core.content.LocalTextStyle
@@ -61,7 +61,7 @@ public fun Button(
     enabled: Boolean = true,
     style: ButtonStyle = buttonStyle(variant, size),
     interactionSource: MutableInteractionSource? = null,
-    content: @Composable InlineScopeImpl.() -> Unit,
+    content: @Composable InlineScope.() -> Unit,
 ) {
     val source = interactionSource ?: remember { MutableInteractionSource() }
     val state = source.collectInteractionState(isDisabled = !enabled)
@@ -106,7 +106,7 @@ public fun Button(
             LocalTextStyle provides textStyleOf(state, style),
             LocalIconStyle provides IconStyle(size = style.iconSize),
         ) {
-            InlineScope(rowScope = this, edgeInset = style.horizontalPadding - style.iconEdgePadding).content()
+            InlineScopeImpl(rowScope = this, edgeInset = style.horizontalPadding - style.iconEdgePadding).content()
         }
     }
 }

@@ -18,11 +18,11 @@ package com.davils.kiro.ui.components.togglegroup
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
-import com.davils.kiro.ui.components.InlineScopeImpl
+import com.davils.kiro.ui.components.InlineScope
 
 @Immutable
 internal data class ToggleGroupEntry<T>(
     val value: T,
     val isEnabled: Boolean,
-    val content: @Composable InlineScopeImpl.() -> Unit,
+    val content: @Composable InlineScope.() -> Unit,
 )

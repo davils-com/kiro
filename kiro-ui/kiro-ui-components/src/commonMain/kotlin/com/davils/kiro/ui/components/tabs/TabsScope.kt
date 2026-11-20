@@ -17,19 +17,13 @@
 package com.davils.kiro.ui.components.tabs
 
 import androidx.compose.runtime.Composable
-import com.davils.kiro.ui.components.InlineScopeImpl
+import com.davils.kiro.ui.components.InlineScope
 
-internal class TabsScope<T> : TabsScopeImpl<T> {
-    private val collected = mutableListOf<TabEntry<T>>()
-
-    val entries: List<TabEntry<T>> get() = collected.toList()
-
-    override fun tab(
+public interface TabsScope<T> {
+    public fun tab(
         value: T,
-        enabled: Boolean,
-        content: (@Composable () -> Unit)?,
-        label: @Composable InlineScopeImpl.() -> Unit,
-    ) {
-        collected += TabEntry(value = value, isEnabled = enabled, content = content, label = label)
-    }
+        enabled: Boolean = true,
+        content: (@Composable () -> Unit)? = null,
+        label: @Composable InlineScope.() -> Unit,
+    )
 }

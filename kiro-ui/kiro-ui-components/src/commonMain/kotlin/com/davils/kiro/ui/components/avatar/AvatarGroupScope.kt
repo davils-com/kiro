@@ -16,8 +16,12 @@
 
 package com.davils.kiro.ui.components.avatar
 
+import androidx.compose.foundation.layout.LayoutScopeMarker
 import androidx.compose.foundation.layout.RowScope
+import androidx.compose.runtime.Immutable
 
-internal class AvatarGroupScope(rowScope: RowScope, override val style: AvatarStyle) :
-    AvatarGroupScopeImpl,
-    RowScope by rowScope
+@LayoutScopeMarker
+@Immutable
+public interface AvatarGroupScope : RowScope {
+    public val style: AvatarStyle
+}

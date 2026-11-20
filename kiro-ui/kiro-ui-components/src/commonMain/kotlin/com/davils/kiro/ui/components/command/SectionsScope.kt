@@ -22,8 +22,8 @@ internal open class SectionsScope : CommandSectionsScope {
     val sections: List<CommandSection>
         get() = collected.toList()
 
-    override fun group(heading: String?, content: CommandGroupScopeImpl.() -> Unit) {
-        collected += CommandSection.Group(heading = heading, items = CommandGroupScope().apply(content).items)
+    override fun group(heading: String?, content: CommandGroupScope.() -> Unit) {
+        collected += CommandSection.Group(heading = heading, items = CommandGroupScopeImpl().apply(content).items)
     }
 
     override fun separator() {

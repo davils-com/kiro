@@ -29,7 +29,7 @@ import com.davils.kiro.ui.components.button.ButtonSize
 import com.davils.kiro.ui.components.button.ButtonVariant
 import com.davils.kiro.ui.components.checkbox.Checkbox
 import com.davils.kiro.ui.components.table.Table
-import com.davils.kiro.ui.components.table.TableRowScopeImpl
+import com.davils.kiro.ui.components.table.TableRowScope
 import com.davils.kiro.ui.components.text.Text
 import com.davils.kiro.ui.icons.IconGraphic
 
@@ -76,7 +76,7 @@ public fun <T> DataTable(
     }
 }
 
-private fun <T> TableRowScopeImpl.selectAll(keys: List<Any>, state: DataTableState<T>) {
+private fun <T> TableRowScope.selectAll(keys: List<Any>, state: DataTableState<T>) {
     val count = keys.count { key -> key in state.selected }
     cell {
         Checkbox(
@@ -87,7 +87,7 @@ private fun <T> TableRowScopeImpl.selectAll(keys: List<Any>, state: DataTableSta
     }
 }
 
-private fun <T> TableRowScopeImpl.head(column: DataTableColumn<T>, state: DataTableState<T>, style: DataTableStyle) {
+private fun <T> TableRowScope.head(column: DataTableColumn<T>, state: DataTableState<T>, style: DataTableStyle) {
     val comparator = column.comparator
     if (comparator == null) {
         cell(alignment = column.alignment) { Text(column.header) }

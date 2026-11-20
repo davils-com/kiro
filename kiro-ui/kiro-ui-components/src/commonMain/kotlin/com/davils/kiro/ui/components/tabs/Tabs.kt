@@ -53,9 +53,9 @@ public fun <T> Tabs(
     orientation: Orientation = Orientation.Horizontal,
     variant: TabsVariant = TabsVariant.Default,
     style: TabsStyle = tabsStyle(variant),
-    content: TabsScopeImpl<T>.() -> Unit,
+    content: TabsScope<T>.() -> Unit,
 ) {
-    val entries = TabsScope<T>().apply(content).entries
+    val entries = TabsScopeImpl<T>().apply(content).entries
     val isReversed = LocalLayoutDirection.current == LayoutDirection.Rtl
     var requested by remember { mutableStateOf<Int?>(null) }
     val current = entries.indexOfFirst { entry -> entry.value == selected }

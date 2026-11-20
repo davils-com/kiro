@@ -21,11 +21,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.components.IconPlacement
-import com.davils.kiro.ui.components.InlineScopeImpl
+import com.davils.kiro.ui.components.InlineScope
 import com.davils.kiro.ui.icons.IconGraphic
 import com.davils.kiro.ui.icons.Icon as DrawIcon
 
-internal class InlineScope(rowScope: RowScope, private val edgeInset: Dp) : InlineScopeImpl, RowScope by rowScope {
+internal class InlineScopeImpl(rowScope: RowScope, private val edgeInset: Dp) : InlineScope, RowScope by rowScope {
     @Composable
     override fun Icon(icon: IconGraphic, placement: IconPlacement) {
         DrawIcon(icon = icon, contentDescription = null, modifier = Modifier.edgeInset(placement, edgeInset))

@@ -36,7 +36,7 @@ public fun AvatarGroup(
     modifier: Modifier = Modifier,
     size: AvatarSize = AvatarSize.Default,
     style: AvatarStyle = avatarStyle(size),
-    content: @Composable AvatarGroupScopeImpl.() -> Unit,
+    content: @Composable AvatarGroupScope.() -> Unit,
 ) {
     Row(
         modifier = modifier,
@@ -44,13 +44,13 @@ public fun AvatarGroup(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         CompositionLocalProvider(LocalAvatarRing provides style.groupRing) {
-            AvatarGroupScope(rowScope = this, style = style).content()
+            AvatarGroupScopeImpl(rowScope = this, style = style).content()
         }
     }
 }
 
 @Composable
-public fun AvatarGroupScopeImpl.AvatarGroupCount(
+public fun AvatarGroupScope.AvatarGroupCount(
     modifier: Modifier = Modifier,
     content: @Composable BoxScope.() -> Unit,
 ) {

@@ -62,9 +62,9 @@ public fun <T> NativeSelect(
     enabled: Boolean = true,
     isInvalid: Boolean = false,
     style: NativeSelectStyle = nativeSelectStyle(size),
-    content: NativeSelectScopeImpl<T>.() -> Unit,
+    content: NativeSelectScope<T>.() -> Unit,
 ) {
-    val entries = NativeSelectScope<T>().apply(content).entries
+    val entries = NativeSelectScopeImpl<T>().apply(content).entries
     val options = entries.filterIsInstance<NativeSelectEntry.Option<T>>()
     var isOpen by remember { mutableStateOf(false) }
     var anchorWidth by remember { mutableIntStateOf(0) }

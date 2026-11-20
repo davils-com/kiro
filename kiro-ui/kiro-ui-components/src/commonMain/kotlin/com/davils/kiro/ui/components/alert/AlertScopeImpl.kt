@@ -17,11 +17,7 @@
 package com.davils.kiro.ui.components.alert
 
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.LayoutScopeMarker
-import androidx.compose.runtime.Immutable
 
-@LayoutScopeMarker
-@Immutable
-public interface AlertScopeImpl : ColumnScope {
-    public val style: AlertStyle
-}
+internal class AlertScopeImpl(columnScope: ColumnScope, override val style: AlertStyle) :
+    AlertScope,
+    ColumnScope by columnScope

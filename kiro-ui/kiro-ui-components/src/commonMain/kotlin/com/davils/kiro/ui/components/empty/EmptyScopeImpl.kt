@@ -17,11 +17,7 @@
 package com.davils.kiro.ui.components.empty
 
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.LayoutScopeMarker
-import androidx.compose.runtime.Immutable
 
-@LayoutScopeMarker
-@Immutable
-public interface EmptyScopeImpl : ColumnScope {
-    public val style: EmptyStyle
-}
+internal class EmptyScopeImpl(columnScope: ColumnScope, override val style: EmptyStyle) :
+    EmptyScope,
+    ColumnScope by columnScope

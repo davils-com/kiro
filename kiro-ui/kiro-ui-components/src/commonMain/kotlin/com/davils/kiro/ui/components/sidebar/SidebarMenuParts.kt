@@ -45,10 +45,10 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.davils.kiro.ui.components.InlineScopeImpl
+import com.davils.kiro.ui.components.InlineScope
 import com.davils.kiro.ui.components.primitive.interaction.collectInteractionState
 import com.davils.kiro.ui.components.primitive.interaction.pressableCursor
-import com.davils.kiro.ui.components.primitive.layout.InlineScope
+import com.davils.kiro.ui.components.primitive.layout.InlineScopeImpl
 import com.davils.kiro.ui.components.primitive.overlay.Placement
 import com.davils.kiro.ui.components.primitive.overlay.Side
 import com.davils.kiro.ui.components.primitive.surface.surface
@@ -84,7 +84,7 @@ public fun SidebarMenuButton(
     size: SidebarMenuButtonSize = SidebarMenuButtonSize.Default,
     tooltip: String? = null,
     style: SidebarStyle = sidebarStyle(),
-    content: @Composable InlineScopeImpl.() -> Unit,
+    content: @Composable InlineScope.() -> Unit,
 ) {
     val isCollapsed = LocalIconCollapsed.current
     val height = heights.getValue(size)
@@ -202,7 +202,7 @@ internal fun SidebarButtonRow(
     height: Dp,
     textStyle: TextStyle,
     style: SidebarStyle,
-    content: @Composable InlineScopeImpl.() -> Unit,
+    content: @Composable InlineScope.() -> Unit,
 ) {
     val source = remember { MutableInteractionSource() }
     val state = source.collectInteractionState(isSelected = isActive)
@@ -229,7 +229,7 @@ internal fun SidebarButtonRow(
             ),
             LocalIconStyle provides IconStyle(size = style.iconSize),
         ) {
-            InlineScope(rowScope = this, edgeInset = 0.dp).content()
+            InlineScopeImpl(rowScope = this, edgeInset = 0.dp).content()
         }
     }
 }

@@ -29,7 +29,7 @@ private val towardsPanel = Offset(x = 90f, y = 20f)
 private val awayFromPanel = Offset(x = 50f, y = 40f)
 
 private fun entries(): List<MenuEntry> {
-    val scope = MenuScope()
+    val scope = MenuScopeImpl()
     scope.sub(label = "More") {}
     scope.item(label = "Next", onClick = {})
     return scope.entries

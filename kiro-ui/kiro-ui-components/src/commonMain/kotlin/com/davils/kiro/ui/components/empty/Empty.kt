@@ -38,7 +38,7 @@ import com.davils.kiro.ui.core.content.LocalTextStyle
 public fun Empty(
     modifier: Modifier = Modifier,
     style: EmptyStyle = emptyStyle(),
-    content: @Composable EmptyScopeImpl.() -> Unit,
+    content: @Composable EmptyScope.() -> Unit,
 ) {
     val surface = Modifier.surface(shape = style.shape, color = Color.Transparent, border = style.border)
     Column(
@@ -50,7 +50,7 @@ public fun Empty(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         CompositionLocalProvider(LocalTextStyle provides style.textStyle) {
-            EmptyScope(columnScope = this, style = style).content()
+            EmptyScopeImpl(columnScope = this, style = style).content()
         }
     }
 }

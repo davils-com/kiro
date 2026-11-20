@@ -18,87 +18,44 @@ package com.davils.kiro.ui.components.menu
 
 import com.davils.kiro.ui.icons.IconGraphic
 
-internal class MenuScope : MenuScopeImpl {
-    private val collected = mutableListOf<MenuEntry>()
-
-    val entries: List<MenuEntry> get() = collected.toList()
-
-    override fun item(
+public interface MenuScope {
+    public fun item(
         label: String,
         onClick: () -> Unit,
-        enabled: Boolean,
-        icon: IconGraphic?,
-        shortcut: String?,
-        variant: MenuItemVariant,
-        isInset: Boolean,
-    ) {
-        collected += MenuEntry.Action(
-            label = label,
-            onClick = onClick,
-            isEnabled = enabled,
-            icon = icon,
-            shortcut = shortcut,
-            isDestructive = variant == MenuItemVariant.Destructive,
-            isInset = isInset,
-        )
-    }
+        enabled: Boolean = true,
+        icon: IconGraphic? = null,
+        shortcut: String? = null,
+        variant: MenuItemVariant = MenuItemVariant.Default,
+        isInset: Boolean = false,
+    )
 
-    override fun checkbox(
+    public fun checkbox(
         label: String,
         checked: Boolean,
         onCheckedChange: (Boolean) -> Unit,
-        enabled: Boolean,
-        shortcut: String?,
-        isInset: Boolean,
-    ) {
-        collected += MenuEntry.Check(
-            label = label,
-            isChecked = checked,
-            onCheckedChange = onCheckedChange,
-            isEnabled = enabled,
-            shortcut = shortcut,
-            isInset = isInset,
-        )
-    }
+        enabled: Boolean = true,
+        shortcut: String? = null,
+        isInset: Boolean = false,
+    )
 
-    override fun <T> radio(
+    public fun <T> radio(
         label: String,
         value: T,
         selected: T,
         onSelect: (T) -> Unit,
-        enabled: Boolean,
-        isInset: Boolean,
-    ) {
-        collected += MenuEntry.Radio(
-            label = label,
-            isSelected = value == selected,
-            onSelect = { onSelect(value) },
-            isEnabled = enabled,
-            isInset = isInset,
-        )
-    }
+        enabled: Boolean = true,
+        isInset: Boolean = false,
+    )
 
-    override fun label(text: String, isInset: Boolean) {
-        collected += MenuEntry.Label(text = text, isInset = isInset)
-    }
+    public fun label(text: String, isInset: Boolean = false)
 
-    override fun separator() {
-        collected += MenuEntry.Separator
-    }
+    public fun separator()
 
-    override fun sub(
+    public fun sub(
         label: String,
-        icon: IconGraphic?,
-        enabled: Boolean,
-        isInset: Boolean,
-        content: MenuScopeImpl.() -> Unit,
-    ) {
-        collected += MenuEntry.Sub(
-            label = label,
-            icon = icon,
-            isEnabled = enabled,
-            isInset = isInset,
-            entries = MenuScope().apply(content).entries,
-        )
-    }
+        icon: IconGraphic? = null,
+        enabled: Boolean = true,
+        isInset: Boolean = false,
+        content: MenuScope.() -> Unit,
+    )
 }

@@ -16,41 +16,12 @@
 
 package com.davils.kiro.ui.components.select
 
-import com.davils.kiro.ui.components.menu.MenuEntry
+public interface SelectScope<T> {
+    public fun placeholder(text: String)
 
-internal class SelectScope<T>(private val selected: T?, private val onSelect: (T) -> Unit) : SelectScopeImpl<T> {
-    private val collected = mutableListOf<MenuEntry>()
-    private val labels = mutableMapOf<T, String>()
-    private val placeholders = mutableListOf<String>()
+    public fun option(value: T, label: String, enabled: Boolean = true)
 
-    val entries: List<MenuEntry> get() = collected.toList()
+    public fun group(label: String, content: SelectScope<T>.() -> Unit)
 
-    val placeholder: String get() = placeholders.lastOrNull().orEmpty()
-
-    val selectedLabel: String? get() = selected?.let { value -> labels[value] }
-
-    override fun placeholder(text: String) {
-        placeholders += text
-    }
-
-    override fun option(value: T, label: String, enabled: Boolean) {
-        labels[value] = label
-        collected += MenuEntry.Radio(
-            label = label,
-            isSelected = value == selected,
-            onSelect = { onSelect(value) },
-            isEnabled = enabled,
-            isInset = false,
-            isClosing = true,
-        )
-    }
-
-    override fun group(label: String, content: SelectScopeImpl<T>.() -> Unit) {
-        collected += MenuEntry.Label(text = label, isInset = false)
-        content()
-    }
-
-    override fun separator() {
-        collected += MenuEntry.Separator
-    }
+    public fun separator()
 }

@@ -83,9 +83,9 @@ private const val HALF_TURN: Float = 180f
 public fun NavigationMenu(
     modifier: Modifier = Modifier,
     style: NavigationMenuStyle = navigationMenuStyle(),
-    content: NavigationMenuScopeImpl.() -> Unit,
+    content: NavigationMenuScope.() -> Unit,
 ) {
-    val entries = NavigationMenuScope().apply(content).entries
+    val entries = NavigationMenuScopeImpl().apply(content).entries
     var open by remember { mutableStateOf<Int?>(null) }
     var hovered by remember { mutableStateOf<Int?>(null) }
     var panelHovers by remember { mutableIntStateOf(0) }

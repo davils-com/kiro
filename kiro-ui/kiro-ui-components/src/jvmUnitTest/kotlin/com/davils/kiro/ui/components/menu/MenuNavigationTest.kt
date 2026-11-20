@@ -24,7 +24,7 @@ import io.kotest.matchers.shouldBe
 private const val LAST: Int = 4
 
 class MenuNavigationTest : FunSpec({
-    val scope = MenuScope()
+    val scope = MenuScopeImpl()
     scope.label(text = "Account")
     scope.item(label = "Profile", onClick = {})
     scope.separator()

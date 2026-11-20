@@ -32,7 +32,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.zIndex
-import com.davils.kiro.ui.components.InlineScopeImpl
+import com.davils.kiro.ui.components.InlineScope
 import com.davils.kiro.ui.components.buttongroup.LocalGroupItem
 import com.davils.kiro.ui.components.buttongroup.joinedTo
 import com.davils.kiro.ui.components.buttongroup.shapeOr
@@ -40,7 +40,7 @@ import com.davils.kiro.ui.components.primitive.interaction.animate
 import com.davils.kiro.ui.components.primitive.interaction.collectInteractionState
 import com.davils.kiro.ui.components.primitive.interaction.pressableCursor
 import com.davils.kiro.ui.components.primitive.interaction.rememberPressPulse
-import com.davils.kiro.ui.components.primitive.layout.InlineScope
+import com.davils.kiro.ui.components.primitive.layout.InlineScopeImpl
 import com.davils.kiro.ui.components.primitive.surface.surface
 import com.davils.kiro.ui.components.primitive.textfield.disabledAlphaOf
 import com.davils.kiro.ui.core.content.LocalContentColor
@@ -59,7 +59,7 @@ public fun Toggle(
     size: ToggleSize = ToggleSize.Default,
     enabled: Boolean = true,
     style: ToggleStyle = toggleStyle(variant, size),
-    content: @Composable InlineScopeImpl.() -> Unit,
+    content: @Composable InlineScope.() -> Unit,
 ) {
     val source = remember { MutableInteractionSource() }
     val raw = source.collectInteractionState(isDisabled = !enabled, isSelected = pressed)
@@ -100,7 +100,7 @@ public fun Toggle(
             LocalTextStyle provides style.textStyle,
             LocalIconStyle provides IconStyle(size = style.iconSize),
         ) {
-            InlineScope(rowScope = this, edgeInset = style.horizontalPadding - style.iconEdgePadding).content()
+            InlineScopeImpl(rowScope = this, edgeInset = style.horizontalPadding - style.iconEdgePadding).content()
         }
     }
 }
