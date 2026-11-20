@@ -1,0 +1,73 @@
+/*
+ * Copyright 2026 Davils
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+package com.davils.kiro.ui.components.datatable
+
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
+import androidx.compose.ui.Alignment
+
+@Immutable
+public class DataTableColumn<T>(
+    public val header: String,
+    public val alignment: Alignment.Horizontal = Alignment.Start,
+    public val isHideable: Boolean = true,
+    public val comparator: Comparator<T>? = null,
+    public val filterText: ((T) -> String)? = null,
+    public val cell: @Composable (T) -> Unit,
+) {
+    /**
+     * Returns a copy of this [DataTableColumn] with the given values replaced and every other value kept.
+     *
+     * @since 0.1.0
+     */
+    public fun copy(
+        header: String = this.header,
+        alignment: Alignment.Horizontal = this.alignment,
+        isHideable: Boolean = this.isHideable,
+        comparator: Comparator<T>? = this.comparator,
+        filterText: ((T) -> String)? = this.filterText,
+        cell: @Composable (T) -> Unit = this.cell,
+    ): DataTableColumn<T> = DataTableColumn(
+        header = header,
+        alignment = alignment,
+        isHideable = isHideable,
+        comparator = comparator,
+        filterText = filterText,
+        cell = cell,
+    )
+
+    override fun equals(other: Any?): Boolean = other is DataTableColumn<*> && values() == other.values()
+
+    override fun hashCode(): Int = values().hashCode()
+
+    override fun toString(): String = "DataTableColumn(" +
+        "header=$header, " +
+        "alignment=$alignment, " +
+        "isHideable=$isHideable, " +
+        "comparator=$comparator, " +
+        "filterText=$filterText, " +
+        "cell=$cell)"
+
+    private fun values(): List<Any?> = listOf(
+        header,
+        alignment,
+        isHideable,
+        comparator,
+        filterText,
+        cell,
+    )
+}
