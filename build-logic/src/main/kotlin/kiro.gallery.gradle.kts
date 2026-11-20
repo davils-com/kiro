@@ -65,8 +65,9 @@ kreate {
 kotlin {
     wasmJs {
         browser {
+            val bundleName = "${project.name}.js"
             commonWebpackConfig {
-                outputFileName = "${project.name}.js"
+                outputFileName = bundleName
             }
         }
         binaries.executable()
