@@ -111,7 +111,13 @@ kreate {
 
         aggregate {
             enabled = isRoot
-            members = setOf(":", ":kiro-ui:kiro-ui-core", ":kiro-ui:kiro-ui-icons", ":kiro-ui:kiro-ui-components")
+            members = setOf(
+                ":",
+                ":kiro-ui:kiro-ui-core",
+                ":kiro-ui:kiro-ui-icons",
+                ":kiro-ui:kiro-ui-components",
+                ":kiro-gallery",
+            )
         }
 
         reports {

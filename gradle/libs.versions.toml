@@ -24,6 +24,7 @@ kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serializa
 kore-core = { module = "com.davils:kore-core", version.ref = "kore" }
 kore-testing = { module = "com.davils:kore-testing", version.ref = "kore" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
+kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "coroutines" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime" }
 compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "compose" }
@@ -64,6 +65,15 @@ compose = [
 compose-testing = [
     "compose-ui-test",
     "kotlinx-coroutines-test",
+    "skiko-runtime-linux-x64",
+    "skiko-runtime-linux-arm64",
+    "skiko-runtime-macos-x64",
+    "skiko-runtime-macos-arm64",
+    "skiko-runtime-windows-x64",
+    "skiko-runtime-windows-arm64",
+]
+gallery-desktop = [
+    "kotlinx-coroutines-swing",
     "skiko-runtime-linux-x64",
     "skiko-runtime-linux-arm64",
     "skiko-runtime-macos-x64",
