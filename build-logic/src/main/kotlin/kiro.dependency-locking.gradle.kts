@@ -27,3 +27,7 @@ kreate {
         }
     }
 }
+
+dependencyLocking {
+    ignoredDependencies.add("org.jetbrains.compose.desktop:desktop-jvm-*")
+}
