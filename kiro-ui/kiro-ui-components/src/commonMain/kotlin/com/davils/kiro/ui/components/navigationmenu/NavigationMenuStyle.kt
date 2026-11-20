@@ -25,6 +25,28 @@ import com.davils.kiro.ui.components.primitive.overlay.PanelStyle
 import com.davils.kiro.ui.icons.IconGraphic
 import kotlin.time.Duration
 
+/**
+ * The look and timing of a [NavigationMenu], of its panels and of a [NavigationMenuLink].
+ *
+ * @property triggerHeight the height of a trigger.
+ * @property triggerShape the shape of the background of a trigger.
+ * @property triggerHorizontalPadding the padding at the start and the end of a trigger.
+ * @property triggerTextStyle the text style of the label of a trigger.
+ * @property hover the background of a hovered trigger or link.
+ * @property open the background of a trigger whose panel is open, of an active trigger and of an active link.
+ * @property chevron the icon after the label of a trigger with a panel, turned upside down while the panel is open.
+ * @property chevronSize the size of [chevron].
+ * @property chevronGap the space between the label of a trigger and [chevron].
+ * @property panel the panel around the content of an item: its colors, shape, ring, shadow and padding.
+ * @property sideOffset the distance between a trigger and its panel.
+ * @property linkShape the shape of the background of a link.
+ * @property linkPadding the padding around the content of a link.
+ * @property linkGap the space between the parts of the content of a link.
+ * @property linkTextStyle the text style of the content of a panel.
+ * @property openDelay how long the pointer has to hover over a trigger before its panel opens.
+ * @property closeDelay how long a panel stays open after the pointer has left its trigger and the panel.
+ * @since 1.0.0
+ */
 @Immutable
 public class NavigationMenuStyle(
     public val triggerHeight: Dp,
@@ -48,7 +70,7 @@ public class NavigationMenuStyle(
     /**
      * Returns a copy of this [NavigationMenuStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         triggerHeight: Dp = this.triggerHeight,

@@ -38,17 +38,26 @@ internal val PremultipliedColor: TwoWayConverter<Color, AnimationVector4D> = Two
     convertFromVector = { vector -> colorOf(vector) },
 )
 
+/**
+ * Animates a color towards [targetValue] in sRGB with premultiplied alpha, so that a fade to or from a transparent
+ * color does not pass through the color channels of the transparent one.
+ *
+ * @param targetValue the color to animate to.
+ * @param animationSpec the animation that runs whenever [targetValue] changes.
+ * @return the state that holds the current color of the animation.
+ * @since 1.0.0
+ */
 @Composable
 public fun animateColor(targetValue: Color, animationSpec: AnimationSpec<Color>): State<Color> =
     animateValueAsState(targetValue = targetValue, typeConverter = PremultipliedColor, animationSpec = animationSpec)
 
 private fun colorOf(vector: AnimationVector4D): Color {
-    val alpha = vector.v4.coerceIn(0f, 1f)
+    val alpha = vector.v4.coerceIn(minimumValue = 0f, maximumValue = 1f)
     if (alpha == 0f) return Color.Transparent
     return Color(
-        red = (vector.v1 / alpha).coerceIn(0f, 1f),
-        green = (vector.v2 / alpha).coerceIn(0f, 1f),
-        blue = (vector.v3 / alpha).coerceIn(0f, 1f),
+        red = (vector.v1 / alpha).coerceIn(minimumValue = 0f, maximumValue = 1f),
+        green = (vector.v2 / alpha).coerceIn(minimumValue = 0f, maximumValue = 1f),
+        blue = (vector.v3 / alpha).coerceIn(minimumValue = 0f, maximumValue = 1f),
         alpha = alpha,
     )
 }

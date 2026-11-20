@@ -18,10 +18,32 @@ package com.davils.kiro.ui.components.codeblock
 
 import androidx.compose.ui.text.AnnotatedString
 
+/**
+ * Colors the lines of a [CodeBlockContent], such as for syntax highlighting.
+ *
+ * @since 1.0.0
+ */
 public fun interface CodeHighlighter {
+    /**
+     * Returns one line of code with its styles.
+     *
+     * @param line the line, without its line break.
+     * @return the text of [line] with the spans that color it.
+     * @since 1.0.0
+     */
     public fun highlight(line: String): AnnotatedString
 
+    /**
+     * Holds the highlighters that come with Kiro.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * Leaves every line as it is, without any styles.
+         *
+         * @since 1.0.0
+         */
         public val Plain: CodeHighlighter = CodeHighlighter { line -> AnnotatedString(line) }
     }
 }

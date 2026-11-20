@@ -54,6 +54,24 @@ import kotlinx.coroutines.launch
 
 private const val QUARTER_TURN: Float = 90f
 
+/**
+ * Shows a number of items one page at a time, with buttons to move to the previous and the next item.
+ *
+ * The items scroll by swiping or dragging, by the arrow keys left and right while the carousel has the focus, and by
+ * the navigation buttons, which sit outside the start and the end of the carousel. In a right to left layout a
+ * horizontal carousel scrolls the other way.
+ *
+ * @param count the number of items.
+ * @param modifier the modifier of the carousel.
+ * @param state the state of the pager, which holds the current item and scrolls to other items.
+ * @param orientation whether the items scroll horizontally or vertically.
+ * @param itemsPerView how many items are visible at once, at least one.
+ * @param isNavigationShown whether the previous and next buttons are shown.
+ * @param style the style of the carousel.
+ * @param item the item at an index from `0` to `count - 1`.
+ * @throws IllegalArgumentException if [itemsPerView] is less than one.
+ * @since 1.0.0
+ */
 @Composable
 public fun Carousel(
     count: Int,
@@ -77,7 +95,7 @@ public fun Carousel(
         delta != null
     }
     val pageSize = PerViewPageSize(itemsPerView)
-    Box(modifier = modifier.semantics { isTraversalGroup = true }.then(keys).focusable()) {
+    Box(modifier = modifier.then(Modifier.semantics { isTraversalGroup = true }.then(keys).focusable())) {
         when (orientation) {
             Orientation.Horizontal -> HorizontalPager(
                 state = state,
@@ -128,7 +146,7 @@ private fun BoxScope.NavigationButton(
         onClick = onClick,
         modifier = Modifier
             .align(position.alignment)
-            .offset(position.offset.x, position.offset.y)
+            .offset(x = position.offset.x, y = position.offset.y)
             .rotate(position.rotation)
             .mirroredInRtl()
             .semantics { contentDescription = label },

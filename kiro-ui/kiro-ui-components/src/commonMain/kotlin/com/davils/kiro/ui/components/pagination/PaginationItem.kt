@@ -18,8 +18,19 @@ package com.davils.kiro.ui.components.pagination
 
 import androidx.compose.runtime.Immutable
 
+/**
+ * One item of a pagination, as returned by [paginationItems]: a page or an ellipsis for skipped pages.
+ *
+ * @since 1.0.0
+ */
 @Immutable
 public sealed interface PaginationItem {
+    /**
+     * A page that can be selected.
+     *
+     * @property number the number of the page, counted from 1.
+     * @since 1.0.0
+     */
     @Immutable
     public class Page(
         public val number: Int,
@@ -27,7 +38,9 @@ public sealed interface PaginationItem {
         /**
          * Returns a copy of this [Page] with the given values replaced and every other value kept.
          *
-         * @since 0.1.0
+         * @param number the new value of [number].
+         * @return the copy.
+         * @since 1.0.0
          */
         public fun copy(number: Int = this.number): Page = Page(
             number = number,
@@ -45,6 +58,12 @@ public sealed interface PaginationItem {
         )
     }
 
+    /**
+     * An ellipsis that stands for two or more skipped pages.
+     *
+     * @property position the number of the first skipped page, which tells the ellipses of a pagination apart.
+     * @since 1.0.0
+     */
     @Immutable
     public class Ellipsis(
         public val position: Int,
@@ -52,7 +71,9 @@ public sealed interface PaginationItem {
         /**
          * Returns a copy of this [Ellipsis] with the given values replaced and every other value kept.
          *
-         * @since 0.1.0
+         * @param position the new value of [position].
+         * @return the copy.
+         * @since 1.0.0
          */
         public fun copy(position: Int = this.position): Ellipsis = Ellipsis(
             position = position,

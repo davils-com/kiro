@@ -20,11 +20,25 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.davils.kiro.ui.components.text.Text
 
+/**
+ * Shows the title of an [Alert] in the title style of the alert.
+ *
+ * @param text the title.
+ * @param modifier the modifier of the title.
+ * @since 1.0.0
+ */
 @Composable
 public fun AlertScope.AlertTitle(text: String, modifier: Modifier = Modifier) {
     Text(text = text, modifier = modifier, style = style.titleStyle)
 }
 
+/**
+ * Shows the description of an [Alert] in the description style and color of the alert.
+ *
+ * @param text the description.
+ * @param modifier the modifier of the description.
+ * @since 1.0.0
+ */
 @Composable
 public fun AlertScope.AlertDescription(text: String, modifier: Modifier = Modifier) {
     Text(text = text, modifier = modifier, style = style.descriptionStyle, color = style.descriptionColor)

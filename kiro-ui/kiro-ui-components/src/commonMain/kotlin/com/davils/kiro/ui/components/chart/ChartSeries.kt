@@ -20,6 +20,16 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
 import com.davils.kiro.ui.icons.IconGraphic
 
+/**
+ * Gives the series of a [ChartKey] its label, its color and an optional icon.
+ *
+ * @property key the key of the series.
+ * @property label the label of the series in the tooltip and the legend.
+ * @property color the color of the series, or [Color.Unspecified] for the color of the palette of the [ChartStyle]
+ * at the position of the series.
+ * @property icon the icon of the series in the tooltip and the legend, or `null` to show its color instead.
+ * @since 1.0.0
+ */
 @Immutable
 public class ChartSeries(
     public val key: ChartKey,
@@ -30,7 +40,12 @@ public class ChartSeries(
     /**
      * Returns a copy of this [ChartSeries] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param key the new value of [key].
+     * @param label the new value of [label].
+     * @param color the new value of [color].
+     * @param icon the new value of [icon].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         key: ChartKey = this.key,
@@ -52,7 +67,7 @@ public class ChartSeries(
         "key=$key, " +
         "label=$label, " +
         "color=$color, " +
-        "icon=$icon)"
+        "icon=${icon ?: "null"})"
 
     private fun values(): List<Any?> = listOf(
         key,

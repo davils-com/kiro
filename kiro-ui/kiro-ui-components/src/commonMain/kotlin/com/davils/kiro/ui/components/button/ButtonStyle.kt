@@ -24,6 +24,27 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.core.style.StateColors
 
+/**
+ * The style of a [Button]: its metrics, its shape, its text, its colors and how it reacts to presses.
+ *
+ * @property height the height of the button.
+ * @property minWidth the smallest width of the button, which makes the icon sizes square.
+ * @property horizontalPadding the space between the edges of the button and its content.
+ * @property iconEdgePadding the space between an edge of the button and an icon placed at that edge, which replaces
+ * [horizontalPadding] on that side.
+ * @property gap the space between the items of the content.
+ * @property shape the shape of the container, its border and its focus ring.
+ * @property textStyle the style of the label.
+ * @property iconSize the size of the icons of the content.
+ * @property colors the colors of the container, the content, the border and the focus ring in each interaction state.
+ * @property borderWidth the width of the border.
+ * @property ringWidth the width of the focus ring.
+ * @property isUnderlinedOnHover whether the label is underlined while the button is hovered.
+ * @property pressOffset how far the button moves down while it is pressed.
+ * @property disabledAlpha the opacity of the whole button while it is disabled.
+ * @property colorAnimation the animation of the colors when the interaction state changes.
+ * @since 1.0.0
+ */
 @Immutable
 public class ButtonStyle(
     public val height: Dp,
@@ -45,7 +66,23 @@ public class ButtonStyle(
     /**
      * Returns a copy of this [ButtonStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param height the new value of [height].
+     * @param minWidth the new value of [minWidth].
+     * @param horizontalPadding the new value of [horizontalPadding].
+     * @param iconEdgePadding the new value of [iconEdgePadding].
+     * @param gap the new value of [gap].
+     * @param shape the new value of [shape].
+     * @param textStyle the new value of [textStyle].
+     * @param iconSize the new value of [iconSize].
+     * @param colors the new value of [colors].
+     * @param borderWidth the new value of [borderWidth].
+     * @param ringWidth the new value of [ringWidth].
+     * @param isUnderlinedOnHover the new value of [isUnderlinedOnHover].
+     * @param pressOffset the new value of [pressOffset].
+     * @param disabledAlpha the new value of [disabledAlpha].
+     * @param colorAnimation the new value of [colorAnimation].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         height: Dp = this.height,

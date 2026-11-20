@@ -20,6 +20,18 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.icons.IconGraphic
 
+/**
+ * The style of a [Pagination] and of its links.
+ *
+ * @property gap the gap between the links.
+ * @property edgePadding the padding at the edge of the previous and the next button on the side of their icon.
+ * @property previousIcon the icon of [PaginationPrevious], mirrored in right-to-left layouts.
+ * @property nextIcon the icon of [PaginationNext], mirrored in right-to-left layouts.
+ * @property ellipsisIcon the icon of [PaginationEllipsis].
+ * @property ellipsisBox the width and height of [PaginationEllipsis].
+ * @property iconSize the size of the ellipsis icon.
+ * @since 1.0.0
+ */
 @Immutable
 public class PaginationStyle(
     public val gap: Dp,
@@ -33,7 +45,15 @@ public class PaginationStyle(
     /**
      * Returns a copy of this [PaginationStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param gap the new value of [gap].
+     * @param edgePadding the new value of [edgePadding].
+     * @param previousIcon the new value of [previousIcon].
+     * @param nextIcon the new value of [nextIcon].
+     * @param ellipsisIcon the new value of [ellipsisIcon].
+     * @param ellipsisBox the new value of [ellipsisBox].
+     * @param iconSize the new value of [iconSize].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         gap: Dp = this.gap,

@@ -42,14 +42,45 @@ private const val SOFT: Float = 0.3f
 private const val HALF: Float = 0.5f
 private const val SCRIM: Float = 0.5f
 
+/**
+ * Resolves the style of a [Command] menu for a theme.
+ *
+ * Replace it in the components of a theme under [CommandStyleKey] to change the style of every command menu.
+ *
+ * @since 1.0.0
+ */
 public fun interface CommandStyles {
+    /**
+     * Returns the style of a [Command] menu in a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the command menu.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): CommandStyle
 
+    /**
+     * Holds the default [CommandStyles].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default style of a [Command] menu, derived from the tokens of the theme.
+         *
+         * @since 1.0.0
+         */
         public val Default: CommandStyles = CommandStyles(::defaultCommandStyle)
     }
 }
 
+/**
+ * Returns the style of a [Command] menu in the theme of the composition, resolved by the [CommandStyles] under
+ * [CommandStyleKey].
+ *
+ * @return the style of the command menu.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun commandStyle(): CommandStyle = CommandStyleKey.current.resolve(theme)
@@ -111,4 +142,10 @@ internal fun defaultCommandStyle(theme: Theme): CommandStyle {
     )
 }
 
+/**
+ * The key of the [CommandStyles] of a [Command] menu in the components of a theme; its default is
+ * [CommandStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val CommandStyleKey: StyleKey<CommandStyles> = StyleKey(name = "command") { _ -> CommandStyles.Default }

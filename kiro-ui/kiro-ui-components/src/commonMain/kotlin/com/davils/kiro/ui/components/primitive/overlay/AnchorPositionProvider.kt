@@ -66,7 +66,7 @@ internal class AnchorPositionProvider(
             limit = window.height,
         )
         val x = alignedStart(start = anchor.left, end = anchor.right, extent = size.width, isReversed = isRtl)
-        return IntOffset(x = clamped(x, size.width, window.width), y = y)
+        return IntOffset(x = clamped(position = x, extent = size.width, limit = window.width), y = y)
     }
 
     private fun horizontal(anchor: IntRect, window: IntSize, size: IntSize, physical: Physical): IntOffset {
@@ -79,7 +79,7 @@ internal class AnchorPositionProvider(
             limit = window.width,
         )
         val y = alignedStart(start = anchor.top, end = anchor.bottom, extent = size.height, isReversed = false)
-        return IntOffset(x = x, y = clamped(y, size.height, window.height))
+        return IntOffset(x = x, y = clamped(position = y, extent = size.height, limit = window.height))
     }
 
     private fun alignedStart(start: Int, end: Int, extent: Int, isReversed: Boolean): Int {
@@ -98,5 +98,5 @@ internal class AnchorPositionProvider(
     }
 
     private fun clamped(position: Int, extent: Int, limit: Int): Int =
-        position.coerceIn(padding, maxOf(limit - extent - padding, padding))
+        position.coerceIn(minimumValue = padding, maximumValue = maxOf(a = limit - extent - padding, b = padding))
 }

@@ -16,9 +16,37 @@
 
 package com.davils.kiro.ui.components.inputgroup
 
+/**
+ * Where an addon of an [InputGroup] sits relative to its control.
+ *
+ * @since 1.0.0
+ */
 public enum class InputGroupAlign {
+    /**
+     * At the start of the control, in the same row.
+     *
+     * @since 1.0.0
+     */
     InlineStart,
+
+    /**
+     * At the end of the control, in the same row.
+     *
+     * @since 1.0.0
+     */
     InlineEnd,
+
+    /**
+     * Above the control, across the full width of the group.
+     *
+     * @since 1.0.0
+     */
     BlockStart,
+
+    /**
+     * Below the control, across the full width of the group.
+     *
+     * @since 1.0.0
+     */
     BlockEnd,
 }

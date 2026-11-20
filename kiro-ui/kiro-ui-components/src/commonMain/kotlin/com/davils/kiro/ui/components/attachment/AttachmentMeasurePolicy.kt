@@ -46,18 +46,19 @@ internal class AttachmentMeasurePolicy(
         val used = fixedPlaceables.values.sumOf { placeable -> placeable.width } +
             spacing *
             maxOf(
-                measurables.size - 1,
-                0,
+                a = measurables.size - 1,
+                b = 0,
             )
         val remaining = maxOf(
-            constraints.maxWidth - used,
-            0,
+            a = constraints.maxWidth - used,
+            b = 0,
         ).takeIf { constraints.hasBoundedWidth } ?: Constraints.Infinity
         val placeables = measurables.map { measurable ->
             fixedPlaceables[measurable] ?: measurable.measure(loose.copy(maxWidth = remaining))
         }
-        val content = placeables.sumOf { placeable -> placeable.width } + spacing * maxOf(placeables.size - 1, 0)
-        val width = constraints.constrainWidth(maxOf(content, constraints.minWidth))
+        val widths = placeables.sumOf { placeable -> placeable.width }
+        val content = widths + spacing * maxOf(a = placeables.size - 1, b = 0)
+        val width = constraints.constrainWidth(maxOf(a = content, b = constraints.minWidth))
         val height = constraints.constrainHeight(placeables.maxOfOrNull { placeable -> placeable.height } ?: 0)
         val starts = placeables.runningFold(0) { x, placeable -> x + placeable.width + spacing }
         return layout(width, height) {
@@ -79,7 +80,7 @@ internal class AttachmentMeasurePolicy(
         }
         val overlayPlaceables = overlay.map { measurable -> measurable.measure(Constraints(maxWidth = width)) }
         val tops = flowPlaceables.runningFold(0) { y, placeable -> y + placeable.height + spacing }
-        val height = constraints.constrainHeight(maxOf(tops.last() - spacing, 0))
+        val height = constraints.constrainHeight(maxOf(a = tops.last() - spacing, b = 0))
         val margin = inset.roundToPx()
         return layout(width, height) {
             flowPlaceables.forEachIndexed { index, placeable -> placeable.placeRelative(x = 0, y = tops[index]) }

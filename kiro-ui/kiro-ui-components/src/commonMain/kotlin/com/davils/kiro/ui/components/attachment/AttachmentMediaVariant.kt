@@ -16,7 +16,23 @@
 
 package com.davils.kiro.ui.components.attachment
 
+/**
+ * What an [AttachmentMedia] shows, which decides how it reacts to the state of its attachment.
+ *
+ * @since 1.0.0
+ */
 public enum class AttachmentMediaVariant {
+    /**
+     * An icon, drawn in the content color of the attachment.
+     *
+     * @since 1.0.0
+     */
     Icon,
+
+    /**
+     * An image, such as a preview of the file, dimmed while the attachment is uploading, processing or failed.
+     *
+     * @since 1.0.0
+     */
     Image,
 }

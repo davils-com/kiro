@@ -29,16 +29,52 @@ import com.davils.kiro.ui.core.style.Border
 import com.davils.kiro.ui.core.style.StyleKey
 import com.davils.kiro.ui.core.style.current
 
+/**
+ * Resolves the [MenubarStyle] of a [Menubar] for a theme.
+ *
+ * Register your own under [MenubarStyleKey] in the component styles of a theme to change every menubar.
+ *
+ * @since 1.0.0
+ */
 public fun interface MenubarStyles {
+    /**
+     * Returns the style of a menubar.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of a menubar.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): MenubarStyle
 
+    /**
+     * Holds the default menubar styles.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default menubar styles, derived from the colors, radii and typography of the theme, with the default menu
+         * style for the menus.
+         *
+         * @since 1.0.0
+         */
         public val Default: MenubarStyles = MenubarStyles(::defaultMenubarStyle)
     }
 }
 
+/**
+ * The key of the menubar styles in the component styles of a theme, named `menubar`.
+ *
+ * @since 1.0.0
+ */
 public val MenubarStyleKey: StyleKey<MenubarStyles> = StyleKey(name = "menubar") { _ -> MenubarStyles.Default }
 
+/**
+ * Returns the menubar style of the current theme.
+ *
+ * @return the style that the [MenubarStyles] registered under [MenubarStyleKey] resolve.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun menubarStyle(): MenubarStyle = MenubarStyleKey.current.resolve(theme)

@@ -27,12 +27,12 @@ internal class RadarGeometry(val center: Offset, val radius: Float, val count: I
     private val maximum: Double
         get() = ticks.last().takeIf { value -> value > 0.0 } ?: 1.0
 
-    fun degreesOf(index: Int): Float = TOP - FULL * index / maxOf(count, 1)
+    fun degreesOf(index: Int): Float = TOP - FULL * index / maxOf(a = count, b = 1)
 
     fun pointOf(index: Int, value: Double): Offset = PolarMath.pointOf(
-        center,
-        radius * (value / maximum).toFloat(),
-        degreesOf(index),
+        center = center,
+        radius = radius * (value / maximum).toFloat(),
+        degrees = degreesOf(index),
     )
 
     fun indexAt(position: Offset): Int? {
@@ -47,8 +47,8 @@ internal class RadarGeometry(val center: Offset, val radius: Float, val count: I
     companion object {
         fun of(size: Size, margin: Float, fraction: Float, count: Int, ticks: List<Double>): RadarGeometry =
             RadarGeometry(
-                center = Offset(size.width / 2, size.height / 2),
-                radius = maxOf((minOf(size.width, size.height) / 2 - margin) * fraction, 0f),
+                center = Offset(x = size.width / 2, y = size.height / 2),
+                radius = maxOf(a = (minOf(a = size.width, b = size.height) / 2 - margin) * fraction, b = 0f),
                 count = count,
                 ticks = ticks,
             )

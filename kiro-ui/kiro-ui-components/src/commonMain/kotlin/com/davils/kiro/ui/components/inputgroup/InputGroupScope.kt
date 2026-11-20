@@ -19,9 +19,32 @@ package com.davils.kiro.ui.components.inputgroup
 import androidx.compose.runtime.Composable
 import com.davils.kiro.ui.components.input.InputOptions
 
+/**
+ * The scope in which an [InputGroup] declares its addons and its one input or textarea.
+ *
+ * @since 1.0.0
+ */
 public interface InputGroupScope {
+    /**
+     * Adds an addon, such as an icon, a text or a button, next to the control. Addons with the same alignment are
+     * shown in the order they are declared.
+     *
+     * @param align where the addon sits relative to the control.
+     * @param content the content of the addon, laid out in a row.
+     * @since 1.0.0
+     */
     public fun addon(align: InputGroupAlign = InputGroupAlign.InlineStart, content: @Composable () -> Unit)
 
+    /**
+     * Places a single-line input as the control of the group.
+     *
+     * @param value the text of the input.
+     * @param onValueChange called with the new text when the user edits it.
+     * @param placeholder the text shown while [value] is empty, or `null` for none.
+     * @param options whether the input is secure or read-only, and its keyboard options.
+     * @throws IllegalStateException if the group has an input or a textarea already.
+     * @since 1.0.0
+     */
     public fun input(
         value: String,
         onValueChange: (String) -> Unit,
@@ -29,6 +52,16 @@ public interface InputGroupScope {
         options: InputOptions = InputOptions(),
     )
 
+    /**
+     * Places a textarea with several lines as the control of the group.
+     *
+     * @param value the text of the textarea.
+     * @param onValueChange called with the new text when the user edits it.
+     * @param placeholder the text shown while [value] is empty, or `null` for none.
+     * @param options whether the textarea is secure or read-only, and its keyboard options.
+     * @throws IllegalStateException if the group has an input or a textarea already.
+     * @since 1.0.0
+     */
     public fun textarea(
         value: String,
         onValueChange: (String) -> Unit,

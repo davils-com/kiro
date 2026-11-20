@@ -20,7 +20,22 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.runtime.Composable
 
+/**
+ * The scope in which the content of an [Accordion] declares its items.
+ *
+ * @param T the type of the values that identify the items.
+ * @since 1.0.0
+ */
 public interface AccordionScope<T> {
+    /**
+     * Declares an item of the accordion, in the order of the calls.
+     *
+     * @param value the value that identifies the item in the expanded set of the accordion.
+     * @param enabled whether the item can be toggled and focused.
+     * @param trigger the content of the trigger row, shown left of the expand icon.
+     * @param content the content shown below the trigger while the item is expanded.
+     * @since 1.0.0
+     */
     public fun item(
         value: T,
         enabled: Boolean = true,

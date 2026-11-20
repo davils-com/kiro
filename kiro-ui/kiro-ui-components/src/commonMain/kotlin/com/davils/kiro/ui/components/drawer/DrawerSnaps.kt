@@ -43,7 +43,7 @@ internal class DrawerSnaps(private val points: List<Float>) {
     }
 
     fun drag(by: Float) {
-        height = (shown + by).coerceIn(0f, available)
+        height = (shown + by).coerceIn(minimumValue = 0f, maximumValue = available)
     }
 
     fun targetOf(dismissFraction: Float): Float? {

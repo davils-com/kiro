@@ -59,6 +59,16 @@ import com.davils.kiro.ui.icons.Icon
 import com.davils.kiro.ui.icons.IconStyle
 import com.davils.kiro.ui.icons.LocalIconStyle
 
+/**
+ * Shows the path to the current page as a row of items that wraps onto further lines when it does not fit.
+ *
+ * Place [BreadcrumbItem]s in it, with a [BreadcrumbSeparator] between them, and end it with a [BreadcrumbPage].
+ *
+ * @param modifier the modifier of the breadcrumb.
+ * @param style the look of the breadcrumb, whose text style and color it hands to its content.
+ * @param content the items and separators.
+ * @since 1.0.0
+ */
 @Composable
 public fun Breadcrumb(
     modifier: Modifier = Modifier,
@@ -76,6 +86,14 @@ public fun Breadcrumb(
     }
 }
 
+/**
+ * Holds one step of a [Breadcrumb], such as a [BreadcrumbLink] or a [BreadcrumbEllipsis], in a row.
+ *
+ * @param modifier the modifier of the item.
+ * @param style the style whose item gap separates the content of the item.
+ * @param content the content of the item.
+ * @since 1.0.0
+ */
 @Composable
 public fun BreadcrumbItem(
     modifier: Modifier = Modifier,
@@ -90,6 +108,15 @@ public fun BreadcrumbItem(
     )
 }
 
+/**
+ * A step of a [Breadcrumb] that leads to an earlier page and takes the hover color under the pointer.
+ *
+ * @param text the name of the page.
+ * @param onClick called when the link is clicked.
+ * @param modifier the modifier of the link.
+ * @param style the look of the link.
+ * @since 1.0.0
+ */
 @Composable
 public fun BreadcrumbLink(
     text: String,
@@ -105,19 +132,37 @@ public fun BreadcrumbLink(
     )
     Text(
         text = text,
-        modifier = modifier
-            .pressableCursor()
-            .hoverable(interactionSource = source)
-            .clickable(interactionSource = source, indication = null, role = Role.Button, onClick = onClick),
+        modifier = modifier.then(
+            Modifier
+                .pressableCursor()
+                .hoverable(interactionSource = source)
+                .clickable(interactionSource = source, indication = null, role = Role.Button, onClick = onClick),
+        ),
         color = color.value,
     )
 }
 
+/**
+ * The current page at the end of a [Breadcrumb], which cannot be clicked and is announced as disabled.
+ *
+ * @param text the name of the page.
+ * @param modifier the modifier of the text.
+ * @param style the look of the text.
+ * @since 1.0.0
+ */
 @Composable
 public fun BreadcrumbPage(text: String, modifier: Modifier = Modifier, style: BreadcrumbStyle = breadcrumbStyle()) {
     Text(text = text, modifier = modifier.semantics { disabled() }, color = style.pageColor)
 }
 
+/**
+ * The icon between two steps of a [Breadcrumb], mirrored in a right-to-left layout and hidden from assistive
+ * technologies.
+ *
+ * @param modifier the modifier of the icon.
+ * @param style the style that gives the icon and its size.
+ * @since 1.0.0
+ */
 @Composable
 public fun BreadcrumbSeparator(modifier: Modifier = Modifier, style: BreadcrumbStyle = breadcrumbStyle()) {
     CompositionLocalProvider(LocalIconStyle provides IconStyle(size = style.separatorSize)) {
@@ -129,6 +174,16 @@ public fun BreadcrumbSeparator(modifier: Modifier = Modifier, style: BreadcrumbS
     }
 }
 
+/**
+ * Stands for the steps of a [Breadcrumb] that are left out, optionally as a button that opens a menu of them.
+ *
+ * @param contentDescription the text that describes the left-out steps to assistive technologies.
+ * @param modifier the modifier of the ellipsis.
+ * @param style the look of the ellipsis.
+ * @param menu the entries of the dropdown menu that the ellipsis opens, or `null` to show the ellipsis without a
+ * menu.
+ * @since 1.0.0
+ */
 @Composable
 public fun BreadcrumbEllipsis(
     contentDescription: String,
@@ -163,10 +218,12 @@ private fun EllipsisButton(modifier: Modifier, style: BreadcrumbStyle, onClick: 
         .pressableCursor()
         .clickable(interactionSource = source, indication = null, role = Role.Button, onClick = onClick)
     EllipsisIcon(
-        modifier = modifier
-            .surface(shape = style.ellipsisShape, color = container.value)
-            .hoverable(interactionSource = source)
-            .then(press),
+        modifier = modifier.then(
+            Modifier
+                .surface(shape = style.ellipsisShape, color = container.value)
+                .hoverable(interactionSource = source)
+                .then(press),
+        ),
         style = style,
     )
 }

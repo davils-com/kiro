@@ -54,6 +54,24 @@ import kotlin.math.abs
 private const val RESISTANCE: Float = 0.15f
 private const val EXIT_SHIFT: Float = 0.5f
 
+/**
+ * Shows the toasts of a [ToasterState] in a stack at a corner or an edge of the window, in a popup that does not take
+ * the focus.
+ *
+ * The newest toast is in front and the older ones peek out behind it, smaller with each step. While the pointer is
+ * over the stack, it expands to show every toast and the timers of the toasts pause. A dismissible toast can be swiped
+ * away horizontally.
+ *
+ * @param toaster the state that holds the toasts.
+ * @param modifier the modifier of the stack.
+ * @param position the corner or the edge of the window where the toasts are stacked.
+ * @param isRich whether the toasts take the status colors of their type.
+ * @param isCloseButtonShown whether dismissible toasts always show their close button, not only while hovered or
+ * focused.
+ * @param isTimerShown whether toasts with a duration show a bar of their remaining time.
+ * @param style the style of the toasts.
+ * @since 1.0.0
+ */
 @Composable
 public fun Toaster(
     toaster: ToasterState,
@@ -93,10 +111,12 @@ public fun Toaster(
     }
     Popup(popupPositionProvider = provider, properties = PopupProperties(focusable = false)) {
         Box(
-            modifier = modifier
-                .width(style.width)
-                .animatedHeight(height)
-                .hoverTracking(onHover = { hovered -> isExpanded = hovered }),
+            modifier = modifier.then(
+                Modifier
+                    .width(style.width)
+                    .animatedHeight(height)
+                    .hoverTracking(onHover = { hovered -> isExpanded = hovered }),
+            ),
             contentAlignment = Alignment.TopCenter.takeIf { isTopEdge } ?: Alignment.BottomCenter,
         ) {
             shown.forEach { toast ->

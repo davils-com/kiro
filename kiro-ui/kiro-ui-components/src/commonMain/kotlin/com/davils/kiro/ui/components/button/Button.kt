@@ -52,6 +52,22 @@ import com.davils.kiro.ui.core.style.Border
 import com.davils.kiro.ui.icons.IconStyle
 import com.davils.kiro.ui.icons.LocalIconStyle
 
+/**
+ * A button that runs an action when it is clicked, with a label and icons in a row.
+ *
+ * The button shows its hover, press, focus and disabled states through its style, moves down while it is pressed and
+ * joins its neighbours when it sits in a button group.
+ *
+ * @param onClick called when the button is clicked.
+ * @param modifier the modifier of the button.
+ * @param variant the look of the button.
+ * @param size the size of the button.
+ * @param enabled whether the button can be clicked; a disabled button is drawn with the disabled alpha of its style.
+ * @param style the style of the button, by default the style of the theme for [variant] and [size].
+ * @param interactionSource the source of the interactions of the button, or `null` to use one of its own.
+ * @param content the content of the button, such as a label and icons.
+ * @since 1.0.0
+ */
 @Composable
 public fun Button(
     onClick: () -> Unit,
@@ -88,16 +104,18 @@ public fun Button(
         onClick = onClick,
     )
     Row(
-        modifier = modifier
-            .joinedTo(item = groupItem, overlap = style.borderWidth)
-            .zIndex(layerOf(state))
-            .then(layer)
-            .height(style.height)
-            .widthIn(min = style.minWidth)
-            .then(surface)
-            .hoverable(interactionSource = source, enabled = enabled)
-            .then(click)
-            .padding(horizontal = style.horizontalPadding),
+        modifier = modifier.then(
+            Modifier
+                .joinedTo(item = groupItem, overlap = style.borderWidth)
+                .zIndex(layerOf(state))
+                .then(layer)
+                .height(style.height)
+                .widthIn(min = style.minWidth)
+                .then(surface)
+                .hoverable(interactionSource = source, enabled = enabled)
+                .then(click)
+                .padding(horizontal = style.horizontalPadding),
+        ),
         horizontalArrangement = Arrangement.spacedBy(style.gap, Alignment.CenterHorizontally),
         verticalAlignment = Alignment.CenterVertically,
     ) {

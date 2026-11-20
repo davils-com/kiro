@@ -42,16 +42,53 @@ private const val DISABLED_ALPHA: Float = 0.5f
 private const val SUB_OPEN_MILLIS: Int = 100
 private const val SUB_CLOSE_MILLIS: Int = 300
 
+/**
+ * Derives the [MenuStyle] of a menu from the tokens of a theme.
+ *
+ * The components of a theme hold one under each key of this type; override a key in the components of a theme to change
+ * the style of every menu that reads it.
+ *
+ * @since 1.0.0
+ */
 public fun interface MenuStyles {
+    /**
+     * Returns the style of a menu for the tokens of a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): MenuStyle
 
+    /**
+     * Holds the [MenuStyles] that Kiro ships.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default styles of a menu, derived only from the tokens of the theme.
+         *
+         * @since 1.0.0
+         */
         public val Default: MenuStyles = MenuStyles(::defaultMenuStyle)
     }
 }
 
+/**
+ * The key of the styles of a menu in the components of a theme, named `menu`; its default is [MenuStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val MenuStyleKey: StyleKey<MenuStyles> = StyleKey(name = "menu") { _ -> MenuStyles.Default }
 
+/**
+ * Returns the style of a menu in the theme of the composition, resolved through the styles that the components of the
+ * theme hold under [MenuStyleKey].
+ *
+ * @return the style.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun menuStyle(): MenuStyle = MenuStyleKey.current.resolve(theme)

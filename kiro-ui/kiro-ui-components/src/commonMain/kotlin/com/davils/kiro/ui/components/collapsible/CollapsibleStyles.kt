@@ -31,14 +31,46 @@ import com.davils.kiro.ui.core.Theme
 import com.davils.kiro.ui.core.style.StyleKey
 import com.davils.kiro.ui.core.style.current
 
+/**
+ * Resolves the [CollapsibleStyle] of a [Collapsible] for a theme.
+ *
+ * Register an implementation under [CollapsibleStyleKey] in the components of a theme to change the style of every
+ * collapsible.
+ *
+ * @since 1.0.0
+ */
 public fun interface CollapsibleStyles {
+    /**
+     * Returns the style of a collapsible.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the collapsible.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): CollapsibleStyle
 
+    /**
+     * Holds the default styles of a collapsible.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default styles of a collapsible: the content expands and fades in, and shrinks and fades out, with the
+         * motion of the theme, or appears and disappears at once when the theme reduces motion.
+         *
+         * @since 1.0.0
+         */
         public val Default: CollapsibleStyles = CollapsibleStyles(::defaultCollapsibleStyle)
     }
 }
 
+/**
+ * Returns the style of a [Collapsible], as the [CollapsibleStyles] of the current theme resolve it.
+ *
+ * @return the style of the collapsible.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun collapsibleStyle(): CollapsibleStyle = CollapsibleStyleKey.current.resolve(theme)
@@ -57,6 +89,12 @@ internal fun defaultCollapsibleStyle(theme: Theme): CollapsibleStyle {
     )
 }
 
+/**
+ * The key of the [CollapsibleStyles] of a [Collapsible] in the components of a theme; its default is
+ * [CollapsibleStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val CollapsibleStyleKey: StyleKey<CollapsibleStyles> = StyleKey(
     name = "collapsible",
 ) { _ -> CollapsibleStyles.Default }

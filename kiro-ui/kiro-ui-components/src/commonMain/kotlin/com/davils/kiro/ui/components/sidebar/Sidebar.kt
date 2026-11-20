@@ -70,6 +70,20 @@ import com.davils.kiro.ui.core.content.LocalContentColor
 import com.davils.kiro.ui.core.content.LocalTextStyle
 import com.davils.kiro.ui.core.style.Border
 
+/**
+ * Lays out a [Sidebar] and a [SidebarInset] in a row that fills its space and shares a [SidebarState] and a
+ * [SidebarVariant] with them.
+ *
+ * While [isShortcutEnabled] is `true`, Ctrl+B or Cmd+B inside the provider opens or closes the sidebars.
+ *
+ * @param state whether the sidebars are open.
+ * @param modifier the modifier of the row.
+ * @param variant the look of the sidebars and of the inset.
+ * @param isShortcutEnabled whether Ctrl+B or Cmd+B toggles the sidebars.
+ * @param style the style of the sidebar, by default the style of the theme.
+ * @param content the sidebars and the inset.
+ * @since 1.0.0
+ */
 @Composable
 public fun SidebarProvider(
     state: SidebarState,
@@ -87,10 +101,26 @@ public fun SidebarProvider(
     }
     val backdrop = style.container.takeIf { variant == SidebarVariant.Inset } ?: style.background
     CompositionLocalProvider(LocalSidebar provides SidebarContext(state = state, variant = variant)) {
-        Row(modifier = modifier.fillMaxSize().background(backdrop).then(shortcut), content = content)
+        Row(modifier = modifier.then(Modifier.fillMaxSize().background(backdrop).then(shortcut)), content = content)
     }
 }
 
+/**
+ * A panel at the side of a [SidebarProvider] that holds navigation, built from a [SidebarHeader], a
+ * [SidebarContent] with groups and menus, and a [SidebarFooter].
+ *
+ * The sidebar opens and closes with the [SidebarState] of its provider, animating its width, and collapses as
+ * [collapsible] says. While it is collapsed to its icons, group labels, actions and badges hide and menu buttons show
+ * their tooltip.
+ *
+ * @param modifier the modifier of the sidebar.
+ * @param side the side of the window at which the sidebar sits, which decides where its edge line and its rail are.
+ * @param collapsible how the sidebar collapses when its state is closed.
+ * @param isRailShown whether a rail at the inner edge of the sidebar toggles it when it is clicked.
+ * @param style the style of the sidebar, by default the style of the theme.
+ * @param content the content of the sidebar, laid out in a column.
+ * @since 1.0.0
+ */
 @Composable
 public fun Sidebar(
     modifier: Modifier = Modifier,
@@ -187,6 +217,13 @@ private fun BoxScope.SidebarRail(side: Side, style: SidebarStyle, onToggle: () -
     )
 }
 
+/**
+ * A ghost icon button that opens or closes the sidebars of the enclosing [SidebarProvider].
+ *
+ * @param modifier the modifier of the button.
+ * @param style the style of the sidebar, which gives the icon and the label of the button.
+ * @since 1.0.0
+ */
 @Composable
 public fun SidebarTrigger(modifier: Modifier = Modifier, style: SidebarStyle = sidebarStyle()) {
     val state = LocalSidebar.current.state
@@ -204,6 +241,17 @@ public fun SidebarTrigger(modifier: Modifier = Modifier, style: SidebarStyle = s
     }
 }
 
+/**
+ * The main content next to a [Sidebar], which takes the remaining width of the [SidebarProvider].
+ *
+ * Next to a [SidebarVariant.Inset] sidebar the content sits in a raised panel with rounded corners and a shadow;
+ * otherwise it fills its space with the background color of the style.
+ *
+ * @param modifier the modifier of the content.
+ * @param style the style of the sidebar, by default the style of the theme.
+ * @param content the content, laid out in a column.
+ * @since 1.0.0
+ */
 @Composable
 public fun RowScope.SidebarInset(
     modifier: Modifier = Modifier,
@@ -212,7 +260,7 @@ public fun RowScope.SidebarInset(
 ) {
     val isInset = LocalSidebar.current.variant == SidebarVariant.Inset
     val face = insetFaceOf(isInset = isInset, style = style)
-    Column(modifier = modifier.weight(1f).fillMaxHeight().then(face), content = content)
+    Column(modifier = modifier.then(Modifier.weight(1f).fillMaxHeight().then(face)), content = content)
 }
 
 private fun insetFaceOf(isInset: Boolean, style: SidebarStyle): Modifier {
@@ -226,8 +274,8 @@ private fun insetFaceOf(isInset: Boolean, style: SidebarStyle): Modifier {
 private fun railLine(color: Color): Modifier = Modifier.drawBehind {
     drawLine(
         color = color,
-        start = Offset(size.width / 2, 0f),
-        end = Offset(size.width / 2, size.height),
+        start = Offset(x = size.width / 2, y = 0f),
+        end = Offset(x = size.width / 2, y = size.height),
         strokeWidth = 2.dp.toPx(),
     )
 }

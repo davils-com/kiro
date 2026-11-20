@@ -18,5 +18,12 @@ package com.davils.kiro.ui.components.chart
 
 import kotlin.jvm.JvmInline
 
+/**
+ * Names a series of a chart: the values of a [ChartPoint] are stored under it, and a [ChartSeries] with the same key
+ * gives the series its label and color.
+ *
+ * @property value the name of the series.
+ * @since 1.0.0
+ */
 @JvmInline
 public value class ChartKey(public val value: String)

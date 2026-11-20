@@ -30,14 +30,43 @@ private const val DISMISS_FRACTION: Float = 0.25f
 private const val SIDE_FRACTION: Float = 0.4f
 private const val HALF: Float = 0.5f
 
+/**
+ * Derives the [DrawerStyle] of a [Drawer] from a theme; the value of [DrawerStyleKey] in the component styles of a
+ * theme.
+ *
+ * @since 1.0.0
+ */
 public fun interface DrawerStyles {
+    /**
+     * Returns the style of a [Drawer] for a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the drawer.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): DrawerStyle
 
+    /**
+     * Holds the default styles of a [Drawer].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default styles of a [Drawer], derived only from the tokens of the theme and the default style of a sheet.
+         *
+         * @since 1.0.0
+         */
         public val Default: DrawerStyles = DrawerStyles(::defaultDrawerStyle)
     }
 }
 
+/**
+ * Returns the style of a [Drawer] in the theme of the composition, with the overrides of its component styles.
+ *
+ * @return the style of the drawer.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun drawerStyle(): DrawerStyle = DrawerStyleKey.current.resolve(theme)
@@ -69,4 +98,9 @@ internal fun defaultDrawerStyle(theme: Theme): DrawerStyle {
     )
 }
 
+/**
+ * The key of the styles of a [Drawer] in the component styles of a theme.
+ *
+ * @since 1.0.0
+ */
 public val DrawerStyleKey: StyleKey<DrawerStyles> = StyleKey(name = "drawer") { _ -> DrawerStyles.Default }

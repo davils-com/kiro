@@ -22,6 +22,17 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 
+/**
+ * The style of the action button of a [Toast].
+ *
+ * @property height the height of the button.
+ * @property horizontalPadding the padding at the start and the end of the button.
+ * @property shape the shape of the button.
+ * @property textStyle the text style of the label.
+ * @property container the background color of the button.
+ * @property content the color of the label.
+ * @since 1.0.0
+ */
 @Immutable
 public class ToastActionStyle(
     public val height: Dp,
@@ -34,7 +45,14 @@ public class ToastActionStyle(
     /**
      * Returns a copy of this [ToastActionStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param height the new value of [height].
+     * @param horizontalPadding the new value of [horizontalPadding].
+     * @param shape the new value of [shape].
+     * @param textStyle the new value of [textStyle].
+     * @param container the new value of [container].
+     * @param content the new value of [content].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         height: Dp = this.height,

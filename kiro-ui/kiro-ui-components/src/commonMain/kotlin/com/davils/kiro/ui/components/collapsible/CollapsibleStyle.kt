@@ -20,6 +20,13 @@ import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.Immutable
 
+/**
+ * The style of a [Collapsible]: how its content enters and exits.
+ *
+ * @property enter the transition that shows the content.
+ * @property exit the transition that hides the content.
+ * @since 1.0.0
+ */
 @Immutable
 public class CollapsibleStyle(
     public val enter: EnterTransition,
@@ -28,7 +35,10 @@ public class CollapsibleStyle(
     /**
      * Returns a copy of this [CollapsibleStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param enter the new value of [enter].
+     * @param exit the new value of [exit].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(enter: EnterTransition = this.enter, exit: ExitTransition = this.exit): CollapsibleStyle =
         CollapsibleStyle(

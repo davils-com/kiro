@@ -16,8 +16,25 @@
 
 package com.davils.kiro.ui.components.nativeselect
 
+/**
+ * The size of a [NativeSelect]: its height, its padding and the radius of its corners.
+ *
+ * A custom size can implement this interface when its [NativeSelectStyles] resolves it.
+ *
+ * @since 1.0.0
+ */
 public interface NativeSelectSize {
+    /**
+     * The regular size of a native select.
+     *
+     * @since 1.0.0
+     */
     public data object Default : NativeSelectSize
 
+    /**
+     * The small size of a native select, lower and with smaller corners.
+     *
+     * @since 1.0.0
+     */
     public data object Sm : NativeSelectSize
 }

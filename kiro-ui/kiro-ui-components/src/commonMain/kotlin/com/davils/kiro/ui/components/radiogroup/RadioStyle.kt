@@ -22,6 +22,20 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.core.style.StateColors
 
+/**
+ * How the items of a radio group look: their size, their dot, their colors and their spacing.
+ *
+ * @property size the width and height of the circle of an item.
+ * @property dotSize the width and height of the dot of the selected item.
+ * @property groupGap the space between the items of a group.
+ * @property colors the colors of an item that is not selected, in each interaction state.
+ * @property checkedColors the colors of the selected item, in each interaction state; the dot takes the content color.
+ * @property borderWidth the width of the border of the circle.
+ * @property ringWidth the width of the focus ring around the circle.
+ * @property disabledAlpha the alpha of a disabled item.
+ * @property colorAnimation the animation of the colors when the selection or the interaction state changes.
+ * @since 1.0.0
+ */
 @Immutable
 public class RadioStyle(
     public val size: Dp,
@@ -37,7 +51,17 @@ public class RadioStyle(
     /**
      * Returns a copy of this [RadioStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param size the new value of [size].
+     * @param dotSize the new value of [dotSize].
+     * @param groupGap the new value of [groupGap].
+     * @param colors the new value of [colors].
+     * @param checkedColors the new value of [checkedColors].
+     * @param borderWidth the new value of [borderWidth].
+     * @param ringWidth the new value of [ringWidth].
+     * @param disabledAlpha the new value of [disabledAlpha].
+     * @param colorAnimation the new value of [colorAnimation].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         size: Dp = this.size,

@@ -18,5 +18,11 @@ package com.davils.kiro.ui.components.questionnaire
 
 import kotlin.jvm.JvmInline
 
+/**
+ * Names a [Question] of a questionnaire. Every question of a [QuestionnaireState] needs its own key.
+ *
+ * @property value the name of the question.
+ * @since 1.0.0
+ */
 @JvmInline
 public value class QuestionKey(public val value: String)

@@ -30,16 +30,51 @@ import com.davils.kiro.ui.core.style.current
 
 private const val HALF: Float = 0.5f
 
+/**
+ * Resolves the style of a [Table] for a theme.
+ *
+ * Replace it in the components of a theme under [TableStyleKey] to change the style of every table.
+ *
+ * @since 1.0.0
+ */
 public fun interface TableStyles {
+    /**
+     * Returns the style of a [Table] in a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the table.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): TableStyle
 
+    /**
+     * Holds the default [TableStyles].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default style of a [Table], derived from the tokens of the theme.
+         *
+         * @since 1.0.0
+         */
         public val Default: TableStyles = TableStyles(::defaultTableStyle)
     }
 }
 
+/**
+ * The key of the [TableStyles] of a [Table] in the components of a theme; its default is [TableStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val TableStyleKey: StyleKey<TableStyles> = StyleKey(name = "table") { _ -> TableStyles.Default }
 
+/**
+ * Returns the style of a [Table] in the theme of the composition, resolved by the [TableStyles] under [TableStyleKey].
+ *
+ * @return the style of the table.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun tableStyle(): TableStyle = TableStyleKey.current.resolve(theme)

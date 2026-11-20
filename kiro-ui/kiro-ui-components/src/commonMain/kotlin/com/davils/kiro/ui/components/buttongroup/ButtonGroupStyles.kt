@@ -23,18 +23,56 @@ import com.davils.kiro.ui.core.Theme
 import com.davils.kiro.ui.core.style.StyleKey
 import com.davils.kiro.ui.core.style.current
 
+/**
+ * Resolves the [ButtonGroupStyle] of a theme.
+ *
+ * The styles of a theme are found under [ButtonGroupStyleKey]. Override them in [Theme.components] to change every
+ * button group of the theme.
+ *
+ * @since 1.0.0
+ */
 public fun interface ButtonGroupStyles {
+    /**
+     * Returns the style of a button group for a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of a button group.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): ButtonGroupStyle
 
+    /**
+     * Holds the default [ButtonGroupStyles].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default button group styles, which derive the style from the tokens of the theme alone.
+         *
+         * @since 1.0.0
+         */
         public val Default: ButtonGroupStyles = ButtonGroupStyles(::defaultButtonGroupStyle)
     }
 }
 
+/**
+ * Returns the style of a button group in the current theme: the [ButtonGroupStyles] under [ButtonGroupStyleKey],
+ * changed by the overrides of [Theme.components]. It is the default style of [ButtonGroup], [ButtonGroupText] and
+ * [ButtonGroupSeparator].
+ *
+ * @return the style of a button group in the current theme.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun buttonGroupStyle(): ButtonGroupStyle = ButtonGroupStyleKey.current.resolve(theme)
 
+/**
+ * The key of the button group styles in [Theme.components]. Its default is [ButtonGroupStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val ButtonGroupStyleKey: StyleKey<ButtonGroupStyles> = StyleKey(
     name = "button-group",
 ) { _ -> ButtonGroupStyles.Default }

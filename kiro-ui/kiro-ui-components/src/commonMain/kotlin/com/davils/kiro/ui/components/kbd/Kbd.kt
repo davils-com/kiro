@@ -37,14 +37,24 @@ import com.davils.kiro.ui.core.content.LocalTextStyle
 import com.davils.kiro.ui.icons.IconStyle
 import com.davils.kiro.ui.icons.LocalIconStyle
 
+/**
+ * Shows a key of the keyboard, such as `Ctrl` or `K`, as a small label on a muted container.
+ *
+ * @param modifier the modifier of the key.
+ * @param style the style of the key.
+ * @param content the text or icon of the key, centered in a row.
+ * @since 1.0.0
+ */
 @Composable
 public fun Kbd(modifier: Modifier = Modifier, style: KbdStyle = kbdStyle(), content: @Composable RowScope.() -> Unit) {
     Row(
-        modifier = modifier
-            .height(style.height)
-            .widthIn(min = style.minWidth)
-            .surface(shape = style.shape, color = style.container)
-            .padding(horizontal = style.horizontalPadding),
+        modifier = modifier.then(
+            Modifier
+                .height(style.height)
+                .widthIn(min = style.minWidth)
+                .surface(shape = style.shape, color = style.container)
+                .padding(horizontal = style.horizontalPadding),
+        ),
         horizontalArrangement = Arrangement.spacedBy(style.gap, Alignment.CenterHorizontally),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -58,6 +68,15 @@ public fun Kbd(modifier: Modifier = Modifier, style: KbdStyle = kbdStyle(), cont
     }
 }
 
+/**
+ * Places keys of the keyboard next to each other, such as the keys of a shortcut, with the group gap of the style
+ * between them.
+ *
+ * @param modifier the modifier of the group.
+ * @param style the style of the keys, which gives the gap between them.
+ * @param content the keys, such as [Kbd]s and the text between them.
+ * @since 1.0.0
+ */
 @Composable
 public fun KbdGroup(
     modifier: Modifier = Modifier,

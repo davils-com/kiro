@@ -41,8 +41,8 @@ internal class CartesianLayout(
             isStacked = frame.isStacked,
         )
         val flat = spans.flatten()
-        val low = flat.minOfOrNull { span -> minOf(span.start, span.end) } ?: 0.0
-        val high = flat.maxOfOrNull { span -> maxOf(span.start, span.end) } ?: 0.0
+        val low = flat.minOfOrNull { span -> minOf(a = span.start, b = span.end) } ?: 0.0
+        val high = flat.maxOfOrNull { span -> maxOf(a = span.start, b = span.end) } ?: 0.0
         val ticks = ChartTicks.nice(min = low, max = high, count = axes.tickCount)
         val categoryLabels = data.map { point -> measurer.measure(axes.category(point.label), style.textStyle) }
         val valueLabels = ticks.map { tick -> measurer.measure(axes.value(tick), style.textStyle) }

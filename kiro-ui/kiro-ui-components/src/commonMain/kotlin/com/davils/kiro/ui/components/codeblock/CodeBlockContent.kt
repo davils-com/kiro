@@ -50,6 +50,22 @@ private const val ADDED: String = "+"
 private const val REMOVED_POINT: Int = 0x2212
 private val MARKER_INSET: Dp = 4.dp
 
+/**
+ * Shows the code of a [CodeBlock] in a monospaced font, one line of [code] per row.
+ *
+ * Long lines scroll horizontally unless [isWrapped] is set. The content can be focused, which shows the focus ring of
+ * the code block, and its text can be selected; line numbers and the markers of added and removed lines cannot.
+ *
+ * @param code the code, with lines separated by `\n`; a trailing line break is ignored.
+ * @param modifier the modifier of the content.
+ * @param isWrapped whether long lines wrap instead of scrolling horizontally.
+ * @param isLineNumbered whether a gutter shows the number of each line.
+ * @param startLine the number of the first line.
+ * @param lineVariants the variants of lines by their number, counted from [startLine]; other lines are
+ * [CodeLineVariant.Default].
+ * @param highlighter colors each line of the code.
+ * @since 1.0.0
+ */
 @Composable
 public fun CodeBlockScope.CodeBlockContent(
     code: String,

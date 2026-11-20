@@ -34,6 +34,15 @@ import com.davils.kiro.ui.components.primitive.textStyleOf
 import com.davils.kiro.ui.core.Theme
 import com.davils.kiro.ui.core.content.LocalTextStyle
 
+/**
+ * Shows an empty state, such as an empty list or a search without results: a centered column of a media, a title, a
+ * description and actions.
+ *
+ * @param modifier the modifier of the empty state, which fills the available width.
+ * @param style the style of the empty state.
+ * @param content the parts of the empty state, such as an [EmptyHeader] and an [EmptyContent].
+ * @since 1.0.0
+ */
 @Composable
 public fun Empty(
     modifier: Modifier = Modifier,
@@ -42,10 +51,12 @@ public fun Empty(
 ) {
     val surface = Modifier.surface(shape = style.shape, color = Color.Transparent, border = style.border)
     Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .then(surface)
-            .padding(style.padding),
+        modifier = modifier.then(
+            Modifier
+                .fillMaxWidth()
+                .then(surface)
+                .padding(style.padding),
+        ),
         verticalArrangement = Arrangement.spacedBy(style.gap, Alignment.CenterVertically),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {

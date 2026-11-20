@@ -92,17 +92,19 @@ internal fun <T> TabTrigger(
         onClick = onSelect,
     )
     Row(
-        modifier = modifier
-            .zIndex(layerOf(interaction.isFocusVisible))
-            .alpha(disabledAlphaOf(isDisabled = !entry.isEnabled, alpha = style.disabledAlpha))
-            .heightIn(min = style.triggerHeight)
-            .drawBehind { drawIndicator(color = indicator.value, orientation = orientation, style = style) }
-            .then(face)
-            .focusRequester(requester)
-            .focusProperties { canFocus = state.isTabbable }
-            .hoverable(interactionSource = source, enabled = entry.isEnabled)
-            .then(select)
-            .padding(horizontal = style.triggerHorizontalPadding),
+        modifier = modifier.then(
+            Modifier
+                .zIndex(layerOf(interaction.isFocusVisible))
+                .alpha(disabledAlphaOf(isDisabled = !entry.isEnabled, alpha = style.disabledAlpha))
+                .heightIn(min = style.triggerHeight)
+                .drawBehind { drawIndicator(color = indicator.value, orientation = orientation, style = style) }
+                .then(face)
+                .focusRequester(requester)
+                .focusProperties { canFocus = state.isTabbable }
+                .hoverable(interactionSource = source, enabled = entry.isEnabled)
+                .then(select)
+                .padding(horizontal = style.triggerHorizontalPadding),
+        ),
         horizontalArrangement = arrangementOf(orientation = orientation, gap = style),
         verticalAlignment = Alignment.CenterVertically,
     ) {

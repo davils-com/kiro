@@ -35,6 +35,15 @@ import com.davils.kiro.ui.icons.LocalIconStyle
 
 private const val DESCRIPTION_LINES: Int = 2
 
+/**
+ * Shows the media of an [Item], such as an icon or an image, at the start of its row.
+ *
+ * @param modifier the modifier of the media.
+ * @param variant the kind of media; [ItemMediaVariant.Image] sizes the media to the image size of the style and
+ * clips it to the image shape.
+ * @param content the media, centered, with the icon size of the style.
+ * @since 1.0.0
+ */
 @Composable
 public fun ItemScope.ItemMedia(
     modifier: Modifier = Modifier,
@@ -47,22 +56,42 @@ public fun ItemScope.ItemMedia(
     }
 }
 
+/**
+ * Shows the text of an [Item], such as a title and a description, in a column that takes the remaining width of the
+ * row.
+ *
+ * @param modifier the modifier of the column.
+ * @param content the text of the item, such as [ItemTitle] and [ItemDescription].
+ * @since 1.0.0
+ */
 @Composable
-public fun ItemScope.ItemContent(
-    modifier: Modifier = Modifier,
-    content: @Composable ItemContentScope.() -> Unit,
-) {
+public fun ItemScope.ItemContent(modifier: Modifier = Modifier, content: @Composable ItemContentScope.() -> Unit) {
     val itemStyle = style
     Column(modifier = modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(itemStyle.contentGap)) {
         ItemContentScopeImpl(columnScope = this, style = itemStyle).content()
     }
 }
 
+/**
+ * Shows the title of an [Item] on one line, cut off with an ellipsis when it is too long.
+ *
+ * @param text the title.
+ * @param modifier the modifier of the title.
+ * @since 1.0.0
+ */
 @Composable
 public fun ItemContentScope.ItemTitle(text: String, modifier: Modifier = Modifier) {
     Text(text = text, modifier = modifier, style = style.titleStyle, maxLines = 1, overflow = TextOverflow.Ellipsis)
 }
 
+/**
+ * Shows the description of an [Item] in the description color of its style, on at most two lines, cut off with an
+ * ellipsis when it is too long.
+ *
+ * @param text the description.
+ * @param modifier the modifier of the description.
+ * @since 1.0.0
+ */
 @Composable
 public fun ItemContentScope.ItemDescription(text: String, modifier: Modifier = Modifier) {
     Text(
@@ -75,6 +104,13 @@ public fun ItemContentScope.ItemDescription(text: String, modifier: Modifier = M
     )
 }
 
+/**
+ * Shows the actions of an [Item], such as buttons, in a row at the end of the item.
+ *
+ * @param modifier the modifier of the row.
+ * @param content the actions.
+ * @since 1.0.0
+ */
 @Composable
 public fun ItemScope.ItemActions(modifier: Modifier = Modifier, content: @Composable RowScope.() -> Unit) {
     Row(

@@ -75,6 +75,24 @@ private val heights: Map<SidebarMenuButtonSize, Dp> = mapOf(
     SidebarMenuButtonSize.Lg to 48.dp,
 )
 
+/**
+ * A button of a [SidebarMenuItem] with icons and a label, which shows the accent color while it is hovered, pressed
+ * or active.
+ *
+ * While the sidebar is collapsed to its icons the button shrinks to a square and shows [tooltip] at its end when it
+ * is hovered.
+ *
+ * @param onClick called when the button is clicked.
+ * @param modifier the modifier of the button.
+ * @param isActive whether the button stands for the current page; an active button is accented and its label is
+ * medium weight.
+ * @param isOutlined whether the button has a border and the background color of the style.
+ * @param size the size of the button.
+ * @param tooltip the text shown next to the button while the sidebar is collapsed to its icons, or `null` for none.
+ * @param style the style of the sidebar, by default the style of the theme.
+ * @param content the content of the button, such as an icon and a label.
+ * @since 1.0.0
+ */
 @Composable
 public fun SidebarMenuButton(
     onClick: () -> Unit,
@@ -109,6 +127,16 @@ public fun SidebarMenuButton(
     Tooltip(tooltip = { Text(hint) }, placement = Placement(side = Side.End), trigger = button)
 }
 
+/**
+ * An icon button in the top end corner of a [SidebarMenuItem], hidden while the sidebar is collapsed to its icons.
+ *
+ * @param onClick called when the action is clicked.
+ * @param icon the icon of the action.
+ * @param contentDescription the text that announces the action.
+ * @param modifier the modifier of the action.
+ * @param style the style of the sidebar, by default the style of the theme.
+ * @since 1.0.0
+ */
 @Composable
 public fun BoxScope.SidebarMenuAction(
     onClick: () -> Unit,
@@ -129,6 +157,16 @@ public fun BoxScope.SidebarMenuAction(
     }
 }
 
+/**
+ * A small icon button, such as the action of a [SidebarGroup], which shows the accent color while it is hovered.
+ *
+ * @param onClick called when the action is clicked.
+ * @param icon the icon of the action.
+ * @param contentDescription the text that announces the action.
+ * @param modifier the modifier of the action.
+ * @param style the style of the sidebar, by default the style of the theme.
+ * @since 1.0.0
+ */
 @Composable
 public fun SidebarGroupAction(
     onClick: () -> Unit,
@@ -139,13 +177,16 @@ public fun SidebarGroupAction(
 ) {
     val source = remember { MutableInteractionSource() }
     val state = source.collectInteractionState()
+    val container = style.accent.takeIf { state.isHovered } ?: Color.Transparent
     Box(
-        modifier = modifier
-            .size(style.actionSize)
-            .surface(shape = style.buttonShape, color = style.accent.takeIf { state.isHovered } ?: Color.Transparent)
-            .hoverable(interactionSource = source)
-            .then(pressable(source = source, onClick = onClick))
-            .semantics { this.contentDescription = contentDescription },
+        modifier = modifier.then(
+            Modifier
+                .size(style.actionSize)
+                .surface(shape = style.buttonShape, color = container)
+                .hoverable(interactionSource = source)
+                .then(pressable(source = source, onClick = onClick))
+                .semantics { this.contentDescription = contentDescription },
+        ),
         contentAlignment = Alignment.Center,
     ) {
         CompositionLocalProvider(LocalIconStyle provides IconStyle(size = style.iconSize)) {
@@ -154,6 +195,15 @@ public fun SidebarGroupAction(
     }
 }
 
+/**
+ * A short text, such as a count, in the top end corner of a [SidebarMenuItem], hidden while the sidebar is collapsed
+ * to its icons.
+ *
+ * @param text the text of the badge.
+ * @param modifier the modifier of the badge.
+ * @param style the style of the sidebar, by default the style of the theme.
+ * @since 1.0.0
+ */
 @Composable
 public fun BoxScope.SidebarMenuBadge(
     text: String,
@@ -162,18 +212,28 @@ public fun BoxScope.SidebarMenuBadge(
 ) {
     if (LocalIconCollapsed.current) return
     Box(
-        modifier = modifier
-            .align(Alignment.TopEnd)
-            .padding(top = ACTION_TOP, end = ACTION_END)
-            .height(style.actionSize)
-            .widthIn(min = style.actionSize)
-            .padding(horizontal = ACTION_END),
+        modifier = modifier.then(
+            Modifier
+                .align(Alignment.TopEnd)
+                .padding(top = ACTION_TOP, end = ACTION_END)
+                .height(style.actionSize)
+                .widthIn(min = style.actionSize)
+                .padding(horizontal = ACTION_END),
+        ),
         contentAlignment = Alignment.Center,
     ) {
         Text(text = text, style = style.badgeStyle)
     }
 }
 
+/**
+ * A placeholder in the shape of a [SidebarMenuButton], shown while the items of a menu load.
+ *
+ * @param modifier the modifier of the placeholder.
+ * @param isIconShown whether the placeholder has a square for an icon in front of its label.
+ * @param style the style of the sidebar, by default the style of the theme.
+ * @since 1.0.0
+ */
 @Composable
 public fun SidebarMenuSkeleton(
     modifier: Modifier = Modifier,
@@ -181,10 +241,12 @@ public fun SidebarMenuSkeleton(
     style: SidebarStyle = sidebarStyle(),
 ) {
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .height(skeletonHeight)
-            .padding(horizontal = style.buttonPadding),
+        modifier = modifier.then(
+            Modifier
+                .fillMaxWidth()
+                .height(skeletonHeight)
+                .padding(horizontal = style.buttonPadding),
+        ),
         horizontalArrangement = Arrangement.spacedBy(style.buttonGap),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -210,15 +272,17 @@ internal fun SidebarButtonRow(
     val ring = ringOf(state = state, isOutlined = isOutlined, isLit = isLit, style = style)
     val container = containerOf(isLit = isLit, isOutlined = isOutlined, style = style)
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .height(height)
-            .surface(shape = style.buttonShape, color = container, ring = ring)
-            .clipToBounds()
-            .semantics { selected = isActive }
-            .hoverable(interactionSource = source)
-            .then(pressable(source = source, onClick = onClick))
-            .padding(horizontal = style.buttonPadding),
+        modifier = modifier.then(
+            Modifier
+                .fillMaxWidth()
+                .height(height)
+                .surface(shape = style.buttonShape, color = container, ring = ring)
+                .clipToBounds()
+                .semantics { selected = isActive }
+                .hoverable(interactionSource = source)
+                .then(pressable(source = source, onClick = onClick))
+                .padding(horizontal = style.buttonPadding),
+        ),
         horizontalArrangement = Arrangement.spacedBy(style.buttonGap),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -238,7 +302,12 @@ private val skeletonHeight: Dp = 32.dp
 
 internal fun startLine(color: Color): Modifier = Modifier.drawBehind {
     val stroke = 1.dp.toPx()
-    drawLine(color = color, start = Offset(stroke / 2, 0f), end = Offset(stroke / 2, size.height), strokeWidth = stroke)
+    drawLine(
+        color = color,
+        start = Offset(x = stroke / 2, y = 0f),
+        end = Offset(x = stroke / 2, y = size.height),
+        strokeWidth = stroke,
+    )
 }
 
 private fun collapsedSize(isCollapsed: Boolean, height: Dp): Modifier {

@@ -40,21 +40,21 @@ internal fun Modifier.edgeSized(physical: Physical, fraction: Float, minSize: Dp
     ->
     val isAcross = physical == Physical.Top || physical == Physical.Bottom
     val extent = constraints.maxHeight.takeIf { isAcross } ?: constraints.maxWidth
-    val size = maxOf((extent * fraction).roundToInt(), minSize.roundToPx()).coerceAtMost(extent)
+    val size = maxOf(a = (extent * fraction).roundToInt(), b = minSize.roundToPx()).coerceAtMost(extent)
     val fixed = Constraints.fixed(width = constraints.maxWidth, height = size).takeIf { isAcross }
         ?: Constraints.fixed(width = size, height = constraints.maxHeight)
     val placeable = measurable.measure(fixed)
-    layout(placeable.width, placeable.height) { placeable.place(x = 0, y = 0) }
+    layout(width = placeable.width, height = placeable.height) { placeable.place(x = 0, y = 0) }
 }
 
 internal fun Modifier.innerEdge(physical: Physical, border: Border): Modifier = drawBehind {
     val stroke = border.width.toPx()
     val half = stroke / 2
     val (start, end) = when (physical) {
-        Physical.Top -> Offset(0f, size.height - half) to Offset(size.width, size.height - half)
-        Physical.Bottom -> Offset(0f, half) to Offset(size.width, half)
-        Physical.Left -> Offset(size.width - half, 0f) to Offset(size.width - half, size.height)
-        Physical.Right -> Offset(half, 0f) to Offset(half, size.height)
+        Physical.Top -> Offset(x = 0f, y = size.height - half) to Offset(x = size.width, y = size.height - half)
+        Physical.Bottom -> Offset(x = 0f, y = half) to Offset(x = size.width, y = half)
+        Physical.Left -> Offset(x = size.width - half, y = 0f) to Offset(x = size.width - half, y = size.height)
+        Physical.Right -> Offset(x = half, y = 0f) to Offset(x = half, y = size.height)
     }
     drawLine(color = border.color, start = start, end = end, strokeWidth = stroke)
 }

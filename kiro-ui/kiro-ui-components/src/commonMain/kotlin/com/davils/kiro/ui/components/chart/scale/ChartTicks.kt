@@ -25,10 +25,10 @@ private val steps: List<Double> = listOf(1.0, 2.0, 2.5, 5.0, 10.0)
 
 internal object ChartTicks {
     fun nice(min: Double, max: Double, count: Int): List<Double> {
-        val low = minOf(min, 0.0)
-        val high = maxOf(max, 0.0)
+        val low = minOf(a = min, b = 0.0)
+        val high = maxOf(a = max, b = 0.0)
         if (high - low <= 0.0) return listOf(0.0, 1.0)
-        val intervals = maxOf(count - 1, 1)
+        val intervals = maxOf(a = count - 1, b = 1)
         val rough = (high - low) / intervals
         val magnitude = 10.0.pow(floor(log10(rough)))
         val step = steps.first { candidate -> candidate * magnitude >= rough } * magnitude

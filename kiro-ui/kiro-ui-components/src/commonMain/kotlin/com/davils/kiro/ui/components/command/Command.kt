@@ -42,12 +42,27 @@ import com.davils.kiro.ui.components.tabs.TabsVariant
 import com.davils.kiro.ui.components.text.Text
 import com.davils.kiro.ui.core.content.LocalContentColor
 
+/**
+ * Shows a command menu: a search field above a list of commands in groups, which the query filters and ranks.
+ *
+ * The arrow keys move the highlight and Enter runs the highlighted command. An item declared with
+ * [CommandGroupScope.page] opens a page of its own; Backspace in an empty field or Escape goes back. With two or more
+ * tabs the menu shows them above the list, and Tab and Shift+Tab switch between them.
+ *
+ * @param modifier the modifier of the menu.
+ * @param state the query, the selected tab and the open pages of the menu.
+ * @param placeholder the text the empty search field shows, unless the selected tab has a placeholder of its own.
+ * @param emptyText the text shown when no command matches the query.
+ * @param style the style of the menu.
+ * @param content declares the tabs, groups and separators of the menu.
+ * @since 1.0.0
+ */
 @Composable
 public fun Command(
     modifier: Modifier = Modifier,
     state: CommandState = rememberCommandState(),
-    placeholder: String = Messages.Command.placeholder,
-    emptyText: String = Messages.Command.empty,
+    placeholder: String = Messages.Command.PLACEHOLDER,
+    emptyText: String = Messages.Command.EMPTY,
     style: CommandStyle = commandStyle(),
     content: CommandScope.() -> Unit,
 ) {
@@ -131,7 +146,7 @@ private fun CommandTabs(tabs: List<CommandTab>, selected: Int, style: CommandSty
         tabs.forEachIndexed { index, tab ->
             tab(value = index) {
                 tab.icon?.let { icon -> Icon(icon = icon, placement = IconPlacement.Leading) }
-                Text(tab.label.ifEmpty { Messages.Command.all })
+                Text(tab.label.ifEmpty { Messages.Command.ALL })
             }
         }
     }

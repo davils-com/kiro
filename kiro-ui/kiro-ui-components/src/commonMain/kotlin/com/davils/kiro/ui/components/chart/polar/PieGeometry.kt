@@ -36,7 +36,11 @@ internal class PieGeometry(val center: Offset, val inner: Float, val outer: Floa
         return index.takeIf { found -> found >= 0 }
     }
 
-    fun anchorOf(index: Int): Offset = PolarMath.pointOf(center, (inner + outer) / 2, slices[index].middle)
+    fun anchorOf(index: Int): Offset = PolarMath.pointOf(
+        center = center,
+        radius = (inner + outer) / 2,
+        degrees = slices[index].middle,
+    )
 
     companion object {
         fun of(
@@ -47,18 +51,18 @@ internal class PieGeometry(val center: Offset, val inner: Float, val outer: Floa
             padding: Float,
             values: List<Double>,
         ): PieGeometry {
-            val outer = maxOf((minOf(size.width, size.height) / 2 - margin) * fraction, 0f)
+            val outer = maxOf(a = (minOf(a = size.width, b = size.height) / 2 - margin) * fraction, b = 0f)
             val total = values.filter { value -> value > 0 }.sum()
             val filled = values.count { value -> value > 0 }
             val gaps = padding.takeIf { filled > 1 } ?: 0f
             val available = FULL - filled * gaps
             val divisor = total.takeIf { sum -> sum > 0 } ?: 1.0
-            val sweeps = values.map { value -> (maxOf(value, 0.0) / divisor).toFloat() * available }
+            val sweeps = values.map { value -> (maxOf(a = value, b = 0.0) / divisor).toFloat() * available }
             val starts = sweeps.runningFold(0f) { start, sweep -> start + sweep + gaps.takeIf { sweep > 0f }.orZero() }
             val slices = sweeps.mapIndexed { index, sweep -> PieSlice(start = starts[index], sweep = sweep) }
             return PieGeometry(
-                center = Offset(size.width / 2, size.height / 2),
-                inner = minOf(inner, outer),
+                center = Offset(x = size.width / 2, y = size.height / 2),
+                inner = minOf(a = inner, b = outer),
                 outer = outer,
                 slices = slices,
             )

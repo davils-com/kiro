@@ -40,18 +40,55 @@ private const val CHECKED_BORDER: Float = 0.4f
 private const val DARK_CHOICE: Float = 0.2f
 private const val DARK_INDICATOR: Float = 0.3f
 
+/**
+ * Resolves the [QuestionnaireStyle] of a theme.
+ *
+ * The styles of a theme are found under [QuestionnaireStyleKey]. Override them in [Theme.components] to change every
+ * questionnaire of the theme.
+ *
+ * @since 1.0.0
+ */
 public fun interface QuestionnaireStyles {
+    /**
+     * Returns the style of a questionnaire for a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of a questionnaire.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): QuestionnaireStyle
 
+    /**
+     * Holds the default [QuestionnaireStyles].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default questionnaire styles, which derive the style from the tokens of the theme alone.
+         *
+         * @since 1.0.0
+         */
         public val Default: QuestionnaireStyles = QuestionnaireStyles(::defaultQuestionnaireStyle)
     }
 }
 
+/**
+ * The key of the questionnaire styles in [Theme.components]. Its default is [QuestionnaireStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val QuestionnaireStyleKey: StyleKey<QuestionnaireStyles> = StyleKey(
     name = "questionnaire",
 ) { _ -> QuestionnaireStyles.Default }
 
+/**
+ * Returns the style of a questionnaire in the current theme: the [QuestionnaireStyles] under [QuestionnaireStyleKey],
+ * changed by the overrides of [Theme.components]. It is the default style of [Questionnaire].
+ *
+ * @return the style of a questionnaire in the current theme.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun questionnaireStyle(): QuestionnaireStyle = QuestionnaireStyleKey.current.resolve(theme)

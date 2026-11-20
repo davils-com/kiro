@@ -55,6 +55,14 @@ import kotlinx.coroutines.launch
 
 internal val LocalCodeBlock = staticCompositionLocalOf<CodeBlockSlots?> { null }
 
+/**
+ * The row above the code of a [CodeBlock], such as for a [CodeBlockTitle] and [CodeBlockActions], in the muted color
+ * and the title style of the code block.
+ *
+ * @param modifier the modifier of the header.
+ * @param content the content of the header.
+ * @since 1.0.0
+ */
 @Composable
 public fun CodeBlockScope.CodeBlockHeader(modifier: Modifier = Modifier, content: @Composable RowScope.() -> Unit) {
     val slots = this as CodeBlockSlots
@@ -69,6 +77,13 @@ public fun CodeBlockScope.CodeBlockHeader(modifier: Modifier = Modifier, content
     )
 }
 
+/**
+ * The row below the code of a [CodeBlock], in the muted color and the title style of the code block.
+ *
+ * @param modifier the modifier of the footer.
+ * @param content the content of the footer.
+ * @since 1.0.0
+ */
 @Composable
 public fun CodeBlockScope.CodeBlockFooter(modifier: Modifier = Modifier, content: @Composable RowScope.() -> Unit) {
     val slots = this as CodeBlockSlots
@@ -103,6 +118,16 @@ private fun Edge(slots: CodeBlockSlots, modifier: Modifier, content: @Composable
     }
 }
 
+/**
+ * Shows the title of a code block, such as a file name, on one line with an optional icon before it.
+ *
+ * In a [CodeBlock] the title takes the content color of the code block, elsewhere the current content color.
+ *
+ * @param text the title.
+ * @param modifier the modifier of the title.
+ * @param icon the icon before the title, or `null` for none.
+ * @since 1.0.0
+ */
 @Composable
 public fun CodeBlockTitle(text: String, modifier: Modifier = Modifier, icon: IconGraphic? = null) {
     val slots = LocalCodeBlock.current
@@ -117,6 +142,13 @@ public fun CodeBlockTitle(text: String, modifier: Modifier = Modifier, icon: Ico
     }
 }
 
+/**
+ * Holds actions at the end of a [CodeBlockHeader] or a [CodeBlockFooter] and takes the width the row leaves.
+ *
+ * @param modifier the modifier of the actions.
+ * @param content the actions.
+ * @since 1.0.0
+ */
 @Composable
 public fun RowScope.CodeBlockActions(modifier: Modifier = Modifier, content: @Composable RowScope.() -> Unit) {
     Row(
@@ -127,6 +159,15 @@ public fun RowScope.CodeBlockActions(modifier: Modifier = Modifier, content: @Co
     )
 }
 
+/**
+ * An icon button that copies a text to the clipboard and shows the copied icon and label for a while afterwards.
+ *
+ * @param value the text to copy.
+ * @param modifier the modifier of the button.
+ * @param style the style that gives the icons, the labels and how long the copied state lasts; by default the style
+ * of the enclosing [CodeBlock], or the default code block style outside one.
+ * @since 1.0.0
+ */
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable
 public fun CodeBlockCopyButton(

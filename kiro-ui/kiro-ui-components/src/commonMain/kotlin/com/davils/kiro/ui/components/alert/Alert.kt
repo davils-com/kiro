@@ -39,6 +39,21 @@ import com.davils.kiro.ui.icons.Icon
 import com.davils.kiro.ui.icons.IconGraphic
 import com.davils.kiro.ui.icons.IconStyle
 
+/**
+ * Shows a callout that draws attention to a message, with an optional icon at its start and an optional action in
+ * its top end corner.
+ *
+ * The alert fills the width of its parent and announces its content assertively to accessibility services. The
+ * content is laid out in a column, usually an [AlertTitle] and an [AlertDescription].
+ *
+ * @param modifier the modifier of the alert.
+ * @param variant the variant of the alert, which picks its colors.
+ * @param icon the icon at the start of the alert, or `null` for none.
+ * @param action the action in the top end corner, such as a close button, or `null` for none.
+ * @param style the style of the alert.
+ * @param content the content of the alert.
+ * @since 1.0.0
+ */
 @Composable
 public fun Alert(
     modifier: Modifier = Modifier,
@@ -50,10 +65,12 @@ public fun Alert(
 ) {
     val surface = Modifier.surface(shape = style.shape, color = style.container, border = style.border)
     Box(
-        modifier = modifier
-            .fillMaxWidth()
-            .then(surface)
-            .semantics { liveRegion = LiveRegionMode.Assertive },
+        modifier = modifier.then(
+            Modifier
+                .fillMaxWidth()
+                .then(surface)
+                .semantics { liveRegion = LiveRegionMode.Assertive },
+        ),
     ) {
         CompositionLocalProvider(LocalContentColor provides style.content, LocalTextStyle provides style.textStyle) {
             Row(

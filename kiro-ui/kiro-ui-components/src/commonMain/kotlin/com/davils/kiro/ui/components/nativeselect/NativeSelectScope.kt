@@ -16,8 +16,29 @@
 
 package com.davils.kiro.ui.components.nativeselect
 
+/**
+ * The scope in which the options and the groups of a [NativeSelect] are declared, in the order they are shown.
+ *
+ * @param T the type of the values.
+ * @since 1.0.0
+ */
 public interface NativeSelectScope<T> {
+    /**
+     * Adds an option.
+     *
+     * @param value the value that the option picks.
+     * @param label the text of the option.
+     * @param enabled whether the option can be picked.
+     * @since 1.0.0
+     */
     public fun option(value: T, label: String, enabled: Boolean = true)
 
+    /**
+     * Adds a group: a heading followed by the options that [content] declares.
+     *
+     * @param label the text of the heading.
+     * @param content declares the options of the group.
+     * @since 1.0.0
+     */
     public fun group(label: String, content: NativeSelectScope<T>.() -> Unit)
 }

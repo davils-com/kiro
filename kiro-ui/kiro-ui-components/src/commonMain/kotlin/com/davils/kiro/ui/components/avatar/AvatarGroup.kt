@@ -31,6 +31,17 @@ import com.davils.kiro.ui.core.content.LocalTextStyle
 import com.davils.kiro.ui.icons.IconStyle
 import com.davils.kiro.ui.icons.LocalIconStyle
 
+/**
+ * Lays out avatars in a row that overlap by the group overlap of the style, each with the group ring of the style
+ * around it.
+ *
+ * @param modifier the modifier of the row.
+ * @param size the size of the avatars, which picks the default style.
+ * @param style the style of the group, which gives the overlap and the ring and is handed to the content through
+ * [AvatarGroupScope.style].
+ * @param content the avatars of the group, in an [AvatarGroupScope] that hands them the style.
+ * @since 1.0.0
+ */
 @Composable
 public fun AvatarGroup(
     modifier: Modifier = Modifier,
@@ -49,11 +60,17 @@ public fun AvatarGroup(
     }
 }
 
+/**
+ * Shows a count, such as `+3`, of the avatars that an [AvatarGroup] leaves out, in the shape, size, fallback colors and
+ * group ring of the style of the group.
+ *
+ * @param modifier the modifier of the count.
+ * @param content the content of the count, centered, with the fallback content color and text style and the count
+ * icon size of the style.
+ * @since 1.0.0
+ */
 @Composable
-public fun AvatarGroupScope.AvatarGroupCount(
-    modifier: Modifier = Modifier,
-    content: @Composable BoxScope.() -> Unit,
-) {
+public fun AvatarGroupScope.AvatarGroupCount(modifier: Modifier = Modifier, content: @Composable BoxScope.() -> Unit) {
     val surface = Modifier.surface(shape = style.shape, color = style.fallbackContainer, ring = style.groupRing)
     CompositionLocalProvider(
         LocalContentColor provides style.fallbackContent,

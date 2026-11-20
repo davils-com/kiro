@@ -32,7 +32,7 @@ internal class RadialGeometry(
     val end: Float,
 ) {
     val band: Float
-        get() = (outer - inner) / maxOf(count, 1)
+        get() = (outer - inner) / maxOf(a = count, b = 1)
 
     val thickness: Float
         get() = band * (1 - 2 * padding)
@@ -47,7 +47,7 @@ internal class RadialGeometry(
         return index.takeIf { found -> found in 0 until count }
     }
 
-    fun anchorOf(index: Int): Offset = PolarMath.pointOf(center, radiusOf(index), start)
+    fun anchorOf(index: Int): Offset = PolarMath.pointOf(center = center, radius = radiusOf(index), degrees = start)
 
     private fun Float?.orOne(): Float = this ?: 1f
 
@@ -62,11 +62,12 @@ internal class RadialGeometry(
             padding: Float,
             angles: Pair<Float, Float>,
         ): RadialGeometry {
-            val available = maxOf((minOf(size.width, size.height) / 2 - margin) * fraction, 0f)
-            val reach = outer?.let { value -> minOf(value, minOf(size.width, size.height) / 2) } ?: available
+            val available = maxOf(a = (minOf(a = size.width, b = size.height) / 2 - margin) * fraction, b = 0f)
+            val reach = outer?.let { value -> minOf(a = value, b = minOf(a = size.width, b = size.height) / 2) }
+                ?: available
             return RadialGeometry(
-                center = Offset(size.width / 2, size.height / 2),
-                inner = minOf(inner, reach),
+                center = Offset(x = size.width / 2, y = size.height / 2),
+                inner = minOf(a = inner, b = reach),
                 outer = reach,
                 count = count,
                 padding = padding,

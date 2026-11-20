@@ -24,6 +24,21 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.core.style.StateColors
 
+/**
+ * How an [Input] or a [Textarea] looks: its size, its shape, its padding, its text and its colors.
+ *
+ * @property minHeight the smallest height of the field.
+ * @property maxHeight the largest height of the field; [Dp.Unspecified] lets the field grow with its text.
+ * @property shape the shape of the field.
+ * @property padding the padding between the edge of the field and its text.
+ * @property text the style of the text, the placeholder, the cursor and the selection.
+ * @property colors the colors of the field in each interaction state; the content color is the color of the text.
+ * @property borderWidth the width of the border.
+ * @property ringWidth the width of the focus ring.
+ * @property disabledAlpha the alpha of a disabled field.
+ * @property colorAnimation the animation of the colors when the interaction state changes.
+ * @since 1.0.0
+ */
 @Immutable
 public class InputStyle(
     public val minHeight: Dp,
@@ -40,7 +55,18 @@ public class InputStyle(
     /**
      * Returns a copy of this [InputStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param minHeight the new value of [minHeight].
+     * @param maxHeight the new value of [maxHeight].
+     * @param shape the new value of [shape].
+     * @param padding the new value of [padding].
+     * @param text the new value of [text].
+     * @param colors the new value of [colors].
+     * @param borderWidth the new value of [borderWidth].
+     * @param ringWidth the new value of [ringWidth].
+     * @param disabledAlpha the new value of [disabledAlpha].
+     * @param colorAnimation the new value of [colorAnimation].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         minHeight: Dp = this.minHeight,

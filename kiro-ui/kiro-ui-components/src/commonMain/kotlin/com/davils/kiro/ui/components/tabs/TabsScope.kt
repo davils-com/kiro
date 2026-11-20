@@ -19,7 +19,22 @@ package com.davils.kiro.ui.components.tabs
 import androidx.compose.runtime.Composable
 import com.davils.kiro.ui.components.InlineScope
 
+/**
+ * Collects the tabs of [Tabs].
+ *
+ * @param T the type of the values that identify the tabs.
+ * @since 1.0.0
+ */
 public interface TabsScope<T> {
+    /**
+     * Adds a tab after the tabs added before it.
+     *
+     * @param value the value that identifies the tab; [Tabs] selects the tab whose value equals its `selected`.
+     * @param enabled whether the tab can be selected.
+     * @param content the content shown while the tab is selected, or `null` for none.
+     * @param label the label of the tab, such as text and icons.
+     * @since 1.0.0
+     */
     public fun tab(
         value: T,
         enabled: Boolean = true,

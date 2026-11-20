@@ -16,10 +16,32 @@
 
 package com.davils.kiro.ui.components.avatar
 
+/**
+ * The size of an avatar, which picks its default style.
+ *
+ * The interface is open, so that a theme can add sizes of its own through its [AvatarStyles].
+ *
+ * @since 1.0.0
+ */
 public interface AvatarSize {
+    /**
+     * The default size of an avatar.
+     *
+     * @since 1.0.0
+     */
     public data object Default : AvatarSize
 
+    /**
+     * A small avatar, without an icon in its badge.
+     *
+     * @since 1.0.0
+     */
     public data object Sm : AvatarSize
 
+    /**
+     * A large avatar.
+     *
+     * @since 1.0.0
+     */
     public data object Lg : AvatarSize
 }

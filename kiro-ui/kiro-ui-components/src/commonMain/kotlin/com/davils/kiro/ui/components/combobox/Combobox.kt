@@ -78,6 +78,24 @@ import com.davils.kiro.ui.icons.LocalIconStyle
 
 private val openKeys: Set<Key> = setOf(Key.DirectionDown, Key.DirectionUp, Key.Enter, Key.Spacebar)
 
+/**
+ * A field that picks one of [items] from a menu with a search field, which ranks the items by how well their labels
+ * match the typed query.
+ *
+ * Clicking the trigger, or pressing the arrow keys, Enter or Space on it, opens the menu below it. The menu is at
+ * least as wide as the trigger and closes when an item is picked or when it is dismissed.
+ *
+ * @param T the type of the items.
+ * @param items the items to pick from.
+ * @param selected the picked item, or `null` while none is picked.
+ * @param onSelectedChange called with the item the user picks.
+ * @param label returns the text that shows an item and that the search matches.
+ * @param modifier the modifier of the combobox.
+ * @param placeholder the text of the trigger while no item is picked.
+ * @param emptyText the text of the menu when no item matches the query.
+ * @param style the style of the combobox, by default the style of the theme.
+ * @since 1.0.0
+ */
 @Composable
 public fun <T> Combobox(
     items: List<T>,
@@ -85,8 +103,8 @@ public fun <T> Combobox(
     onSelectedChange: (T) -> Unit,
     label: (T) -> String,
     modifier: Modifier = Modifier,
-    placeholder: String = Messages.Combobox.placeholder,
-    emptyText: String = Messages.Combobox.empty,
+    placeholder: String = Messages.Combobox.PLACEHOLDER,
+    emptyText: String = Messages.Combobox.EMPTY,
     style: ComboboxStyle = comboboxStyle(),
 ) {
     var isOpen by remember { mutableStateOf(false) }
@@ -215,7 +233,7 @@ private fun <T> ComboboxPanel(
     CompositionLocalProvider(LocalContentColor provides style.menu.panel.content) {
         Column(
             modifier = Modifier
-                .widthIn(min = maxOf(width, style.minWidth))
+                .widthIn(min = maxOf(a = width, b = style.minWidth))
                 .width(IntrinsicSize.Max)
                 .panel(style.menu.panel)
                 .onPreviewKeyEvent(keys::handle),

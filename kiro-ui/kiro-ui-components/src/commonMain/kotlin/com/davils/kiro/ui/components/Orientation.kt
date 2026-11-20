@@ -16,7 +16,23 @@
 
 package com.davils.kiro.ui.components
 
+/**
+ * The direction in which a component lays out its parts.
+ *
+ * @since 1.0.0
+ */
 public enum class Orientation {
+    /**
+     * The parts are laid out side by side, in a row.
+     *
+     * @since 1.0.0
+     */
     Horizontal,
+
+    /**
+     * The parts are laid out one below the other, in a column.
+     *
+     * @since 1.0.0
+     */
     Vertical,
 }

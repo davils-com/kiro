@@ -33,6 +33,20 @@ import androidx.compose.ui.input.key.utf16CodePoint
 import androidx.compose.ui.unit.dp
 import com.davils.kiro.ui.components.text.Text
 
+/**
+ * Asks a list of questions one at a time, as a column of a progress, the current question and its buttons.
+ *
+ * Each part, such as [QuestionnaireItem], [QuestionnaireChoice] and [QuestionnaireNext], reads the questionnaire it is
+ * placed in. When the questionnaire is submitted with every required question answered, [onSubmit] receives the
+ * answers.
+ *
+ * @param state the state of the questionnaire, which holds its questions, answers and current question.
+ * @param onSubmit called with the answers by key when the questionnaire is submitted.
+ * @param modifier the modifier of the questionnaire, which fills the available width.
+ * @param style the style of the questionnaire.
+ * @param content the parts of the questionnaire.
+ * @since 1.0.0
+ */
 @Composable
 public fun Questionnaire(
     state: QuestionnaireState,
@@ -61,6 +75,14 @@ public fun Questionnaire(
     }
 }
 
+/**
+ * Shows which question of a [Questionnaire] is the current one, such as `2 of 5`, as given by the progress label of the
+ * style.
+ *
+ * @param modifier the modifier of the text.
+ * @throws IllegalArgumentException if it is not placed inside a [Questionnaire].
+ * @since 1.0.0
+ */
 @Composable
 public fun QuestionnaireProgress(modifier: Modifier = Modifier) {
     val context = questionnaire()
@@ -75,6 +97,17 @@ public fun QuestionnaireProgress(modifier: Modifier = Modifier) {
     )
 }
 
+/**
+ * Shows the content of one question of a [Questionnaire] while that question is the current one, as a column with the
+ * gap of the style.
+ *
+ * @param key the key of the question.
+ * @param modifier the modifier of the column.
+ * @param content the content of the question, such as a [QuestionnaireTitle], a [QuestionnaireDescription] and
+ * [QuestionnaireChoices].
+ * @throws IllegalArgumentException if it is not placed inside a [Questionnaire].
+ * @since 1.0.0
+ */
 @Composable
 public fun QuestionnaireItem(
     key: QuestionKey,
@@ -90,6 +123,15 @@ public fun QuestionnaireItem(
     }
 }
 
+/**
+ * Shows the title of a question of a [Questionnaire]. Inside a [QuestionnaireItem] without a
+ * [QuestionnaireDescription], the title spacing of the style follows it.
+ *
+ * @param text the title.
+ * @param modifier the modifier of the title.
+ * @throws IllegalArgumentException if it is not placed inside a [Questionnaire].
+ * @since 1.0.0
+ */
 @Composable
 public fun QuestionnaireTitle(text: String, modifier: Modifier = Modifier) {
     val style = questionnaire().style
@@ -98,6 +140,14 @@ public fun QuestionnaireTitle(text: String, modifier: Modifier = Modifier) {
     Text(text = text, modifier = modifier.padding(bottom = spacing), style = style.titleStyle)
 }
 
+/**
+ * Shows the description of a question of a [Questionnaire], below its [QuestionnaireTitle].
+ *
+ * @param text the description.
+ * @param modifier the modifier of the description.
+ * @throws IllegalArgumentException if it is not placed inside a [Questionnaire].
+ * @since 1.0.0
+ */
 @Composable
 public fun QuestionnaireDescription(text: String, modifier: Modifier = Modifier) {
     val style = questionnaire().style
@@ -109,6 +159,14 @@ public fun QuestionnaireDescription(text: String, modifier: Modifier = Modifier)
     Text(text = text, modifier = modifier, style = style.descriptionStyle, color = style.descriptionColor)
 }
 
+/**
+ * Shows an error while the current question of a [Questionnaire] is missing its required answer.
+ *
+ * @param modifier the modifier of the error.
+ * @param text the text of the error; its default comes from the labels of the theme's questionnaire style.
+ * @throws IllegalArgumentException if it is not placed inside a [Questionnaire].
+ * @since 1.0.0
+ */
 @Composable
 public fun QuestionnaireError(modifier: Modifier = Modifier, text: String = requiredText()) {
     val context = questionnaire()

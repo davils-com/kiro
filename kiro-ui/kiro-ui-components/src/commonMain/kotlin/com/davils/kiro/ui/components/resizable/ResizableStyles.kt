@@ -28,16 +28,51 @@ import com.davils.kiro.ui.core.style.current
 
 private const val KEYBOARD_STEP: Float = 10f
 
+/**
+ * Resolves the [ResizableStyle] of a [ResizablePanelGroup] for a theme.
+ *
+ * Register your own under [ResizableStyleKey] in the component styles of a theme to change every panel group.
+ *
+ * @since 1.0.0
+ */
 public fun interface ResizableStyles {
+    /**
+     * Returns the style of a resizable panel group.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of a resizable panel group.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): ResizableStyle
 
+    /**
+     * Holds the default resizable styles.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default resizable styles, derived from the colors and radii of the theme.
+         *
+         * @since 1.0.0
+         */
         public val Default: ResizableStyles = ResizableStyles(::defaultResizableStyle)
     }
 }
 
+/**
+ * The key of the resizable styles in the component styles of a theme, named `resizable`.
+ *
+ * @since 1.0.0
+ */
 public val ResizableStyleKey: StyleKey<ResizableStyles> = StyleKey(name = "resizable") { _ -> ResizableStyles.Default }
 
+/**
+ * Returns the resizable style of the current theme.
+ *
+ * @return the style that the [ResizableStyles] registered under [ResizableStyleKey] resolve.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun resizableStyle(): ResizableStyle = ResizableStyleKey.current.resolve(theme)
@@ -53,5 +88,5 @@ internal fun defaultResizableStyle(theme: Theme): ResizableStyle = ResizableStyl
     gripShape = RoundedCornerShape(theme.radii.lg),
     gripColor = theme.colors.border,
     keyboardStep = KEYBOARD_STEP,
-    junctionLabel = Messages.Resizable.junction,
+    junctionLabel = Messages.Resizable.JUNCTION,
 )

@@ -39,6 +39,23 @@ import com.davils.kiro.ui.core.content.LocalContentColor
 import com.davils.kiro.ui.core.content.LocalTextStyle
 import com.davils.kiro.ui.core.style.Border
 
+/**
+ * Shows one entry of a list, such as a person, a file or a setting, as a row of media, content and actions with an
+ * optional header and footer.
+ *
+ * The item fills the width of its parent. With [onClick] it is hoverable and clickable and shows the hovered and
+ * pressed colors of its style.
+ *
+ * @param modifier the modifier of the item.
+ * @param variant the variant of the item, which picks the default style.
+ * @param size the size of the item, which picks the default style.
+ * @param onClick called when the item is clicked, or `null` for an item that cannot be clicked.
+ * @param style the style of the item.
+ * @param header the row above the content, or `null` for none.
+ * @param footer the row below the content, or `null` for none.
+ * @param content the parts of the item, such as [ItemMedia], [ItemContent] and [ItemActions], in a row.
+ * @since 1.0.0
+ */
 @Composable
 public fun Item(
     modifier: Modifier = Modifier,
@@ -60,11 +77,13 @@ public fun Item(
         ring = Border(width = style.ringWidth, color = colors.ring),
     )
     Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .then(surface)
-            .interactive(source = source, onClick = onClick)
-            .padding(horizontal = style.horizontalPadding, vertical = style.verticalPadding),
+        modifier = modifier.then(
+            Modifier
+                .fillMaxWidth()
+                .then(surface)
+                .interactive(source = source, onClick = onClick)
+                .padding(horizontal = style.horizontalPadding, vertical = style.verticalPadding),
+        ),
         verticalArrangement = Arrangement.spacedBy(style.gap),
     ) {
         CompositionLocalProvider(LocalContentColor provides colors.content, LocalTextStyle provides style.textStyle) {

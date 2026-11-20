@@ -28,8 +28,8 @@ internal class CategoryScale(
 ) {
     val step: Float
         get() {
-            if (isBand) return (end - start) / maxOf(count, 1)
-            return (end - start) / maxOf(count - 1, 1)
+            if (isBand) return (end - start) / maxOf(a = count, b = 1)
+            return (end - start) / maxOf(a = count - 1, b = 1)
         }
 
     val bandwidth: Float
@@ -43,7 +43,7 @@ internal class CategoryScale(
     fun indexAt(position: Float): Int? {
         if (count == 0) return null
         val raw = (position - center(0)) / step.takeIf { value -> value != 0f }.orOne()
-        return raw.roundToInt().coerceIn(0, count - 1)
+        return raw.roundToInt().coerceIn(minimumValue = 0, maximumValue = count - 1)
     }
 
     private fun pointOf(index: Int): Float {

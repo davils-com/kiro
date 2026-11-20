@@ -36,6 +36,19 @@ import com.davils.kiro.ui.components.button.ButtonVariant
 import com.davils.kiro.ui.components.input.Input
 import com.davils.kiro.ui.components.text.Text
 
+/**
+ * Shows a text field for the answer to the current question of a [Questionnaire], which takes the kind
+ * [QuestionKind.Text].
+ *
+ * The typed text is stored as an [Answer.Text]. Pressing Enter moves to the next question, or submits the questionnaire
+ * on the last one. The field is marked invalid while the current question is missing its answer.
+ *
+ * @param modifier the modifier of the field, which fills the available width.
+ * @param placeholder the text shown while the field is empty, or `null` for none.
+ * @param enabled whether the field can be edited.
+ * @throws IllegalArgumentException if it is not placed inside a [Questionnaire].
+ * @since 1.0.0
+ */
 @Composable
 public fun QuestionnaireInput(modifier: Modifier = Modifier, placeholder: String? = null, enabled: Boolean = true) {
     val context = questionnaire()
@@ -57,6 +70,15 @@ public fun QuestionnaireInput(modifier: Modifier = Modifier, placeholder: String
     )
 }
 
+/**
+ * Places the buttons of a [Questionnaire] in a row, such as [QuestionnairePrevious], [QuestionnaireSkip],
+ * [QuestionnaireNext] and [QuestionnaireSubmit].
+ *
+ * @param modifier the modifier of the row, which fills the available width.
+ * @param content the buttons.
+ * @throws IllegalArgumentException if it is not placed inside a [Questionnaire].
+ * @since 1.0.0
+ */
 @Composable
 public fun QuestionnaireActions(modifier: Modifier = Modifier, content: @Composable RowScope.() -> Unit) {
     val style = questionnaire().style
@@ -68,6 +90,19 @@ public fun QuestionnaireActions(modifier: Modifier = Modifier, content: @Composa
     )
 }
 
+/**
+ * Shows a button that moves back to the previous question of a [Questionnaire].
+ *
+ * It takes the remaining width of the row and places the button at its start, so that the buttons after it sit at the
+ * end. On the first question the button is hidden while the space stays.
+ *
+ * @param modifier the modifier of the button.
+ * @param text the text of the button; its default comes from the labels of the theme's questionnaire style.
+ * @param variant the variant of the button.
+ * @param size the size of the button.
+ * @throws IllegalArgumentException if it is not placed inside a [Questionnaire].
+ * @since 1.0.0
+ */
 @Composable
 public fun RowScope.QuestionnairePrevious(
     modifier: Modifier = Modifier,
@@ -88,6 +123,17 @@ public fun RowScope.QuestionnairePrevious(
     }
 }
 
+/**
+ * Shows a button that skips the current question of a [Questionnaire] with an [Answer.Skipped] and moves to the next
+ * one, or submits the questionnaire on the last one. It is not shown for a required question.
+ *
+ * @param modifier the modifier of the button.
+ * @param text the text of the button; its default comes from the labels of the theme's questionnaire style.
+ * @param variant the variant of the button.
+ * @param size the size of the button.
+ * @throws IllegalArgumentException if it is not placed inside a [Questionnaire].
+ * @since 1.0.0
+ */
 @Composable
 public fun QuestionnaireSkip(
     modifier: Modifier = Modifier,
@@ -105,6 +151,17 @@ public fun QuestionnaireSkip(
     ) { Text(text) }
 }
 
+/**
+ * Shows a button that moves to the next question of a [Questionnaire], unless the current question is required and
+ * missing its answer. It is not shown on the last question.
+ *
+ * @param modifier the modifier of the button.
+ * @param text the text of the button; its default comes from the labels of the theme's questionnaire style.
+ * @param variant the variant of the button.
+ * @param size the size of the button.
+ * @throws IllegalArgumentException if it is not placed inside a [Questionnaire].
+ * @since 1.0.0
+ */
 @Composable
 public fun QuestionnaireNext(
     modifier: Modifier = Modifier,
@@ -122,6 +179,17 @@ public fun QuestionnaireNext(
     ) { Text(text) }
 }
 
+/**
+ * Shows a button that submits a [Questionnaire] and hands its answers to its `onSubmit`, or moves to the first required
+ * question that is missing its answer. It is only shown on the last question.
+ *
+ * @param modifier the modifier of the button.
+ * @param text the text of the button; its default comes from the labels of the theme's questionnaire style.
+ * @param variant the variant of the button.
+ * @param size the size of the button.
+ * @throws IllegalArgumentException if it is not placed inside a [Questionnaire].
+ * @since 1.0.0
+ */
 @Composable
 public fun QuestionnaireSubmit(
     modifier: Modifier = Modifier,

@@ -38,12 +38,26 @@ import com.davils.kiro.ui.components.primitive.overlay.Placement
 import com.davils.kiro.ui.components.text.Text
 import kotlinx.datetime.LocalDate
 
+/**
+ * Shows a button with the chosen date that opens a calendar in a popover to choose a date.
+ *
+ * Choosing a day in the calendar reports it and closes the popover; choosing the chosen day again clears the date.
+ * The button shows the date formatted by the formatter of [options], or [placeholder] while no date is chosen.
+ *
+ * @param date the chosen date, or `null` while no date is chosen.
+ * @param onDateChange called with the date chosen in the calendar, or with `null` when the date is cleared.
+ * @param modifier the modifier of the button.
+ * @param placeholder the text the button shows while no date is chosen.
+ * @param options the options of the calendar, such as its formatter and the first day of the week.
+ * @param style the style of the date picker.
+ * @since 1.0.0
+ */
 @Composable
 public fun DatePicker(
     date: LocalDate?,
     onDateChange: (LocalDate?) -> Unit,
     modifier: Modifier = Modifier,
-    placeholder: String = Messages.DatePicker.placeholder,
+    placeholder: String = Messages.DatePicker.PLACEHOLDER,
     options: CalendarOptions = CalendarOptions(),
     style: DatePickerStyle = datePickerStyle(),
 ) {

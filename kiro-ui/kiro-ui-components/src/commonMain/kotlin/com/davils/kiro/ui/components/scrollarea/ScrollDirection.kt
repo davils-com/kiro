@@ -16,8 +16,30 @@
 
 package com.davils.kiro.ui.components.scrollarea
 
+/**
+ * The directions in which a [ScrollArea] scrolls.
+ *
+ * @since 1.0.0
+ */
 public enum class ScrollDirection {
+    /**
+     * Up and down.
+     *
+     * @since 1.0.0
+     */
     Vertical,
+
+    /**
+     * Left and right.
+     *
+     * @since 1.0.0
+     */
     Horizontal,
+
+    /**
+     * Up and down as well as left and right.
+     *
+     * @since 1.0.0
+     */
     Both,
 }

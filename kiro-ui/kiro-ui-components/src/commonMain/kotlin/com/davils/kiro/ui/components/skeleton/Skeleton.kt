@@ -47,6 +47,17 @@ private const val SHIMMER_ALPHA: Float = 0.6f
 private const val SHIMMER_WIDTH: Float = 0.6f
 private const val HALF: Float = 0.5f
 
+/**
+ * A placeholder block in the muted color of the theme that stands in for content while it loads.
+ *
+ * The block takes its size from [modifier] and, unless the style turns animation off, pulses or lets a shimmer run
+ * across it as the style decides.
+ *
+ * @param modifier the modifier of the block, which gives it its size.
+ * @param shape the shape of the block.
+ * @param style the style of the skeleton.
+ * @since 1.0.0
+ */
 @Composable
 public fun Skeleton(
     modifier: Modifier = Modifier,
@@ -57,11 +68,13 @@ public fun Skeleton(
     val animation = style.animation.takeIf { style.isAnimated } ?: SkeletonAnimation.None
     val phase = phaseOf(period = periodOf(animation = animation, style = style))
     Box(
-        modifier = modifier
-            .then(pulsing(animation = animation, phase = phase, style = style))
-            .surface(shape = outline, color = style.color)
-            .clip(outline)
-            .then(shimmering(animation = animation, phase = phase, style = style)),
+        modifier = modifier.then(
+            Modifier
+                .then(pulsing(animation = animation, phase = phase, style = style))
+                .surface(shape = outline, color = style.color)
+                .clip(outline)
+                .then(shimmering(animation = animation, phase = phase, style = style)),
+        ),
     )
 }
 

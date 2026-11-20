@@ -20,6 +20,20 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+/**
+ * Where an overlay, such as a popover or a menu, opens relative to its anchor.
+ *
+ * When the overlay does not fit on [side] within the window but fits on the opposite side, it opens there instead. It
+ * is then moved along the window, so that it keeps [collisionPadding] from the edges of the window where it can.
+ *
+ * @property side the side of the anchor on which the overlay opens.
+ * @property align how the overlay lines up with the anchor along that side.
+ * @property sideOffset the distance between the anchor and the overlay.
+ * @property alignOffset how far the overlay moves from its aligned position towards the inside of the anchor; a
+ * centered overlay moves to the right, or down on the start and end sides.
+ * @property collisionPadding the distance the overlay keeps from the edges of the window.
+ * @since 1.0.0
+ */
 @Immutable
 public class Placement(
     public val side: Side = Side.Bottom,
@@ -31,7 +45,13 @@ public class Placement(
     /**
      * Returns a copy of this [Placement] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param side the new value of [side].
+     * @param align the new value of [align].
+     * @param sideOffset the new value of [sideOffset].
+     * @param alignOffset the new value of [alignOffset].
+     * @param collisionPadding the new value of [collisionPadding].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         side: Side = this.side,

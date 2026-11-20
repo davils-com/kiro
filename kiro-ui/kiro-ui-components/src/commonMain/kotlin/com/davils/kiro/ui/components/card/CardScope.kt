@@ -18,7 +18,17 @@ package com.davils.kiro.ui.components.card
 
 import androidx.compose.runtime.Immutable
 
+/**
+ * The scope of the parts of a [Card], which hands them the style of their card.
+ *
+ * @since 1.0.0
+ */
 @Immutable
 public interface CardScope {
+    /**
+     * The style of the card the parts belong to.
+     *
+     * @since 1.0.0
+     */
     public val style: CardStyle
 }

@@ -65,6 +65,21 @@ import kotlinx.coroutines.delay
 private const val QUARTER_TURN: Float = 90f
 private val ROW_HEIGHT = 32.dp
 
+/**
+ * A tree of navigation items in a [com.davils.kiro.ui.components.sidebar.Sidebar], with branches that expand and
+ * collapse.
+ *
+ * Clicking an item selects it, clicking a branch expands or collapses it. The arrow keys move the focus between the
+ * visible rows and expand, enter, collapse or leave branches. While the sidebar is collapsed to its icons, the tree
+ * shows one icon button per top-level node, and a branch opens its children in a menu at its end.
+ *
+ * @param T the type of the values that identify the nodes.
+ * @param state the selected node and the expanded branches.
+ * @param modifier the modifier of the tree.
+ * @param style the style of the sidebar, by default the style of the theme.
+ * @param content declares the items and the branches of the tree.
+ * @since 1.0.0
+ */
 @Composable
 public fun <T> SidebarTree(
     state: SidebarTreeState<T>,

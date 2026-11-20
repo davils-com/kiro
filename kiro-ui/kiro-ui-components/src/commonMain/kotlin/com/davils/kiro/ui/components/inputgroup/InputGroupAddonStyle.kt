@@ -21,6 +21,23 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 
+/**
+ * The look of the addons of an [InputGroup] and of an [InputGroupText].
+ *
+ * @property gap the space between the parts of an addon and of an [InputGroupText].
+ * @property inlinePadding the padding between an addon at the start or the end and the edge of the group.
+ * @property verticalPadding the padding above and below an addon at the start or the end, and between an addon above
+ * or below the control and the control.
+ * @property blockHorizontalPadding the padding at the start and the end of an addon above or below the control.
+ * @property blockPadding the padding between an addon above or below the control and the edge of the group.
+ * @property textStyle the text style of the content of an addon.
+ * @property plainTextStyle the text style of an [InputGroupText].
+ * @property color the color of the content of an addon and of an [InputGroupText].
+ * @property iconSize the size of the icons in an addon.
+ * @property buttonOffset how far an addon at the start or the end that holds an [InputGroupButton] reaches into its
+ * padding towards the edge of the group.
+ * @since 1.0.0
+ */
 @Immutable
 public class InputGroupAddonStyle(
     public val gap: Dp,
@@ -37,7 +54,7 @@ public class InputGroupAddonStyle(
     /**
      * Returns a copy of this [InputGroupAddonStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         gap: Dp = this.gap,

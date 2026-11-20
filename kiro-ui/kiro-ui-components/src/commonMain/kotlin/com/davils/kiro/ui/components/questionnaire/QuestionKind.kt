@@ -16,8 +16,30 @@
 
 package com.davils.kiro.ui.components.questionnaire
 
+/**
+ * What kind of answer a [Question] takes.
+ *
+ * @since 1.0.0
+ */
 public enum class QuestionKind {
+    /**
+     * One value of its [QuestionnaireChoice]s, given as an [Answer.Single].
+     *
+     * @since 1.0.0
+     */
     Single,
+
+    /**
+     * Any number of values of its [QuestionnaireChoice]s, given as an [Answer.Multiple].
+     *
+     * @since 1.0.0
+     */
     Multiple,
+
+    /**
+     * Text typed into a [QuestionnaireInput], given as an [Answer.Text].
+     *
+     * @since 1.0.0
+     */
     Text,
 }

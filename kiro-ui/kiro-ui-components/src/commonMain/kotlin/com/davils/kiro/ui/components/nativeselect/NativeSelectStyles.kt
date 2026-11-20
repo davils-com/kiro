@@ -23,18 +23,59 @@ import com.davils.kiro.ui.core.Theme
 import com.davils.kiro.ui.core.style.StyleKey
 import com.davils.kiro.ui.core.style.current
 
+/**
+ * Resolves the [NativeSelectStyle] of a [NativeSelect] for a theme and a size.
+ *
+ * Register an implementation under [NativeSelectStyleKey] in the components of a theme to change the style of every
+ * native select.
+ *
+ * @since 1.0.0
+ */
 public fun interface NativeSelectStyles {
+    /**
+     * Returns the style of a native select with the given size.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @param size the size of the native select.
+     * @return the style of the native select.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme, size: NativeSelectSize): NativeSelectStyle
 
+    /**
+     * Holds the default styles of a native select.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default styles of a native select, derived from the tokens of the theme for every [NativeSelectSize]
+         * that Kiro declares.
+         *
+         * @since 1.0.0
+         */
         public val Default: NativeSelectStyles = NativeSelectStyles(::defaultNativeSelectStyle)
     }
 }
 
+/**
+ * The key of the [NativeSelectStyles] of a [NativeSelect] in the components of a theme; its default is
+ * [NativeSelectStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val NativeSelectStyleKey: StyleKey<NativeSelectStyles> = StyleKey(
     name = "native-select",
 ) { _ -> NativeSelectStyles.Default }
 
+/**
+ * Returns the style of a [NativeSelect] with the given size, as the [NativeSelectStyles] of the current theme
+ * resolve it.
+ *
+ * @param size the size of the native select.
+ * @return the style of the native select.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun nativeSelectStyle(size: NativeSelectSize): NativeSelectStyle =

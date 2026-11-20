@@ -23,6 +23,24 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.icons.IconGraphic
 
+/**
+ * The look of a [Breadcrumb] and its parts.
+ *
+ * @property gap the space between the items and separators on a line of a breadcrumb.
+ * @property itemGap the space between the parts of a [BreadcrumbItem].
+ * @property textStyle the text style handed to the content of a breadcrumb.
+ * @property color the color of the content of a breadcrumb and of a [BreadcrumbLink].
+ * @property hoverColor the color of a [BreadcrumbLink] under the pointer.
+ * @property pageColor the color of a [BreadcrumbPage].
+ * @property separatorIcon the icon of a [BreadcrumbSeparator].
+ * @property separatorSize the size of the icon of a [BreadcrumbSeparator].
+ * @property ellipsisIcon the icon of a [BreadcrumbEllipsis].
+ * @property ellipsisSize the size of the icon of a [BreadcrumbEllipsis].
+ * @property ellipsisBox the width and height of the box around the icon of a [BreadcrumbEllipsis].
+ * @property ellipsisShape the shape of the background of a [BreadcrumbEllipsis] that opens a menu.
+ * @property ellipsisHover the background color of a [BreadcrumbEllipsis] that opens a menu, under the pointer.
+ * @since 1.0.0
+ */
 @Immutable
 public class BreadcrumbStyle(
     public val gap: Dp,
@@ -42,7 +60,7 @@ public class BreadcrumbStyle(
     /**
      * Returns a copy of this [BreadcrumbStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         gap: Dp = this.gap,

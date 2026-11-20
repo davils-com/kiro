@@ -23,6 +23,19 @@ import com.davils.kiro.ui.components.chart.cartesian.CartesianFrame
 import com.davils.kiro.ui.components.chart.scale.chartNumbers
 import com.davils.kiro.ui.components.chart.spec.CartesianSpec
 
+/**
+ * Draws an area chart: one filled area per series declared in [content], over the categories of [data] from left to
+ * right, with the values growing upwards.
+ *
+ * The chart takes its colors, labels and style from the [ChartContainer] around it.
+ *
+ * @param data the points of the chart, one per category, in order.
+ * @param modifier the modifier of the chart.
+ * @param isStacked whether the areas are stacked on top of each other instead of each starting at zero.
+ * @param content declares the areas, the grid, the axes, the tooltip and the legend of the chart.
+ * @throws IllegalArgumentException if the chart is not placed in a [ChartContainer].
+ * @since 1.0.0
+ */
 @Composable
 public fun AreaChart(
     data: List<ChartPoint>,

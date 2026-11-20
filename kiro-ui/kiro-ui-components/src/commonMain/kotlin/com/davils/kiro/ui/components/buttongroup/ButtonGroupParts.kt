@@ -37,6 +37,17 @@ import com.davils.kiro.ui.core.content.LocalTextStyle
 import com.davils.kiro.ui.icons.IconStyle
 import com.davils.kiro.ui.icons.LocalIconStyle
 
+/**
+ * Shows text and icons as an item of a [ButtonGroup], on a muted container with a border, such as a label or a unit
+ * next to buttons.
+ *
+ * Outside a group the text has the round shape of [ButtonGroupStyle.radius] on every corner.
+ *
+ * @param modifier the modifier of the text.
+ * @param style the style of the group, which gives the container, the border, the text style and the icon size.
+ * @param content the text and icons, placed in a row.
+ * @since 1.0.0
+ */
 @Composable
 public fun ButtonGroupText(
     modifier: Modifier = Modifier,
@@ -47,11 +58,13 @@ public fun ButtonGroupText(
     val shape = item.shapeOr(RoundedCornerShape(style.radius))
     val surface = Modifier.surface(shape = shape, color = style.textContainer, border = style.textBorder)
     Row(
-        modifier = modifier
-            .joinedTo(item = item, overlap = style.overlap)
-            .fillMaxHeight()
-            .then(surface)
-            .padding(horizontal = style.textPadding),
+        modifier = modifier.then(
+            Modifier
+                .joinedTo(item = item, overlap = style.overlap)
+                .fillMaxHeight()
+                .then(surface)
+                .padding(horizontal = style.textPadding),
+        ),
         horizontalArrangement = Arrangement.spacedBy(style.textGap),
         verticalAlignment = Alignment.CenterVertically,
     ) {
@@ -64,6 +77,14 @@ public fun ButtonGroupText(
     }
 }
 
+/**
+ * Draws a line between two items of a [ButtonGroup], across the direction of the group: a vertical line in a row and a
+ * horizontal line in a column. Outside a group it is a vertical line.
+ *
+ * @param modifier the modifier of the separator.
+ * @param style the style of the group, which gives the color, thickness and inset of the line.
+ * @since 1.0.0
+ */
 @Composable
 public fun ButtonGroupSeparator(modifier: Modifier = Modifier, style: ButtonGroupStyle = buttonGroupStyle()) {
     val orientation = LocalGroupItem.current?.orientation ?: Orientation.Horizontal

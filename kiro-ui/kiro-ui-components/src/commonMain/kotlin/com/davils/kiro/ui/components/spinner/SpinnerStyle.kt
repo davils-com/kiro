@@ -21,6 +21,15 @@ import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.icons.IconGraphic
 import kotlin.time.Duration
 
+/**
+ * The style of a [Spinner].
+ *
+ * @property icon the icon that turns.
+ * @property size the size of the icon.
+ * @property turnDuration the duration of one full turn.
+ * @property isAnimated whether the icon turns; the default style turns it unless the theme reduces motion.
+ * @since 1.0.0
+ */
 @Immutable
 public class SpinnerStyle(
     public val icon: IconGraphic,
@@ -31,7 +40,12 @@ public class SpinnerStyle(
     /**
      * Returns a copy of this [SpinnerStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param icon the new value of [icon].
+     * @param size the new value of [size].
+     * @param turnDuration the new value of [turnDuration].
+     * @param isAnimated the new value of [isAnimated].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         icon: IconGraphic = this.icon,

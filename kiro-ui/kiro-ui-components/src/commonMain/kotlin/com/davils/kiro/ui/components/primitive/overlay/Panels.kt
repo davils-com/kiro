@@ -28,6 +28,16 @@ import com.davils.kiro.ui.core.style.Border
 
 private const val RING_ALPHA: Float = 0.1f
 
+/**
+ * Draws the panel of an overlay behind the content: the shadow, the fill and the ring of [style], and pads the content
+ * by its padding.
+ *
+ * The panel does not set the content color; the component that draws it provides [PanelStyle.content].
+ *
+ * @param style the style of the panel.
+ * @return this modifier with the panel added.
+ * @since 1.0.0
+ */
 public fun Modifier.panel(style: PanelStyle): Modifier {
     val shadowed = boxShadow(shape = style.shape, shadow = style.shadow)
     val filled = shadowed.surface(shape = style.shape, color = style.container, ring = style.ring)

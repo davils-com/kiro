@@ -22,6 +22,23 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 
+/**
+ * The style of a [Message], of its header and footer and of a [MessageGroup].
+ *
+ * @property gap the gap between the avatar and the content of a message.
+ * @property contentGap the gap between the parts of the content of a message.
+ * @property groupGap the gap between the messages of a group.
+ * @property textStyle the text style of the content of a message.
+ * @property avatarMinSize the minimum width of the avatar.
+ * @property avatarShape the shape that the avatar is clipped to.
+ * @property avatarContainer the background color behind the avatar.
+ * @property avatarLift how far the avatar is lifted when the message has a footer.
+ * @property labelStyle the text style of the header and the footer.
+ * @property labelColor the content color of the header and the footer.
+ * @property labelPadding the horizontal padding of the header and the footer, dropped while the message holds a
+ * ghost bubble.
+ * @since 1.0.0
+ */
 @Immutable
 public class MessageStyle(
     public val gap: Dp,
@@ -39,7 +56,19 @@ public class MessageStyle(
     /**
      * Returns a copy of this [MessageStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param gap the new value of [gap].
+     * @param contentGap the new value of [contentGap].
+     * @param groupGap the new value of [groupGap].
+     * @param textStyle the new value of [textStyle].
+     * @param avatarMinSize the new value of [avatarMinSize].
+     * @param avatarShape the new value of [avatarShape].
+     * @param avatarContainer the new value of [avatarContainer].
+     * @param avatarLift the new value of [avatarLift].
+     * @param labelStyle the new value of [labelStyle].
+     * @param labelColor the new value of [labelColor].
+     * @param labelPadding the new value of [labelPadding].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         gap: Dp = this.gap,

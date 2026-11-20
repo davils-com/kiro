@@ -29,7 +29,7 @@ internal object ChartCurves {
     fun path(points: List<Offset>, curve: ChartCurve): Path {
         val path = Path()
         if (points.isEmpty()) return path
-        path.moveTo(points.first().x, points.first().y)
+        path.moveTo(x = points.first().x, y = points.first().y)
         extend(path = path, points = points, curve = curve)
         return path
     }
@@ -37,7 +37,7 @@ internal object ChartCurves {
     fun extend(path: Path, points: List<Offset>, curve: ChartCurve) {
         if (points.size < 2) return
         when (curve) {
-            ChartCurve.Linear -> points.drop(1).forEach { point -> path.lineTo(point.x, point.y) }
+            ChartCurve.Linear -> points.drop(1).forEach { point -> path.lineTo(x = point.x, y = point.y) }
             ChartCurve.Step -> step(path = path, points = points)
             ChartCurve.Monotone -> bezier(path = path, points = points, tangents = monotoneTangents(points))
             ChartCurve.Natural -> natural(path = path, points = points)
@@ -47,9 +47,9 @@ internal object ChartCurves {
     private fun step(path: Path, points: List<Offset>) {
         points.zipWithNext { from, to ->
             val middle = (from.x + to.x) / 2
-            path.lineTo(middle, from.y)
-            path.lineTo(middle, to.y)
-            path.lineTo(to.x, to.y)
+            path.lineTo(x = middle, y = from.y)
+            path.lineTo(x = middle, y = to.y)
+            path.lineTo(x = to.x, y = to.y)
         }
     }
 
@@ -87,7 +87,7 @@ internal object ChartCurves {
     }
 
     private fun natural(path: Path, points: List<Offset>) {
-        if (points.size == 2) return path.lineTo(points.last().x, points.last().y)
+        if (points.size == 2) return path.lineTo(x = points.last().x, y = points.last().y)
         val xs = controls(points.map { point -> point.x })
         val ys = controls(points.map { point -> point.y })
         points.indices.drop(1).forEach { index ->

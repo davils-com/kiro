@@ -33,14 +33,45 @@ import com.davils.kiro.ui.core.style.current
 import com.davils.kiro.ui.icons.lucide.Calendar
 import com.davils.kiro.ui.icons.lucide.Lucide
 
+/**
+ * Resolves the style of a [DatePicker] for a theme.
+ *
+ * Replace it in the components of a theme under [DatePickerStyleKey] to change the style of every date picker.
+ *
+ * @since 1.0.0
+ */
 public fun interface DatePickerStyles {
+    /**
+     * Returns the style of a [DatePicker] in a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the date picker.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): DatePickerStyle
 
+    /**
+     * Holds the default [DatePickerStyles].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default style of a [DatePicker], derived from the tokens of the theme.
+         *
+         * @since 1.0.0
+         */
         public val Default: DatePickerStyles = DatePickerStyles(::defaultDatePickerStyle)
     }
 }
 
+/**
+ * Returns the style of a [DatePicker] in the theme of the composition, resolved by the [DatePickerStyles] under
+ * [DatePickerStyleKey].
+ *
+ * @return the style of the date picker.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun datePickerStyle(): DatePickerStyle = DatePickerStyleKey.current.resolve(theme)
@@ -58,6 +89,12 @@ internal fun defaultDatePickerStyle(theme: Theme): DatePickerStyle {
     )
 }
 
+/**
+ * The key of the [DatePickerStyles] of a [DatePicker] in the components of a theme; its default is
+ * [DatePickerStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val DatePickerStyleKey: StyleKey<DatePickerStyles> = StyleKey(
     name = "date-picker",
 ) { _ -> DatePickerStyles.Default }

@@ -33,6 +33,26 @@ import com.davils.kiro.ui.components.table.TableRowScope
 import com.davils.kiro.ui.components.text.Text
 import com.davils.kiro.ui.icons.IconGraphic
 
+/**
+ * Shows a page of rows in a [com.davils.kiro.ui.components.table.Table], filtered, sorted and paged by its
+ * [DataTableState].
+ *
+ * A column with a comparator has a header button that cycles through ascending, descending and no sorting. The
+ * hidden columns of the state are left out. Paging, filtering and hiding columns are controlled through [state],
+ * for example by a search field and buttons around the table.
+ *
+ * @param T the type of a row.
+ * @param data every row, before filtering, sorting and paging.
+ * @param columns the columns of the table, in order.
+ * @param key returns the stable key of a row, which the selection of [state] holds.
+ * @param modifier the modifier of the table.
+ * @param state the sorting, filter, page, hidden columns and selection of the table.
+ * @param isSelectable whether the table shows a column of checkboxes to select rows, with one in the header that
+ * selects or clears every row of the page.
+ * @param emptyText the text shown when no row is left on the page.
+ * @param style the style of the data table.
+ * @since 1.0.0
+ */
 @Composable
 public fun <T> DataTable(
     data: List<T>,
@@ -41,7 +61,7 @@ public fun <T> DataTable(
     modifier: Modifier = Modifier,
     state: DataTableState<T> = rememberDataTableState(),
     isSelectable: Boolean = false,
-    emptyText: String = Messages.DataTable.empty,
+    emptyText: String = Messages.DataTable.EMPTY,
     style: DataTableStyle = dataTableStyle(),
 ) {
     val view = state.view(data = data, columns = columns)
@@ -63,7 +83,7 @@ public fun <T> DataTable(
         }
         if (view.rows.isEmpty()) {
             row {
-                cell(span = maxOf(span, 1), alignment = Alignment.CenterHorizontally) {
+                cell(span = maxOf(a = span, b = 1), alignment = Alignment.CenterHorizontally) {
                     Box(
                         modifier = Modifier.fillMaxWidth().height(style.emptyHeight),
                         contentAlignment = Alignment.Center,

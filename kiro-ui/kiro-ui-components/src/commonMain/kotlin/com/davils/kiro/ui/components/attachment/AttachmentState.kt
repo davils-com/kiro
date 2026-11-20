@@ -16,10 +16,45 @@
 
 package com.davils.kiro.ui.components.attachment
 
+/**
+ * The state of the file behind an [Attachment], which decides its outline, colors and the animation of its title.
+ *
+ * @since 1.0.0
+ */
 public enum class AttachmentState {
+    /**
+     * No file is chosen yet; the attachment draws a dashed outline.
+     *
+     * @since 1.0.0
+     */
     Idle,
+
+    /**
+     * The file is uploading; the title shimmers unless motion is reduced and an image media is dimmed.
+     *
+     * @since 1.0.0
+     */
     Uploading,
+
+    /**
+     * The file is uploaded and being processed; the title shimmers unless motion is reduced and an image media is
+     * dimmed.
+     *
+     * @since 1.0.0
+     */
     Processing,
+
+    /**
+     * The upload or the processing failed; the outline, the media and the description use the destructive colors.
+     *
+     * @since 1.0.0
+     */
     Error,
+
+    /**
+     * The file is ready; the attachment shows its regular colors.
+     *
+     * @since 1.0.0
+     */
     Done,
 }

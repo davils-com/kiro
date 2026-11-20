@@ -25,14 +25,53 @@ private val prefixes: List<Pair<String, DesktopPlatform>> = listOf(
     "linux" to DesktopPlatform.Linux,
 )
 
+/**
+ * The operating system that a desktop application runs on, as far as the menus of a window depend on it.
+ *
+ * @since 1.0.0
+ */
 public enum class DesktopPlatform {
+    /**
+     * macOS, whose windows share the menu bar of the system.
+     *
+     * @since 1.0.0
+     */
     MacOs,
+
+    /**
+     * Windows, where a window shows its menus in a [Menubar] of its own.
+     *
+     * @since 1.0.0
+     */
     Windows,
+
+    /**
+     * Linux, where a window shows its menus in a [Menubar] of its own.
+     *
+     * @since 1.0.0
+     */
     Linux,
+
+    /**
+     * Any other operating system.
+     *
+     * @since 1.0.0
+     */
     Other,
     ;
 
+    /**
+     * Finds the platform that the application runs on.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * Returns the platform that the application runs on, read from the system property `os.name`.
+         *
+         * @return the platform that `os.name` names, or [DesktopPlatform.Other] for any other system.
+         * @since 1.0.0
+         */
         public fun current(): DesktopPlatform = platformOf(System.getProperty(OS_NAME_PROPERTY).orEmpty())
     }
 }

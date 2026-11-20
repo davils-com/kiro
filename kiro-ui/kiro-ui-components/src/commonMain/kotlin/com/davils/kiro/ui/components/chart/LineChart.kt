@@ -23,6 +23,18 @@ import com.davils.kiro.ui.components.chart.cartesian.CartesianFrame
 import com.davils.kiro.ui.components.chart.scale.chartNumbers
 import com.davils.kiro.ui.components.chart.spec.CartesianSpec
 
+/**
+ * Draws a line chart: one line per series declared in [content], over the categories of [data] from left to right,
+ * with the values growing upwards.
+ *
+ * The chart takes its colors, labels and style from the [ChartContainer] around it.
+ *
+ * @param data the points of the chart, one per category, in order.
+ * @param modifier the modifier of the chart.
+ * @param content declares the lines, the grid, the axes, the tooltip and the legend of the chart.
+ * @throws IllegalArgumentException if the chart is not placed in a [ChartContainer].
+ * @since 1.0.0
+ */
 @Composable
 public fun LineChart(data: List<ChartPoint>, modifier: Modifier = Modifier, content: LineChartScope.() -> Unit) {
     val spec = CartesianSpec(chartNumbers()).apply(content)

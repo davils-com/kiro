@@ -18,6 +18,19 @@ package com.davils.kiro.ui.components.menubar
 
 import com.davils.kiro.ui.components.menu.MenuScope
 
+/**
+ * The scope in which the menus of a [Menubar] are declared.
+ *
+ * @since 1.0.0
+ */
 public interface MenubarScope {
+    /**
+     * Adds a menu to the end of the menubar.
+     *
+     * @param label the text of the trigger of the menu.
+     * @param enabled whether the menu can be opened.
+     * @param content declares the entries of the menu.
+     * @since 1.0.0
+     */
     public fun menu(label: String, enabled: Boolean = true, content: MenuScope.() -> Unit)
 }

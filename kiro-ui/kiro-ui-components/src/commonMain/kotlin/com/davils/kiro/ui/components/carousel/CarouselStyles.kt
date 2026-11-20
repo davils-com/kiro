@@ -31,14 +31,46 @@ import com.davils.kiro.ui.icons.lucide.Lucide
 private const val SPACING_STEPS: Int = 4
 private const val OFFSET_STEPS: Int = 12
 
+/**
+ * Resolves the [CarouselStyle] of a theme.
+ *
+ * The styles of a theme are found under [CarouselStyleKey]. Override them in [Theme.components] to change every
+ * carousel of the theme.
+ *
+ * @since 1.0.0
+ */
 public fun interface CarouselStyles {
+    /**
+     * Returns the style of a carousel for a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of a carousel.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): CarouselStyle
 
+    /**
+     * Holds the default [CarouselStyles].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default carousel styles, which derive the style from the tokens of the theme alone.
+         *
+         * @since 1.0.0
+         */
         public val Default: CarouselStyles = CarouselStyles(::defaultCarouselStyle)
     }
 }
 
+/**
+ * Returns the style of a carousel in the current theme: the [CarouselStyles] under [CarouselStyleKey], changed by the
+ * overrides of [Theme.components]. It is the default style of [Carousel].
+ *
+ * @return the style of a carousel in the current theme.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun carouselStyle(): CarouselStyle = CarouselStyleKey.current.resolve(theme)
@@ -49,8 +81,13 @@ internal fun defaultCarouselStyle(theme: Theme): CarouselStyle = CarouselStyle(
     buttonShape = CircleShape,
     previousIcon = Lucide.ChevronLeft,
     nextIcon = Lucide.ChevronRight,
-    previousLabel = Messages.Carousel.previous,
-    nextLabel = Messages.Carousel.next,
+    previousLabel = Messages.Carousel.PREVIOUS,
+    nextLabel = Messages.Carousel.NEXT,
 )
 
+/**
+ * The key of the carousel styles in [Theme.components]. Its default is [CarouselStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val CarouselStyleKey: StyleKey<CarouselStyles> = StyleKey(name = "carousel") { _ -> CarouselStyles.Default }

@@ -16,8 +16,23 @@
 
 package com.davils.kiro.ui.components.menu
 
+/**
+ * The look of an item of a menu.
+ *
+ * @since 1.0.0
+ */
 public interface MenuItemVariant {
+    /**
+     * An item in the colors of the panel, highlighted in the highlight colors of the menu.
+     *
+     * @since 1.0.0
+     */
     public data object Default : MenuItemVariant
 
+    /**
+     * An item for an action that destroys or removes something, drawn in the destructive colors of the menu.
+     *
+     * @since 1.0.0
+     */
     public data object Destructive : MenuItemVariant
 }

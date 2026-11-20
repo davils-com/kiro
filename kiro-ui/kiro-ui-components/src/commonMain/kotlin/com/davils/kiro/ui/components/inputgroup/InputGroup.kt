@@ -52,6 +52,22 @@ import com.davils.kiro.ui.core.style.Border
 import com.davils.kiro.ui.icons.IconStyle
 import com.davils.kiro.ui.icons.LocalIconStyle
 
+/**
+ * Shows one input or textarea together with addons, such as icons, texts and buttons, inside one bordered field.
+ *
+ * The addons sit at the start or the end of the control, or above or below it, as their [InputGroupAlign] says.
+ * Clicking an addon outside a button focuses the control. The group has the height of [InputGroupStyle.minHeight]
+ * with a single-line input and no addon above or below it, and grows with its content otherwise.
+ *
+ * @param modifier the modifier of the group.
+ * @param enabled whether the control can be edited; a disabled group is drawn with the disabled alpha of [style].
+ * @param isInvalid whether the value is invalid, which the colors of the group show.
+ * @param style the style of the input group.
+ * @param content declares the addons and exactly one input or textarea.
+ * @throws IllegalArgumentException if [content] declares neither an input nor a textarea.
+ * @throws IllegalStateException if [content] declares more than one input or textarea.
+ * @since 1.0.0
+ */
 @Composable
 public fun InputGroup(
     modifier: Modifier = Modifier,
@@ -93,12 +109,14 @@ internal fun InputGroupLayout(
         ring = Border(width = style.ringWidth, color = colors.ring),
     )
     Column(
-        modifier = modifier
-            .graphicsLayer { this.alpha = alpha }
-            .fillMaxWidth()
-            .groupHeight(isFixed = isFixedHeight(control = control, addons = addons), height = style.minHeight)
-            .then(surface)
-            .padding(style.borderWidth),
+        modifier = modifier.then(
+            Modifier
+                .graphicsLayer { this.alpha = alpha }
+                .fillMaxWidth()
+                .groupHeight(isFixed = isFixedHeight(control = control, addons = addons), height = style.minHeight)
+                .then(surface)
+                .padding(style.borderWidth),
+        ),
         verticalArrangement = Arrangement.Center,
     ) {
         Addons(addons = addons, align = InputGroupAlign.BlockStart, style = style.addon, focus = focus)
@@ -209,19 +227,23 @@ private fun paddingOf(control: GroupControl, addons: List<GroupAddon>, style: In
     return PaddingValues(
         start = edgeOf(
             isAdjacent = InputGroupAlign.InlineStart in aligns,
-            style.inlinePadding,
-            style.horizontalPadding,
+            adjacent = style.inlinePadding,
+            otherwise = style.horizontalPadding,
         ),
-        top = edgeOf(isAdjacent = InputGroupAlign.BlockEnd in aligns, style.blockPadding, style.verticalPadding),
+        top = edgeOf(
+            isAdjacent = InputGroupAlign.BlockEnd in aligns,
+            adjacent = style.blockPadding,
+            otherwise = style.verticalPadding,
+        ),
         end = edgeOf(
             isAdjacent = InputGroupAlign.InlineEnd in aligns,
-            style.inlinePadding,
-            style.horizontalPadding,
+            adjacent = style.inlinePadding,
+            otherwise = style.horizontalPadding,
         ),
         bottom = edgeOf(
             isAdjacent = InputGroupAlign.BlockStart in aligns,
-            style.blockPadding,
-            style.verticalPadding,
+            adjacent = style.blockPadding,
+            otherwise = style.verticalPadding,
         ),
     )
 }

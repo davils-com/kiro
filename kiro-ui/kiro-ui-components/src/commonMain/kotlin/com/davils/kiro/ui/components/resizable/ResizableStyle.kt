@@ -21,6 +21,22 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 
+/**
+ * The look of the handles and the junctions of a [ResizablePanelGroup].
+ *
+ * @property thickness the thickness of the line of a handle and the space it takes between two panels.
+ * @property hitArea the size of the area around a handle or a junction that reacts to the pointer.
+ * @property color the color of the line of a handle.
+ * @property focusColor the color of the line of a handle that shows focus.
+ * @property focusWidth how much the line of a handle that shows focus grows on each side.
+ * @property gripLength the length of a grip.
+ * @property gripThickness the thickness of a grip.
+ * @property gripShape the shape of a grip.
+ * @property gripColor the color of a grip.
+ * @property keyboardStep how far an arrow key moves a handle, in percent.
+ * @property junctionLabel the text that describes a junction to assistive technologies.
+ * @since 1.0.0
+ */
 @Immutable
 public class ResizableStyle(
     public val thickness: Dp,
@@ -38,7 +54,7 @@ public class ResizableStyle(
     /**
      * Returns a copy of this [ResizableStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         thickness: Dp = this.thickness,

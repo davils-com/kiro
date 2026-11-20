@@ -19,6 +19,14 @@ package com.davils.kiro.ui.components.input
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.runtime.Immutable
 
+/**
+ * The behavior of an [Input] or a [Textarea], apart from its text and its look.
+ *
+ * @property isSecure whether the field hides its text behind dots, as a password field does.
+ * @property isReadOnly whether the text can be focused, selected and copied but not edited.
+ * @property keyboardOptions the keyboard the field asks for, such as its type and its action key.
+ * @since 1.0.0
+ */
 @Immutable
 public class InputOptions(
     public val isSecure: Boolean = false,
@@ -28,7 +36,11 @@ public class InputOptions(
     /**
      * Returns a copy of this [InputOptions] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param isSecure the new value of [isSecure].
+     * @param isReadOnly the new value of [isReadOnly].
+     * @param keyboardOptions the new value of [keyboardOptions].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         isSecure: Boolean = this.isSecure,

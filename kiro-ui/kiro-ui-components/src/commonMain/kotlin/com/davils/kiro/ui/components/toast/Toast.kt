@@ -19,6 +19,21 @@ package com.davils.kiro.ui.components.toast
 import androidx.compose.runtime.Immutable
 import kotlin.time.Duration
 
+/**
+ * One toast of a [ToasterState]: a short notice with a title, an optional description, an icon for its type and an
+ * optional action.
+ *
+ * @property id the id that [ToasterState.show] gave the toast.
+ * @property title the title of the toast.
+ * @property description the text below the title, or `null` for none.
+ * @property type the type of the toast, which picks its icon and, in a rich toaster, its colors.
+ * @property action the action button of the toast, or `null` for none.
+ * @property duration how long the toast stays before it dismisses itself, or `null` to keep it until it is dismissed.
+ * @property progress the progress bar below the text, or `null` for none.
+ * @property isDismissible whether the toast can be closed with its close button or swiped away.
+ * @property onDismiss called when the toast has left the toaster, or `null`.
+ * @since 1.0.0
+ */
 @Immutable
 public class Toast(
     public val id: ToastId,
@@ -34,7 +49,17 @@ public class Toast(
     /**
      * Returns a copy of this [Toast] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param id the new value of [id].
+     * @param title the new value of [title].
+     * @param description the new value of [description].
+     * @param type the new value of [type].
+     * @param action the new value of [action].
+     * @param duration the new value of [duration].
+     * @param progress the new value of [progress].
+     * @param isDismissible the new value of [isDismissible].
+     * @param onDismiss the new value of [onDismiss].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         id: ToastId = this.id,
@@ -65,13 +90,13 @@ public class Toast(
     override fun toString(): String = "Toast(" +
         "id=$id, " +
         "title=$title, " +
-        "description=$description, " +
+        "description=${description ?: "null"}, " +
         "type=$type, " +
-        "action=$action, " +
-        "duration=$duration, " +
-        "progress=$progress, " +
+        "action=${action ?: "null"}, " +
+        "duration=${duration ?: "null"}, " +
+        "progress=${progress ?: "null"}, " +
         "isDismissible=$isDismissible, " +
-        "onDismiss=$onDismiss)"
+        "onDismiss=${onDismiss ?: "null"})"
 
     private fun values(): List<Any?> = listOf(
         id,

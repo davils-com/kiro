@@ -23,6 +23,22 @@ import com.davils.kiro.ui.components.button.ButtonSize
 import com.davils.kiro.ui.components.button.ButtonVariant
 import com.davils.kiro.ui.icons.IconGraphic
 
+/**
+ * The look of a [MessageScroller]: the space between its messages, the fade at its bottom edge and the button that
+ * scrolls to the end.
+ *
+ * @property gap the space between two messages.
+ * @property fadeLength the height of the fade at the bottom edge while the end is not reached.
+ * @property buttonInset the distance between the button and the bottom edge.
+ * @property buttonVariant the variant of the button.
+ * @property buttonSize the size of the button.
+ * @property icon the icon of the button.
+ * @property label the content description of the button, announced by screen readers.
+ * @property hiddenScale the scale of the button when it is hidden, which it grows from as it appears.
+ * @property showAnimation the animation of the button as it appears.
+ * @property hideAnimation the animation of the button as it disappears.
+ * @since 1.0.0
+ */
 @Immutable
 public class MessageScrollerStyle(
     public val gap: Dp,
@@ -39,7 +55,7 @@ public class MessageScrollerStyle(
     /**
      * Returns a copy of this [MessageScrollerStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         gap: Dp = this.gap,

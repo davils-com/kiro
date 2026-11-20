@@ -53,6 +53,17 @@ import com.davils.kiro.ui.components.primitive.textfield.disabledAlphaOf
 import com.davils.kiro.ui.components.text.Text
 import com.davils.kiro.ui.core.focus.collectIsFocusVisibleAsState
 
+/**
+ * A row of menu triggers, each opening a dropdown menu below it.
+ *
+ * Once a menu is open, moving the pointer over another trigger opens its menu instead. The arrow keys move between the
+ * triggers and the open menus, following the layout direction.
+ *
+ * @param modifier the modifier of the menubar.
+ * @param style the look of the menubar, its triggers and its menus.
+ * @param content declares the menus of the menubar with [MenubarScope.menu].
+ * @since 1.0.0
+ */
 @Composable
 public fun Menubar(
     modifier: Modifier = Modifier,
@@ -82,11 +93,13 @@ public fun Menubar(
     )
     LaunchedEffect(focused) { focused?.let { index -> requesters[index].requestFocus() } }
     Row(
-        modifier = modifier
-            .height(style.height)
-            .surface(shape = style.shape, color = Color.Transparent, border = style.border)
-            .padding(style.padding)
-            .onPreviewKeyEvent(bar::handle),
+        modifier = modifier.then(
+            Modifier
+                .height(style.height)
+                .surface(shape = style.shape, color = Color.Transparent, border = style.border)
+                .padding(style.padding)
+                .onPreviewKeyEvent(bar::handle),
+        ),
         horizontalArrangement = Arrangement.spacedBy(style.gap),
         verticalAlignment = Alignment.CenterVertically,
     ) {

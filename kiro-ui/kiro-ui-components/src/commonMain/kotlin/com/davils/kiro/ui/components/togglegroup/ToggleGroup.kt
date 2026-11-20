@@ -48,6 +48,24 @@ import com.davils.kiro.ui.components.toggle.ToggleVariant
 import com.davils.kiro.ui.components.toggle.defaultToggleStyle
 import com.davils.kiro.ui.core.Theme
 
+/**
+ * A row or column of toggles of which one or, with [isMultiple], several can be pressed.
+ *
+ * Pressing a toggle calls [onSelectedChange] with its value added to or removed from [selected]; without
+ * [isMultiple] it replaces every other value. The arrow keys move the focus between the enabled toggles. With a spacing
+ * of zero in the style the toggles are joined: only the outer corners of the group are rounded and the toggles use the
+ * joined paddings of the style.
+ *
+ * @param T the type of the values that identify the toggles.
+ * @param selected the values of the pressed toggles.
+ * @param onSelectedChange called with the new set of pressed values when a toggle is pressed.
+ * @param modifier the modifier of the group.
+ * @param isMultiple whether several toggles can be pressed at once.
+ * @param orientation whether the toggles are laid out in a row or in a column.
+ * @param style the style of the group.
+ * @param content declares the toggles through [ToggleGroupScope.item].
+ * @since 1.0.0
+ */
 @Composable
 public fun <T> ToggleGroup(
     selected: Set<T>,

@@ -52,16 +52,52 @@ private const val TICK_MILLIS: Int = 100
 private const val TIMER_ALPHA: Float = 0.2f
 private const val SWIPE_THRESHOLD: Float = 0.45f
 
+/**
+ * Derives the [ToastStyle] from the tokens of a theme.
+ *
+ * Register an implementation for [ToastStyleKey] in the components of a theme to change the style of every toaster.
+ *
+ * @since 1.0.0
+ */
 public fun interface ToastStyles {
+    /**
+     * Returns the style of the toasts under a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the toasts.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): ToastStyle
 
+    /**
+     * Holds the default toast styles.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default toast styles, derived from the colors, the radii and the typography of a theme, with icons of
+         * Lucide.
+         *
+         * @since 1.0.0
+         */
         public val Default: ToastStyles = ToastStyles(::defaultToastStyle)
     }
 }
 
+/**
+ * The key of the toast styles in the components of a theme; its default is [ToastStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val ToastStyleKey: StyleKey<ToastStyles> = StyleKey(name = "toast") { _ -> ToastStyles.Default }
 
+/**
+ * Returns the toast style of the current theme, with the overrides of the theme for [ToastStyleKey].
+ *
+ * @return the style of the toasts.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun toastStyle(): ToastStyle = ToastStyleKey.current.resolve(theme)
@@ -114,7 +150,7 @@ internal fun defaultToastStyle(theme: Theme): ToastStyle {
             ToastType.Error to colors.status.error,
         ),
         closeIcon = Lucide.X,
-        closeLabel = Messages.Toast.close,
+        closeLabel = Messages.Toast.CLOSE,
         closeSize = 20.dp,
         progressHeight = 4.dp,
         progressTrack = colors.muted,

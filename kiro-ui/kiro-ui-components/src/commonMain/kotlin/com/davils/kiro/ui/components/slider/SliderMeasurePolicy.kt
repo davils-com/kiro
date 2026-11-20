@@ -40,7 +40,7 @@ internal class SliderMeasurePolicy(
         return when (orientation) {
             Orientation.Horizontal -> {
                 val length = lengthOf(max = constraints.maxWidth, min = constraints.minWidth, fallback = fallback)
-                layout(length, constraints.constrainHeight(thumb)) {
+                layout(width = length, height = constraints.constrainHeight(thumb)) {
                     placeables.forEachIndexed { index, placeable ->
                         placeable.placeRelative(x = offsetOf(fractions[index], length - thumb), y = 0)
                     }
@@ -49,7 +49,7 @@ internal class SliderMeasurePolicy(
 
             Orientation.Vertical -> {
                 val length = lengthOf(max = constraints.maxHeight, min = constraints.minHeight, fallback = fallback)
-                layout(constraints.constrainWidth(thumb), length) {
+                layout(width = constraints.constrainWidth(thumb), height = length) {
                     placeables.forEachIndexed { index, placeable ->
                         placeable.placeRelative(x = 0, y = offsetOf(1f - fractions[index], length - thumb))
                     }
@@ -60,7 +60,7 @@ internal class SliderMeasurePolicy(
 
     private fun lengthOf(max: Int, min: Int, fallback: Int): Int {
         if (max != Constraints.Infinity) return max
-        return maxOf(min, fallback)
+        return maxOf(a = min, b = fallback)
     }
 
     private fun offsetOf(fraction: Float, travel: Int): Int = (fraction * travel).roundToInt()

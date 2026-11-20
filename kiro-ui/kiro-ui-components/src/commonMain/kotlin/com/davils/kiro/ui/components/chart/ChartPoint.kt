@@ -18,6 +18,16 @@ package com.davils.kiro.ui.components.chart
 
 import androidx.compose.runtime.Immutable
 
+/**
+ * One category of a chart, such as a month, with the value of each series in it.
+ *
+ * A [PieChart] and a [RadialBarChart] with a single series also use the label as the key of the [ChartSeries] that
+ * names and colors the slice or ring of the point.
+ *
+ * @property label the label of the category.
+ * @property values the value of each series, by its key; a missing key counts as zero.
+ * @since 1.0.0
+ */
 @Immutable
 public class ChartPoint(
     public val label: String,
@@ -26,7 +36,10 @@ public class ChartPoint(
     /**
      * Returns a copy of this [ChartPoint] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param label the new value of [label].
+     * @param values the new value of [values].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(label: String = this.label, values: Map<ChartKey, Double> = this.values): ChartPoint = ChartPoint(
         label = label,

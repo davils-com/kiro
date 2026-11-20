@@ -27,16 +27,51 @@ import com.davils.kiro.ui.core.style.StyleKey
 import com.davils.kiro.ui.core.style.current
 import kotlin.time.Duration
 
+/**
+ * Derives the [TooltipStyle] from the tokens of a theme.
+ *
+ * Register an implementation for [TooltipStyleKey] in the components of a theme to change the style of every tooltip.
+ *
+ * @since 1.0.0
+ */
 public fun interface TooltipStyles {
+    /**
+     * Returns the style of a tooltip under a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of a tooltip.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): TooltipStyle
 
+    /**
+     * Holds the default tooltip styles.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default tooltip styles, derived from the colors, the radii and the typography of a theme, without delays.
+         *
+         * @since 1.0.0
+         */
         public val Default: TooltipStyles = TooltipStyles(::defaultTooltipStyle)
     }
 }
 
+/**
+ * The key of the tooltip styles in the components of a theme; its default is [TooltipStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val TooltipStyleKey: StyleKey<TooltipStyles> = StyleKey(name = "tooltip") { _ -> TooltipStyles.Default }
 
+/**
+ * Returns the tooltip style of the current theme, with the overrides of the theme for [TooltipStyleKey].
+ *
+ * @return the style of a tooltip.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun tooltipStyle(): TooltipStyle = TooltipStyleKey.current.resolve(theme)

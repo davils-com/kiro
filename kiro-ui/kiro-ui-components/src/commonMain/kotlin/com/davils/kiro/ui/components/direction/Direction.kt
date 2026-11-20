@@ -21,6 +21,13 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.LayoutDirection
 
+/**
+ * Lays out its content in a given direction, left to right or right to left, whatever the direction around it.
+ *
+ * @param direction the layout direction of the content.
+ * @param content the content.
+ * @since 1.0.0
+ */
 @Composable
 public fun Direction(direction: LayoutDirection, content: @Composable () -> Unit) {
     CompositionLocalProvider(LocalLayoutDirection provides direction, content = content)

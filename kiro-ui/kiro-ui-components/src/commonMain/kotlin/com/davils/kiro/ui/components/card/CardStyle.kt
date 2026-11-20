@@ -23,6 +23,24 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.core.style.Border
 
+/**
+ * The style of a [Card] and of its parts.
+ *
+ * @property shape the shape of the card.
+ * @property container the color of the container of the card.
+ * @property content the color of the content of the card.
+ * @property ring the ring around the card.
+ * @property spacing the space between the parts of the card, above the first part, below the last one and at the sides
+ * of the header, body and footer.
+ * @property textStyle the text style of the content of the card.
+ * @property headerGap the space between the parts of a [CardHeader].
+ * @property titleStyle the text style of a [CardTitle].
+ * @property descriptionStyle the text style of a [CardDescription].
+ * @property descriptionColor the color of a [CardDescription].
+ * @property footerContainer the color of the container of a [CardFooter].
+ * @property footerBorder the border on the top edge of a [CardFooter].
+ * @since 1.0.0
+ */
 @Immutable
 public class CardStyle(
     public val shape: Shape,
@@ -41,7 +59,7 @@ public class CardStyle(
     /**
      * Returns a copy of this [CardStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         shape: Shape = this.shape,

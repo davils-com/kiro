@@ -25,11 +25,27 @@ import kotlinx.datetime.TimeZone
 import kotlinx.datetime.todayIn
 import kotlin.time.Clock
 
+/**
+ * The clock from which [today] reads the current instant; the system clock by default, and a fixed clock in tests.
+ *
+ * @since 1.0.0
+ */
 public val LocalClock: ProvidableCompositionLocal<Clock> = staticCompositionLocalOf { Clock.System }
 
+/**
+ * The time zone in which [today] reads the current date; the default time zone of the system by default.
+ *
+ * @since 1.0.0
+ */
 public val LocalTimeZone: ProvidableCompositionLocal<TimeZone> =
     staticCompositionLocalOf { TimeZone.currentSystemDefault() }
 
+/**
+ * Returns the current date of [LocalClock] in [LocalTimeZone].
+ *
+ * @return the current date.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun today(): LocalDate = LocalClock.current.todayIn(LocalTimeZone.current)

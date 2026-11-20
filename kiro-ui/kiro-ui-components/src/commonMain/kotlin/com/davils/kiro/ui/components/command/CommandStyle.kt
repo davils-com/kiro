@@ -26,6 +26,34 @@ import com.davils.kiro.ui.components.primitive.overlay.PanelStyle
 import com.davils.kiro.ui.components.tabs.TabsStyle
 import com.davils.kiro.ui.icons.IconGraphic
 
+/**
+ * The look of a [Command] menu and of a [CommandDialog]: the panel, the search field, the list, the groups, the tabs
+ * and the dialog.
+ *
+ * @property panel the panel of an inline menu: its colors, shape, ring, shadow and padding.
+ * @property input the style of the search field.
+ * @property searchIcon the icon at the start of the search field.
+ * @property searchIconAlpha the opacity of [searchIcon], from 0 to 1.
+ * @property listMaxHeight the height above which the list of commands scrolls.
+ * @property groupPadding the padding around the items of a group.
+ * @property headingStyle the text style of the heading of a group.
+ * @property headingColor the color of the heading of a group and of the text shown when nothing matches.
+ * @property headingHorizontalPadding the padding at the start and the end of the heading of a group.
+ * @property headingVerticalPadding the padding above and below the heading of a group.
+ * @property item the style of the items, as rows of a menu.
+ * @property emptyStyle the text style of the text shown when nothing matches.
+ * @property emptyPadding the padding around the text shown when nothing matches.
+ * @property separatorColor the color of the line between two groups.
+ * @property gap the space between the search field, the tabs and the list.
+ * @property tabs the style of the tabs.
+ * @property pathStyle the text style of the path of the open pages at the start of the search field.
+ * @property pathColor the color of the path of the open pages.
+ * @property scrim the color drawn over the window behind a [CommandDialog].
+ * @property dialogPanel the panel of the menu in a [CommandDialog].
+ * @property dialogWidth the width of the menu in a [CommandDialog].
+ * @property dialogOffset the distance between the top of the window and the menu in a [CommandDialog].
+ * @since 1.0.0
+ */
 @Immutable
 public class CommandStyle(
     public val panel: PanelStyle,
@@ -54,7 +82,7 @@ public class CommandStyle(
     /**
      * Returns a copy of this [CommandStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         panel: PanelStyle = this.panel,

@@ -55,8 +55,8 @@ internal fun ShimmerText(
     val base = LocalContentColor.current
     val brush = Brush.linearGradient(
         colors = listOf(base, highlight, base),
-        start = Offset(offset, 0f),
-        end = Offset(offset + SHIMMER_BAND, 0f),
+        start = Offset(x = offset, y = 0f),
+        end = Offset(x = offset + SHIMMER_BAND, y = 0f),
     )
     BasicText(
         text = text,

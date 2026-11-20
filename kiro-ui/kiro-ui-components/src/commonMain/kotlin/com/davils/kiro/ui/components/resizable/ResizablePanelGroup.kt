@@ -48,6 +48,22 @@ import com.davils.kiro.ui.components.theme
 
 private const val TOTAL: Float = 100f
 
+/**
+ * Lays out panels in a row or a column, separated by handles that the user drags to share the space between them.
+ *
+ * The sizes of the panels come from [state], in percent of the space that the handles leave. A handle can also be
+ * focused and moved with the arrow keys. Where the handles of nested groups meet, a junction moves both at once.
+ * Changes of the sizes animate, except while a handle is dragged.
+ *
+ * @param state the sizes of the panels, one for each panel that [content] declares.
+ * @param modifier the modifier of the group.
+ * @param orientation whether the panels are laid out in a row or in a column.
+ * @param isGripShown whether the handles and the junctions show a grip.
+ * @param style the look of the handles.
+ * @param content declares the panels of the group with [ResizableScope.panel].
+ * @throws IllegalArgumentException if [content] declares a different number of panels than [state] has sizes.
+ * @since 1.0.0
+ */
 @Composable
 public fun ResizablePanelGroup(
     state: ResizableState,
@@ -67,7 +83,7 @@ public fun ResizablePanelGroup(
     val handles = with(LocalDensity.current) { style.thickness.toPx() } * (panels.size - 1)
     val length = remember { mutableFloatStateOf(0f) }
     val conversion = rememberUpdatedState(
-        Conversion(sign = sign, available = maxOf(length.floatValue - handles, 1f), step = style.keyboardStep),
+        Conversion(sign = sign, available = maxOf(a = length.floatValue - handles, b = 1f), step = style.keyboardStep),
     )
     val actions = remember(
         state,

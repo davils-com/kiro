@@ -24,6 +24,26 @@ import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.components.button.ButtonStyle
 import com.davils.kiro.ui.icons.IconGraphic
 
+/**
+ * The look of a [Calendar]: its container, the sizes and gaps of its grid, its texts, its days and its navigation.
+ *
+ * @property container the background color of the calendar.
+ * @property padding the padding around the content of the calendar.
+ * @property cellSize the width and height of a day, of a weekday name and of a week number.
+ * @property cellRadius the corner radius of a day and of the ends of a selected range.
+ * @property sectionGap the space between the caption and the grid of days.
+ * @property weekGap the space above each week.
+ * @property captionStyle the text style of the caption of the month.
+ * @property weekdayStyle the text style of the weekday names and week numbers.
+ * @property weekdayColor the color of the weekday names and week numbers.
+ * @property day the style of the days.
+ * @property navButton the style of the buttons to the previous and next month.
+ * @property previousIcon the icon of the button to the previous month.
+ * @property nextIcon the icon of the button to the next month.
+ * @property ringWidth the width of the focus ring of a day.
+ * @property colorAnimation the animation of the colors of a day.
+ * @since 1.0.0
+ */
 @Immutable
 public class CalendarStyle(
     public val container: Color,
@@ -45,7 +65,23 @@ public class CalendarStyle(
     /**
      * Returns a copy of this [CalendarStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param container the new value of [container].
+     * @param padding the new value of [padding].
+     * @param cellSize the new value of [cellSize].
+     * @param cellRadius the new value of [cellRadius].
+     * @param sectionGap the new value of [sectionGap].
+     * @param weekGap the new value of [weekGap].
+     * @param captionStyle the new value of [captionStyle].
+     * @param weekdayStyle the new value of [weekdayStyle].
+     * @param weekdayColor the new value of [weekdayColor].
+     * @param day the new value of [day].
+     * @param navButton the new value of [navButton].
+     * @param previousIcon the new value of [previousIcon].
+     * @param nextIcon the new value of [nextIcon].
+     * @param ringWidth the new value of [ringWidth].
+     * @param colorAnimation the new value of [colorAnimation].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         container: Color = this.container,

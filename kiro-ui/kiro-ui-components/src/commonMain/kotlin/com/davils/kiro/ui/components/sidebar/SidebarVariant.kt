@@ -16,8 +16,30 @@
 
 package com.davils.kiro.ui.components.sidebar
 
+/**
+ * The look of a [Sidebar] and of the [SidebarInset] next to it, set on the [SidebarProvider].
+ *
+ * @since 1.0.0
+ */
 public enum class SidebarVariant {
+    /**
+     * A sidebar flush with the edge of the window, with a line between it and the content.
+     *
+     * @since 1.0.0
+     */
     Sidebar,
+
+    /**
+     * A sidebar that floats inside the window as a panel with rounded corners, a ring and a shadow.
+     *
+     * @since 1.0.0
+     */
     Floating,
+
+    /**
+     * A sidebar on the sidebar background, next to content in a raised panel with rounded corners.
+     *
+     * @since 1.0.0
+     */
     Inset,
 }

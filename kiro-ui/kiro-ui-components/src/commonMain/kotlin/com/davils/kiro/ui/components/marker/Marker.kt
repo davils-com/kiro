@@ -40,6 +40,18 @@ import com.davils.kiro.ui.core.content.LocalTextStyle
 import com.davils.kiro.ui.icons.IconStyle
 import com.davils.kiro.ui.icons.LocalIconStyle
 
+/**
+ * A row of small, muted text and icons that marks a place in a list or a feed, such as a date or a note between
+ * messages.
+ *
+ * [MarkerVariant.Separator] draws a line on both sides of the content, and [MarkerVariant.Border] a line below it.
+ *
+ * @param modifier the modifier of the row.
+ * @param variant the variant of the marker.
+ * @param style the style of the marker.
+ * @param content the content of the marker, such as a text and a [MarkerIcon].
+ * @since 1.0.0
+ */
 @Composable
 public fun Marker(
     modifier: Modifier = Modifier,
@@ -54,10 +66,12 @@ public fun Marker(
         LocalIconStyle provides IconStyle(size = style.iconSize),
     ) {
         Row(
-            modifier = modifier
-                .fillMaxWidth()
-                .heightIn(min = style.minHeight)
-                .then(borderOf(variant = variant, style = style)),
+            modifier = modifier.then(
+                Modifier
+                    .fillMaxWidth()
+                    .heightIn(min = style.minHeight)
+                    .then(borderOf(variant = variant, style = style)),
+            ),
             horizontalArrangement = Arrangement.spacedBy(style.gap),
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -68,6 +82,14 @@ public fun Marker(
     }
 }
 
+/**
+ * A box in the icon size of the style for an icon in a [Marker], hidden from accessibility services.
+ *
+ * @param modifier the modifier of the box.
+ * @param style the style of the marker.
+ * @param content the icon, centered in the box.
+ * @since 1.0.0
+ */
 @Composable
 public fun MarkerIcon(
     modifier: Modifier = Modifier,
@@ -93,8 +115,8 @@ private fun borderOf(variant: MarkerVariant, style: MarkerStyle): Modifier {
         val stroke = 1.dp.toPx()
         drawLine(
             color = style.lineColor,
-            start = Offset(0f, size.height - stroke / 2),
-            end = Offset(size.width, size.height - stroke / 2),
+            start = Offset(x = 0f, y = size.height - stroke / 2),
+            end = Offset(x = size.width, y = size.height - stroke / 2),
             strokeWidth = stroke,
         )
     }

@@ -67,7 +67,7 @@ internal fun defaultToggleStyle(theme: Theme, variant: ToggleVariant, size: Togg
     val metrics = requireNotNull(metricsBySize[size]) { "No default style for the toggle size $size." }
     require(variant in knownVariants) { "No default style for the toggle variant $variant." }
     val isBordered = variant in bordered
-    val radius = metrics.radiusCap?.let { cap -> minOf(theme.radii.md, cap) } ?: theme.radii.lg
+    val radius = metrics.radiusCap?.let { cap -> minOf(a = theme.radii.md, b = cap) } ?: theme.radii.lg
     return ToggleStyle(
         height = metrics.height,
         minWidth = metrics.height,

@@ -18,6 +18,17 @@ package com.davils.kiro.ui.components.buttongroup
 
 import androidx.compose.runtime.Composable
 
+/**
+ * Collects the items of a [ButtonGroup].
+ *
+ * @since 1.0.0
+ */
 public interface ButtonGroupScope {
+    /**
+     * Adds an item to the group, after the items added before it.
+     *
+     * @param content the item, such as a button, a toggle or a [ButtonGroupText].
+     * @since 1.0.0
+     */
     public fun item(content: @Composable () -> Unit)
 }

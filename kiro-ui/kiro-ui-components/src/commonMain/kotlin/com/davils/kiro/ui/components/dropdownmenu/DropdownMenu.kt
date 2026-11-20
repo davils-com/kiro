@@ -27,14 +27,29 @@ import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalDensity
 import com.davils.kiro.ui.components.menu.MenuController
 import com.davils.kiro.ui.components.menu.MenuPanel
-import com.davils.kiro.ui.components.menu.MenuScopeImpl
 import com.davils.kiro.ui.components.menu.MenuScope
+import com.davils.kiro.ui.components.menu.MenuScopeImpl
 import com.davils.kiro.ui.components.menu.MenuStyle
 import com.davils.kiro.ui.components.menu.menuStyle
 import com.davils.kiro.ui.components.primitive.overlay.Align
 import com.davils.kiro.ui.components.primitive.overlay.OverlayPopup
 import com.davils.kiro.ui.components.primitive.overlay.Placement
 
+/**
+ * A menu that opens in a popup next to its trigger and lists the entries that [content] adds.
+ *
+ * The menu is at least as wide as the trigger and as [MenuStyle.minWidth], and it takes the focus when it opens.
+ * Choosing an item, pressing escape or clicking outside the menu asks to close it through [onExpandedChange].
+ *
+ * @param expanded whether the menu is open.
+ * @param onExpandedChange called with `false` when the menu asks to close.
+ * @param trigger the content the menu opens next to, such as a button that sets [expanded].
+ * @param modifier the modifier of the box around the trigger.
+ * @param placement where the menu opens relative to the trigger.
+ * @param style the style of the menu.
+ * @param content adds the entries of the menu.
+ * @since 1.0.0
+ */
 @Composable
 public fun DropdownMenu(
     expanded: Boolean,
@@ -59,7 +74,7 @@ public fun DropdownMenu(
             MenuPanel(
                 entries = entries,
                 controller = remember { MenuController() },
-                minWidth = maxOf(style.minWidth, anchor),
+                minWidth = maxOf(a = style.minWidth, b = anchor),
                 panelStyle = style.panel,
                 style = style,
                 onCloseAll = { onExpandedChange(false) },

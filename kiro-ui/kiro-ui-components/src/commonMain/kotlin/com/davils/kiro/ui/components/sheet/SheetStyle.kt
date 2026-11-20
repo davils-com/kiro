@@ -24,6 +24,29 @@ import com.davils.kiro.ui.core.elevation.BoxShadow
 import com.davils.kiro.ui.core.style.Border
 import com.davils.kiro.ui.icons.IconGraphic
 
+/**
+ * The look of a [Sheet] and its parts.
+ *
+ * @property container the background color of the panel.
+ * @property content the content color of the panel.
+ * @property border the border on the inner edge of the panel, the edge that faces the window.
+ * @property shadow the shadow of the panel.
+ * @property gap the space between the parts of the panel.
+ * @property textStyle the text style handed to the content of the panel.
+ * @property fraction the part of the width or the height of the window that the panel takes, from `0` to `1`.
+ * @property minSize the minimum width or height of the panel, as far as the window allows.
+ * @property sectionPadding the padding of a [SheetHeader] and a [SheetFooter].
+ * @property headerGap the space between the parts of a [SheetHeader].
+ * @property footerGap the space between the parts of a [SheetFooter].
+ * @property titleStyle the text style of a [SheetTitle].
+ * @property descriptionStyle the text style of a [SheetDescription].
+ * @property descriptionColor the color of a [SheetDescription].
+ * @property closeIcon the icon of the close button.
+ * @property closeOffset the distance of the close button from the top and the end edge of the panel.
+ * @property closeLabel the text that describes the close button to assistive technologies.
+ * @property scrim the color of the scrim behind the panel.
+ * @since 1.0.0
+ */
 @Immutable
 public class SheetStyle(
     public val container: Color,
@@ -48,7 +71,7 @@ public class SheetStyle(
     /**
      * Returns a copy of this [SheetStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         container: Color = this.container,

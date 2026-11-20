@@ -91,8 +91,8 @@ private fun Modifier.topLine(border: Border): Modifier = drawBehind {
     val stroke = border.width.toPx()
     drawLine(
         color = border.color,
-        start = Offset(0f, stroke / 2),
-        end = Offset(size.width, stroke / 2),
+        start = Offset(x = 0f, y = stroke / 2),
+        end = Offset(x = size.width, y = stroke / 2),
         strokeWidth = stroke,
     )
 }
@@ -101,5 +101,7 @@ private fun Modifier.bleed(amount: Dp): Modifier = layout { measurable, constrai
     val extra = amount.roundToPx()
     val wide = constraints.maxWidth + extra * 2
     val placeable = measurable.measure(Constraints(minWidth = wide, maxWidth = wide))
-    layout(constraints.maxWidth, maxOf(placeable.height - extra, 0)) { placeable.place(-extra, 0) }
+    layout(width = constraints.maxWidth, height = maxOf(a = placeable.height - extra, b = 0)) {
+        placeable.place(x = -extra, y = 0)
+    }
 }

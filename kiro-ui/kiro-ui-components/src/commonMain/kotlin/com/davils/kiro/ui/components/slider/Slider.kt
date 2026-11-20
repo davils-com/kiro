@@ -22,6 +22,22 @@ import com.davils.kiro.ui.components.Orientation
 
 private const val DEFAULT_MAX: Float = 100f
 
+/**
+ * Shows a slider with one thumb for choosing a value from a range, by dragging, by clicking on the track or with the
+ * keyboard.
+ *
+ * @param value the value of the slider.
+ * @param onValueChange called with the new value when the user moves the thumb.
+ * @param modifier the modifier of the slider.
+ * @param valueRange the range of the values.
+ * @param step the distance between two values the slider can take, or zero for any value in [valueRange]. The arrow
+ * keys move by one step, or by a hundredth of [valueRange] without steps, and the page keys by ten times as much.
+ * @param enabled whether the slider accepts input; a disabled slider is drawn with the disabled alpha of its style.
+ * @param orientation [Orientation.Horizontal] for a slider whose values grow in the reading direction,
+ * [Orientation.Vertical] for one whose values grow upwards.
+ * @param style the style of the slider.
+ * @since 1.0.0
+ */
 @Composable
 public fun Slider(
     value: Float,
@@ -48,6 +64,22 @@ public fun Slider(
     )
 }
 
+/**
+ * Shows a slider with two thumbs for choosing a part of a range, by dragging, by clicking on the track or with the
+ * keyboard. A click on the track moves the nearer thumb, and neither thumb can pass the other.
+ *
+ * @param value the chosen range.
+ * @param onValueChange called with the new range when the user moves a thumb.
+ * @param modifier the modifier of the slider.
+ * @param valueRange the range of the values.
+ * @param step the distance between two values the slider can take, or zero for any value in [valueRange]. The arrow
+ * keys move by one step, or by a hundredth of [valueRange] without steps, and the page keys by ten times as much.
+ * @param enabled whether the slider accepts input; a disabled slider is drawn with the disabled alpha of its style.
+ * @param orientation [Orientation.Horizontal] for a slider whose values grow in the reading direction,
+ * [Orientation.Vertical] for one whose values grow upwards.
+ * @param style the style of the slider.
+ * @since 1.0.0
+ */
 @Composable
 public fun RangeSlider(
     value: ClosedFloatingPointRange<Float>,

@@ -34,18 +34,55 @@ import kotlin.time.Duration.Companion.milliseconds
 private const val HALF: Float = 0.5f
 private const val DELAY_MILLIS: Int = 50
 
+/**
+ * Resolves the style of a [NavigationMenu] for a theme.
+ *
+ * Replace it in the components of a theme under [NavigationMenuStyleKey] to change the style of every navigation menu.
+ *
+ * @since 1.0.0
+ */
 public fun interface NavigationMenuStyles {
+    /**
+     * Returns the style of a [NavigationMenu] in a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the navigation menu.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): NavigationMenuStyle
 
+    /**
+     * Holds the default [NavigationMenuStyles].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default style of a [NavigationMenu], derived from the tokens of the theme.
+         *
+         * @since 1.0.0
+         */
         public val Default: NavigationMenuStyles = NavigationMenuStyles(::defaultNavigationMenuStyle)
     }
 }
 
+/**
+ * The key of the [NavigationMenuStyles] of a [NavigationMenu] in the components of a theme; its default is
+ * [NavigationMenuStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val NavigationMenuStyleKey: StyleKey<NavigationMenuStyles> = StyleKey(
     name = "navigation-menu",
 ) { _ -> NavigationMenuStyles.Default }
 
+/**
+ * Returns the style of a [NavigationMenu] in the theme of the composition, resolved by the [NavigationMenuStyles] under
+ * [NavigationMenuStyleKey].
+ *
+ * @return the style of the navigation menu.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun navigationMenuStyle(): NavigationMenuStyle = NavigationMenuStyleKey.current.resolve(theme)

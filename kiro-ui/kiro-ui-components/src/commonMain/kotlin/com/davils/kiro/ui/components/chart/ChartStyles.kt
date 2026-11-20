@@ -36,14 +36,44 @@ private const val ASPECT_VIDEO: Float = 16f / 9f
 private const val ANIMATION_MILLIS: Int = 1500
 private const val TABULAR: String = "tnum"
 
+/**
+ * Derives the style of the charts in a [ChartContainer] from the tokens of a theme.
+ *
+ * Register an implementation under [ChartStyleKey] in the components of a theme to change how every chart looks.
+ *
+ * @since 1.0.0
+ */
 public fun interface ChartStyles {
+    /**
+     * Returns the style of a chart for a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the chart.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): ChartStyle
 
+    /**
+     * Holds the default [ChartStyles].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default style of a chart, with the five chart colors of the theme as its palette.
+         *
+         * @since 1.0.0
+         */
         public val Default: ChartStyles = ChartStyles(::defaultChartStyle)
     }
 }
 
+/**
+ * Returns the style of a chart in the current theme, with the overrides of its components.
+ *
+ * @return the style of the chart.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun chartStyle(): ChartStyle = ChartStyleKey.current.resolve(theme)
@@ -119,4 +149,9 @@ private fun defaultTooltipStyle(theme: Theme): ChartTooltipStyle {
     )
 }
 
+/**
+ * The key of the styles of a chart in the components of a theme, with [ChartStyles.Default] as its default.
+ *
+ * @since 1.0.0
+ */
 public val ChartStyleKey: StyleKey<ChartStyles> = StyleKey(name = "chart") { _ -> ChartStyles.Default }

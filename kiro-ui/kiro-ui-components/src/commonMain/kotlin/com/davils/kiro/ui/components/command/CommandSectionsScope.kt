@@ -16,8 +16,25 @@
 
 package com.davils.kiro.ui.components.command
 
+/**
+ * The scope in which a [Command] menu, a tab or a page declares its groups and separators.
+ *
+ * @since 1.0.0
+ */
 public interface CommandSectionsScope {
+    /**
+     * Adds a group of items. While the query is not blank, a group without a matching item is hidden.
+     *
+     * @param heading the heading above the items, or `null` for none.
+     * @param content declares the items of the group.
+     * @since 1.0.0
+     */
     public fun group(heading: String? = null, content: CommandGroupScope.() -> Unit)
 
+    /**
+     * Adds a line between two groups. Separators are hidden while the query is not blank.
+     *
+     * @since 1.0.0
+     */
     public fun separator()
 }

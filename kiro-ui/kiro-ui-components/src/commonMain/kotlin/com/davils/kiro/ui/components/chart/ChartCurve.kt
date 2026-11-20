@@ -16,9 +16,37 @@
 
 package com.davils.kiro.ui.components.chart
 
+/**
+ * How the line of a [LineChart] or an [AreaChart] runs from one point to the next.
+ *
+ * @since 1.0.0
+ */
 public enum class ChartCurve {
+    /**
+     * A straight line from each point to the next.
+     *
+     * @since 1.0.0
+     */
     Linear,
+
+    /**
+     * A natural cubic spline, a smooth curve through every point that may overshoot between them.
+     *
+     * @since 1.0.0
+     */
     Natural,
+
+    /**
+     * A smooth curve through every point that never overshoots, so it rises and falls only where the values do.
+     *
+     * @since 1.0.0
+     */
     Monotone,
+
+    /**
+     * Steps that change from the value of one point to the next halfway between them.
+     *
+     * @since 1.0.0
+     */
     Step,
 }

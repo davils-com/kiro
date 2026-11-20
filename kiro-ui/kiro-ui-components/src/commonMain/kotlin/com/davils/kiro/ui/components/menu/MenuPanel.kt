@@ -66,13 +66,65 @@ internal fun MenuPanel(
     onCloseAll: () -> Unit,
     isFocusRequested: Boolean,
     nesting: MenuNesting = MenuNesting(),
-    cascade: MenuCascade? = null,
 ) {
-    val shared = cascade ?: rememberMenuCascade(onCloseAll)
-    val closeAll: () -> Unit = shared::dismiss.takeIf { nesting.chain == null } ?: onCloseAll
+    MenuPanelBody(
+        entries = entries,
+        controller = controller,
+        minWidth = minWidth,
+        panelStyle = panelStyle,
+        style = style,
+        isFocusRequested = isFocusRequested,
+        nesting = nesting,
+        links = linksOf(shared = rememberMenuCascade(onCloseAll), nesting = nesting, onCloseAll = onCloseAll),
+    )
+}
+
+@Composable
+internal fun MenuPanel(
+    entries: List<MenuEntry>,
+    controller: MenuController,
+    minWidth: Dp,
+    panelStyle: PanelStyle,
+    style: MenuStyle,
+    onCloseAll: () -> Unit,
+    isFocusRequested: Boolean,
+    cascade: MenuCascade,
+) {
+    val nesting = MenuNesting()
+    MenuPanelBody(
+        entries = entries,
+        controller = controller,
+        minWidth = minWidth,
+        panelStyle = panelStyle,
+        style = style,
+        isFocusRequested = isFocusRequested,
+        nesting = nesting,
+        links = linksOf(shared = cascade, nesting = nesting, onCloseAll = onCloseAll),
+    )
+}
+
+private fun linksOf(shared: MenuCascade, nesting: MenuNesting, onCloseAll: () -> Unit): MenuPanelLinks {
+    val closeAll = shared::dismiss.takeIf { nesting.chain == null } ?: onCloseAll
+    return MenuPanelLinks(chain = nesting.chain ?: shared.chain, closeAll = closeAll)
+}
+
+@Composable
+private fun MenuPanelBody(
+    entries: List<MenuEntry>,
+    controller: MenuController,
+    minWidth: Dp,
+    panelStyle: PanelStyle,
+    style: MenuStyle,
+    isFocusRequested: Boolean,
+    nesting: MenuNesting,
+    links: MenuPanelLinks,
+) {
+    val closeAll = links.closeAll
     val focus = remember { FocusRequester() }
     val isOpenSub = controller.openSub != null
-    LaunchedEffect(isOpenSub, isFocusRequested) { if (isFocusRequested && !isOpenSub) focus.requestFocus() }
+    LaunchedEffect(key1 = isOpenSub, key2 = isFocusRequested) {
+        if (isFocusRequested && !isOpenSub) focus.requestFocus()
+    }
     SubMenuTimers(controller = controller, entries = entries, style = style)
     val coordinates = remember { PanelCoordinates() }
     val keys = MenuKeys(
@@ -82,7 +134,7 @@ internal fun MenuPanel(
         onCloseAll = closeAll,
         onCloseSelf = nesting.onCloseSelf,
     )
-    val chain = nesting.chain ?: shared.chain
+    val chain = links.chain
     ChainRegistration(chain = chain, depth = nesting.depth, controller = controller)
     val hovering = Modifier.hoverTracking(
         onHover = { isOver -> hoverOf(chain = chain, nesting = nesting, isOver = isOver) },
@@ -263,9 +315,9 @@ private fun Modifier.bleed(amount: Dp): Modifier = layout { measurable, constrai
     val extra = amount.roundToPx() * 2
     val placeable = measurable.measure(widened(constraints = constraints, extra = extra))
     layout(
-        widthOf(constraints = constraints, measured = placeable.width),
-        placeable.height,
-    ) { placeable.place(-extra / 2, 0) }
+        width = widthOf(constraints = constraints, measured = placeable.width),
+        height = placeable.height,
+    ) { placeable.place(x = -extra / 2, y = 0) }
 }.fillMaxWidth()
 
 private fun widened(constraints: Constraints, extra: Int): Constraints {

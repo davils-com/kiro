@@ -24,6 +24,15 @@ import com.davils.kiro.ui.core.state.InteractionState
 import com.davils.kiro.ui.core.state.resolve
 import com.davils.kiro.ui.core.style.StateColors
 
+/**
+ * The colors of a control for its current interaction state, resolved from its [StateColors].
+ *
+ * @property container the color of the container.
+ * @property content the color of text and icons.
+ * @property border the color of the border.
+ * @property ring the color of the focus ring.
+ * @since 1.0.0
+ */
 @Immutable
 public class ResolvedColors(
     public val container: Color,
@@ -34,7 +43,12 @@ public class ResolvedColors(
     /**
      * Returns a copy of this [ResolvedColors] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param container the new value of [container].
+     * @param content the new value of [content].
+     * @param border the new value of [border].
+     * @param ring the new value of [ring].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         container: Color = this.container,
@@ -66,6 +80,15 @@ public class ResolvedColors(
     )
 }
 
+/**
+ * Resolves these colors for an interaction state and animates each of them towards its new value when the state
+ * changes.
+ *
+ * @param state the interaction state of the control.
+ * @param animation the animation of every color.
+ * @return the current colors of the animations.
+ * @since 1.0.0
+ */
 @Composable
 public fun StateColors.animate(state: InteractionState, animation: AnimationSpec<Color>): ResolvedColors {
     val container = animateColor(targetValue = container.resolve(state), animationSpec = animation)

@@ -23,6 +23,23 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import kotlin.time.Duration
 
+/**
+ * The style of a [Tooltip].
+ *
+ * @property container the background color of the tooltip and its arrow.
+ * @property content the content color of the tooltip.
+ * @property shape the shape of the tooltip.
+ * @property horizontalPadding the padding at the start and the end of the tooltip.
+ * @property verticalPadding the padding at the top and the bottom of the tooltip.
+ * @property textStyle the text style of the content.
+ * @property maxWidth the largest width of the tooltip.
+ * @property gap the gap between the parts of the content.
+ * @property arrowSize the width and height of the square that is turned by 45 degrees to draw the arrow.
+ * @property arrowRadius the corner radius of the arrow.
+ * @property openDelay how long the pointer or the focus must stay before the tooltip opens.
+ * @property closeDelay how long the tooltip stays open after the pointer or the focus has left.
+ * @since 1.0.0
+ */
 @Immutable
 public class TooltipStyle(
     public val container: Color,
@@ -41,7 +58,20 @@ public class TooltipStyle(
     /**
      * Returns a copy of this [TooltipStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param container the new value of [container].
+     * @param content the new value of [content].
+     * @param shape the new value of [shape].
+     * @param horizontalPadding the new value of [horizontalPadding].
+     * @param verticalPadding the new value of [verticalPadding].
+     * @param textStyle the new value of [textStyle].
+     * @param maxWidth the new value of [maxWidth].
+     * @param gap the new value of [gap].
+     * @param arrowSize the new value of [arrowSize].
+     * @param arrowRadius the new value of [arrowRadius].
+     * @param openDelay the new value of [openDelay].
+     * @param closeDelay the new value of [closeDelay].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         container: Color = this.container,

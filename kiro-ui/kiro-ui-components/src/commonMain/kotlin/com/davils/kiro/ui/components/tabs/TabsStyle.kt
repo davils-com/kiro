@@ -25,6 +25,32 @@ import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.core.elevation.BoxShadow
 import com.davils.kiro.ui.core.style.StateColors
 
+/**
+ * The style of [Tabs].
+ *
+ * @property gap the space between the list of tabs and the content.
+ * @property listContainer the color of the container of the list.
+ * @property listShape the shape of the list.
+ * @property listPadding the padding inside the list.
+ * @property listHeight the height of a horizontal list.
+ * @property listGap the space between two tabs.
+ * @property triggerHeight the smallest height of a tab.
+ * @property triggerShape the shape of a tab.
+ * @property triggerHorizontalPadding the horizontal padding inside a tab.
+ * @property triggerIconEdgePadding the padding between a leading or trailing icon and the edge of a tab.
+ * @property triggerGap the space between the parts of the label of a tab.
+ * @property textStyle the text style of the label of a tab.
+ * @property iconSize the size of the icons of a tab.
+ * @property colors the container, content, border and ring colors of a tab in each state.
+ * @property borderWidth the width of the border of a tab.
+ * @property ringWidth the width of the focus ring of a tab.
+ * @property activeShadow the shadow of the selected tab.
+ * @property indicator the line that marks the selected tab, or `null` for none.
+ * @property contentTextStyle the text style of the content of the selected tab.
+ * @property disabledAlpha the opacity of a disabled tab.
+ * @property colorAnimation the animation of the colors of a tab when its state changes.
+ * @since 1.0.0
+ */
 @Immutable
 public class TabsStyle(
     public val gap: Dp,
@@ -52,7 +78,7 @@ public class TabsStyle(
     /**
      * Returns a copy of this [TabsStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         gap: Dp = this.gap,
@@ -122,7 +148,7 @@ public class TabsStyle(
         "borderWidth=$borderWidth, " +
         "ringWidth=$ringWidth, " +
         "activeShadow=$activeShadow, " +
-        "indicator=$indicator, " +
+        "indicator=${indicator ?: "null"}, " +
         "contentTextStyle=$contentTextStyle, " +
         "disabledAlpha=$disabledAlpha, " +
         "colorAnimation=$colorAnimation)"

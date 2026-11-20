@@ -33,8 +33,8 @@ import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import com.davils.kiro.ui.components.menu.MenuController
 import com.davils.kiro.ui.components.menu.MenuPanel
-import com.davils.kiro.ui.components.menu.MenuScopeImpl
 import com.davils.kiro.ui.components.menu.MenuScope
+import com.davils.kiro.ui.components.menu.MenuScopeImpl
 import com.davils.kiro.ui.components.menu.MenuStyle
 import com.davils.kiro.ui.components.menu.menuStyle
 import com.davils.kiro.ui.components.menu.rememberMenuCascade
@@ -46,6 +46,18 @@ import kotlin.math.roundToInt
 
 private val MIN_WIDTH = 144.dp
 
+/**
+ * Wraps content that opens a menu at the position of the pointer when it is pressed with the secondary button.
+ *
+ * The menu is built from [menu], opens to the end of the pointer and closes when one of its items closes it or when
+ * it is dismissed.
+ *
+ * @param menu builds the entries of the menu.
+ * @param modifier the modifier of the box that holds the content.
+ * @param style the style of the menu, by default the menu style of the theme.
+ * @param content the content that opens the menu.
+ * @since 1.0.0
+ */
 @Composable
 public fun ContextMenu(
     menu: MenuScope.() -> Unit,
@@ -82,7 +94,7 @@ public fun ContextMenu(
                 MenuPanel(
                     entries = entries,
                     controller = remember { MenuController() },
-                    minWidth = maxOf(style.minWidth, MIN_WIDTH),
+                    minWidth = maxOf(a = style.minWidth, b = MIN_WIDTH),
                     panelStyle = style.panel,
                     style = style,
                     onCloseAll = { isOpen = false },

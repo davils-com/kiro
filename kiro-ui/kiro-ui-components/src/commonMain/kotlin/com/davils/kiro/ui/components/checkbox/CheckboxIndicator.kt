@@ -20,6 +20,14 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.icons.IconGraphic
 
+/**
+ * The mark inside a [Checkbox]: its size and the icons of the checked and of the indeterminate state.
+ *
+ * @property size the size of the icon of the mark.
+ * @property checkedIcon the icon of a checked checkbox.
+ * @property indeterminateIcon the icon of an indeterminate checkbox, shown whether it is checked or not.
+ * @since 1.0.0
+ */
 @Immutable
 public class CheckboxIndicator(
     public val size: Dp,
@@ -29,7 +37,7 @@ public class CheckboxIndicator(
     /**
      * Returns a copy of this [CheckboxIndicator] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         size: Dp = this.size,

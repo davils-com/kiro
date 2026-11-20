@@ -22,6 +22,16 @@ import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.components.primitive.overlay.PanelStyle
 import kotlin.time.Duration
 
+/**
+ * The look and timing of a [HoverCard].
+ *
+ * @property panel the panel of the card: its colors, shape, ring, shadow and padding.
+ * @property width the width of the card.
+ * @property textStyle the text style of the content of the card.
+ * @property openDelay how long the pointer has to hover before the card appears.
+ * @property closeDelay how long the card stays after the pointer has left the trigger and the card.
+ * @since 1.0.0
+ */
 @Immutable
 public class HoverCardStyle(
     public val panel: PanelStyle,
@@ -33,7 +43,7 @@ public class HoverCardStyle(
     /**
      * Returns a copy of this [HoverCardStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         panel: PanelStyle = this.panel,

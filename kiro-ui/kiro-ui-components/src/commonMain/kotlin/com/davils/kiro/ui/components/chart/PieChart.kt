@@ -42,6 +42,23 @@ import com.davils.kiro.ui.components.chart.spec.ChartSpec
 
 private const val HALF: Float = 0.5f
 
+/**
+ * Draws a pie chart, or a donut chart with an [innerRadius], with one slice per point of [data] whose size follows
+ * the value of [key] in it. Points without a positive value get no slice.
+ *
+ * Each slice is named and colored by the [ChartSeries] whose key is the label of its point. The chart takes its
+ * style from the [ChartContainer] around it.
+ *
+ * @param data the points of the chart, one per slice.
+ * @param key the key of the value of each point that sizes its slice.
+ * @param modifier the modifier of the chart.
+ * @param innerRadius the radius of the hole in the middle, or zero for a full pie.
+ * @param paddingAngle the angle in degrees left free between two slices.
+ * @param isLabelShown whether the value of each slice is drawn next to it, at the end of a line in its color.
+ * @param content declares the tooltip and the legend of the chart.
+ * @throws IllegalArgumentException if the chart is not placed in a [ChartContainer].
+ * @since 1.0.0
+ */
 @Composable
 public fun PieChart(
     data: List<ChartPoint>,

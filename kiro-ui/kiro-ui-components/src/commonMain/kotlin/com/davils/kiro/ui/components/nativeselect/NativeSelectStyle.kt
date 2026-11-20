@@ -25,6 +25,22 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.core.style.StateColors
 
+/**
+ * The style of a [NativeSelect]: the metrics, the text and the colors of its field, its chevron and its menu.
+ *
+ * @property height the height of the field.
+ * @property shape the shape of the field, its border and its focus ring.
+ * @property padding the padding around the text of the field, which leaves room for the chevron at the end.
+ * @property textStyle the style of the text of the field.
+ * @property colors the colors of the container, the content, the border and the focus ring in each interaction state.
+ * @property borderWidth the width of the border.
+ * @property ringWidth the width of the focus ring.
+ * @property icon the chevron at the end of the field.
+ * @property menu the style of the menu that lists the options.
+ * @property disabledAlpha the opacity of the whole field while it is disabled.
+ * @property colorAnimation the animation of the colors when the interaction state changes.
+ * @since 1.0.0
+ */
 @Immutable
 public class NativeSelectStyle(
     public val height: Dp,
@@ -42,7 +58,19 @@ public class NativeSelectStyle(
     /**
      * Returns a copy of this [NativeSelectStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param height the new value of [height].
+     * @param shape the new value of [shape].
+     * @param padding the new value of [padding].
+     * @param textStyle the new value of [textStyle].
+     * @param colors the new value of [colors].
+     * @param borderWidth the new value of [borderWidth].
+     * @param ringWidth the new value of [ringWidth].
+     * @param icon the new value of [icon].
+     * @param menu the new value of [menu].
+     * @param disabledAlpha the new value of [disabledAlpha].
+     * @param colorAnimation the new value of [colorAnimation].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         height: Dp = this.height,

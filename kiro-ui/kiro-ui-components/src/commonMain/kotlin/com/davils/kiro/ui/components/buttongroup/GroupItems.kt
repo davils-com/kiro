@@ -63,14 +63,14 @@ private fun Modifier.overlapping(item: GroupItem, overlap: Dp): Modifier {
         val pixels = overlap.roundToPx()
         when (item.orientation) {
             Orientation.Horizontal -> layout(
-                placeable.width - pixels,
-                placeable.height,
-            ) { placeable.placeRelative(-pixels, 0) }
+                width = placeable.width - pixels,
+                height = placeable.height,
+            ) { placeable.placeRelative(x = -pixels, y = 0) }
 
             Orientation.Vertical -> layout(
-                placeable.width,
-                placeable.height - pixels,
-            ) { placeable.place(0, -pixels) }
+                width = placeable.width,
+                height = placeable.height - pixels,
+            ) { placeable.place(x = 0, y = -pixels) }
         }
     }
 }

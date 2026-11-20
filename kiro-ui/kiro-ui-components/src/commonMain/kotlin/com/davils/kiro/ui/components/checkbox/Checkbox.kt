@@ -52,6 +52,21 @@ import com.davils.kiro.ui.icons.lucide.Minus
 
 private const val DISABLED_ALPHA: Float = 0.5f
 
+/**
+ * A box that the user checks or unchecks, with an optional indeterminate state for a choice that is only partly made.
+ *
+ * A click calls [onCheckedChange] with the negation of [checked], also while the checkbox is indeterminate.
+ *
+ * @param checked whether the checkbox is checked.
+ * @param onCheckedChange called with the new checked state when the user toggles the checkbox.
+ * @param modifier the modifier of the checkbox.
+ * @param enabled whether the user can toggle the checkbox; a disabled checkbox is drawn with the disabled alpha.
+ * @param isInvalid whether the checkbox shows the colors of an invalid value.
+ * @param isIndeterminate whether the checkbox shows the indeterminate mark instead of its checked state.
+ * @param style the look of the checkbox.
+ * @param interactionSource the source of the interactions of the checkbox, or `null` to use one of its own.
+ * @since 1.0.0
+ */
 @Composable
 public fun Checkbox(
     checked: Boolean,
@@ -75,19 +90,21 @@ public fun Checkbox(
         ring = Border(width = style.ringWidth, color = colors.ring),
     )
     Box(
-        modifier = modifier
-            .alpha(disabledAlphaOf(isDisabled = !enabled, alpha = style.disabledAlpha))
-            .size(style.size)
-            .then(surface)
-            .pressableCursor(enabled = enabled)
-            .triStateToggleable(
-                state = toggleableStateOf(checked = checked, isIndeterminate = isIndeterminate),
-                interactionSource = source,
-                indication = null,
-                enabled = enabled,
-                role = Role.Checkbox,
-                onClick = { onCheckedChange(!checked) },
-            ),
+        modifier = modifier.then(
+            Modifier
+                .alpha(disabledAlphaOf(isDisabled = !enabled, alpha = style.disabledAlpha))
+                .size(style.size)
+                .then(surface)
+                .pressableCursor(enabled = enabled)
+                .triStateToggleable(
+                    state = toggleableStateOf(checked = checked, isIndeterminate = isIndeterminate),
+                    interactionSource = source,
+                    indication = null,
+                    enabled = enabled,
+                    role = Role.Checkbox,
+                    onClick = { onCheckedChange(!checked) },
+                ),
+        ),
         contentAlignment = Alignment.Center,
     ) {
         markOf(checked = checked, isIndeterminate = isIndeterminate, indicator = style.indicator)?.let { mark ->

@@ -16,8 +16,23 @@
 
 package com.davils.kiro.ui.components.select
 
+/**
+ * The size of a [Select], which chooses the height and shape of its default style.
+ *
+ * @since 1.0.0
+ */
 public interface SelectSize {
+    /**
+     * The default size.
+     *
+     * @since 1.0.0
+     */
     public data object Default : SelectSize
 
+    /**
+     * A smaller size with a lower field and a smaller corner radius.
+     *
+     * @since 1.0.0
+     */
     public data object Sm : SelectSize
 }

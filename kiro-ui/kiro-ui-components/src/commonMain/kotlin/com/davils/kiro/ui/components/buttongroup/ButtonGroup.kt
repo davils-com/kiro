@@ -31,6 +31,19 @@ import com.davils.kiro.ui.components.primitive.textStyleOf
 import com.davils.kiro.ui.core.Theme
 import com.davils.kiro.ui.core.style.Border
 
+/**
+ * Places buttons and other controls next to each other as one joined group.
+ *
+ * The items are laid out in a row or in a column, in the order they were added. Buttons, toggles and
+ * [ButtonGroupText] in the group square the corners that touch their neighbours and overlap them, so that their borders
+ * meet as one line; only the outer corners of the first and the last item stay round.
+ *
+ * @param modifier the modifier of the group.
+ * @param orientation whether the items are placed in a row or in a column.
+ * @param style the style of the group.
+ * @param content adds the items of the group through [ButtonGroupScope.item].
+ * @since 1.0.0
+ */
 @Composable
 public fun ButtonGroup(
     modifier: Modifier = Modifier,

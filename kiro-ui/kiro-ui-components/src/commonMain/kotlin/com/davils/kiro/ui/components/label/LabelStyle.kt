@@ -19,6 +19,13 @@ package com.davils.kiro.ui.components.label
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.text.TextStyle
 
+/**
+ * How a [Label] looks: its text style and its alpha while disabled.
+ *
+ * @property textStyle the text style of the label.
+ * @property disabledAlpha the alpha of the label while it is disabled.
+ * @since 1.0.0
+ */
 @Immutable
 public class LabelStyle(
     public val textStyle: TextStyle,
@@ -27,7 +34,10 @@ public class LabelStyle(
     /**
      * Returns a copy of this [LabelStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param textStyle the new value of [textStyle].
+     * @param disabledAlpha the new value of [disabledAlpha].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(textStyle: TextStyle = this.textStyle, disabledAlpha: Float = this.disabledAlpha): LabelStyle =
         LabelStyle(

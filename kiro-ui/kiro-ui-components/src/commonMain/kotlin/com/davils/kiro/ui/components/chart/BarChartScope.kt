@@ -19,6 +19,18 @@ package com.davils.kiro.ui.components.chart
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+/**
+ * The scope in which the content of a [BarChart] declares its bars.
+ *
+ * @since 1.0.0
+ */
 public interface BarChartScope : CartesianChartScope {
+    /**
+     * Declares the bars of one series. The bars of a category are placed in the order they are declared.
+     *
+     * @param key the key of the series in the values of each [ChartPoint].
+     * @param radius the radius of the corners of each bar, limited to half its width and height.
+     * @since 1.0.0
+     */
     public fun bar(key: ChartKey, radius: Dp = 0.dp)
 }

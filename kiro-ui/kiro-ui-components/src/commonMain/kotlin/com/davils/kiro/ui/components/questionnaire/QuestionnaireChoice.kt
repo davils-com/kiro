@@ -55,6 +55,14 @@ import com.davils.kiro.ui.icons.Icon
 import com.davils.kiro.ui.icons.IconStyle
 import com.davils.kiro.ui.icons.LocalIconStyle
 
+/**
+ * Places the [QuestionnaireChoice]s of a question in a column, with the choices gap of the style between them.
+ *
+ * @param modifier the modifier of the column, which fills the available width.
+ * @param content the choices.
+ * @throws IllegalArgumentException if it is not placed inside a [Questionnaire].
+ * @since 1.0.0
+ */
 @Composable
 public fun QuestionnaireChoices(modifier: Modifier = Modifier, content: @Composable ColumnScope.() -> Unit) {
     val style = questionnaire().style
@@ -65,6 +73,22 @@ public fun QuestionnaireChoices(modifier: Modifier = Modifier, content: @Composa
     )
 }
 
+/**
+ * Shows a choice of the current question of a [Questionnaire], with a radio indicator for a question of the kind
+ * [QuestionKind.Single] and a checkbox for [QuestionKind.Multiple].
+ *
+ * Clicking the choice selects its value, or toggles it for a question with multiple answers. With a shortcut, typing
+ * that character inside the questionnaire does the same, whatever its case.
+ *
+ * @param value the value the choice stands for in the [Answer].
+ * @param modifier the modifier of the choice, which fills the available width.
+ * @param enabled whether the choice can be selected; a disabled choice also gives up its shortcut.
+ * @param shortcut the character that selects the choice, shown at its end, or `null` for none.
+ * @param content the label of the choice, such as a [com.davils.kiro.ui.components.text.Text] and a
+ * [QuestionnaireChoiceDescription].
+ * @throws IllegalArgumentException if it is not placed inside a [Questionnaire].
+ * @since 1.0.0
+ */
 @Composable
 public fun QuestionnaireChoice(
     value: String,
@@ -108,14 +132,16 @@ public fun QuestionnaireChoice(
         ring = Border(style.ringWidth, ring),
     )
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .alpha(style.disabledAlpha.takeIf { !enabled } ?: 1f)
-            .heightIn(min = style.minHeight)
-            .then(face)
-            .hoverable(interactionSource = source, enabled = enabled)
-            .then(selection)
-            .padding(style.padding),
+        modifier = modifier.then(
+            Modifier
+                .fillMaxWidth()
+                .alpha(style.disabledAlpha.takeIf { !enabled } ?: 1f)
+                .heightIn(min = style.minHeight)
+                .then(face)
+                .hoverable(interactionSource = source, enabled = enabled)
+                .then(selection)
+                .padding(style.padding),
+        ),
         horizontalArrangement = Arrangement.spacedBy(style.gap),
     ) {
         ChoiceIndicator(style = style, isMultiple = isMultiple, isChecked = isChecked)
@@ -130,6 +156,14 @@ public fun QuestionnaireChoice(
     }
 }
 
+/**
+ * Shows a description below the label of a [QuestionnaireChoice], in the description color of the choice style.
+ *
+ * @param text the description.
+ * @param modifier the modifier of the description.
+ * @throws IllegalArgumentException if it is not placed inside a [Questionnaire].
+ * @since 1.0.0
+ */
 @Composable
 public fun QuestionnaireChoiceDescription(text: String, modifier: Modifier = Modifier) {
     Text(text = text, modifier = modifier, color = questionnaire().style.choice.descriptionColor)

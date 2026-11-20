@@ -16,8 +16,25 @@
 
 package com.davils.kiro.ui.components.toggle
 
+/**
+ * The look of a toggle, which selects the colors and the border of its default style.
+ *
+ * A variant of your own needs [ToggleStyles] that know it.
+ *
+ * @since 1.0.0
+ */
 public interface ToggleVariant {
+    /**
+     * A toggle without a border, with a transparent container while it is not pressed.
+     *
+     * @since 1.0.0
+     */
     public data object Default : ToggleVariant
 
+    /**
+     * A toggle with a border, with a transparent container while it is not pressed.
+     *
+     * @since 1.0.0
+     */
     public data object Outline : ToggleVariant
 }

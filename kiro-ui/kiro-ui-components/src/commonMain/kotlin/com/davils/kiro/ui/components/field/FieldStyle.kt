@@ -21,6 +21,37 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 
+/**
+ * How the fields of a form and their parts look: their spacing, their texts, their errors and their separators.
+ *
+ * @property gap the space between the children of a [Field].
+ * @property setGap the space between the children of a [FieldSet].
+ * @property groupGap the space between the children of a [FieldGroup].
+ * @property contentGap the space between the children of a [FieldContent].
+ * @property legendSpacing the space below a [FieldLegend].
+ * @property legendStyle the text style of a [FieldLegend] of the variant [FieldLegendVariant.Legend].
+ * @property legendLabelStyle the text style of a [FieldLegend] of the variant [FieldLegendVariant.Label].
+ * @property labelStyle the text style of a [FieldLabel].
+ * @property titleStyle the text style of a [FieldTitle].
+ * @property descriptionStyle the text style of a [FieldDescription] and of the label of a [FieldSeparator].
+ * @property descriptionColor the color of a [FieldDescription] and of the label of a [FieldSeparator].
+ * @property errorStyle the text style of a [FieldError].
+ * @property errorIndent the indent of the list of a [FieldError] with more than one message.
+ * @property errorGap the space between the messages of a [FieldError], and between a bullet and its message.
+ * @property invalidColor the color of a [FieldError], and the content color of an invalid [Field].
+ * @property disabledAlpha the alpha of the label and the title of a disabled [Field].
+ * @property controlNudge how far the control of a horizontal [Field] moves down, so that it lines up with the first
+ * line of the [FieldContent] next to it.
+ * @property responsiveBreakpoint the smallest width at which a [Field] of the orientation [FieldOrientation.Responsive]
+ * lays out its children side by side.
+ * @property separatorHeight the height of a [FieldSeparator].
+ * @property separatorOverlap how far a [FieldSeparator] reaches into the gaps above and below it.
+ * @property separatorColor the color meant for the line of a [FieldSeparator]; the line is drawn by a separator, which
+ * takes its color from its own style.
+ * @property separatorPadding the space at the start and the end of the label of a [FieldSeparator].
+ * @property separatorBackground the color behind the label of a [FieldSeparator], which hides the line under the label.
+ * @since 1.0.0
+ */
 @Immutable
 public class FieldStyle(
     public val gap: Dp,
@@ -50,7 +81,31 @@ public class FieldStyle(
     /**
      * Returns a copy of this [FieldStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param gap the new value of [gap].
+     * @param setGap the new value of [setGap].
+     * @param groupGap the new value of [groupGap].
+     * @param contentGap the new value of [contentGap].
+     * @param legendSpacing the new value of [legendSpacing].
+     * @param legendStyle the new value of [legendStyle].
+     * @param legendLabelStyle the new value of [legendLabelStyle].
+     * @param labelStyle the new value of [labelStyle].
+     * @param titleStyle the new value of [titleStyle].
+     * @param descriptionStyle the new value of [descriptionStyle].
+     * @param descriptionColor the new value of [descriptionColor].
+     * @param errorStyle the new value of [errorStyle].
+     * @param errorIndent the new value of [errorIndent].
+     * @param errorGap the new value of [errorGap].
+     * @param invalidColor the new value of [invalidColor].
+     * @param disabledAlpha the new value of [disabledAlpha].
+     * @param controlNudge the new value of [controlNudge].
+     * @param responsiveBreakpoint the new value of [responsiveBreakpoint].
+     * @param separatorHeight the new value of [separatorHeight].
+     * @param separatorOverlap the new value of [separatorOverlap].
+     * @param separatorColor the new value of [separatorColor].
+     * @param separatorPadding the new value of [separatorPadding].
+     * @param separatorBackground the new value of [separatorBackground].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         gap: Dp = this.gap,

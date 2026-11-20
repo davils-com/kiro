@@ -27,6 +27,16 @@ import com.davils.kiro.ui.core.Theme
 
 private const val DISABLED_ALPHA: Float = 0.5f
 
+/**
+ * Shows a label on a single line, such as the name of a form control.
+ *
+ * @param text the text of the label.
+ * @param modifier the modifier of the label.
+ * @param isDisabled whether the control of the label is disabled, which draws the label with the disabled alpha of
+ * its style.
+ * @param style the style of the label.
+ * @since 1.0.0
+ */
 @Composable
 public fun Label(
     text: String,

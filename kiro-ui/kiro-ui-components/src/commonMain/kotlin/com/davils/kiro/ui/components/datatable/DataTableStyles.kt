@@ -29,14 +29,45 @@ import com.davils.kiro.ui.icons.lucide.ArrowUp
 import com.davils.kiro.ui.icons.lucide.ArrowUpDown
 import com.davils.kiro.ui.icons.lucide.Lucide
 
+/**
+ * Resolves the style of a [DataTable] for a theme.
+ *
+ * Replace it in the components of a theme under [DataTableStyleKey] to change the style of every data table.
+ *
+ * @since 1.0.0
+ */
 public fun interface DataTableStyles {
+    /**
+     * Returns the style of a [DataTable] in a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the data table.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): DataTableStyle
 
+    /**
+     * Holds the default [DataTableStyles].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default style of a [DataTable], derived from the tokens of the theme.
+         *
+         * @since 1.0.0
+         */
         public val Default: DataTableStyles = DataTableStyles(::defaultDataTableStyle)
     }
 }
 
+/**
+ * Returns the style of a [DataTable] in the theme of the composition, resolved by the [DataTableStyles] under
+ * [DataTableStyleKey].
+ *
+ * @return the style of the data table.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun dataTableStyle(): DataTableStyle = DataTableStyleKey.current.resolve(theme)
@@ -49,4 +80,10 @@ internal fun defaultDataTableStyle(theme: Theme): DataTableStyle = DataTableStyl
     descendingIcon = Lucide.ArrowDown,
 )
 
+/**
+ * The key of the [DataTableStyles] of a [DataTable] in the components of a theme; its default is
+ * [DataTableStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val DataTableStyleKey: StyleKey<DataTableStyles> = StyleKey(name = "data-table") { _ -> DataTableStyles.Default }

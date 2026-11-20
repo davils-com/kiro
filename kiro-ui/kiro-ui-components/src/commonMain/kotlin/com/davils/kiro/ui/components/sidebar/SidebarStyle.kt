@@ -25,6 +25,56 @@ import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.core.elevation.BoxShadow
 import com.davils.kiro.ui.icons.IconGraphic
 
+/**
+ * The style of a [Sidebar] and of its parts: its colors, its panels, its sections, its menu buttons, its trees and
+ * its brand.
+ *
+ * @property width the width of the open sidebar.
+ * @property iconWidth the width of a sidebar collapsed to its icons, without the padding of a floating or inset
+ * sidebar.
+ * @property container the color of the sidebar.
+ * @property content the color of the text and the icons of the sidebar.
+ * @property border the color of the lines of the sidebar: its edge, its separators, the ring of a floating panel, the
+ * line of a tree, the rail and the outline of an outlined menu button.
+ * @property accent the color behind a menu button that is hovered, pressed or active.
+ * @property accentContent the color of the content of a menu button that is hovered, pressed or active.
+ * @property ring the color of the focus ring of a menu button.
+ * @property background the color of the content next to the sidebar, which also fills an outlined menu button and a
+ * [SidebarInput].
+ * @property floatingPadding the space around a floating sidebar and around the panel of an inset sidebar.
+ * @property floatingShape the shape of a floating sidebar.
+ * @property insetShape the shape of the panel of a [SidebarInset] next to an inset sidebar.
+ * @property shadow the shadow of a floating sidebar and of the panel of a [SidebarInset].
+ * @property section the padding of the header, the footer and the groups, and the space between their items.
+ * @property labelHeight the height of a [SidebarGroupLabel].
+ * @property labelStyle the style of the text of a [SidebarGroupLabel].
+ * @property labelColor the color of the text of a [SidebarGroupLabel].
+ * @property buttonShape the shape of a menu button, of an action and of the brand.
+ * @property buttonPadding the horizontal padding of a menu button and of a group label; the brand uses half of it.
+ * @property buttonGap the space between the items of a menu button and of the brand.
+ * @property textStyle the style of the text of a menu button and of the content of a group.
+ * @property smallTextStyle the style of the text of a [SidebarMenuButtonSize.Sm] menu button.
+ * @property iconSize the size of the icons of the menu buttons, the actions and the brand.
+ * @property actionSize the size of an action and the smallest width and the height of a badge.
+ * @property badgeStyle the style of the text of a badge.
+ * @property subIndent the space between the start of a tree branch and the line in front of its children.
+ * @property subPadding the space between the line in front of the children of a tree branch and the children.
+ * @property subGap the space between the rows of a tree.
+ * @property subHeight the height of a nested row of a tree.
+ * @property triggerIcon the icon of a [SidebarTrigger].
+ * @property toggleLabel the text that announces a [SidebarTrigger] and the rail.
+ * @property railWidth the width of the rail at the edge of a sidebar, which toggles the sidebar when it is clicked.
+ * @property widthAnimation the animation of the width of the sidebar and of the height of its group labels.
+ * @property chevron the icon that shows whether a branch of a tree is expanded.
+ * @property brandSize the size of the tile that holds the logo of a [SidebarBrand].
+ * @property brandShape the shape of the tile of a [SidebarBrand].
+ * @property brandContainer the color of the tile of a [SidebarBrand].
+ * @property brandContent the color of the logo of a [SidebarBrand].
+ * @property brandTitleStyle the style of the title of a [SidebarBrand].
+ * @property brandSubtitleStyle the style of the subtitle of a [SidebarBrand].
+ * @property brandSubtitleColor the color of the subtitle of a [SidebarBrand].
+ * @since 1.0.0
+ */
 @Immutable
 public class SidebarStyle(
     public val width: Dp,
@@ -72,7 +122,49 @@ public class SidebarStyle(
     /**
      * Returns a copy of this [SidebarStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param width the new value of [width].
+     * @param iconWidth the new value of [iconWidth].
+     * @param container the new value of [container].
+     * @param content the new value of [content].
+     * @param border the new value of [border].
+     * @param accent the new value of [accent].
+     * @param accentContent the new value of [accentContent].
+     * @param ring the new value of [ring].
+     * @param background the new value of [background].
+     * @param floatingPadding the new value of [floatingPadding].
+     * @param floatingShape the new value of [floatingShape].
+     * @param insetShape the new value of [insetShape].
+     * @param shadow the new value of [shadow].
+     * @param section the new value of [section].
+     * @param labelHeight the new value of [labelHeight].
+     * @param labelStyle the new value of [labelStyle].
+     * @param labelColor the new value of [labelColor].
+     * @param buttonShape the new value of [buttonShape].
+     * @param buttonPadding the new value of [buttonPadding].
+     * @param buttonGap the new value of [buttonGap].
+     * @param textStyle the new value of [textStyle].
+     * @param smallTextStyle the new value of [smallTextStyle].
+     * @param iconSize the new value of [iconSize].
+     * @param actionSize the new value of [actionSize].
+     * @param badgeStyle the new value of [badgeStyle].
+     * @param subIndent the new value of [subIndent].
+     * @param subPadding the new value of [subPadding].
+     * @param subGap the new value of [subGap].
+     * @param subHeight the new value of [subHeight].
+     * @param triggerIcon the new value of [triggerIcon].
+     * @param toggleLabel the new value of [toggleLabel].
+     * @param railWidth the new value of [railWidth].
+     * @param widthAnimation the new value of [widthAnimation].
+     * @param chevron the new value of [chevron].
+     * @param brandSize the new value of [brandSize].
+     * @param brandShape the new value of [brandShape].
+     * @param brandContainer the new value of [brandContainer].
+     * @param brandContent the new value of [brandContent].
+     * @param brandTitleStyle the new value of [brandTitleStyle].
+     * @param brandSubtitleStyle the new value of [brandSubtitleStyle].
+     * @param brandSubtitleColor the new value of [brandSubtitleColor].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         width: Dp = this.width,

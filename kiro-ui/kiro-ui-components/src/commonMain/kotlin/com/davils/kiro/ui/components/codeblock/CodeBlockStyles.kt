@@ -45,14 +45,49 @@ private const val COPIED_SECONDS: Int = 2
 private val known: Set<CodeBlockVariant> = setOf(CodeBlockVariant.Default, CodeBlockVariant.Destructive)
 private val sizes: Set<CodeBlockSize> = setOf(CodeBlockSize.Default, CodeBlockSize.Sm)
 
+/**
+ * Resolves the [CodeBlockStyle] of a [CodeBlock] for a theme, a variant and a size.
+ *
+ * Register your own under [CodeBlockStyleKey] in the component styles of a theme to change every code block.
+ *
+ * @since 1.0.0
+ */
 public fun interface CodeBlockStyles {
+    /**
+     * Returns the style of a code block.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @param variant the variant of the code block.
+     * @param size the size of the code block.
+     * @return the style of a code block of [variant] and [size].
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme, variant: CodeBlockVariant, size: CodeBlockSize): CodeBlockStyle
 
+    /**
+     * Holds the default code block styles.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default code block styles, derived from the colors, radii, focus ring and typography of the theme for the
+         * variants of [CodeBlockVariant] and the sizes of [CodeBlockSize].
+         *
+         * @since 1.0.0
+         */
         public val Default: CodeBlockStyles = CodeBlockStyles(::defaultCodeBlockStyle)
     }
 }
 
+/**
+ * Returns the code block style of the current theme for a variant and a size.
+ *
+ * @param variant the variant of the code block.
+ * @param size the size of the code block.
+ * @return the style that the [CodeBlockStyles] registered under [CodeBlockStyleKey] resolve for [variant] and [size].
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun codeBlockStyle(variant: CodeBlockVariant, size: CodeBlockSize): CodeBlockStyle =
@@ -73,7 +108,7 @@ internal fun defaultCodeBlockStyle(theme: Theme, variant: CodeBlockVariant, size
         focusBorder = colors.ring,
         ring = Border(width = theme.focusRing.width, color = colors.ring.copy(alpha = HALF)),
         container = Color.Transparent.takeIf { isDestructive } ?: colors.input.copy(
-            alpha = theme.darkAware(0f, DARK_FILL),
+            alpha = theme.darkAware(light = 0f, dark = DARK_FILL),
         ),
         content = colors.destructive.takeIf { isDestructive } ?: colors.foreground,
         muted = colors.destructive.takeIf { isDestructive } ?: colors.mutedForeground,
@@ -97,10 +132,15 @@ internal fun defaultCodeBlockStyle(theme: Theme, variant: CodeBlockVariant, size
         iconSize = 14.dp,
         copyIcon = Lucide.Copy,
         copiedIcon = Lucide.Check,
-        copyLabel = Messages.CodeBlock.copy,
-        copiedLabel = Messages.CodeBlock.copied,
+        copyLabel = Messages.CodeBlock.COPY,
+        copiedLabel = Messages.CodeBlock.COPIED,
         copiedDuration = COPIED_SECONDS.seconds,
     )
 }
 
+/**
+ * The key of the code block styles in the component styles of a theme, named `code-block`.
+ *
+ * @since 1.0.0
+ */
 public val CodeBlockStyleKey: StyleKey<CodeBlockStyles> = StyleKey(name = "code-block") { _ -> CodeBlockStyles.Default }

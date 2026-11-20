@@ -16,10 +16,32 @@
 
 package com.davils.kiro.ui.components.item
 
+/**
+ * The look of an [Item], which picks its default style.
+ *
+ * The interface is open, so that a theme can add variants of its own through its [ItemStyles].
+ *
+ * @since 1.0.0
+ */
 public interface ItemVariant {
+    /**
+     * An item without background or border, which shows a background only while hovered.
+     *
+     * @since 1.0.0
+     */
     public data object Default : ItemVariant
 
+    /**
+     * An item with a border.
+     *
+     * @since 1.0.0
+     */
     public data object Outline : ItemVariant
 
+    /**
+     * An item on a muted background.
+     *
+     * @since 1.0.0
+     */
     public data object Muted : ItemVariant
 }

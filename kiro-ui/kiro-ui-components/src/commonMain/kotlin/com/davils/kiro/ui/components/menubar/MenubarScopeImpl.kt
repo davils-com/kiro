@@ -16,8 +16,8 @@
 
 package com.davils.kiro.ui.components.menubar
 
-import com.davils.kiro.ui.components.menu.MenuScopeImpl
 import com.davils.kiro.ui.components.menu.MenuScope
+import com.davils.kiro.ui.components.menu.MenuScopeImpl
 
 internal class MenubarScopeImpl : MenubarScope {
     private val collected = mutableListOf<MenubarMenu>()

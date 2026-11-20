@@ -24,6 +24,25 @@ import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.core.style.StateColors
 import com.davils.kiro.ui.icons.IconGraphic
 
+/**
+ * How an [InputOtp] looks: the size, shape, colors and borders of its slots, its text style, its groups, separators
+ * and caret, its disabled alpha and the animation of its colors.
+ *
+ * @property slotSize the width and height of a slot.
+ * @property radius the radius of the outer corners of a group of slots.
+ * @property textStyle the text style of the characters.
+ * @property colors the colors of a slot by state: its container, its border and its focus ring.
+ * @property borderWidth the width of the border of a slot.
+ * @property ringWidth the width of the focus ring of the active slot and of the invalid ring of a group.
+ * @property invalidRing the color of the ring around each group while the value is invalid.
+ * @property gap the gap between groups and separators.
+ * @property separatorIcon the icon of a separator.
+ * @property separatorSize the width and height of the icon of a separator.
+ * @property caret the caret in the active slot.
+ * @property disabledAlpha the alpha of the whole field while it is disabled.
+ * @property colorAnimation the animation of the border and ring colors when the state of a slot changes.
+ * @since 1.0.0
+ */
 @Immutable
 public class InputOtpStyle(
     public val slotSize: Dp,
@@ -43,7 +62,21 @@ public class InputOtpStyle(
     /**
      * Returns a copy of this [InputOtpStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param slotSize the new value of [slotSize].
+     * @param radius the new value of [radius].
+     * @param textStyle the new value of [textStyle].
+     * @param colors the new value of [colors].
+     * @param borderWidth the new value of [borderWidth].
+     * @param ringWidth the new value of [ringWidth].
+     * @param invalidRing the new value of [invalidRing].
+     * @param gap the new value of [gap].
+     * @param separatorIcon the new value of [separatorIcon].
+     * @param separatorSize the new value of [separatorSize].
+     * @param caret the new value of [caret].
+     * @param disabledAlpha the new value of [disabledAlpha].
+     * @param colorAnimation the new value of [colorAnimation].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         slotSize: Dp = this.slotSize,

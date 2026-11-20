@@ -54,6 +54,20 @@ import com.davils.kiro.ui.core.focus.LocalInputModality
 private const val HALF_TURN_QUARTER: Float = 45f
 private const val ARROW_INSET_DP: Float = 2f
 
+/**
+ * Shows a short label in a popup beside its trigger while the pointer is over the trigger or the trigger has the
+ * keyboard focus, with an arrow that points at the trigger.
+ *
+ * The tooltip opens after the open delay of its style and closes after its close delay. A press on the trigger closes
+ * it. The popup does not take the focus.
+ *
+ * @param tooltip the content of the tooltip, in a row with the content color and text style of the style.
+ * @param modifier the modifier of the box around the trigger.
+ * @param placement the side of the trigger that the tooltip opens on and its alignment along that side.
+ * @param style the style of the tooltip.
+ * @param trigger the content that the tooltip belongs to.
+ * @since 1.0.0
+ */
 @Composable
 public fun Tooltip(
     tooltip: @Composable RowScope.() -> Unit,

@@ -44,6 +44,25 @@ import com.davils.kiro.ui.components.primitive.roving.rovingTarget
 import com.davils.kiro.ui.components.primitive.surface.surface
 import com.davils.kiro.ui.core.content.LocalTextStyle
 
+/**
+ * Shows a list of tabs and the content of the selected tab.
+ *
+ * The list sits above the content in a horizontal layout and at its start in a vertical one. The arrow keys of the
+ * orientation select the next or the previous enabled tab, wrapping around at the ends, and Home and End select the
+ * first or the last one; the focus moves with the selection. In a right to left layout the left and right arrows are
+ * mirrored.
+ *
+ * @param T the type of the values that identify the tabs.
+ * @param selected the value of the selected tab.
+ * @param onSelectedChange called with the value of the tab that the user selects.
+ * @param modifier the modifier of the tabs as a whole.
+ * @param listModifier the modifier of the list of tabs.
+ * @param orientation whether the tabs are listed in a row or in a column.
+ * @param variant the variant of the tabs, which sets their default style.
+ * @param style the style of the tabs.
+ * @param content adds the tabs through [TabsScope.tab].
+ * @since 1.0.0
+ */
 @Composable
 public fun <T> Tabs(
     selected: T,
@@ -59,11 +78,12 @@ public fun <T> Tabs(
     val isReversed = LocalLayoutDirection.current == LayoutDirection.Rtl
     var requested by remember { mutableStateOf<Int?>(null) }
     val current = entries.indexOfFirst { entry -> entry.value == selected }
+    val start = maxOf(a = current, b = 0)
     val enabled = entries.map { entry -> entry.isEnabled }
     val keys = Modifier.onKeyEvent { event ->
         val move = rovingMoveOf(key = event.key, orientation = orientation, isReversed = isReversed)
             ?.takeIf { event.type == KeyEventType.KeyDown }
-        val target = move?.let { step -> rovingTarget(move = step, current = maxOf(current, 0), isEnabled = enabled) }
+        val target = move?.let { step -> rovingTarget(move = step, current = start, isEnabled = enabled) }
         target?.let { index ->
             requested = index
             onSelectedChange(entries[index].value)

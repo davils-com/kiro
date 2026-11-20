@@ -24,6 +24,17 @@ import androidx.compose.runtime.getValue
 import com.davils.kiro.ui.core.focus.collectIsFocusVisibleAsState
 import com.davils.kiro.ui.core.state.InteractionState
 
+/**
+ * Collects the interaction state of a control: whether this source reports it hovered, pressed or focused with a
+ * visible focus, together with the states the control knows itself.
+ *
+ * @param isDisabled whether the control is disabled.
+ * @param isSelected whether the control is selected.
+ * @param isExpanded whether the control is expanded.
+ * @param isInvalid whether the value of the control is invalid.
+ * @return the interaction state, updated whenever this source reports a change.
+ * @since 1.0.0
+ */
 @Composable
 public fun InteractionSource.collectInteractionState(
     isDisabled: Boolean = false,

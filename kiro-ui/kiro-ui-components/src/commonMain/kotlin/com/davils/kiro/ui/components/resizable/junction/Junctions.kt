@@ -62,6 +62,6 @@ private fun isCrossing(point: Offset, column: HandleSpot, row: HandleSpot): Bool
 }
 
 private fun keyOf(point: Offset, tolerance: Float): Pair<Int, Int> {
-    val cell = maxOf(tolerance, 1f)
+    val cell = maxOf(a = tolerance, b = 1f)
     return (point.x / cell).roundToInt() to (point.y / cell).roundToInt()
 }

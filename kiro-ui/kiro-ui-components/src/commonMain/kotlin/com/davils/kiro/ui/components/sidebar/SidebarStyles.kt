@@ -34,16 +34,54 @@ import com.davils.kiro.ui.icons.lucide.PanelLeft
 
 private const val LABEL_ALPHA: Float = 0.7f
 
+/**
+ * Resolves the [SidebarStyle] of a [Sidebar] and its parts for a theme.
+ *
+ * Register an implementation under [SidebarStyleKey] in the components of a theme to change the style of every
+ * sidebar.
+ *
+ * @since 1.0.0
+ */
 public fun interface SidebarStyles {
+    /**
+     * Returns the style of a sidebar.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the sidebar.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): SidebarStyle
 
+    /**
+     * Holds the default styles of a sidebar.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default styles of a sidebar, derived from the sidebar colors, the radii, the shadows and the typography
+         * of the theme.
+         *
+         * @since 1.0.0
+         */
         public val Default: SidebarStyles = SidebarStyles(::defaultSidebarStyle)
     }
 }
 
+/**
+ * The key of the [SidebarStyles] of a [Sidebar] in the components of a theme; its default is
+ * [SidebarStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val SidebarStyleKey: StyleKey<SidebarStyles> = StyleKey(name = "sidebar") { _ -> SidebarStyles.Default }
 
+/**
+ * Returns the style of a [Sidebar] and its parts, as the [SidebarStyles] of the current theme resolve it.
+ *
+ * @return the style of the sidebar.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun sidebarStyle(): SidebarStyle = SidebarStyleKey.current.resolve(theme)
@@ -82,7 +120,7 @@ internal fun defaultSidebarStyle(theme: Theme): SidebarStyle {
         subGap = 4.dp,
         subHeight = 28.dp,
         triggerIcon = Lucide.PanelLeft,
-        toggleLabel = Messages.Sidebar.toggle,
+        toggleLabel = Messages.Sidebar.TOGGLE,
         railWidth = 16.dp,
         widthAnimation = theme.sizeTransition(),
         chevron = Lucide.ChevronRight,

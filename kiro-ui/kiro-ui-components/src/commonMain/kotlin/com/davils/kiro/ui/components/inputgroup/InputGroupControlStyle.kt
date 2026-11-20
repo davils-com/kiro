@@ -20,6 +20,18 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.components.input.InputTextStyle
 
+/**
+ * The look of the input or textarea of an [InputGroup].
+ *
+ * @property text the text style, placeholder color, cursor color and selection colors of the control.
+ * @property horizontalPadding the padding at the start and the end of the control on a side without an addon.
+ * @property verticalPadding the padding above and below a single-line input.
+ * @property inlinePadding the padding of a single-line input on the side of an addon at the start or the end.
+ * @property blockPadding the padding of a single-line input on its side away from an addon above or below it.
+ * @property textareaVerticalPadding the padding above and below a textarea.
+ * @property textareaMinHeight the minimum height of a textarea.
+ * @since 1.0.0
+ */
 @Immutable
 public class InputGroupControlStyle(
     public val text: InputTextStyle,
@@ -33,7 +45,7 @@ public class InputGroupControlStyle(
     /**
      * Returns a copy of this [InputGroupControlStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         text: InputTextStyle = this.text,

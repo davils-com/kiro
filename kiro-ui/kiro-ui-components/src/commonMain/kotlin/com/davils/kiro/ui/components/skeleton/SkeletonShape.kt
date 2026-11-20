@@ -16,12 +16,37 @@
 
 package com.davils.kiro.ui.components.skeleton
 
+/**
+ * The shape of a [Skeleton].
+ *
+ * @since 1.0.0
+ */
 public sealed interface SkeletonShape {
+    /**
+     * A rectangle with square corners.
+     *
+     * @since 1.0.0
+     */
     public data object Rectangle : SkeletonShape
 
+    /**
+     * A rectangle with the corner radius of the style.
+     *
+     * @since 1.0.0
+     */
     public data object Rounded : SkeletonShape
 
+    /**
+     * A rectangle with fully rounded ends, as for a line of text.
+     *
+     * @since 1.0.0
+     */
     public data object Pill : SkeletonShape
 
+    /**
+     * A circle, as for an avatar; on a block that is not square it has fully rounded ends like [SkeletonShape.Pill].
+     *
+     * @since 1.0.0
+     */
     public data object Circle : SkeletonShape
 }

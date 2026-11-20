@@ -16,8 +16,24 @@
 
 package com.davils.kiro.ui.components.alertdialog
 
+/**
+ * The size of an [AlertDialog], which limits its width and decides the layout of its header, texts and buttons.
+ *
+ * @since 1.0.0
+ */
 public interface AlertDialogSize {
+    /**
+     * The default size: a wider dialog whose media sits next to the texts, which are aligned to the start.
+     *
+     * @since 1.0.0
+     */
     public data object Default : AlertDialogSize
 
+    /**
+     * The small size: a narrower dialog whose media and texts are centered and whose buttons share the width of
+     * the footer.
+     *
+     * @since 1.0.0
+     */
     public data object Sm : AlertDialogSize
 }

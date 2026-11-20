@@ -22,6 +22,16 @@ import androidx.compose.ui.window.FrameWindowScope
 import com.davils.kiro.ui.components.menubar.native.NativeMenubar
 import com.davils.kiro.ui.components.menubar.native.nativeMenusOf
 
+/**
+ * The menubar of a window: on macOS the menus go to the menu bar of the system, elsewhere a [Menubar] shows them
+ * in the window.
+ *
+ * @param modifier the modifier of the [Menubar]; not used on macOS.
+ * @param platform the platform the application runs on, which decides where the menus go.
+ * @param style the look of the [Menubar]; not used on macOS.
+ * @param content declares the menus with [MenubarScope.menu].
+ * @since 1.0.0
+ */
 @Composable
 public fun FrameWindowScope.WindowMenubar(
     modifier: Modifier = Modifier,

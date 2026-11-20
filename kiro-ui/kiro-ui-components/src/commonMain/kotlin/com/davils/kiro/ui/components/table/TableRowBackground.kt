@@ -65,14 +65,19 @@ private fun DrawScope.drawRow(fill: Color, row: TableRowSpec, style: TableStyle)
     if (row.hasTopBorder) {
         drawLine(
             color = style.border.color,
-            start = Offset(0f, stroke / 2),
-            end = Offset(size.width, stroke / 2),
+            start = Offset(x = 0f, y = stroke / 2),
+            end = Offset(x = size.width, y = stroke / 2),
             strokeWidth = stroke,
         )
     }
     if (row.hasBottomBorder) {
         val y = size.height - stroke / 2
-        drawLine(color = style.border.color, start = Offset(0f, y), end = Offset(size.width, y), strokeWidth = stroke)
+        drawLine(
+            color = style.border.color,
+            start = Offset(x = 0f, y = y),
+            end = Offset(x = size.width, y = y),
+            strokeWidth = stroke,
+        )
     }
 }
 

@@ -30,18 +30,55 @@ import com.davils.kiro.ui.icons.lucide.Lucide
 
 private const val EDGE_STEPS: Float = 1.5f
 
+/**
+ * Derives the [PaginationStyle] from the tokens of a theme.
+ *
+ * Register an implementation for [PaginationStyleKey] in the components of a theme to change the style of every
+ * pagination.
+ *
+ * @since 1.0.0
+ */
 public fun interface PaginationStyles {
+    /**
+     * Returns the style of a pagination under a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of a pagination.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): PaginationStyle
 
+    /**
+     * Holds the default pagination styles.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default pagination styles, derived from the spacing of a theme, with the chevron and ellipsis icons of
+         * Lucide.
+         *
+         * @since 1.0.0
+         */
         public val Default: PaginationStyles = PaginationStyles(::defaultPaginationStyle)
     }
 }
 
+/**
+ * The key of the pagination styles in the components of a theme; its default is [PaginationStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val PaginationStyleKey: StyleKey<PaginationStyles> = StyleKey(
     name = "pagination",
 ) { _ -> PaginationStyles.Default }
 
+/**
+ * Returns the pagination style of the current theme, with the overrides of the theme for [PaginationStyleKey].
+ *
+ * @return the style of a pagination.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun paginationStyle(): PaginationStyle = PaginationStyleKey.current.resolve(theme)

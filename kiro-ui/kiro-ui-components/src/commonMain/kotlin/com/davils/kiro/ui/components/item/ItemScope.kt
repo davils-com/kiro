@@ -20,8 +20,18 @@ import androidx.compose.foundation.layout.LayoutScopeMarker
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.runtime.Immutable
 
+/**
+ * The scope of the content of an [Item]: a row that also hands its parts the style of the item.
+ *
+ * @since 1.0.0
+ */
 @LayoutScopeMarker
 @Immutable
 public interface ItemScope : RowScope {
+    /**
+     * The style of the item, which its media, content and actions use.
+     *
+     * @since 1.0.0
+     */
     public val style: ItemStyle
 }

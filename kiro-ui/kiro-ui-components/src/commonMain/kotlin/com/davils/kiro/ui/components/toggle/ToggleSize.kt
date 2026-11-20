@@ -16,10 +16,32 @@
 
 package com.davils.kiro.ui.components.toggle
 
+/**
+ * The size of a toggle, which selects the height, the icon size and the text size of its default style.
+ *
+ * A size of your own needs [ToggleStyles] that know it.
+ *
+ * @since 1.0.0
+ */
 public interface ToggleSize {
+    /**
+     * The regular size of a toggle.
+     *
+     * @since 1.0.0
+     */
     public data object Default : ToggleSize
 
+    /**
+     * A small toggle, lower than [Default] and with smaller text and icons.
+     *
+     * @since 1.0.0
+     */
     public data object Sm : ToggleSize
 
+    /**
+     * A large toggle, higher than [Default].
+     *
+     * @since 1.0.0
+     */
     public data object Lg : ToggleSize
 }

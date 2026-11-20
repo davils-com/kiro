@@ -30,14 +30,45 @@ import kotlin.time.Duration.Companion.milliseconds
 private const val OPEN_DELAY_MILLIS: Int = 600
 private const val CLOSE_DELAY_MILLIS: Int = 300
 
+/**
+ * Resolves the style of a [HoverCard] for a theme.
+ *
+ * Replace it in the components of a theme under [HoverCardStyleKey] to change the style of every hover card.
+ *
+ * @since 1.0.0
+ */
 public fun interface HoverCardStyles {
+    /**
+     * Returns the style of a [HoverCard] in a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the hover card.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): HoverCardStyle
 
+    /**
+     * Holds the default [HoverCardStyles].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default style of a [HoverCard], derived from the tokens of the theme.
+         *
+         * @since 1.0.0
+         */
         public val Default: HoverCardStyles = HoverCardStyles(::defaultHoverCardStyle)
     }
 }
 
+/**
+ * Returns the style of a [HoverCard] in the theme of the composition, resolved by the [HoverCardStyles] under
+ * [HoverCardStyleKey].
+ *
+ * @return the style of the hover card.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun hoverCardStyle(): HoverCardStyle = HoverCardStyleKey.current.resolve(theme)
@@ -50,4 +81,10 @@ internal fun defaultHoverCardStyle(theme: Theme): HoverCardStyle = HoverCardStyl
     closeDelay = CLOSE_DELAY_MILLIS.milliseconds,
 )
 
+/**
+ * The key of the [HoverCardStyles] of a [HoverCard] in the components of a theme; its default is
+ * [HoverCardStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val HoverCardStyleKey: StyleKey<HoverCardStyles> = StyleKey(name = "hover-card") { _ -> HoverCardStyles.Default }

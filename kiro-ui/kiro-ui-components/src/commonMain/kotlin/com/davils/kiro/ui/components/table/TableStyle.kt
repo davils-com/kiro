@@ -23,6 +23,26 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.core.style.Border
 
+/**
+ * The look of a [Table]: the text of its rows, its paddings, the backgrounds of its rows, its lines and its caption.
+ *
+ * @property textStyle the text style of the body rows.
+ * @property headTextStyle the text style of the header rows.
+ * @property headColor the content color of the header rows.
+ * @property headHeight the minimum height of a header row.
+ * @property headPadding the padding at the start and the end of a cell of a header row.
+ * @property cellPadding the padding around a cell of a body or footer row.
+ * @property hoverColor the background of a hovered row.
+ * @property selectedColor the background of a selected row.
+ * @property footerColor the background of a footer row.
+ * @property footerTextStyle the text style of the footer rows.
+ * @property border the width and color of the lines between the rows.
+ * @property captionStyle the text style of the caption.
+ * @property captionColor the color of the caption.
+ * @property captionSpacing the space between the table and its caption.
+ * @property colorAnimation the animation of the background of a row when it changes.
+ * @since 1.0.0
+ */
 @Immutable
 public class TableStyle(
     public val textStyle: TextStyle,
@@ -44,7 +64,7 @@ public class TableStyle(
     /**
      * Returns a copy of this [TableStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         textStyle: TextStyle = this.textStyle,

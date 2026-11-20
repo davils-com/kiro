@@ -23,17 +23,16 @@ private const val HUNDRED: Double = 100.0
 
 private const val CENTS: Long = 100L
 
-private const val TENS: Long = 10L
-
 internal object ChartFormat {
     fun number(value: Double): String {
         val cents = (value * HUNDRED).roundToLong()
         val sign = "-".takeIf { cents < 0 }.orEmpty()
         val whole = cents.absoluteValue / CENTS
         val fraction = cents.absoluteValue % CENTS
-        if (fraction == 0L) return "$sign$whole"
-        if (fraction % TENS == 0L) return "$sign$whole.${fraction / TENS}"
-        return "$sign$whole.${fraction.toString().padStart(length = 2, padChar = '0')}"
+        val padded = fraction.toString().padStart(length = 2, padChar = '0')
+        val decimals = padded.trimEnd { char -> char == '0' }
+        if (decimals.isEmpty()) return "$sign$whole"
+        return "$sign$whole.$decimals"
     }
 }
 

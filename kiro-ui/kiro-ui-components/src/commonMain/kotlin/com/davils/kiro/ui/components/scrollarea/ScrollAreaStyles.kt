@@ -28,18 +28,56 @@ import com.davils.kiro.ui.core.style.current
 
 private const val THUMB_HOVER_ALPHA: Float = 0.5f
 
+/**
+ * Derives the style of the scrollbars of a [ScrollArea] and a [LazyScrollArea] from the tokens of a theme.
+ *
+ * Register an implementation under [ScrollAreaStyleKey] in the components of a theme to change how every scroll area
+ * looks.
+ *
+ * @since 1.0.0
+ */
 public fun interface ScrollAreaStyles {
+    /**
+     * Returns the style of a scroll area for a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the scroll area.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): ScrollAreaStyle
 
+    /**
+     * Holds the default [ScrollAreaStyles].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default style of a scroll area, with a round thumb in the border color of the theme.
+         *
+         * @since 1.0.0
+         */
         public val Default: ScrollAreaStyles = ScrollAreaStyles(::defaultScrollAreaStyle)
     }
 }
 
+/**
+ * The key of the styles of a [ScrollArea] and a [LazyScrollArea] in the components of a theme, with
+ * [ScrollAreaStyles.Default] as its default.
+ *
+ * @since 1.0.0
+ */
 public val ScrollAreaStyleKey: StyleKey<ScrollAreaStyles> = StyleKey(
     name = "scroll-area",
 ) { _ -> ScrollAreaStyles.Default }
 
+/**
+ * Returns the style of a [ScrollArea] or a [LazyScrollArea] in the current theme, with the overrides of its
+ * components.
+ *
+ * @return the style of the scroll area.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun scrollAreaStyle(): ScrollAreaStyle = ScrollAreaStyleKey.current.resolve(theme)

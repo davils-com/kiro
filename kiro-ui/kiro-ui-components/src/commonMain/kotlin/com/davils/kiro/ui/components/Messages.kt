@@ -18,88 +18,88 @@ package com.davils.kiro.ui.components
 
 internal object Messages {
     object Calendar {
-        const val nextMonth: String = "Go to the next month"
+        const val NEXT_MONTH: String = "Go to the next month"
 
-        const val previousMonth: String = "Go to the previous month"
+        const val PREVIOUS_MONTH: String = "Go to the previous month"
     }
 
     object Carousel {
-        const val next: String = "Next slide"
+        const val NEXT: String = "Next slide"
 
-        const val previous: String = "Previous slide"
+        const val PREVIOUS: String = "Previous slide"
     }
 
     object CodeBlock {
-        const val copied: String = "Copied"
+        const val COPIED: String = "Copied"
 
-        const val copy: String = "Copy"
+        const val COPY: String = "Copy"
     }
 
     object Combobox {
-        const val empty: String = "No items found."
+        const val EMPTY: String = "No items found."
 
-        const val placeholder: String = "Select an item..."
+        const val PLACEHOLDER: String = "Select an item..."
 
-        const val search: String = "Search..."
+        const val SEARCH: String = "Search..."
     }
 
     object Command {
-        const val all: String = "All"
+        const val ALL: String = "All"
 
-        const val empty: String = "No results found."
+        const val EMPTY: String = "No results found."
 
-        const val placeholder: String = "Type a command or search..."
+        const val PLACEHOLDER: String = "Type a command or search..."
     }
 
     object DataTable {
-        const val empty: String = "No results."
+        const val EMPTY: String = "No results."
     }
 
     object DatePicker {
-        const val placeholder: String = "Pick a date"
+        const val PLACEHOLDER: String = "Pick a date"
     }
 
     object Dialog {
-        const val close: String = "Close"
+        const val CLOSE: String = "Close"
     }
 
     object MessageScroller {
-        const val scrollToEnd: String = "Scroll to end"
+        const val SCROLL_TO_END: String = "Scroll to end"
     }
 
     object Pagination {
-        const val next: String = "Next"
+        const val NEXT: String = "Next"
 
-        const val previous: String = "Previous"
+        const val PREVIOUS: String = "Previous"
     }
 
     object Questionnaire {
-        const val next: String = "Next"
+        const val NEXT: String = "Next"
 
-        const val previous: String = "Previous"
+        const val PREVIOUS: String = "Previous"
+
+        const val REQUIRED: String = "Please answer this question."
+
+        const val SKIP: String = "Skip"
+
+        const val SUBMIT: String = "Submit"
 
         fun progress(current: Int, total: Int): String = "Question $current of $total"
-
-        const val required: String = "Please answer this question."
-
-        const val skip: String = "Skip"
-
-        const val submit: String = "Submit"
     }
 
     object Resizable {
-        const val junction: String = "Resize in both directions"
+        const val JUNCTION: String = "Resize in both directions"
     }
 
     object Sidebar {
-        const val toggle: String = "Toggle Sidebar"
+        const val TOGGLE: String = "Toggle Sidebar"
     }
 
     object Spinner {
-        const val loading: String = "Loading"
+        const val LOADING: String = "Loading"
     }
 
     object Toast {
-        const val close: String = "Close"
+        const val CLOSE: String = "Close"
     }
 }

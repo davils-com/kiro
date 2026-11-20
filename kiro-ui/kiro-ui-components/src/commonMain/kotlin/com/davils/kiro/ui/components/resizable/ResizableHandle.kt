@@ -115,11 +115,11 @@ private fun Modifier.expandedHitArea(isHorizontal: Boolean, style: ResizableStyl
     ->
     val hit = style.hitArea.roundToPx()
     val grip = style.gripThickness.roundToPx()
-    val main = maxOf(hit, grip)
+    val main = maxOf(a = hit, b = grip)
     val stretched = Constraints.fixed(width = main, height = constraints.maxHeight).takeIf { isHorizontal }
         ?: Constraints.fixed(width = constraints.maxWidth, height = main)
     val placeable = measurable.measure(stretched)
-    layout(constraints.maxWidth, constraints.maxHeight) {
+    layout(width = constraints.maxWidth, height = constraints.maxHeight) {
         val shiftX = ((constraints.maxWidth - placeable.width) / 2).takeIf { isHorizontal } ?: 0
         val shiftY = ((constraints.maxHeight - placeable.height) / 2).takeUnless { isHorizontal } ?: 0
         placeable.place(x = shiftX, y = shiftY)

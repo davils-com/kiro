@@ -25,6 +25,25 @@ import com.davils.kiro.ui.components.menu.MenuStyle
 import com.davils.kiro.ui.components.select.SelectStyle
 import com.davils.kiro.ui.icons.IconGraphic
 
+/**
+ * The style of a [Combobox]: its trigger, its menu, its search field and the text shown when nothing matches.
+ *
+ * @property trigger the style of the trigger, which looks like the trigger of a select.
+ * @property triggerIcon the icon at the end of the trigger.
+ * @property minWidth the smallest width of the trigger and of the menu.
+ * @property menu the style of the menu panel and of its items.
+ * @property search the style of the search field at the top of the menu.
+ * @property searchIcon the icon at the start of the search field.
+ * @property searchIconAlpha the opacity of [searchIcon].
+ * @property searchPlaceholder the text of the search field while it is empty.
+ * @property sideOffset the space between the trigger and the menu.
+ * @property listMaxHeight the largest height of the list of items, which scrolls beyond it.
+ * @property gap the space between the search field and the list.
+ * @property emptyTextStyle the style of the text shown when no item matches the query.
+ * @property emptyColor the color of the text shown when no item matches the query.
+ * @property emptyPadding the padding around the text shown when no item matches the query.
+ * @since 1.0.0
+ */
 @Immutable
 public class ComboboxStyle(
     public val trigger: SelectStyle,
@@ -45,7 +64,22 @@ public class ComboboxStyle(
     /**
      * Returns a copy of this [ComboboxStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param trigger the new value of [trigger].
+     * @param triggerIcon the new value of [triggerIcon].
+     * @param minWidth the new value of [minWidth].
+     * @param menu the new value of [menu].
+     * @param search the new value of [search].
+     * @param searchIcon the new value of [searchIcon].
+     * @param searchIconAlpha the new value of [searchIconAlpha].
+     * @param searchPlaceholder the new value of [searchPlaceholder].
+     * @param sideOffset the new value of [sideOffset].
+     * @param listMaxHeight the new value of [listMaxHeight].
+     * @param gap the new value of [gap].
+     * @param emptyTextStyle the new value of [emptyTextStyle].
+     * @param emptyColor the new value of [emptyColor].
+     * @param emptyPadding the new value of [emptyPadding].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         trigger: SelectStyle = this.trigger,

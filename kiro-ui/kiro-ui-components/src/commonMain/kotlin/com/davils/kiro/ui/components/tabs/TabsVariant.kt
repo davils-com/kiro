@@ -16,8 +16,25 @@
 
 package com.davils.kiro.ui.components.tabs
 
+/**
+ * The variant of [Tabs], which sets their default style.
+ *
+ * A variant of your own needs a [TabsStyles] that knows it in [com.davils.kiro.ui.core.Theme.components].
+ *
+ * @since 1.0.0
+ */
 public interface TabsVariant {
+    /**
+     * Tabs on a muted list, where the selected tab is raised on its own container with a shadow.
+     *
+     * @since 1.0.0
+     */
     public data object Default : TabsVariant
 
+    /**
+     * Tabs on a transparent list, where the selected tab is marked by a line.
+     *
+     * @since 1.0.0
+     */
     public data object Line : TabsVariant
 }

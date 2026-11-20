@@ -20,8 +20,18 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.LayoutScopeMarker
 import androidx.compose.runtime.Immutable
 
+/**
+ * The scope of the content of an [ItemContent]: a column that also hands its children the style of the item.
+ *
+ * @since 1.0.0
+ */
 @LayoutScopeMarker
 @Immutable
 public interface ItemContentScope : ColumnScope {
+    /**
+     * The style of the item, which its title and description use.
+     *
+     * @since 1.0.0
+     */
     public val style: ItemStyle
 }

@@ -18,8 +18,19 @@ package com.davils.kiro.ui.components.toast
 
 import androidx.compose.runtime.Immutable
 
+/**
+ * The progress bar of a [Toast].
+ *
+ * @since 1.0.0
+ */
 @Immutable
 public sealed interface ToastProgress {
+    /**
+     * A progress bar that fills up to a known fraction.
+     *
+     * @property value the fraction that is done, from `0` to `1`.
+     * @since 1.0.0
+     */
     @Immutable
     public class Determinate(
         public val value: Float,
@@ -27,7 +38,9 @@ public sealed interface ToastProgress {
         /**
          * Returns a copy of this [Determinate] with the given values replaced and every other value kept.
          *
-         * @since 0.1.0
+         * @param value the new value of [value].
+         * @return the copy.
+         * @since 1.0.0
          */
         public fun copy(value: Float = this.value): Determinate = Determinate(
             value = value,
@@ -45,5 +58,12 @@ public sealed interface ToastProgress {
         )
     }
 
+    /**
+     * A progress bar whose segment sweeps across the track while the amount of work is unknown; it stands still when
+     * the
+     * theme reduces motion.
+     *
+     * @since 1.0.0
+     */
     public data object Indeterminate : ToastProgress
 }

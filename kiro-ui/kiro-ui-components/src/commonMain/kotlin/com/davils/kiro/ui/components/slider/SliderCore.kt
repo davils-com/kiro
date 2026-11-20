@@ -75,19 +75,21 @@ internal fun SliderCore(
                 )
             }
         },
-        modifier = modifier
-            .alpha(disabledAlphaOf(isDisabled = !track.isEnabled, alpha = style.disabledAlpha))
-            .track(fractions = fractions, isRange = isRange, geometry = track.geometry, style = style)
-            .sliderGestures(
-                track = track,
-                thumbSize = style.thumbSize,
-                current = { current },
-                onActive = { index ->
-                    active = index
-                    index?.let { pressed -> requesters[pressed].requestFocus() }
-                },
-                onMove = update,
-            ),
+        modifier = modifier.then(
+            Modifier
+                .alpha(disabledAlphaOf(isDisabled = !track.isEnabled, alpha = style.disabledAlpha))
+                .track(fractions = fractions, isRange = isRange, geometry = track.geometry, style = style)
+                .sliderGestures(
+                    track = track,
+                    thumbSize = style.thumbSize,
+                    current = { current },
+                    onActive = { index ->
+                        active = index
+                        index?.let { pressed -> requesters[pressed].requestFocus() }
+                    },
+                    onMove = update,
+                ),
+        ),
         measurePolicy = SliderMeasurePolicy(
             fractions = fractions,
             orientation = track.geometry.orientation,

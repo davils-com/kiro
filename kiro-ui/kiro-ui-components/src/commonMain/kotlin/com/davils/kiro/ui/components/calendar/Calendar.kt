@@ -50,6 +50,24 @@ import kotlinx.datetime.LocalDate
 import kotlinx.datetime.YearMonth
 import kotlinx.datetime.yearMonth
 
+/**
+ * A month calendar: a caption with buttons to the previous and next month, the names of the weekdays and a grid of the
+ * days of the shown month, whose days can be selected.
+ *
+ * A click on a day calls [onSelectionChange] with the selection toggled at that day, so the kind of [selection] decides
+ * whether one day, several days or a range is selected. The arrow keys move the focus by a day or a week, Page Up and
+ * Page Down by a month, and Home and End to the start and end of the week; moving to another month shows it.
+ *
+ * @param S the kind of the selection.
+ * @param selection the selected days.
+ * @param onSelectionChange called with the new selection when a day is clicked.
+ * @param modifier the modifier of the calendar.
+ * @param state the state that holds the shown month; by default it starts at the month of the first selected day, or
+ * of today.
+ * @param options the first day of the week, the days that are shown or disabled and the formatter of the texts.
+ * @param style the style of the calendar.
+ * @since 1.0.0
+ */
 @Composable
 public fun <S : CalendarSelection<S>> Calendar(
     selection: S,
@@ -77,12 +95,9 @@ public fun <S : CalendarSelection<S>> Calendar(
         }
         next != null
     }
+    val frame = Modifier.width(IntrinsicSize.Max).background(style.container).padding(style.padding)
     Column(
-        modifier = modifier
-            .width(IntrinsicSize.Max)
-            .background(style.container)
-            .padding(style.padding)
-            .semantics { isTraversalGroup = true },
+        modifier = modifier.then(frame).semantics { isTraversalGroup = true },
         verticalArrangement = Arrangement.spacedBy(style.sectionGap),
     ) {
         CalendarHeader(month = month, state = state, options = settings, style = style, isReversed = isReversed)

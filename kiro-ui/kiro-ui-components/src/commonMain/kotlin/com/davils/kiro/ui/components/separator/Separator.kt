@@ -28,6 +28,15 @@ import androidx.compose.ui.unit.dp
 import com.davils.kiro.ui.components.Orientation
 import com.davils.kiro.ui.core.Theme
 
+/**
+ * Draws a thin line that separates content: a horizontal line that fills the available width or a vertical line that
+ * fills the available height.
+ *
+ * @param modifier the modifier of the line.
+ * @param orientation whether the line runs horizontally or vertically.
+ * @param style the style of the line.
+ * @since 1.0.0
+ */
 @Composable
 public fun Separator(
     modifier: Modifier = Modifier,

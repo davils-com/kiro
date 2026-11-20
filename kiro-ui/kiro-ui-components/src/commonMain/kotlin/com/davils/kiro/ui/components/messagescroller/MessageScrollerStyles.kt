@@ -34,18 +34,56 @@ private const val GAP_STEPS: Int = 6
 private const val FADE_STEPS: Int = 8
 private const val INSET_STEPS: Int = 4
 
+/**
+ * Resolves the style of a [MessageScroller] for a theme.
+ *
+ * Replace it in the components of a theme under [MessageScrollerStyleKey] to change the style of every message
+ * scroller.
+ *
+ * @since 1.0.0
+ */
 public fun interface MessageScrollerStyles {
+    /**
+     * Returns the style of a [MessageScroller] in a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the message scroller.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): MessageScrollerStyle
 
+    /**
+     * Holds the default [MessageScrollerStyles].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default style of a [MessageScroller], derived from the tokens of the theme.
+         *
+         * @since 1.0.0
+         */
         public val Default: MessageScrollerStyles = MessageScrollerStyles(::defaultMessageScrollerStyle)
     }
 }
 
+/**
+ * The key of the [MessageScrollerStyles] of a [MessageScroller] in the components of a theme; its default is
+ * [MessageScrollerStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val MessageScrollerStyleKey: StyleKey<MessageScrollerStyles> = StyleKey(
     name = "message-scroller",
 ) { _ -> MessageScrollerStyles.Default }
 
+/**
+ * Returns the style of a [MessageScroller] in the theme of the composition, resolved by the [MessageScrollerStyles]
+ * under [MessageScrollerStyleKey].
+ *
+ * @return the style of the message scroller.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun messageScrollerStyle(): MessageScrollerStyle = MessageScrollerStyleKey.current.resolve(theme)
@@ -57,7 +95,7 @@ internal fun defaultMessageScrollerStyle(theme: Theme): MessageScrollerStyle = M
     buttonVariant = ButtonVariant.Outline,
     buttonSize = ButtonSize.IconSm,
     icon = Lucide.ArrowDown,
-    label = Messages.MessageScroller.scrollToEnd,
+    label = Messages.MessageScroller.SCROLL_TO_END,
     hiddenScale = HIDDEN_SCALE,
     showAnimation = theme.tweenOf(duration = theme.motion.durations.medium, easing = theme.motion.easings.emphasized),
     hideAnimation = theme.tweenOf(duration = theme.motion.durations.medium, easing = theme.motion.easings.emphasized),

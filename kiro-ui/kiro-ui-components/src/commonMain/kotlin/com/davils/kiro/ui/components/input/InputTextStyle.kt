@@ -21,6 +21,15 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 
+/**
+ * How the text of an [Input] or a [Textarea] looks: its text style, its placeholder, its cursor and its selection.
+ *
+ * @property textStyle the text style of the text and of the placeholder.
+ * @property placeholderColor the color of the placeholder.
+ * @property cursorColor the color of the cursor.
+ * @property selectionColors the colors of the selection and of its handles.
+ * @since 1.0.0
+ */
 @Immutable
 public class InputTextStyle(
     public val textStyle: TextStyle,
@@ -31,7 +40,12 @@ public class InputTextStyle(
     /**
      * Returns a copy of this [InputTextStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param textStyle the new value of [textStyle].
+     * @param placeholderColor the new value of [placeholderColor].
+     * @param cursorColor the new value of [cursorColor].
+     * @param selectionColors the new value of [selectionColors].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         textStyle: TextStyle = this.textStyle,

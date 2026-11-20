@@ -49,7 +49,7 @@ internal fun snap(value: Float, range: ClosedFloatingPointRange<Float>, step: Fl
 internal fun fractionOf(value: Float, range: ClosedFloatingPointRange<Float>): Float {
     val span = range.endInclusive - range.start
     if (span <= 0f) return 0f
-    return ((value - range.start) / span).coerceIn(0f, 1f)
+    return ((value - range.start) / span).coerceIn(minimumValue = 0f, maximumValue = 1f)
 }
 
 internal fun valueAt(fraction: Float, range: ClosedFloatingPointRange<Float>): Float =
@@ -68,7 +68,7 @@ internal fun moved(values: List<Float>, index: Int, value: Float, range: ClosedF
     val lower = values.getOrNull(index - 1) ?: range.start
     val upper = values.getOrNull(index + 1) ?: range.endInclusive
     val updated = values.toMutableList()
-    updated[index] = value.coerceIn(lower, upper)
+    updated[index] = value.coerceIn(minimumValue = lower, maximumValue = upper)
     return updated.toList()
 }
 
@@ -86,7 +86,7 @@ internal fun keyTarget(
 internal fun fractionAt(position: Float, length: Float, thumb: Float): Float {
     val travel = length - thumb
     if (travel <= 0f) return 0f
-    return ((position - thumb / 2) / travel).coerceIn(0f, 1f)
+    return ((position - thumb / 2) / travel).coerceIn(minimumValue = 0f, maximumValue = 1f)
 }
 
 private fun keyStepOf(range: ClosedFloatingPointRange<Float>, step: Float): Float {

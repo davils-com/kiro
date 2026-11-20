@@ -54,6 +54,21 @@ import com.davils.kiro.ui.icons.IconGraphic
 import com.davils.kiro.ui.icons.IconStyle
 import com.davils.kiro.ui.icons.LocalIconStyle
 
+/**
+ * The brand of an application at the top of a [Sidebar]: a logo in a tile, a title and an optional subtitle.
+ *
+ * While the sidebar is collapsed to its icons only the tile shows. With [onClick] the brand is a button that shows
+ * the accent color while it is hovered.
+ *
+ * @param title the name of the application.
+ * @param logo the icon in the tile.
+ * @param modifier the modifier of the brand.
+ * @param subtitle the text below the title, or `null` for none.
+ * @param onClick called when the brand is clicked, or `null` if it cannot be clicked.
+ * @param style the style of the sidebar, by default the style of the theme.
+ * @param trailing the content at the end of the brand, such as a chevron, or `null` for none.
+ * @since 1.0.0
+ */
 @Composable
 public fun SidebarBrand(
     title: String,
@@ -77,12 +92,14 @@ public fun SidebarBrand(
             .clickable(interactionSource = source, indication = null, role = Role.Button, onClick = click)
     } ?: Modifier
     Row(
-        modifier = modifier
-            .fillMaxWidth()
-            .surface(shape = style.buttonShape, color = container.value)
-            .hoverable(interactionSource = source)
-            .then(press)
-            .padding(style.buttonPadding / 2),
+        modifier = modifier.then(
+            Modifier
+                .fillMaxWidth()
+                .surface(shape = style.buttonShape, color = container.value)
+                .hoverable(interactionSource = source)
+                .then(press)
+                .padding(style.buttonPadding / 2),
+        ),
         horizontalArrangement = Arrangement.spacedBy(style.buttonGap),
         verticalAlignment = Alignment.CenterVertically,
     ) {

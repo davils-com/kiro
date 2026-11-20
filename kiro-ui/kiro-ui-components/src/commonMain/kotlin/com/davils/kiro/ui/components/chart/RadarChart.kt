@@ -53,6 +53,18 @@ private const val TICKS: Int = 5
 private const val HALF: Float = 0.5f
 private const val EDGE: Float = 0.01f
 
+/**
+ * Draws a radar chart: one spoke per point of [data], clockwise from the top, and one filled polygon per series
+ * declared in [content] whose corners lie on the spokes at the values of the series.
+ *
+ * The chart takes its colors, labels and style from the [ChartContainer] around it.
+ *
+ * @param data the points of the chart, one per spoke, in order.
+ * @param modifier the modifier of the chart.
+ * @param content declares the polygons, the grid, the labels of the spokes, the tooltip and the legend of the chart.
+ * @throws IllegalArgumentException if the chart is not placed in a [ChartContainer].
+ * @since 1.0.0
+ */
 @Composable
 public fun RadarChart(data: List<ChartPoint>, modifier: Modifier = Modifier, content: RadarChartScope.() -> Unit) {
     val context = chart()
@@ -163,7 +175,7 @@ private fun DrawScope.drawAngleLabels(
     val reach = geometry.radius + style.tickMargin.toPx()
     labels.forEachIndexed { index, text ->
         val degrees = geometry.degreesOf(index)
-        val radians = (degrees.toDouble() * PI / HALF_TURN_DEGREES)
+        val radians = degrees.toDouble() * PI / HALF_TURN_DEGREES
         drawLabel(
             label = measurer.measure(text, style.textStyle),
             anchor = PolarMath.pointOf(center = geometry.center, radius = reach, degrees = degrees),
@@ -181,8 +193,8 @@ private fun alignOf(direction: Float): Float {
 
 private fun polygonOf(points: List<Offset>): Path {
     val path = Path()
-    points.firstOrNull()?.let { first -> path.moveTo(first.x, first.y) }
-    points.drop(1).forEach { point -> path.lineTo(point.x, point.y) }
+    points.firstOrNull()?.let { first -> path.moveTo(x = first.x, y = first.y) }
+    points.drop(1).forEach { point -> path.lineTo(x = point.x, y = point.y) }
     path.close()
     return path
 }

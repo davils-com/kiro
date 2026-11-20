@@ -46,6 +46,17 @@ private const val BULLET_POINT: Int = 0x2022
 
 private val bullet: String = Char(BULLET_POINT).toString()
 
+/**
+ * The text of a [Field] next to its control, such as a title and a description, laid out in a column.
+ *
+ * In a horizontal field, the content shares the width that the control leaves, and the control lines up with the top of
+ * the content.
+ *
+ * @param modifier the modifier of the column.
+ * @param style the style of the field; its [FieldStyle.contentGap] spaces the children.
+ * @param content the children of the content, such as a [FieldTitle] and a [FieldDescription].
+ * @since 1.0.0
+ */
 @Composable
 public fun FieldContent(
     modifier: Modifier = Modifier,
@@ -59,21 +70,58 @@ public fun FieldContent(
     )
 }
 
+/**
+ * The label of a [Field], faded while the field is disabled.
+ *
+ * In a horizontal field, the label shares the width that the control leaves.
+ *
+ * @param text the text of the label.
+ * @param modifier the modifier of the text.
+ * @param style the style of the field.
+ * @since 1.0.0
+ */
 @Composable
 public fun FieldLabel(text: String, modifier: Modifier = Modifier, style: FieldStyle = fieldStyle()) {
     Text(text = text, modifier = modifier.layoutId(FieldSlot.Label).then(disabledOf(style)), style = style.labelStyle)
 }
 
+/**
+ * The title of a [FieldContent], faded while the field is disabled.
+ *
+ * @param text the text of the title.
+ * @param modifier the modifier of the text.
+ * @param style the style of the field.
+ * @since 1.0.0
+ */
 @Composable
 public fun FieldTitle(text: String, modifier: Modifier = Modifier, style: FieldStyle = fieldStyle()) {
     Text(text = text, modifier = modifier.then(disabledOf(style)), style = style.titleStyle)
 }
 
+/**
+ * A description that explains a field or a set of fields.
+ *
+ * @param text the text of the description.
+ * @param modifier the modifier of the text.
+ * @param style the style of the field.
+ * @since 1.0.0
+ */
 @Composable
 public fun FieldDescription(text: String, modifier: Modifier = Modifier, style: FieldStyle = fieldStyle()) {
     Text(text = text, modifier = modifier, style = style.descriptionStyle, color = style.descriptionColor)
 }
 
+/**
+ * The error messages of a field, announced to assistive technologies as soon as they change.
+ *
+ * Repeated messages are shown once. A single message is shown as text, more than one as a list with bullets, and
+ * nothing is shown while there is none.
+ *
+ * @param messages the error messages.
+ * @param modifier the modifier of the text or the list.
+ * @param style the style of the field.
+ * @since 1.0.0
+ */
 @Composable
 public fun FieldError(messages: List<String>, modifier: Modifier = Modifier, style: FieldStyle = fieldStyle()) {
     val unique = messages.distinct()
@@ -96,6 +144,17 @@ public fun FieldError(messages: List<String>, modifier: Modifier = Modifier, sty
     }
 }
 
+/**
+ * A line between the fields of a [FieldGroup], with an optional label in its middle.
+ *
+ * The separator reaches into the gaps above and below it by [FieldStyle.separatorOverlap].
+ *
+ * @param modifier the modifier of the separator.
+ * @param style the style of the field.
+ * @param content the label in the middle of the line, drawn on the [FieldStyle.separatorBackground], or `null` for
+ * none.
+ * @since 1.0.0
+ */
 @Composable
 public fun FieldSeparator(
     modifier: Modifier = Modifier,
@@ -103,10 +162,12 @@ public fun FieldSeparator(
     content: (@Composable () -> Unit)? = null,
 ) {
     Box(
-        modifier = modifier
-            .overlapping(style.separatorOverlap)
-            .fillMaxWidth()
-            .height(style.separatorHeight),
+        modifier = modifier.then(
+            Modifier
+                .overlapping(style.separatorOverlap)
+                .fillMaxWidth()
+                .height(style.separatorHeight),
+        ),
         contentAlignment = Alignment.Center,
     ) {
         Separator(modifier = Modifier.fillMaxWidth())
@@ -133,5 +194,7 @@ private fun disabledOf(style: FieldStyle): Modifier {
 private fun Modifier.overlapping(overlap: Dp): Modifier = layout { measurable, constraints ->
     val placeable = measurable.measure(constraints)
     val pixels = overlap.roundToPx()
-    layout(placeable.width, maxOf(placeable.height - pixels * 2, 0)) { placeable.place(0, -pixels) }
+    layout(width = placeable.width, height = maxOf(a = placeable.height - pixels * 2, b = 0)) {
+        placeable.place(x = 0, y = -pixels)
+    }
 }

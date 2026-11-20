@@ -16,8 +16,30 @@
 
 package com.davils.kiro.ui.components.sidebar
 
+/**
+ * How a [Sidebar] collapses when its [SidebarState] is closed.
+ *
+ * @since 1.0.0
+ */
 public enum class SidebarCollapsible {
+    /**
+     * The sidebar shrinks to no width and leaves the window.
+     *
+     * @since 1.0.0
+     */
     Offcanvas,
+
+    /**
+     * The sidebar shrinks to a rail that shows only the icons of its menu buttons.
+     *
+     * @since 1.0.0
+     */
     Icon,
+
+    /**
+     * The sidebar never collapses and stays open whatever its state.
+     *
+     * @since 1.0.0
+     */
     None,
 }

@@ -19,10 +19,29 @@ package com.davils.kiro.ui.components.calendar
 import androidx.compose.runtime.Immutable
 import kotlinx.datetime.LocalDate
 
+/**
+ * The days selected in a [Calendar]: a single day, several days or a range of days.
+ *
+ * @param S the kind of the selection, which [toggled] returns.
+ * @since 1.0.0
+ */
 @Immutable
 public sealed interface CalendarSelection<S : CalendarSelection<S>> {
+    /**
+     * Returns the selection after a click on a day.
+     *
+     * @param date the day that was clicked.
+     * @return the new selection.
+     * @since 1.0.0
+     */
     public fun toggled(date: LocalDate): S
 
+    /**
+     * A selection of at most one day; a click selects a day and a click on the selected day clears the selection.
+     *
+     * @property date the selected day, or `null` if no day is selected.
+     * @since 1.0.0
+     */
     @Immutable
     public class Single(
         public val date: LocalDate?,
@@ -32,7 +51,9 @@ public sealed interface CalendarSelection<S : CalendarSelection<S>> {
         /**
          * Returns a copy of this [Single] with the given values replaced and every other value kept.
          *
-         * @since 0.1.0
+         * @param date the new value of [date].
+         * @return the copy.
+         * @since 1.0.0
          */
         public fun copy(date: LocalDate? = this.date): Single = Single(
             date = date,
@@ -43,13 +64,19 @@ public sealed interface CalendarSelection<S : CalendarSelection<S>> {
         override fun hashCode(): Int = values().hashCode()
 
         override fun toString(): String = "Single(" +
-            "date=$date)"
+            "date=${date ?: "null"})"
 
         private fun values(): List<Any?> = listOf(
             date,
         )
     }
 
+    /**
+     * A selection of any number of days; a click adds a day to the selection or removes it.
+     *
+     * @property dates the selected days.
+     * @since 1.0.0
+     */
     @Immutable
     public class Multiple(
         public val dates: Set<LocalDate>,
@@ -62,7 +89,9 @@ public sealed interface CalendarSelection<S : CalendarSelection<S>> {
         /**
          * Returns a copy of this [Multiple] with the given values replaced and every other value kept.
          *
-         * @since 0.1.0
+         * @param dates the new value of [dates].
+         * @return the copy.
+         * @since 1.0.0
          */
         public fun copy(dates: Set<LocalDate> = this.dates): Multiple = Multiple(
             dates = dates,
@@ -80,6 +109,18 @@ public sealed interface CalendarSelection<S : CalendarSelection<S>> {
         )
     }
 
+    /**
+     * A selection of a range of days from a start to an end.
+     *
+     * The first click sets the start and the second the other end, so that the earlier day becomes the start. A
+     * click on the start or the end of a range keeps only that day as the start, a click on a day that is both clears
+     * the selection, and a click on another day moves an end of the range there: the start if the day lies before it,
+     * the end otherwise.
+     *
+     * @property start the first day of the range, or `null` if no day is selected.
+     * @property end the last day of the range, or `null` while only the start is selected.
+     * @since 1.0.0
+     */
     @Immutable
     public class Range(
         public val start: LocalDate?,
@@ -91,7 +132,10 @@ public sealed interface CalendarSelection<S : CalendarSelection<S>> {
         /**
          * Returns a copy of this [Range] with the given values replaced and every other value kept.
          *
-         * @since 0.1.0
+         * @param start the new value of [start].
+         * @param end the new value of [end].
+         * @return the copy.
+         * @since 1.0.0
          */
         public fun copy(start: LocalDate? = this.start, end: LocalDate? = this.end): Range = Range(
             start = start,
@@ -103,8 +147,8 @@ public sealed interface CalendarSelection<S : CalendarSelection<S>> {
         override fun hashCode(): Int = values().hashCode()
 
         override fun toString(): String = "Range(" +
-            "start=$start, " +
-            "end=$end)"
+            "start=${start ?: "null"}, " +
+            "end=${end ?: "null"})"
 
         private fun values(): List<Any?> = listOf(
             start,

@@ -22,6 +22,22 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.core.style.Border
 
+/**
+ * The style of a [ButtonGroup] and of its [ButtonGroupText] and [ButtonGroupSeparator].
+ *
+ * @property radius the radius of the outer corners of the group.
+ * @property overlap how far a [ButtonGroupText] overlaps the item before it, so that their borders meet as one line.
+ * @property separatorColor the color of a [ButtonGroupSeparator].
+ * @property separatorThickness the thickness of the line of a [ButtonGroupSeparator].
+ * @property separatorInset the space left free at both ends of the line of a [ButtonGroupSeparator].
+ * @property textContainer the color of the container of a [ButtonGroupText].
+ * @property textBorder the border of a [ButtonGroupText].
+ * @property textStyle the text style of a [ButtonGroupText].
+ * @property textPadding the horizontal padding of a [ButtonGroupText].
+ * @property textGap the space between the parts of a [ButtonGroupText].
+ * @property iconSize the size of the icons in a [ButtonGroupText].
+ * @since 1.0.0
+ */
 @Immutable
 public class ButtonGroupStyle(
     public val radius: Dp,
@@ -39,7 +55,7 @@ public class ButtonGroupStyle(
     /**
      * Returns a copy of this [ButtonGroupStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         radius: Dp = this.radius,

@@ -31,6 +31,14 @@ import com.davils.kiro.ui.components.button.ButtonVariant
 import com.davils.kiro.ui.core.content.LocalContentColor
 import com.davils.kiro.ui.core.content.LocalTextStyle
 
+/**
+ * Shows text and icons in a row in an addon of an [InputGroup], in the color and the plain text style of its addons.
+ *
+ * @param modifier the modifier of the row.
+ * @param style the style of the input group whose addon style the row follows.
+ * @param content the text and icons.
+ * @since 1.0.0
+ */
 @Composable
 public fun InputGroupText(
     modifier: Modifier = Modifier,
@@ -51,6 +59,19 @@ public fun InputGroupText(
     }
 }
 
+/**
+ * Shows a small button in an addon of an [InputGroup]. An addon at the start or the end that holds one reaches into
+ * its padding by the button offset of the addon style, so that the button sits closer to the edge of the group.
+ *
+ * @param onClick called when the button is clicked.
+ * @param modifier the modifier of the button.
+ * @param variant the variant of the button.
+ * @param size the size of the button.
+ * @param enabled whether the button can be clicked.
+ * @param style the style of the button.
+ * @param content the text and icons of the button, in a row.
+ * @since 1.0.0
+ */
 @Composable
 public fun InputGroupButton(
     onClick: () -> Unit,

@@ -60,12 +60,14 @@ internal fun ChartTooltipPanel(
     val label = model.label?.takeIf { !spec.isLabelHidden }
     val edge = Border(width = 1.dp, color = style.border)
     Column(
-        modifier = modifier
-            .widthIn(min = style.minWidth)
-            .boxShadow(shape = style.shape, shadow = style.shadow)
-            .surface(shape = style.shape, color = style.container, border = edge)
-            .padding(style.padding)
-            .width(IntrinsicSize.Max),
+        modifier = modifier.then(
+            Modifier
+                .widthIn(min = style.minWidth)
+                .boxShadow(shape = style.shape, shadow = style.shadow)
+                .surface(shape = style.shape, color = style.container, border = edge)
+                .padding(style.padding)
+                .width(IntrinsicSize.Max),
+        ),
         verticalArrangement = Arrangement.spacedBy(style.gap),
     ) {
         if (!isNested) label?.let { text -> Text(text = text, style = style.labelStyle) }
@@ -142,8 +144,8 @@ private fun DashedIndicator(row: TooltipRow, isNested: Boolean, style: ChartTool
         val dash = DASH * density
         drawLine(
             color = row.color,
-            start = Offset(size.width / 2, 0f),
-            end = Offset(size.width / 2, size.height),
+            start = Offset(x = size.width / 2, y = 0f),
+            end = Offset(x = size.width / 2, y = size.height),
             strokeWidth = size.width,
             pathEffect = PathEffect.dashPathEffect(floatArrayOf(dash, dash)),
         )

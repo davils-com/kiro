@@ -21,6 +21,17 @@ import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.components.table.TableStyle
 import com.davils.kiro.ui.icons.IconGraphic
 
+/**
+ * The look of a [DataTable]: the style of its table, the height of its empty row and the icons of its sortable
+ * headers.
+ *
+ * @property table the style of the table that shows the rows.
+ * @property emptyHeight the height of the row that shows the text when there are no rows.
+ * @property unsortedIcon the icon of a sortable header whose column does not sort the rows.
+ * @property ascendingIcon the icon of the header whose column sorts the rows in ascending order.
+ * @property descendingIcon the icon of the header whose column sorts the rows in descending order.
+ * @since 1.0.0
+ */
 @Immutable
 public class DataTableStyle(
     public val table: TableStyle,
@@ -32,7 +43,7 @@ public class DataTableStyle(
     /**
      * Returns a copy of this [DataTableStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         table: TableStyle = this.table,

@@ -38,6 +38,15 @@ import com.davils.kiro.ui.components.primitive.surface.surface
 import com.davils.kiro.ui.core.content.LocalContentColor
 import com.davils.kiro.ui.core.content.LocalTextStyle
 
+/**
+ * Stacks messages of a conversation in a column that fills the width of its parent, with the group gap of the style
+ * between them.
+ *
+ * @param modifier the modifier of the column.
+ * @param style the style that gives the gap between the messages.
+ * @param content the messages.
+ * @since 1.0.0
+ */
 @Composable
 public fun MessageGroup(
     modifier: Modifier = Modifier,
@@ -51,6 +60,21 @@ public fun MessageGroup(
     )
 }
 
+/**
+ * Shows one message of a conversation: an optional avatar beside a column of content, such as a header, bubbles and a
+ * footer.
+ *
+ * The message fills the width of its parent. The avatar sits at the bottom of the side given by [align] and is lifted
+ * above the footer when the message has a [MessageFooter].
+ *
+ * @param modifier the modifier of the message.
+ * @param align the side that the avatar and the content are aligned to.
+ * @param avatar the avatar of the sender, or `null` for none.
+ * @param style the style of the message.
+ * @param content the parts of the message, such as a [MessageHeader], bubbles and a [MessageFooter], with the text
+ * style of the style.
+ * @since 1.0.0
+ */
 @Composable
 public fun Message(
     modifier: Modifier = Modifier,
@@ -75,12 +99,30 @@ public fun Message(
     }
 }
 
+/**
+ * Shows a label above the content of a [Message], such as the name of the sender, in the label style and color of the
+ * message.
+ *
+ * @param modifier the modifier of the header.
+ * @param content the content of the header, in a row aligned to the start.
+ * @throws IllegalArgumentException if the header is not placed inside a [Message].
+ * @since 1.0.0
+ */
 @Composable
 public fun MessageHeader(modifier: Modifier = Modifier, content: @Composable RowScope.() -> Unit) {
     val context = requireNotNull(LocalMessage.current) { "A message header needs its message." }
     MessageLabel(modifier = modifier, context = context, horizontalArrangement = Arrangement.Start, content = content)
 }
 
+/**
+ * Shows a label below the content of a [Message], such as the time it was sent, in the label style and color of the
+ * message and aligned to its side.
+ *
+ * @param modifier the modifier of the footer.
+ * @param content the content of the footer, in a row.
+ * @throws IllegalArgumentException if the footer is not placed inside a [Message].
+ * @since 1.0.0
+ */
 @Composable
 public fun MessageFooter(modifier: Modifier = Modifier, content: @Composable RowScope.() -> Unit) {
     val context = requireNotNull(LocalMessage.current) { "A message footer needs its message." }

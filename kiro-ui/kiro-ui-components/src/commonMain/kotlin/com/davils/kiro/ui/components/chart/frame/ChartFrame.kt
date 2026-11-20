@@ -134,7 +134,7 @@ private fun TooltipLayer(target: ChartTarget, hover: ChartHover, spec: TooltipSp
             limit = constraints.maxHeight,
             offset = offset,
         )
-        layout(constraints.maxWidth, constraints.maxHeight) { placeable.place(x, y) }
+        layout(width = constraints.maxWidth, height = constraints.maxHeight) { placeable.place(x, y) }
     }
     ChartTooltipPanel(model = target.tooltipOf(hover.index), spec = spec, style = style.tooltip, modifier = placement)
 }
@@ -173,5 +173,5 @@ private fun moved(hover: ChartHover?, delta: Int, target: ChartTarget): ChartHov
 private fun placedOf(position: Float, size: Int, limit: Int, offset: Int): Int {
     val after = position.roundToInt() + offset
     if (after + size <= limit) return after
-    return maxOf(position.roundToInt() - offset - size, 0)
+    return maxOf(a = position.roundToInt() - offset - size, b = 0)
 }

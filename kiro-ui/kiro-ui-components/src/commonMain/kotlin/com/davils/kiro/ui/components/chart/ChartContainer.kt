@@ -28,6 +28,19 @@ import com.davils.kiro.ui.components.chart.frame.LocalChart
 import com.davils.kiro.ui.core.content.LocalContentColor
 import com.davils.kiro.ui.core.content.LocalTextStyle
 
+/**
+ * Holds one chart, such as a [BarChart] or a [PieChart], and hands it its [ChartConfig] and [ChartStyle].
+ *
+ * The container centers its content, keeps an aspect ratio and provides the text style and the label color of the
+ * style to its content.
+ *
+ * @param config the series of the chart.
+ * @param modifier the modifier of the container.
+ * @param style the style of the chart.
+ * @param aspectRatio the ratio of the width to the height of the container, or `null` to let [modifier] size it.
+ * @param content the chart.
+ * @since 1.0.0
+ */
 @Composable
 public fun ChartContainer(
     config: ChartConfig,

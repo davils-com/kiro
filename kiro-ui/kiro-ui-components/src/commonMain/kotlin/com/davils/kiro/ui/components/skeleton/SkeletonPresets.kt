@@ -43,6 +43,16 @@ private const val TEXT_LINES: Int = 3
 private const val TABLE_ROWS: Int = 5
 private const val TABLE_COLUMNS: Int = 4
 
+/**
+ * A skeleton for a paragraph: lines of text in the line height and gap of the style, the last one shorter when there
+ * is more than one.
+ *
+ * @param modifier the modifier of the paragraph.
+ * @param lines the number of lines.
+ * @param lastLineFraction the width of the last line, as a fraction of the width of the paragraph.
+ * @param style the style of the skeleton.
+ * @since 1.0.0
+ */
 @Composable
 public fun SkeletonText(
     modifier: Modifier = Modifier,
@@ -62,16 +72,39 @@ public fun SkeletonText(
     }
 }
 
+/**
+ * A circular skeleton for an avatar.
+ *
+ * @param modifier the modifier of the avatar.
+ * @param size the width and height of the avatar, or `null` for the avatar size of the style.
+ * @param style the style of the skeleton.
+ * @since 1.0.0
+ */
 @Composable
 public fun SkeletonAvatar(modifier: Modifier = Modifier, size: Dp? = null, style: SkeletonStyle = skeletonStyle()) {
     Skeleton(modifier = modifier.size(size ?: style.avatarSize), shape = SkeletonShape.Circle, style = style)
 }
 
+/**
+ * A rounded skeleton in the button size of the style.
+ *
+ * @param modifier the modifier of the button.
+ * @param style the style of the skeleton.
+ * @since 1.0.0
+ */
 @Composable
 public fun SkeletonButton(modifier: Modifier = Modifier, style: SkeletonStyle = skeletonStyle()) {
     Skeleton(modifier = modifier.size(style.buttonSize), shape = SkeletonShape.Rounded, style = style)
 }
 
+/**
+ * A skeleton for an image: a rounded block with an aspect ratio and the image icon of the style in its middle.
+ *
+ * @param modifier the modifier of the image, which gives it its width.
+ * @param aspectRatio the ratio of the width to the height of the image, 16 to 9 by default.
+ * @param style the style of the skeleton.
+ * @since 1.0.0
+ */
 @Composable
 public fun SkeletonImage(
     modifier: Modifier = Modifier,
@@ -88,6 +121,13 @@ public fun SkeletonImage(
     }
 }
 
+/**
+ * A skeleton for an item of a list: an avatar next to a line for a name and a longer line for its details.
+ *
+ * @param modifier the modifier of the item.
+ * @param style the style of the skeleton.
+ * @since 1.0.0
+ */
 @Composable
 public fun SkeletonListItem(modifier: Modifier = Modifier, style: SkeletonStyle = skeletonStyle()) {
     Row(
@@ -103,6 +143,13 @@ public fun SkeletonListItem(modifier: Modifier = Modifier, style: SkeletonStyle 
     }
 }
 
+/**
+ * A skeleton for a card: an image, a title, a paragraph and a button, one below the other.
+ *
+ * @param modifier the modifier of the card.
+ * @param style the style of the skeleton.
+ * @since 1.0.0
+ */
 @Composable
 public fun SkeletonCard(modifier: Modifier = Modifier, style: SkeletonStyle = skeletonStyle()) {
     Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(style.gap)) {
@@ -113,6 +160,15 @@ public fun SkeletonCard(modifier: Modifier = Modifier, style: SkeletonStyle = sk
     }
 }
 
+/**
+ * A skeleton for a table: a header row and the given number of rows, each with a line in every column.
+ *
+ * @param modifier the modifier of the table.
+ * @param rows the number of rows below the header row.
+ * @param columns the number of columns.
+ * @param style the style of the skeleton.
+ * @since 1.0.0
+ */
 @Composable
 public fun SkeletonTable(
     modifier: Modifier = Modifier,

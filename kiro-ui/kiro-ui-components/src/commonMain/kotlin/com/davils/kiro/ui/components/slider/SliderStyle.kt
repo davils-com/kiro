@@ -22,6 +22,22 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.core.style.Border
 
+/**
+ * How a [Slider] and a [RangeSlider] look: their track, the filled range on it, their thumbs, their focus ring, their
+ * minimum length, their disabled alpha and the animation of the ring.
+ *
+ * @property trackThickness the thickness of the track.
+ * @property trackColor the color of the track.
+ * @property rangeColor the color of the part of the track up to the thumb, or between the thumbs of a range.
+ * @property thumbSize the width and height of a thumb.
+ * @property thumbColor the color of a thumb.
+ * @property thumbBorder the border of a thumb.
+ * @property ring the ring around a thumb while it is hovered, focused by the keyboard or dragged.
+ * @property minLength the length of the slider when its parent does not limit it.
+ * @property disabledAlpha the alpha of the whole slider while it is disabled.
+ * @property colorAnimation the animation of the color of the ring when it appears or disappears.
+ * @since 1.0.0
+ */
 @Immutable
 public class SliderStyle(
     public val trackThickness: Dp,
@@ -38,7 +54,18 @@ public class SliderStyle(
     /**
      * Returns a copy of this [SliderStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param trackThickness the new value of [trackThickness].
+     * @param trackColor the new value of [trackColor].
+     * @param rangeColor the new value of [rangeColor].
+     * @param thumbSize the new value of [thumbSize].
+     * @param thumbColor the new value of [thumbColor].
+     * @param thumbBorder the new value of [thumbBorder].
+     * @param ring the new value of [ring].
+     * @param minLength the new value of [minLength].
+     * @param disabledAlpha the new value of [disabledAlpha].
+     * @param colorAnimation the new value of [colorAnimation].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         trackThickness: Dp = this.trackThickness,

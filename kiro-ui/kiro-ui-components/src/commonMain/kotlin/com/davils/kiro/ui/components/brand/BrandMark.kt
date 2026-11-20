@@ -47,10 +47,18 @@ private val mark: Path by lazy {
     parser.toPath()
 }
 
+/**
+ * Draws the brand mark of Kide as an image named `kide`, filled with a vertical gradient from the start to the end
+ * color of its style and centered in a square of its size.
+ *
+ * @param modifier the modifier of the mark.
+ * @param style the style of the mark.
+ * @since 1.0.0
+ */
 @Composable
 public fun BrandMark(modifier: Modifier = Modifier, style: BrandMarkStyle = brandMarkStyle()) {
     Spacer(
-        modifier = modifier.size(style.size).described().drawWithCache { drawMark(style) },
+        modifier = modifier.then(Modifier.size(style.size).described().drawWithCache { drawMark(style) }),
     )
 }
 
@@ -60,7 +68,7 @@ private fun Modifier.described(): Modifier = semantics {
 }
 
 private fun CacheDrawScope.drawMark(style: BrandMarkStyle): DrawResult {
-    val factor = minOf(size.width, size.height) / VIEWPORT
+    val factor = minOf(a = size.width, b = size.height) / VIEWPORT
     val left = (size.width - VIEWPORT * factor) * HALF
     val top = (size.height - VIEWPORT * factor) * HALF
     val brush = Brush.linearGradient(

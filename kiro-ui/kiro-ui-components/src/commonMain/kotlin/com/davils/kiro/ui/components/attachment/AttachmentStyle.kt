@@ -22,6 +22,40 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 
+/**
+ * The look of an [Attachment], its parts and an [AttachmentGroup].
+ *
+ * @property shape the shape of the attachment, its surface and its outline.
+ * @property container the background color of the attachment.
+ * @property content the content color of the attachment and of the content of its media.
+ * @property border the color of the outline.
+ * @property errorBorder the color of the outline in the state [AttachmentState.Error].
+ * @property hover the background color of a clickable attachment under the pointer.
+ * @property ring the color of the focus ring, drawn while the attachment or one of its parts has the focus.
+ * @property gap the space between the media, the content and the actions.
+ * @property contentPadding the horizontal padding of an attachment without media.
+ * @property contentVerticalPadding the vertical padding of an attachment without media.
+ * @property mediaPadding the padding on every side of an attachment with media.
+ * @property minWidth the minimum width of a horizontal attachment.
+ * @property verticalWidth the width of a vertical attachment without content.
+ * @property verticalContentWidth the width of a vertical attachment with content.
+ * @property mediaSize the width and height of the media of a horizontal attachment.
+ * @property mediaShape the shape that the media is clipped to.
+ * @property mediaContainer the background color of the media.
+ * @property errorMedia the background color of the media in the state [AttachmentState.Error].
+ * @property errorContent the content color of the media in the state [AttachmentState.Error]; the description takes it
+ * with less alpha.
+ * @property iconSize the size of the icons in the media of a horizontal attachment.
+ * @property textStyle the text style handed to the content of the attachment.
+ * @property titleStyle the text style of an [AttachmentTitle].
+ * @property descriptionStyle the text style of an [AttachmentDescription].
+ * @property descriptionColor the color of an [AttachmentDescription] outside the state [AttachmentState.Error].
+ * @property pendingAlpha the alpha of an image media while the attachment is uploading, processing or failed.
+ * @property actionInset the distance of the actions from the top and the end edge of a vertical attachment.
+ * @property groupGap the space between the attachments of an [AttachmentGroup].
+ * @property dash the length of the dashes and of the gaps of the dashed outline of an idle attachment, in dp.
+ * @since 1.0.0
+ */
 @Immutable
 public class AttachmentStyle(
     public val shape: Shape,
@@ -56,7 +90,7 @@ public class AttachmentStyle(
     /**
      * Returns a copy of this [AttachmentStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         shape: Shape = this.shape,

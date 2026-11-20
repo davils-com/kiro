@@ -16,11 +16,51 @@
 
 package com.davils.kiro.ui.components.toast
 
+/**
+ * The corner or edge of the window where a [Toaster] stacks its toasts.
+ *
+ * @since 1.0.0
+ */
 public enum class ToastPosition {
+    /**
+     * At the top start corner; toasts are swiped away towards the start.
+     *
+     * @since 1.0.0
+     */
     TopStart,
+
+    /**
+     * At the center of the top edge; toasts are swiped away to either side.
+     *
+     * @since 1.0.0
+     */
     TopCenter,
+
+    /**
+     * At the top end corner; toasts are swiped away towards the end.
+     *
+     * @since 1.0.0
+     */
     TopEnd,
+
+    /**
+     * At the bottom start corner; toasts are swiped away towards the start.
+     *
+     * @since 1.0.0
+     */
     BottomStart,
+
+    /**
+     * At the center of the bottom edge; toasts are swiped away to either side.
+     *
+     * @since 1.0.0
+     */
     BottomCenter,
+
+    /**
+     * At the bottom end corner; toasts are swiped away towards the end.
+     *
+     * @since 1.0.0
+     */
     BottomEnd,
 }

@@ -28,14 +28,46 @@ import com.davils.kiro.ui.core.style.current
 
 private const val DISABLED_ALPHA: Float = 0.5f
 
+/**
+ * Derives the [FieldStyle] of a field from the tokens of a theme.
+ *
+ * The components of a theme hold one under each key of this type; override a key in the components of a theme to change
+ * the style of every field that reads it.
+ *
+ * @since 1.0.0
+ */
 public fun interface FieldStyles {
+    /**
+     * Returns the style of a field for the tokens of a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): FieldStyle
 
+    /**
+     * Holds the [FieldStyles] that Kiro ships.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default styles of a field, derived only from the tokens of the theme.
+         *
+         * @since 1.0.0
+         */
         public val Default: FieldStyles = FieldStyles(::defaultFieldStyle)
     }
 }
 
+/**
+ * Returns the style of a field in the theme of the composition, resolved through the styles that the components of the
+ * theme hold under [FieldStyleKey].
+ *
+ * @return the style.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun fieldStyle(): FieldStyle = FieldStyleKey.current.resolve(theme)
@@ -70,4 +102,9 @@ internal fun defaultFieldStyle(theme: Theme): FieldStyle {
     )
 }
 
+/**
+ * The key of the styles of a field in the components of a theme, named `field`; its default is [FieldStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val FieldStyleKey: StyleKey<FieldStyles> = StyleKey(name = "field") { _ -> FieldStyles.Default }

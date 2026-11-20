@@ -37,14 +37,46 @@ import com.davils.kiro.ui.icons.lucide.Search
 private const val SOFT: Float = 0.3f
 private const val HALF: Float = 0.5f
 
+/**
+ * Resolves the [ComboboxStyle] of a [Combobox] for a theme.
+ *
+ * Register an implementation under [ComboboxStyleKey] in the components of a theme to change the style of every
+ * combobox.
+ *
+ * @since 1.0.0
+ */
 public fun interface ComboboxStyles {
+    /**
+     * Returns the style of a combobox.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the combobox.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): ComboboxStyle
 
+    /**
+     * Holds the default styles of a combobox.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default styles of a combobox, derived from the tokens of the theme and from the default styles of a
+         * select, a menu and an input group.
+         *
+         * @since 1.0.0
+         */
         public val Default: ComboboxStyles = ComboboxStyles(::defaultComboboxStyle)
     }
 }
 
+/**
+ * Returns the style of a [Combobox], as the [ComboboxStyles] of the current theme resolve it.
+ *
+ * @return the style of the combobox.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun comboboxStyle(): ComboboxStyle = ComboboxStyleKey.current.resolve(theme)
@@ -65,7 +97,7 @@ internal fun defaultComboboxStyle(theme: Theme): ComboboxStyle {
         ),
         searchIcon = Lucide.Search,
         searchIconAlpha = HALF,
-        searchPlaceholder = Messages.Combobox.search,
+        searchPlaceholder = Messages.Combobox.SEARCH,
         sideOffset = 6.dp,
         listMaxHeight = 240.dp,
         gap = 4.dp,
@@ -75,4 +107,10 @@ internal fun defaultComboboxStyle(theme: Theme): ComboboxStyle {
     )
 }
 
+/**
+ * The key of the [ComboboxStyles] of a [Combobox] in the components of a theme; its default is
+ * [ComboboxStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val ComboboxStyleKey: StyleKey<ComboboxStyles> = StyleKey(name = "combobox") { _ -> ComboboxStyles.Default }

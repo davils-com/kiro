@@ -16,4 +16,10 @@
 
 package com.davils.kiro.ui.components.radiogroup
 
+/**
+ * The scope of the content of a [RadioGroup], in which [RadioGroupItem] adds its items.
+ *
+ * @param T the type of the values of the items.
+ * @since 1.0.0
+ */
 public interface RadioGroupScope<T>

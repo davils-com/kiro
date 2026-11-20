@@ -18,6 +18,14 @@ package com.davils.kiro.ui.components.datatable
 
 import androidx.compose.runtime.Immutable
 
+/**
+ * The column that sorts the rows of a [DataTable] and the direction of the order.
+ *
+ * @param T the type of a row.
+ * @property column the column whose comparator orders the rows.
+ * @property isDescending whether the order of the comparator is reversed.
+ * @since 1.0.0
+ */
 @Immutable
 public class DataTableSort<T>(
     public val column: DataTableColumn<T>,
@@ -26,7 +34,7 @@ public class DataTableSort<T>(
     /**
      * Returns a copy of this [DataTableSort] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         column: DataTableColumn<T> = this.column,

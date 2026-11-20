@@ -21,5 +21,5 @@ import androidx.compose.ui.unit.Density
 
 internal class PerViewPageSize(private val itemsPerView: Int) : PageSize {
     override fun Density.calculateMainAxisPageSize(availableSpace: Int, pageSpacing: Int): Int =
-        maxOf((availableSpace - pageSpacing * (itemsPerView - 1)) / itemsPerView, 0)
+        maxOf(a = (availableSpace - pageSpacing * (itemsPerView - 1)) / itemsPerView, b = 0)
 }

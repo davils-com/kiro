@@ -63,7 +63,8 @@ internal fun DrawScope.drawAxes(geometry: CartesianGeometry, style: ChartStyle) 
     val labels = geometry.categoryLabels
     intervalIndices(geometry = geometry, isVertical = isVertical).forEach { index ->
         val along = geometry.categories.center(index)
-        val anchor = Offset(along, plot.bottom + margin).takeIf { isVertical } ?: Offset(plot.left - margin, along)
+        val anchor = Offset(x = along, y = plot.bottom + margin).takeIf { isVertical }
+            ?: Offset(x = plot.left - margin, y = along)
         drawLabel(
             label = labels[index],
             anchor = anchor,
@@ -74,7 +75,8 @@ internal fun DrawScope.drawAxes(geometry: CartesianGeometry, style: ChartStyle) 
     }
     geometry.valueLabels.forEachIndexed { index, label ->
         val across = geometry.values.map(geometry.ticks[index])
-        val anchor = Offset(plot.left - margin, across).takeIf { isVertical } ?: Offset(across, plot.bottom + margin)
+        val anchor = Offset(x = plot.left - margin, y = across).takeIf { isVertical }
+            ?: Offset(x = across, y = plot.bottom + margin)
         drawLabel(
             label = label,
             anchor = anchor,
@@ -99,8 +101,8 @@ internal fun DrawScope.drawCursor(geometry: CartesianGeometry, index: Int, style
     }
     drawLine(
         color = style.cursorLine,
-        start = Offset(along, plot.top),
-        end = Offset(along, plot.bottom),
+        start = Offset(x = along, y = plot.top),
+        end = Offset(x = along, y = plot.bottom),
         strokeWidth = 1f,
     )
 }
@@ -111,6 +113,6 @@ private fun intervalIndices(geometry: CartesianGeometry, isVertical: Boolean): L
     val extent =
         labels.maxOf { label -> (label.size.width.takeIf { isVertical } ?: label.size.height).toFloat() } + LABEL_GAP
     val step = geometry.categories.step.takeIf { value -> value > 0f } ?: extent
-    val interval = maxOf(ceil(extent / step).toInt(), 1)
+    val interval = maxOf(a = ceil(extent / step).toInt(), b = 1)
     return labels.indices.filter { index -> index % interval == 0 }
 }

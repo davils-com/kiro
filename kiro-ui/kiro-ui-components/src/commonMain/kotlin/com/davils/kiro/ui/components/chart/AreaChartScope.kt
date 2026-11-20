@@ -19,7 +19,22 @@ package com.davils.kiro.ui.components.chart
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+/**
+ * The scope in which the content of an [AreaChart] declares its areas.
+ *
+ * @since 1.0.0
+ */
 public interface AreaChartScope : CartesianChartScope {
+    /**
+     * Declares an area for the values of one series. Areas are drawn in the order they are declared.
+     *
+     * @param key the key of the series in the values of each [ChartPoint].
+     * @param curve how the line along the top of the area runs between the points.
+     * @param fillAlpha the alpha of the fill, from 0 to 1; it is not used when [isGradient] is `true`.
+     * @param strokeWidth the width of the line along the top of the area.
+     * @param isGradient whether the fill fades out towards the bottom instead of having one alpha.
+     * @since 1.0.0
+     */
     public fun area(
         key: ChartKey,
         curve: ChartCurve = ChartCurve.Natural,

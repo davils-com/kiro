@@ -56,7 +56,8 @@ internal fun overlayTransitionsOf(motion: Motion, physical: Physical, slide: Int
     return OverlayTransitions(enter = enter, exit = exit)
 }
 
-internal fun slideOf(distance: Dp, gap: Dp): Dp = distance.coerceIn(0.dp, gap.coerceAtLeast(0.dp))
+internal fun slideOf(distance: Dp, gap: Dp): Dp =
+    distance.coerceIn(minimumValue = 0.dp, maximumValue = gap.coerceAtLeast(0.dp))
 
 private fun originOf(physical: Physical): TransformOrigin = when (physical) {
     Physical.Top -> TransformOrigin(pivotFractionX = 0.5f, pivotFractionY = 1f)

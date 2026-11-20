@@ -52,6 +52,20 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.launch
 
+/**
+ * Shows a vertically scrolling column of messages, such as a chat, that follows new content at its end.
+ *
+ * While the user is at the end, the scroller scrolls along when the content grows; once the user scrolls away it
+ * stops following until they return to the end. While the end is not reached, the bottom edge fades out and a button
+ * that scrolls to the end is shown.
+ *
+ * @param modifier the modifier of the scroller.
+ * @param state the scroll position of the scroller.
+ * @param isButtonShown whether the button that scrolls to the end is shown while the end is not reached.
+ * @param style the style of the message scroller.
+ * @param content the messages, laid out in a column.
+ * @since 1.0.0
+ */
 @Composable
 public fun MessageScroller(
     modifier: Modifier = Modifier,

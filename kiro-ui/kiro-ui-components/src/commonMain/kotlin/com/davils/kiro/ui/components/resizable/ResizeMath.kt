@@ -29,10 +29,10 @@ internal fun resized(
     val growing = before.takeIf { delta >= 0f } ?: after
     val shrinking = after.takeIf { delta >= 0f } ?: before
     val room = minOf(
-        growing.sumOf { index -> (limits[index].endInclusive - sizes[index]).coerceAtLeast(0f).toDouble() },
-        shrinking.sumOf { index -> (sizes[index] - limits[index].start).coerceAtLeast(0f).toDouble() },
+        a = growing.sumOf { index -> (limits[index].endInclusive - sizes[index]).coerceAtLeast(0f).toDouble() },
+        b = shrinking.sumOf { index -> (sizes[index] - limits[index].start).coerceAtLeast(0f).toDouble() },
     ).toFloat()
-    val amount = minOf(abs(delta), room)
+    val amount = minOf(a = abs(delta), b = room)
     val grown = spread(
         sizes = sizes,
         order = growing,
@@ -44,7 +44,10 @@ internal fun resized(
 private fun spread(sizes: List<Float>, order: List<Int>, amount: Float, roomOf: (Int) -> Float): List<Float> {
     val updated = sizes.toMutableList()
     order.fold(amount) { left, index ->
-        val taken = left.coerceIn(minOf(roomOf(index), 0f), maxOf(roomOf(index), 0f))
+        val taken = left.coerceIn(
+            minimumValue = minOf(a = roomOf(index), b = 0f),
+            maximumValue = maxOf(a = roomOf(index), b = 0f),
+        )
         updated[index] = sizes[index] + taken
         left - taken
     }

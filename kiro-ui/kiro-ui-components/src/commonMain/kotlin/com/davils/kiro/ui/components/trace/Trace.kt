@@ -68,6 +68,15 @@ private const val QUARTER_TURN: Float = 90f
 
 internal val LocalTraceStatus = staticCompositionLocalOf { TraceStatus.Done }
 
+/**
+ * Lists the steps of a process, such as the tool calls of an assistant, as lines in a column that fills the width of
+ * its parent.
+ *
+ * @param modifier the modifier of the column.
+ * @param style the style that gives the gap between the lines and the text style, color and icon size of its content.
+ * @param content the steps, such as [TraceLine] and [TraceCollapsible].
+ * @since 1.0.0
+ */
 @Composable
 public fun Trace(
     modifier: Modifier = Modifier,
@@ -87,6 +96,19 @@ public fun Trace(
     }
 }
 
+/**
+ * Shows one step of a [Trace] in a row, colored by its status.
+ *
+ * A line with [onClick] lights up while hovered and shows the ring of its style while it has the keyboard focus. A
+ * pending line is drawn with the pending alpha of its style, an erroneous one in its error color.
+ *
+ * @param modifier the modifier of the line.
+ * @param status the status of the step.
+ * @param onClick called when the line is clicked, or `null` for a line that cannot be clicked.
+ * @param style the style of the line.
+ * @param content the parts of the line, such as [TraceIcon], [TraceTitle] and [TraceDescription].
+ * @since 1.0.0
+ */
 @Composable
 public fun TraceLine(
     modifier: Modifier = Modifier,
@@ -114,11 +136,13 @@ public fun TraceLine(
     )
     CompositionLocalProvider(LocalContentColor provides color, LocalTraceStatus provides status) {
         Row(
-            modifier = modifier
-                .alpha(style.pendingAlpha.takeIf { status == TraceStatus.Pending } ?: 1f)
-                .surface(shape = style.shape, color = Color.Transparent, ring = ring)
-                .hoverable(interactionSource = source)
-                .then(click ?: Modifier),
+            modifier = modifier.then(
+                Modifier
+                    .alpha(style.pendingAlpha.takeIf { status == TraceStatus.Pending } ?: 1f)
+                    .surface(shape = style.shape, color = Color.Transparent, ring = ring)
+                    .hoverable(interactionSource = source)
+                    .then(click ?: Modifier),
+            ),
             horizontalArrangement = Arrangement.spacedBy(style.lineGap),
             verticalAlignment = Alignment.CenterVertically,
             content = content,
@@ -126,6 +150,14 @@ public fun TraceLine(
     }
 }
 
+/**
+ * Shows an icon of a [TraceLine] in a box of the icon size of the style, centered.
+ *
+ * @param modifier the modifier of the box.
+ * @param style the style that gives the size of the box.
+ * @param content the icon.
+ * @since 1.0.0
+ */
 @Composable
 public fun TraceIcon(
     modifier: Modifier = Modifier,
@@ -135,6 +167,15 @@ public fun TraceIcon(
     Box(modifier = modifier.size(style.iconSize), contentAlignment = Alignment.Center) { content() }
 }
 
+/**
+ * Shows the title of a [TraceLine] on one line. While the line is running and the theme does not reduce motion, a
+ * shimmer runs across the text; otherwise the text is cut off with an ellipsis when it is too long.
+ *
+ * @param text the title.
+ * @param modifier the modifier of the title.
+ * @param style the style that gives the color and the duration of the shimmer.
+ * @since 1.0.0
+ */
 @Composable
 public fun TraceTitle(text: String, modifier: Modifier = Modifier, style: TraceStyle = traceStyle()) {
     val isShimmering = LocalTraceStatus.current == TraceStatus.Running && !theme.motion.isReduced
@@ -145,11 +186,29 @@ public fun TraceTitle(text: String, modifier: Modifier = Modifier, style: TraceS
     ShimmerText(text = text, highlight = style.shimmerColor, modifier = modifier, durationMillis = style.shimmerMillis)
 }
 
+/**
+ * Shows a description of a [TraceLine] on one line, in the description color of the style.
+ *
+ * @param text the description.
+ * @param modifier the modifier of the description.
+ * @param style the style that gives the color of the description.
+ * @since 1.0.0
+ */
 @Composable
 public fun TraceDescription(text: String, modifier: Modifier = Modifier, style: TraceStyle = traceStyle()) {
     Text(text = text, modifier = modifier, color = style.descriptionColor, maxLines = 1)
 }
 
+/**
+ * Shows a step of a [Trace] whose details can be expanded and collapsed, with the motion of the style.
+ *
+ * @param expanded whether the details are shown.
+ * @param onExpandedChange called with the new value when the trigger asks to expand or collapse the details.
+ * @param modifier the modifier of the collapsible, which fills the width of its parent.
+ * @param style the style that gives the motion of the collapsible.
+ * @param content the parts of the collapsible, such as [TraceCollapsibleTrigger] and [TraceCollapsibleContent].
+ * @since 1.0.0
+ */
 @Composable
 public fun TraceCollapsible(
     expanded: Boolean,
@@ -167,6 +226,15 @@ public fun TraceCollapsible(
     )
 }
 
+/**
+ * Shows the trigger of a [TraceCollapsible]: its content followed by the chevron of the style, which turns by a
+ * quarter while the details are shown.
+ *
+ * @param modifier the modifier of the trigger.
+ * @param style the style that gives the chevron and its size.
+ * @param content the content of the trigger, usually the parts of a [TraceLine].
+ * @since 1.0.0
+ */
 @Composable
 public fun CollapsibleScope.TraceCollapsibleTrigger(
     modifier: Modifier = Modifier,
@@ -182,6 +250,14 @@ public fun CollapsibleScope.TraceCollapsibleTrigger(
     }
 }
 
+/**
+ * Shows the details of a [TraceCollapsible], indented and with a line along their start.
+ *
+ * @param modifier the modifier of the details.
+ * @param style the style that gives the text style, the color, the indent, the padding and the line.
+ * @param content the details, in a column.
+ * @since 1.0.0
+ */
 @Composable
 public fun CollapsibleScope.TraceCollapsibleContent(
     modifier: Modifier = Modifier,
@@ -203,7 +279,12 @@ public fun CollapsibleScope.TraceCollapsibleContent(
 
 private fun startLine(color: Color): Modifier = Modifier.drawBehind {
     val stroke = 1f * density
-    drawLine(color = color, start = Offset(stroke / 2, 0f), end = Offset(stroke / 2, size.height), strokeWidth = stroke)
+    drawLine(
+        color = color,
+        start = Offset(x = stroke / 2, y = 0f),
+        end = Offset(x = stroke / 2, y = size.height),
+        strokeWidth = stroke,
+    )
 }
 
 private fun colorOf(status: TraceStatus, isLit: Boolean, style: TraceStyle): Color {

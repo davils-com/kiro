@@ -26,6 +26,20 @@ import androidx.compose.ui.text.style.TextOverflow
 import com.davils.kiro.ui.core.content.LocalContentColor
 import com.davils.kiro.ui.core.content.LocalTextStyle
 
+/**
+ * Shows a text in the current text style and content color.
+ *
+ * The color is [color] if it is specified, else the color of [style] if that is specified, else the current content
+ * color.
+ *
+ * @param text the text to show.
+ * @param modifier the modifier of the text.
+ * @param style the style of the text, by default the current text style.
+ * @param color the color of the text, or [Color.Unspecified] to take it from [style] or the content color.
+ * @param maxLines the largest number of lines the text takes.
+ * @param overflow how the text is cut off when it does not fit.
+ * @since 1.0.0
+ */
 @Composable
 public fun Text(
     text: String,

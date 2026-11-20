@@ -42,7 +42,7 @@ internal class ResizableMeasurePolicy(
         val length = width.takeIf { isHorizontal } ?: height
         val cross = height.takeIf { isHorizontal } ?: width
         val shown = sizes.value
-        val available = maxOf(length - handle * (shown.size - 1), 0)
+        val available = maxOf(a = length - handle * (shown.size - 1), b = 0)
         val lengths = lengthsOf(sizes = shown, available = available)
         val placeables = measurables.mapIndexed { index, measurable ->
             val main = lengths.getOrNull(index / 2).takeIf { index % 2 == 0 } ?: handle

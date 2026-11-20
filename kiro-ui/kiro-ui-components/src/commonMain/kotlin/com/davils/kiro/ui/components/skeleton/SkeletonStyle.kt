@@ -24,6 +24,28 @@ import androidx.compose.ui.unit.DpSize
 import com.davils.kiro.ui.icons.IconGraphic
 import kotlin.time.Duration
 
+/**
+ * The look and animation of a [Skeleton] and of the skeleton presets, such as [SkeletonText] and [SkeletonCard].
+ *
+ * @property radius the corner radius of [SkeletonShape.Rounded].
+ * @property color the color of a skeleton.
+ * @property animation the animation of a skeleton.
+ * @property dimmedAlpha the lowest opacity of a pulsing skeleton.
+ * @property pulseDuration the duration of one pulse.
+ * @property pulseEasing the easing of a pulse.
+ * @property shimmerColor the color in the middle of the shimmer band.
+ * @property shimmerDuration the time the shimmer band takes to cross a skeleton.
+ * @property shimmerWidth the width of the shimmer band, as a fraction of the width of a skeleton.
+ * @property lineHeight the height of a line of text.
+ * @property lineGap the space between lines of text.
+ * @property avatarSize the width and height of an avatar.
+ * @property buttonSize the size of a button.
+ * @property imageIcon the icon in the middle of an image.
+ * @property imageIconSize the size of that icon.
+ * @property gap the space between the parts of a list item, a card and a table.
+ * @property isAnimated whether a skeleton is animated at all; when `false`, [animation] is ignored.
+ * @since 1.0.0
+ */
 @Immutable
 public class SkeletonStyle(
     public val radius: Dp,
@@ -47,7 +69,25 @@ public class SkeletonStyle(
     /**
      * Returns a copy of this [SkeletonStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param radius the new value of [radius].
+     * @param color the new value of [color].
+     * @param animation the new value of [animation].
+     * @param dimmedAlpha the new value of [dimmedAlpha].
+     * @param pulseDuration the new value of [pulseDuration].
+     * @param pulseEasing the new value of [pulseEasing].
+     * @param shimmerColor the new value of [shimmerColor].
+     * @param shimmerDuration the new value of [shimmerDuration].
+     * @param shimmerWidth the new value of [shimmerWidth].
+     * @param lineHeight the new value of [lineHeight].
+     * @param lineGap the new value of [lineGap].
+     * @param avatarSize the new value of [avatarSize].
+     * @param buttonSize the new value of [buttonSize].
+     * @param imageIcon the new value of [imageIcon].
+     * @param imageIconSize the new value of [imageIconSize].
+     * @param gap the new value of [gap].
+     * @param isAnimated the new value of [isAnimated].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         radius: Dp = this.radius,

@@ -25,16 +25,50 @@ import com.davils.kiro.ui.core.Theme
 import com.davils.kiro.ui.core.style.StyleKey
 import com.davils.kiro.ui.core.style.current
 
+/**
+ * Derives the [MarkerStyle] of a [Marker] from a theme; the value of [MarkerStyleKey] in the component styles of a
+ * theme.
+ *
+ * @since 1.0.0
+ */
 public fun interface MarkerStyles {
+    /**
+     * Returns the style of a [Marker] for a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the marker.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): MarkerStyle
 
+    /**
+     * Holds the default styles of a [Marker].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default styles of a [Marker], derived only from the tokens of the theme.
+         *
+         * @since 1.0.0
+         */
         public val Default: MarkerStyles = MarkerStyles(::defaultMarkerStyle)
     }
 }
 
+/**
+ * The key of the styles of a [Marker] in the component styles of a theme.
+ *
+ * @since 1.0.0
+ */
 public val MarkerStyleKey: StyleKey<MarkerStyles> = StyleKey(name = "marker") { _ -> MarkerStyles.Default }
 
+/**
+ * Returns the style of a [Marker] in the theme of the composition, with the overrides of its component styles.
+ *
+ * @return the style of the marker.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun markerStyle(): MarkerStyle = MarkerStyleKey.current.resolve(theme)

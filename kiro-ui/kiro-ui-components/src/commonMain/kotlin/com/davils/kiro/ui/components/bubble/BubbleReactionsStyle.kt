@@ -23,6 +23,21 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 
+/**
+ * The look of the [BubbleReactions] of a [Bubble].
+ *
+ * @property shape the shape of the row of reactions.
+ * @property container the container color of the row.
+ * @property content the content color of the reactions.
+ * @property ring the color of the ring that separates the row from the bubble.
+ * @property ringWidth the width of that ring.
+ * @property padding the padding of the row.
+ * @property gap the space between the reactions.
+ * @property inset the distance of the row from the start or end of the edge of the bubble.
+ * @property overlap the fraction of the height of the row that lies outside the bubble.
+ * @property textStyle the text style of the reactions.
+ * @since 1.0.0
+ */
 @Immutable
 public class BubbleReactionsStyle(
     public val shape: Shape,
@@ -39,7 +54,18 @@ public class BubbleReactionsStyle(
     /**
      * Returns a copy of this [BubbleReactionsStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param shape the new value of [shape].
+     * @param container the new value of [container].
+     * @param content the new value of [content].
+     * @param ring the new value of [ring].
+     * @param ringWidth the new value of [ringWidth].
+     * @param padding the new value of [padding].
+     * @param gap the new value of [gap].
+     * @param inset the new value of [inset].
+     * @param overlap the new value of [overlap].
+     * @param textStyle the new value of [textStyle].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         shape: Shape = this.shape,

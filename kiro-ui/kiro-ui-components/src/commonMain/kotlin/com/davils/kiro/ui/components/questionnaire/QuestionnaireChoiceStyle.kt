@@ -24,6 +24,46 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.icons.IconGraphic
 
+/**
+ * The style of a [QuestionnaireChoice].
+ *
+ * @property minHeight the smallest height of a choice.
+ * @property shape the shape of a choice.
+ * @property padding the padding inside a choice.
+ * @property gap the space between the indicator, the label and the shortcut of a choice.
+ * @property container the color of the container of a choice.
+ * @property hover the color of the container of a hovered choice.
+ * @property checkedContainer the color of the container of a chosen choice.
+ * @property border the color of the border of a choice.
+ * @property checkedBorder the color of the border of a chosen choice.
+ * @property invalidBorder the color of the border of a choice of a question that is missing its answer.
+ * @property focusBorder the color of the border of a choice with a visible focus.
+ * @property ring the color of the focus ring of a choice.
+ * @property ringWidth the width of the focus ring of a choice.
+ * @property disabledAlpha the opacity of a disabled choice.
+ * @property labelStyle the text style of the label of a choice.
+ * @property labelGap the space between the parts of the label of a choice.
+ * @property descriptionColor the color of a [QuestionnaireChoiceDescription].
+ * @property indicatorSize the size of the radio or checkbox indicator.
+ * @property indicatorShape the shape of the checkbox indicator.
+ * @property radioShape the shape of the radio indicator and of its dot.
+ * @property indicatorOffset how far the indicator and the shortcut are moved down to line up with the first line of the
+ * label.
+ * @property indicatorBorder the color of the border of an indicator that is not checked.
+ * @property indicatorContainer the color of an indicator that is not checked.
+ * @property indicatorChecked the color of the container and the border of a checked indicator.
+ * @property indicatorContent the color of the dot and the check mark of a checked indicator.
+ * @property dotSize the size of the dot of a checked radio indicator.
+ * @property checkIcon the check mark of a checked checkbox indicator.
+ * @property checkSize the size of the check mark.
+ * @property shortcutSize the size of the box that shows the shortcut.
+ * @property shortcutShape the shape of that box.
+ * @property shortcutBorder the color of the border of that box.
+ * @property shortcutContainer the color of that box.
+ * @property shortcutStyle the text style of the shortcut.
+ * @property shortcutColor the color of the shortcut.
+ * @since 1.0.0
+ */
 @Immutable
 public class QuestionnaireChoiceStyle(
     public val minHeight: Dp,
@@ -64,7 +104,7 @@ public class QuestionnaireChoiceStyle(
     /**
      * Returns a copy of this [QuestionnaireChoiceStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         minHeight: Dp = this.minHeight,

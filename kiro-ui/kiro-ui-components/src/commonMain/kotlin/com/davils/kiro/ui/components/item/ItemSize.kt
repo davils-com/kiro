@@ -16,10 +16,32 @@
 
 package com.davils.kiro.ui.components.item
 
+/**
+ * The size of an [Item], which picks its default style.
+ *
+ * The interface is open, so that a theme can add sizes of its own through its [ItemStyles].
+ *
+ * @since 1.0.0
+ */
 public interface ItemSize {
+    /**
+     * The default size of an item.
+     *
+     * @since 1.0.0
+     */
     public data object Default : ItemSize
 
+    /**
+     * A smaller item, with a smaller image.
+     *
+     * @since 1.0.0
+     */
     public data object Sm : ItemSize
 
+    /**
+     * The most compact item, with less padding, a smaller description and no gap between title and description.
+     *
+     * @since 1.0.0
+     */
     public data object Xs : ItemSize
 }

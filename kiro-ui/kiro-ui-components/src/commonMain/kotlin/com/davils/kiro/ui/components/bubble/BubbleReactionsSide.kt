@@ -16,7 +16,23 @@
 
 package com.davils.kiro.ui.components.bubble
 
+/**
+ * The edge of a [Bubble] on which its [BubbleReactions] are placed.
+ *
+ * @since 1.0.0
+ */
 public enum class BubbleReactionsSide {
+    /**
+     * The top edge of the bubble.
+     *
+     * @since 1.0.0
+     */
     Top,
+
+    /**
+     * The bottom edge of the bubble.
+     *
+     * @since 1.0.0
+     */
     Bottom,
 }

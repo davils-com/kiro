@@ -28,16 +28,52 @@ import com.davils.kiro.ui.core.style.current
 
 private const val FRACTION: Float = 0.25f
 
+/**
+ * Resolves the [SheetStyle] of a [Sheet] for a theme.
+ *
+ * Register your own under [SheetStyleKey] in the component styles of a theme to change every sheet.
+ *
+ * @since 1.0.0
+ */
 public fun interface SheetStyles {
+    /**
+     * Returns the style of a sheet.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of a sheet.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): SheetStyle
 
+    /**
+     * Holds the default sheet styles.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default sheet styles, derived from the colors and shadows of the theme and from the default dialog
+         * style, with a panel that takes a quarter of the window.
+         *
+         * @since 1.0.0
+         */
         public val Default: SheetStyles = SheetStyles(::defaultSheetStyle)
     }
 }
 
+/**
+ * The key of the sheet styles in the component styles of a theme, named `sheet`.
+ *
+ * @since 1.0.0
+ */
 public val SheetStyleKey: StyleKey<SheetStyles> = StyleKey(name = "sheet") { _ -> SheetStyles.Default }
 
+/**
+ * Returns the sheet style of the current theme.
+ *
+ * @return the style that the [SheetStyles] registered under [SheetStyleKey] resolve.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun sheetStyle(): SheetStyle = SheetStyleKey.current.resolve(theme)

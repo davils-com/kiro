@@ -50,6 +50,22 @@ import com.davils.kiro.ui.core.style.StateColors
 import com.davils.kiro.ui.icons.IconStyle
 import com.davils.kiro.ui.icons.LocalIconStyle
 
+/**
+ * A button that stays pressed until it is pressed again, such as the bold button of a text editor.
+ *
+ * Inside a button group or a joined toggle group the toggle joins its neighbours, so that the group reads as one
+ * control.
+ *
+ * @param pressed whether the toggle is pressed.
+ * @param onPressedChange called with the new pressed state when the user presses the toggle.
+ * @param modifier the modifier of the toggle.
+ * @param variant the look of the toggle, which selects its default style.
+ * @param size the size of the toggle, which selects its default style.
+ * @param enabled whether the toggle can be pressed.
+ * @param style the style of the toggle.
+ * @param content the label of the toggle, laid out in a row; [InlineScope.Icon] adds an icon.
+ * @since 1.0.0
+ */
 @Composable
 public fun Toggle(
     pressed: Boolean,
@@ -82,16 +98,18 @@ public fun Toggle(
         onValueChange = onPressedChange,
     )
     Row(
-        modifier = modifier
-            .joinedTo(item = groupItem, overlap = style.borderWidth)
-            .zIndex(layerOf(isFocusVisible = state.isFocusVisible))
-            .alpha(disabledAlphaOf(isDisabled = !enabled, alpha = style.disabledAlpha))
-            .height(style.height)
-            .widthIn(min = style.minWidth)
-            .then(surface)
-            .hoverable(interactionSource = source, enabled = enabled)
-            .then(toggle)
-            .padding(horizontal = style.horizontalPadding),
+        modifier = modifier.then(
+            Modifier
+                .joinedTo(item = groupItem, overlap = style.borderWidth)
+                .zIndex(layerOf(isFocusVisible = state.isFocusVisible))
+                .alpha(disabledAlphaOf(isDisabled = !enabled, alpha = style.disabledAlpha))
+                .height(style.height)
+                .widthIn(min = style.minWidth)
+                .then(surface)
+                .hoverable(interactionSource = source, enabled = enabled)
+                .then(toggle)
+                .padding(horizontal = style.horizontalPadding),
+        ),
         horizontalArrangement = Arrangement.spacedBy(style.gap, Alignment.CenterHorizontally),
         verticalAlignment = Alignment.CenterVertically,
     ) {

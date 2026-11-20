@@ -21,6 +21,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.core.style.Border
 
+/**
+ * The thumb of a [Switch], the circle that slides along its track.
+ *
+ * @property size the width and height of the thumb.
+ * @property color the color of the thumb while the switch is off.
+ * @property checkedColor the color of the thumb while the switch is on.
+ * @property border the border of the thumb.
+ * @since 1.0.0
+ */
 @Immutable
 public class SwitchThumb(
     public val size: Dp,
@@ -31,7 +40,12 @@ public class SwitchThumb(
     /**
      * Returns a copy of this [SwitchThumb] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param size the new value of [size].
+     * @param color the new value of [color].
+     * @param checkedColor the new value of [checkedColor].
+     * @param border the new value of [border].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         size: Dp = this.size,

@@ -79,6 +79,18 @@ import kotlinx.coroutines.delay
 
 private const val HALF_TURN: Float = 180f
 
+/**
+ * Shows a row of navigation triggers, such as the main navigation of a website, whose items open panels below them.
+ *
+ * Hovering over an item with a panel opens it after the open delay of [style], and leaving the item and its panel
+ * closes it after the close delay; clicking an item opens or closes its panel. The arrow keys move the focus between
+ * the triggers and Escape closes the open panel.
+ *
+ * @param modifier the modifier of the row.
+ * @param style the style of the navigation menu.
+ * @param content declares the items, links and menus of the row.
+ * @since 1.0.0
+ */
 @Composable
 public fun NavigationMenu(
     modifier: Modifier = Modifier,
@@ -240,6 +252,17 @@ private fun NavigationTrigger(
     }
 }
 
+/**
+ * Shows a clickable link in a panel of a [NavigationMenu], such as a title above a short description, with the
+ * background of the hovered or open trigger while it is hovered or active.
+ *
+ * @param onClick called when the link is clicked.
+ * @param modifier the modifier of the link.
+ * @param isActive whether the link leads to the current page.
+ * @param style the style of the navigation menu.
+ * @param content the content of the link, laid out in a column.
+ * @since 1.0.0
+ */
 @Composable
 public fun NavigationMenuLink(
     onClick: () -> Unit,
@@ -252,11 +275,13 @@ public fun NavigationMenuLink(
     val isHovered by source.collectIsHoveredAsState()
     val container = backgroundOf(isHovered = isHovered, isOpen = isActive, style = style)
     Column(
-        modifier = modifier
-            .surface(shape = style.linkShape, color = container)
-            .hoverable(interactionSource = source)
-            .then(pressable(source = source, onClick = onClick))
-            .padding(style.linkPadding),
+        modifier = modifier.then(
+            Modifier
+                .surface(shape = style.linkShape, color = container)
+                .hoverable(interactionSource = source)
+                .then(pressable(source = source, onClick = onClick))
+                .padding(style.linkPadding),
+        ),
         verticalArrangement = Arrangement.spacedBy(style.linkGap),
         content = content,
     )

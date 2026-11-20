@@ -34,6 +34,20 @@ import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.unit.dp
 import com.davils.kiro.ui.core.style.Border
 
+/**
+ * Draws the background of a component behind its content: [shape] filled with [color], with an optional border on its
+ * inner edge and an optional focus ring around its outer edge.
+ *
+ * The fill is drawn inside the border, so that a translucent border does not show the fill through it. The ring lies
+ * outside the bounds of the component and does not take part in its layout.
+ *
+ * @param shape the shape of the background.
+ * @param color the color of the fill.
+ * @param border the border on the inner edge of the shape, or `null` for none; a border of width zero is not drawn.
+ * @param ring the ring around the outer edge of the shape, or `null` for none.
+ * @return this modifier with the background added.
+ * @since 1.0.0
+ */
 public fun Modifier.surface(shape: Shape, color: Color, border: Border? = null, ring: Border? = null): Modifier =
     drawBehind {
         ring?.let { outer -> drawRing(shape = shape, ring = outer) }
@@ -52,14 +66,14 @@ public fun Modifier.surface(shape: Shape, color: Color, border: Border? = null, 
 
 private fun DrawScope.drawRing(shape: Shape, ring: Border) {
     val width = ring.width.toPx()
-    val outerSize = Size(size.width + width * 2, size.height + width * 2)
+    val outerSize = Size(width = size.width + width * 2, height = size.height + width * 2)
     val outer = Path()
     outer.addOutline(expanded(shape, width).createOutline(outerSize, layoutDirection, this))
     outer.translate(Offset(-width, -width))
     val inner = Path()
     inner.addOutline(shape.createOutline(size, layoutDirection, this))
     val band = Path()
-    band.op(outer, inner, PathOperation.Difference)
+    band.op(path1 = outer, path2 = inner, operation = PathOperation.Difference)
     drawPath(path = band, color = ring.color)
 }
 
@@ -74,7 +88,7 @@ private fun DrawScope.expanded(shape: Shape, width: Float): Shape {
 }
 
 private fun DrawScope.drawInset(shape: Shape, inset: Float, color: Color, stroke: Stroke?) {
-    val inner = Size(size.width - inset * 2, size.height - inset * 2)
+    val inner = Size(width = size.width - inset * 2, height = size.height - inset * 2)
     val outline = shape.createOutline(inner, layoutDirection, this)
     translate(left = inset, top = inset) {
         stroke?.let { style -> drawOutline(outline = outline, color = color, style = style) }

@@ -40,14 +40,43 @@ import com.davils.kiro.ui.icons.lucide.Lucide
 
 private const val HALF: Float = 0.5f
 
+/**
+ * Derives the [CalendarStyle] of a [Calendar] from a theme; the value of [CalendarStyleKey] in the component styles of
+ * a theme.
+ *
+ * @since 1.0.0
+ */
 public fun interface CalendarStyles {
+    /**
+     * Returns the style of a [Calendar] for a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the calendar.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): CalendarStyle
 
+    /**
+     * Holds the default styles of a [Calendar].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default styles of a [Calendar], derived only from the tokens of the theme.
+         *
+         * @since 1.0.0
+         */
         public val Default: CalendarStyles = CalendarStyles(::defaultCalendarStyle)
     }
 }
 
+/**
+ * Returns the style of a [Calendar] in the theme of the composition, with the overrides of its component styles.
+ *
+ * @return the style of the calendar.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun calendarStyle(): CalendarStyle = CalendarStyleKey.current.resolve(theme)
@@ -92,4 +121,9 @@ internal fun defaultCalendarStyle(theme: Theme): CalendarStyle {
     )
 }
 
+/**
+ * The key of the styles of a [Calendar] in the component styles of a theme.
+ *
+ * @since 1.0.0
+ */
 public val CalendarStyleKey: StyleKey<CalendarStyles> = StyleKey(name = "calendar") { _ -> CalendarStyles.Default }

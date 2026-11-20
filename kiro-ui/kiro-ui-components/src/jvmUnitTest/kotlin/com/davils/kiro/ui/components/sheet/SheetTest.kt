@@ -107,7 +107,7 @@ class SheetTest : FunSpec({
                     val isAcross = side == Side.Bottom
                     val windowExtent = (window.bottom - window.top).takeIf { isAcross } ?: window.right - window.left
                     val panelExtent = (panel.bottom - panel.top).takeIf { isAcross } ?: panel.right - panel.left
-                    val expected = maxOf(windowExtent * QUARTER, 280.dp)
+                    val expected = maxOf(a = windowExtent * QUARTER, b = 280.dp)
                     panelExtent.value shouldBe (expected.value plusOrMinus FIT)
                 }
             }

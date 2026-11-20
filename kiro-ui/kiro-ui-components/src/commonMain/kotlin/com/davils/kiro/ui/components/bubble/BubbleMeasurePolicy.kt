@@ -44,7 +44,7 @@ internal class BubbleMeasurePolicy(private val isEnd: Boolean, private val style
         val spacing = style.gap.roundToPx()
         val bubbleWidth = placeables.maxOfOrNull { placeable -> placeable.width } ?: 0
         val tops = placeables.runningFold(0) { y, placeable -> y + placeable.height + spacing }
-        val bubbleHeight = maxOf(tops.last() - spacing, 0)
+        val bubbleHeight = maxOf(a = tops.last() - spacing, b = 0)
         val width = constraints.maxWidth.takeIf { constraints.hasBoundedWidth } ?: bubbleWidth
         val left = (width - bubbleWidth).takeIf { isEnd } ?: 0
         val badges = reactions.map { (measurable, slot) ->

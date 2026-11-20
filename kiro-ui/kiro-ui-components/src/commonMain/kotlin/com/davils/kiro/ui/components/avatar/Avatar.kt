@@ -40,6 +40,22 @@ import com.davils.kiro.ui.icons.LocalIconStyle
 
 internal val LocalAvatarRing = staticCompositionLocalOf<Border?> { null }
 
+/**
+ * Shows a person or an entity as a round image, or as a fallback, such as initials or an icon, when there is no image.
+ *
+ * The image is cropped to the shape of the style and drawn with an outline. An optional badge sits at the bottom end.
+ * Inside an [AvatarGroup], the avatar also gets the group ring of the group.
+ *
+ * @param modifier the modifier of the avatar.
+ * @param size the size of the avatar, which picks the default style.
+ * @param image the image of the avatar, or `null` to show [fallback].
+ * @param contentDescription the text that accessibility services read for [image].
+ * @param style the style of the avatar.
+ * @param badge the content of the badge, or `null` for no badge; the badge is drawn whenever it is given, its content
+ * only when the style has a badge icon size.
+ * @param fallback the content shown when there is no image, with the fallback content color and text style.
+ * @since 1.0.0
+ */
 @Composable
 public fun Avatar(
     modifier: Modifier = Modifier,

@@ -23,16 +23,51 @@ import com.davils.kiro.ui.core.Theme
 import com.davils.kiro.ui.core.style.StyleKey
 import com.davils.kiro.ui.core.style.current
 
+/**
+ * Derives the [SkeletonStyle] of a [Skeleton] from a theme; the value of [SkeletonStyleKey] in the component styles of
+ * a theme.
+ *
+ * @since 1.0.0
+ */
 public fun interface SkeletonStyles {
+    /**
+     * Returns the style of a [Skeleton] for a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the skeleton.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): SkeletonStyle
 
+    /**
+     * Holds the default styles of a [Skeleton].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default styles of a [Skeleton], derived only from the tokens of the theme; they turn animation off when
+         * the theme reduces motion.
+         *
+         * @since 1.0.0
+         */
         public val Default: SkeletonStyles = SkeletonStyles(::defaultSkeletonStyle)
     }
 }
 
+/**
+ * The key of the styles of a [Skeleton] in the component styles of a theme.
+ *
+ * @since 1.0.0
+ */
 public val SkeletonStyleKey: StyleKey<SkeletonStyles> = StyleKey(name = "skeleton") { _ -> SkeletonStyles.Default }
 
+/**
+ * Returns the style of a [Skeleton] in the theme of the composition, with the overrides of its component styles.
+ *
+ * @return the style of the skeleton.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun skeletonStyle(): SkeletonStyle = SkeletonStyleKey.current.resolve(theme)

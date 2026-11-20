@@ -18,6 +18,15 @@ package com.davils.kiro.ui.components.chart
 
 import androidx.compose.runtime.Immutable
 
+/**
+ * Names and colors the series of the charts in a [ChartContainer].
+ *
+ * A chart looks up the [ChartSeries] of a key here for its color, its label in the tooltip and the legend and its
+ * icon. A key without a series gets a color of the palette by its position and its own value as label.
+ *
+ * @property series the series of the charts.
+ * @since 1.0.0
+ */
 @Immutable
 public class ChartConfig(
     public val series: List<ChartSeries>,
@@ -25,7 +34,9 @@ public class ChartConfig(
     /**
      * Returns a copy of this [ChartConfig] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param series the new value of [series].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(series: List<ChartSeries> = this.series): ChartConfig = ChartConfig(
         series = series,

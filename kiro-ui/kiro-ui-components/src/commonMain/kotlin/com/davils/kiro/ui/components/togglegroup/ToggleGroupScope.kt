@@ -19,6 +19,20 @@ package com.davils.kiro.ui.components.togglegroup
 import androidx.compose.runtime.Composable
 import com.davils.kiro.ui.components.InlineScope
 
+/**
+ * The scope in which the content of a [ToggleGroup] declares its toggles.
+ *
+ * @param T the type of the values that identify the toggles.
+ * @since 1.0.0
+ */
 public interface ToggleGroupScope<T> {
+    /**
+     * Declares a toggle of the group, in the order of the calls.
+     *
+     * @param value the value that identifies the toggle in the selected set of the group.
+     * @param enabled whether the toggle can be pressed and focused.
+     * @param content the content of the toggle.
+     * @since 1.0.0
+     */
     public fun item(value: T, enabled: Boolean = true, content: @Composable InlineScope.() -> Unit)
 }

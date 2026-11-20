@@ -23,6 +23,14 @@ import androidx.compose.ui.graphics.shadow.Shadow
 import androidx.compose.ui.unit.DpOffset
 import com.davils.kiro.ui.core.elevation.BoxShadow
 
+/**
+ * Draws a shadow of [shape] behind the content, one drop shadow for each layer of [shadow].
+ *
+ * @param shape the shape that casts the shadow.
+ * @param shadow the layers of the shadow.
+ * @return this modifier with the shadow added.
+ * @since 1.0.0
+ */
 public fun Modifier.boxShadow(shape: Shape, shadow: BoxShadow): Modifier = shadow.layers.fold(
     this,
 ) { modifier, layer ->

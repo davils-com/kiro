@@ -34,6 +34,14 @@ import com.davils.kiro.ui.core.content.LocalContentColor
 import com.davils.kiro.ui.icons.IconStyle
 import com.davils.kiro.ui.icons.LocalIconStyle
 
+/**
+ * Shows the header of an [Empty]: a centered column of a media, a title and a description, no wider than the maximal
+ * content width of the style.
+ *
+ * @param modifier the modifier of the header.
+ * @param content the parts of the header, such as an [EmptyMedia], an [EmptyTitle] and an [EmptyDescription].
+ * @since 1.0.0
+ */
 @Composable
 public fun EmptyScope.EmptyHeader(modifier: Modifier = Modifier, content: @Composable EmptyScope.() -> Unit) {
     val emptyStyle = style
@@ -46,6 +54,14 @@ public fun EmptyScope.EmptyHeader(modifier: Modifier = Modifier, content: @Compo
     }
 }
 
+/**
+ * Shows the media of an [Empty], such as an icon or an image, above its title.
+ *
+ * @param modifier the modifier of the media.
+ * @param variant how the media presents its content.
+ * @param content the media, centered.
+ * @since 1.0.0
+ */
 @Composable
 public fun EmptyScope.EmptyMedia(
     modifier: Modifier = Modifier,
@@ -59,16 +75,38 @@ public fun EmptyScope.EmptyMedia(
     }
 }
 
+/**
+ * Shows the title of an [Empty] in the title style of the empty state.
+ *
+ * @param text the title.
+ * @param modifier the modifier of the title.
+ * @since 1.0.0
+ */
 @Composable
 public fun EmptyScope.EmptyTitle(text: String, modifier: Modifier = Modifier) {
     Text(text = text, modifier = modifier, style = style.titleStyle)
 }
 
+/**
+ * Shows the description of an [Empty] in the description style and color of the empty state.
+ *
+ * @param text the description.
+ * @param modifier the modifier of the description.
+ * @since 1.0.0
+ */
 @Composable
 public fun EmptyScope.EmptyDescription(text: String, modifier: Modifier = Modifier) {
     Text(text = text, modifier = modifier, style = style.descriptionStyle, color = style.descriptionColor)
 }
 
+/**
+ * Shows the content of an [Empty] below its header, such as buttons or a link, as a centered column no wider than the
+ * maximal content width of the style.
+ *
+ * @param modifier the modifier of the content.
+ * @param content the content.
+ * @since 1.0.0
+ */
 @Composable
 public fun EmptyScope.EmptyContent(modifier: Modifier = Modifier, content: @Composable EmptyScope.() -> Unit) {
     val emptyStyle = style

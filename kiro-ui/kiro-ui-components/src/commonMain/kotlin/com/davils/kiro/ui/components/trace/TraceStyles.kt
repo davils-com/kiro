@@ -35,16 +35,53 @@ private const val DESCRIPTION_ALPHA: Float = 0.7f
 private const val RING_ALPHA: Float = 0.5f
 private const val SHIMMER_MILLIS: Int = 2000
 
+/**
+ * Derives the [TraceStyle] from the tokens of a theme.
+ *
+ * Register an implementation for [TraceStyleKey] in the components of a theme to change the style of every trace.
+ *
+ * @since 1.0.0
+ */
 public fun interface TraceStyles {
+    /**
+     * Returns the style of a trace under a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of a trace.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): TraceStyle
 
+    /**
+     * Holds the default trace styles.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default trace styles, derived from the colors, the radii, the typography, the focus ring and the
+         * collapsible
+         * style of a theme.
+         *
+         * @since 1.0.0
+         */
         public val Default: TraceStyles = TraceStyles(::defaultTraceStyle)
     }
 }
 
+/**
+ * The key of the trace styles in the components of a theme; its default is [TraceStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val TraceStyleKey: StyleKey<TraceStyles> = StyleKey(name = "trace") { _ -> TraceStyles.Default }
 
+/**
+ * Returns the trace style of the current theme, with the overrides of the theme for [TraceStyleKey].
+ *
+ * @return the style of a trace.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun traceStyle(): TraceStyle = TraceStyleKey.current.resolve(theme)

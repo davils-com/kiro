@@ -32,7 +32,9 @@ internal fun Modifier.rovingKeys(
 ): Modifier = onPreviewKeyEvent { event ->
     val move = rovingMoveOf(key = event.key, orientation = orientation, isReversed = isReversed)
         ?.takeIf { event.type == KeyEventType.KeyDown }
-    val target = move?.let { step -> rovingTarget(move = step, current = maxOf(current(), 0), isEnabled = isEnabled()) }
+    val target = move?.let { step ->
+        rovingTarget(move = step, current = maxOf(a = current(), b = 0), isEnabled = isEnabled())
+    }
     target?.let(onTarget)
     target != null
 }

@@ -37,14 +37,46 @@ import com.davils.kiro.ui.icons.lucide.X
 private const val RING_ALPHA: Float = 0.1f
 private const val FOOTER_ALPHA: Float = 0.5f
 
+/**
+ * Resolves the [DialogStyle] of a [Dialog] for a theme.
+ *
+ * Register an implementation under [DialogStyleKey] in the components of a theme to change the style of every
+ * dialog.
+ *
+ * @since 1.0.0
+ */
 public fun interface DialogStyles {
+    /**
+     * Returns the style of a dialog.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the dialog.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): DialogStyle
 
+    /**
+     * Holds the default styles of a dialog.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default styles of a dialog, derived from the popover colors, the radii and the typography of the
+         * theme.
+         *
+         * @since 1.0.0
+         */
         public val Default: DialogStyles = DialogStyles(::defaultDialogStyle)
     }
 }
 
+/**
+ * Returns the style of a [Dialog], as the [DialogStyles] of the current theme resolve it.
+ *
+ * @return the style of the dialog.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun dialogStyle(): DialogStyle = DialogStyleKey.current.resolve(theme)
@@ -80,9 +112,14 @@ internal fun defaultDialogStyle(theme: Theme): DialogStyle {
         footerGap = 8.dp,
         closeIcon = Lucide.X,
         closeOffset = 8.dp,
-        closeLabel = Messages.Dialog.close,
+        closeLabel = Messages.Dialog.CLOSE,
         scrim = Color.Black.copy(alpha = RING_ALPHA),
     )
 }
 
+/**
+ * The key of the [DialogStyles] of a [Dialog] in the components of a theme; its default is [DialogStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val DialogStyleKey: StyleKey<DialogStyles> = StyleKey(name = "dialog") { _ -> DialogStyles.Default }

@@ -44,6 +44,21 @@ import com.davils.kiro.ui.core.style.Border
 import com.davils.kiro.ui.icons.IconStyle
 import com.davils.kiro.ui.icons.LocalIconStyle
 
+/**
+ * Shows a small label, such as a status or a count, in a rounded container whose colors follow its interaction
+ * state.
+ *
+ * With an [onClick] the badge is hoverable and clickable with the role of a button; without one it only displays its
+ * content.
+ *
+ * @param modifier the modifier of the badge.
+ * @param variant the variant whose default style the badge uses.
+ * @param onClick called when the badge is clicked, or `null` for a badge that cannot be clicked.
+ * @param style the style of the badge.
+ * @param interactionSource the source of the interactions of the badge, or `null` to use one of its own.
+ * @param content the text and icons of the badge, in a row.
+ * @since 1.0.0
+ */
 @Composable
 public fun Badge(
     modifier: Modifier = Modifier,
@@ -63,11 +78,13 @@ public fun Badge(
         ring = Border(width = style.ringWidth, color = colors.ring),
     )
     Row(
-        modifier = modifier
-            .height(style.height)
-            .then(surface)
-            .interactive(source = source, onClick = onClick)
-            .padding(horizontal = style.horizontalPadding),
+        modifier = modifier.then(
+            Modifier
+                .height(style.height)
+                .then(surface)
+                .interactive(source = source, onClick = onClick)
+                .padding(horizontal = style.horizontalPadding),
+        ),
         horizontalArrangement = Arrangement.spacedBy(style.gap, Alignment.CenterHorizontally),
         verticalAlignment = Alignment.CenterVertically,
     ) {

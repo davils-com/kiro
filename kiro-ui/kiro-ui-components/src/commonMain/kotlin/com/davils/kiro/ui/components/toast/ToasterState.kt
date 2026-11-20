@@ -27,14 +27,43 @@ import kotlin.time.Duration.Companion.seconds
 
 private const val DEFAULT_SECONDS: Int = 4
 
+/**
+ * Holds the toasts of a [Toaster] and shows, updates and dismisses them.
+ *
+ * Create it with [rememberToaster] and hand it to a [Toaster]. Its functions may be called from any code that holds
+ * it, such as event handlers and coroutines.
+ *
+ * @since 1.0.0
+ */
 @Stable
 public class ToasterState {
     private var next: Long = 0
     private var leaving: Set<ToastId> by mutableStateOf(emptySet())
 
+    /**
+     * The toasts of the toaster, the oldest first, including toasts that are leaving.
+     *
+     * @since 1.0.0
+     */
     public var toasts: List<Toast> by mutableStateOf(emptyList())
         private set
 
+    /**
+     * Shows a new toast.
+     *
+     * @param title the title of the toast.
+     * @param description the text below the title, or `null` for none.
+     * @param type the type of the toast.
+     * @param action the action button of the toast, or `null` for none.
+     * @param duration how long the toast stays, or `null` to keep it until it is dismissed; it is ignored while the
+     * toast
+     * has a progress bar.
+     * @param progress the progress bar of the toast, or `null` for none.
+     * @param isDismissible whether the toast can be closed with its close button or swiped away.
+     * @param onDismiss called when the toast has left the toaster, or `null`.
+     * @return the id of the new toast.
+     * @since 1.0.0
+     */
     public fun show(
         title: String,
         description: String? = null,
@@ -62,15 +91,37 @@ public class ToasterState {
         return id
     }
 
+    /**
+     * Replaces a toast with the result of [change]; the toast keeps its id. Nothing happens if there is no toast with
+     * the
+     * id.
+     *
+     * @param id the id of the toast.
+     * @param change returns the new toast from the current one, such as with [Toast.copy].
+     * @since 1.0.0
+     */
     public fun update(id: ToastId, change: Toast.() -> Toast) {
         toasts = toasts.map { toast -> changed(toast = toast, id = id, change = change) }
     }
 
+    /**
+     * Lets a toast leave with its exit animation; it is removed afterwards. Nothing happens if there is no toast with
+     * the
+     * id.
+     *
+     * @param id the id of the toast.
+     * @since 1.0.0
+     */
     public fun dismiss(id: ToastId) {
         if (toasts.none { toast -> toast.id == id }) return
         leaving = leaving + id
     }
 
+    /**
+     * Lets every toast leave with its exit animation.
+     *
+     * @since 1.0.0
+     */
     public fun dismissAll() {
         leaving = toasts.map { toast -> toast.id }.toSet()
     }
@@ -90,9 +141,28 @@ public class ToasterState {
         toast.onDismiss?.invoke()
     }
 
+    /**
+     * Holds the default durations of toasts.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * How long a toast stays by default: four seconds.
+         *
+         * @since 1.0.0
+         */
         public val DefaultDuration: Duration = DEFAULT_SECONDS.seconds
 
+        /**
+         * Returns the default duration of a toast of a type: [DefaultDuration], or `null` for [ToastType.Loading],
+         * which stays
+         * until it is dismissed.
+         *
+         * @param type the type of the toast.
+         * @return the default duration, or `null`.
+         * @since 1.0.0
+         */
         public fun durationOf(type: ToastType): Duration? = DefaultDuration.takeUnless {
             type ==
                 ToastType.Loading
@@ -100,5 +170,11 @@ public class ToasterState {
     }
 }
 
+/**
+ * Creates and remembers a [ToasterState] that keeps its toasts across recompositions.
+ *
+ * @return the state of the toaster.
+ * @since 1.0.0
+ */
 @Composable
 public fun rememberToaster(): ToasterState = remember { ToasterState() }

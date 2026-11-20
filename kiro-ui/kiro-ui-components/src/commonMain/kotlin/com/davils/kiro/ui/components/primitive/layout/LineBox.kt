@@ -21,10 +21,18 @@ import androidx.compose.ui.layout.layout
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Density
 
+/**
+ * Gives the content the height of one line of [style] and centers it vertically in that line, so that an icon or a
+ * control next to a text lines up with the line of the text.
+ *
+ * @param style the text style whose line height the content takes.
+ * @return this modifier with the line box added.
+ * @since 1.0.0
+ */
 public fun Modifier.lineBox(style: TextStyle): Modifier = layout { measurable, constraints ->
     val placeable = measurable.measure(constraints)
     val height = lineHeightOf(style)
-    layout(placeable.width, height) { placeable.place(0, (height - placeable.height) / 2) }
+    layout(width = placeable.width, height = height) { placeable.place(x = 0, y = (height - placeable.height) / 2) }
 }
 
 private fun Density.lineHeightOf(style: TextStyle): Int {

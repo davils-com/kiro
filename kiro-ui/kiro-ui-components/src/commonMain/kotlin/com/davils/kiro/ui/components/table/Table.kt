@@ -40,6 +40,18 @@ import com.davils.kiro.ui.components.text.Text
 import com.davils.kiro.ui.core.content.LocalContentColor
 import com.davils.kiro.ui.core.content.LocalTextStyle
 
+/**
+ * Shows rows of cells in columns, with an optional caption below them.
+ *
+ * Each column is as wide as its widest cell; when the table is narrower than the space it gets, the columns grow in
+ * proportion to fill it, and when it is wider, it scrolls horizontally. The rows are shown in the order they are
+ * declared, separated by lines.
+ *
+ * @param modifier the modifier of the table.
+ * @param style the style of the table.
+ * @param content declares the header, body and footer rows and the caption of the table.
+ * @since 1.0.0
+ */
 @Composable
 public fun Table(modifier: Modifier = Modifier, style: TableStyle = tableStyle(), content: TableScope.() -> Unit) {
     val scope = TableScopeImpl().apply(content)

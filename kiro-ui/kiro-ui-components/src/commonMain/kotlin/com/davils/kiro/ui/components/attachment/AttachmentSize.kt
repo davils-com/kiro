@@ -16,10 +16,32 @@
 
 package com.davils.kiro.ui.components.attachment
 
+/**
+ * The size of an [Attachment], which picks its paddings, gaps, media size, radii and text size.
+ *
+ * The default style knows the sizes declared here; a size of your own needs [AttachmentStyles] that resolve it.
+ *
+ * @since 1.0.0
+ */
 public interface AttachmentSize {
+    /**
+     * The regular size, with small text and 40 dp media.
+     *
+     * @since 1.0.0
+     */
     public data object Default : AttachmentSize
 
+    /**
+     * A smaller size, with extra small text and 32 dp media.
+     *
+     * @since 1.0.0
+     */
     public data object Sm : AttachmentSize
 
+    /**
+     * The smallest size, with extra small text, 28 dp media and smaller radii.
+     *
+     * @since 1.0.0
+     */
     public data object Xs : AttachmentSize
 }

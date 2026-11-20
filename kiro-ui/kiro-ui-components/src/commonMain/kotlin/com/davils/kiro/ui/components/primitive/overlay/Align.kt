@@ -16,8 +16,32 @@
 
 package com.davils.kiro.ui.components.primitive.overlay
 
+/**
+ * How an overlay lines up with its anchor along the side it opens on.
+ *
+ * On the top or the bottom side, the start and the end follow the layout direction.
+ *
+ * @since 1.0.0
+ */
 public enum class Align {
+    /**
+     * The start edges of the overlay and the anchor line up.
+     *
+     * @since 1.0.0
+     */
     Start,
+
+    /**
+     * The overlay is centered on the anchor.
+     *
+     * @since 1.0.0
+     */
     Center,
+
+    /**
+     * The end edges of the overlay and the anchor line up.
+     *
+     * @since 1.0.0
+     */
     End,
 }

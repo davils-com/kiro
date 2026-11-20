@@ -16,7 +16,23 @@
 
 package com.davils.kiro.ui.components.field
 
+/**
+ * The text style of a [FieldLegend].
+ *
+ * @since 1.0.0
+ */
 public enum class FieldLegendVariant {
+    /**
+     * The larger text of the legend of a whole set of fields.
+     *
+     * @since 1.0.0
+     */
     Legend,
+
+    /**
+     * The smaller text of a label, for a legend that names a single group of choices.
+     *
+     * @since 1.0.0
+     */
     Label,
 }

@@ -23,6 +23,21 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.core.style.StateColors
 
+/**
+ * The look of a [Checkbox].
+ *
+ * @property size the width and height of the box.
+ * @property shape the shape of the box.
+ * @property colors the colors of the box, its border, its focus ring and its mark per interaction state while it is
+ * neither checked nor indeterminate.
+ * @property checkedColors the colors per interaction state while the box is checked or indeterminate.
+ * @property borderWidth the width of the border of the box.
+ * @property ringWidth the width of the focus ring.
+ * @property indicator the mark inside the box.
+ * @property disabledAlpha the alpha of a disabled checkbox.
+ * @property colorAnimation the animation of the colors between interaction states.
+ * @since 1.0.0
+ */
 @Immutable
 public class CheckboxStyle(
     public val size: Dp,
@@ -38,7 +53,7 @@ public class CheckboxStyle(
     /**
      * Returns a copy of this [CheckboxStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         size: Dp = this.size,

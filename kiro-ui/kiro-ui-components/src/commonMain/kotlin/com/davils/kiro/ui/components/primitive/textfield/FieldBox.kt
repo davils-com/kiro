@@ -55,12 +55,14 @@ internal fun FieldBox(
     CompositionLocalProvider(LocalContentColor provides colors.content) {
         TextFieldCore(
             text = text,
-            modifier = modifier
-                .graphicsLayer { this.alpha = alpha }
-                .fillMaxWidth()
-                .heightIn(min = style.minHeight, max = style.maxHeight)
-                .then(surface)
-                .hoverable(interactionSource = source, enabled = enabled),
+            modifier = modifier.then(
+                Modifier
+                    .graphicsLayer { this.alpha = alpha }
+                    .fillMaxWidth()
+                    .heightIn(min = style.minHeight, max = style.maxHeight)
+                    .then(surface)
+                    .hoverable(interactionSource = source, enabled = enabled),
+            ),
             enabled = enabled,
             options = options,
             isSingleLine = isSingleLine,

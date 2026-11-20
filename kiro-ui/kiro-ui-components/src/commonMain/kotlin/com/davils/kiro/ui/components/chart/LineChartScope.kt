@@ -19,7 +19,21 @@ package com.davils.kiro.ui.components.chart
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+/**
+ * The scope in which the content of a [LineChart] declares its lines.
+ *
+ * @since 1.0.0
+ */
 public interface LineChartScope : CartesianChartScope {
+    /**
+     * Declares a line through the values of one series.
+     *
+     * @param key the key of the series in the values of each [ChartPoint].
+     * @param curve how the line runs between the points.
+     * @param strokeWidth the width of the line.
+     * @param isDotShown whether a dot is drawn on each point.
+     * @since 1.0.0
+     */
     public fun line(
         key: ChartKey,
         curve: ChartCurve = ChartCurve.Natural,

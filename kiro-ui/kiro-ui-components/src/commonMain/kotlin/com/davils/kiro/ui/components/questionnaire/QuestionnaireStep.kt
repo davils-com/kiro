@@ -18,15 +18,27 @@ package com.davils.kiro.ui.components.questionnaire
 
 import androidx.compose.runtime.Immutable
 
+/**
+ * The outcome of moving through a [QuestionnaireState], as returned by [QuestionnaireState.next],
+ * [QuestionnaireState.previous], [QuestionnaireState.skip] and [QuestionnaireState.submit].
+ *
+ * @since 1.0.0
+ */
 @Immutable
 public sealed interface QuestionnaireStep {
+    /**
+     * The questionnaire moved to another question.
+     *
+     * @property index the index of the question that is now the current one.
+     * @since 1.0.0
+     */
     public class Moved(
         public val index: Int,
     ) : QuestionnaireStep {
         /**
          * Returns a copy of this [Moved] with the given values replaced and every other value kept.
          *
-         * @since 0.1.0
+         * @since 1.0.0
          */
         public fun copy(index: Int = this.index): Moved = Moved(
             index = index,
@@ -44,13 +56,19 @@ public sealed interface QuestionnaireStep {
         )
     }
 
+    /**
+     * The questionnaire did not move because a required question is missing its answer.
+     *
+     * @property question the missing question.
+     * @since 1.0.0
+     */
     public class Invalid(
         public val question: Question,
     ) : QuestionnaireStep {
         /**
          * Returns a copy of this [Invalid] with the given values replaced and every other value kept.
          *
-         * @since 0.1.0
+         * @since 1.0.0
          */
         public fun copy(question: Question = this.question): Invalid = Invalid(
             question = question,
@@ -68,13 +86,19 @@ public sealed interface QuestionnaireStep {
         )
     }
 
+    /**
+     * The questionnaire was submitted.
+     *
+     * @property answers the answers, by the key of their question.
+     * @since 1.0.0
+     */
     public class Submitted(
         public val answers: Map<QuestionKey, Answer>,
     ) : QuestionnaireStep {
         /**
          * Returns a copy of this [Submitted] with the given values replaced and every other value kept.
          *
-         * @since 0.1.0
+         * @since 1.0.0
          */
         public fun copy(answers: Map<QuestionKey, Answer> = this.answers): Submitted = Submitted(
             answers = answers,

@@ -24,6 +24,29 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.core.style.StateColors
 
+/**
+ * The style of an [Item] and of its parts.
+ *
+ * @property shape the shape of the item.
+ * @property colors the container, content, border and ring colors of the item in each interaction state.
+ * @property borderWidth the width of the border.
+ * @property ringWidth the width of the focus ring.
+ * @property gap the gap between the header, the row and the footer, and between the parts of the row.
+ * @property horizontalPadding the padding at the start and the end of the item.
+ * @property verticalPadding the padding at the top and the bottom of the item.
+ * @property textStyle the text style of the content of the item.
+ * @property mediaGap a gap for content placed next to the media; the item itself spaces its parts by [gap].
+ * @property imageSize the width and height of the media of the [ItemMediaVariant.Image] variant.
+ * @property imageShape the shape that the media of the [ItemMediaVariant.Image] variant is clipped to.
+ * @property iconSize the size of icons in the media.
+ * @property contentGap the gap between the title and the description.
+ * @property titleStyle the text style of the title.
+ * @property descriptionStyle the text style of the description.
+ * @property descriptionColor the color of the description.
+ * @property actionsGap the gap between the actions, and between the parts of the header and the footer.
+ * @property colorAnimation the animation of the colors between interaction states.
+ * @since 1.0.0
+ */
 @Immutable
 public class ItemStyle(
     public val shape: Shape,
@@ -48,7 +71,26 @@ public class ItemStyle(
     /**
      * Returns a copy of this [ItemStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param shape the new value of [shape].
+     * @param colors the new value of [colors].
+     * @param borderWidth the new value of [borderWidth].
+     * @param ringWidth the new value of [ringWidth].
+     * @param gap the new value of [gap].
+     * @param horizontalPadding the new value of [horizontalPadding].
+     * @param verticalPadding the new value of [verticalPadding].
+     * @param textStyle the new value of [textStyle].
+     * @param mediaGap the new value of [mediaGap].
+     * @param imageSize the new value of [imageSize].
+     * @param imageShape the new value of [imageShape].
+     * @param iconSize the new value of [iconSize].
+     * @param contentGap the new value of [contentGap].
+     * @param titleStyle the new value of [titleStyle].
+     * @param descriptionStyle the new value of [descriptionStyle].
+     * @param descriptionColor the new value of [descriptionColor].
+     * @param actionsGap the new value of [actionsGap].
+     * @param colorAnimation the new value of [colorAnimation].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         shape: Shape = this.shape,

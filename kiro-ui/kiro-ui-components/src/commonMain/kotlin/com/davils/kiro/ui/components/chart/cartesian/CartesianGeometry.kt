@@ -38,13 +38,13 @@ internal class CartesianGeometry(
     fun pointOf(index: Int, value: Double): Offset {
         val along = categories.center(index)
         val across = values.map(value)
-        if (frame.isVertical) return Offset(along, across)
-        return Offset(across, along)
+        if (frame.isVertical) return Offset(x = along, y = across)
+        return Offset(x = across, y = along)
     }
 
     fun anchorOf(index: Int): Offset {
         val along = categories.center(index)
-        if (frame.isVertical) return Offset(along, plot.center.y)
-        return Offset(plot.center.x, along)
+        if (frame.isVertical) return Offset(x = along, y = plot.center.y)
+        return Offset(x = plot.center.x, y = along)
     }
 }

@@ -16,8 +16,24 @@
 
 package com.davils.kiro.ui.components.collapsible
 
+/**
+ * The scope of the content of a [Collapsible], which holds its [CollapsibleTrigger] and its [CollapsibleContent].
+ *
+ * @since 1.0.0
+ */
 public interface CollapsibleScope {
+    /**
+     * Whether the content of the collapsible is shown.
+     *
+     * @since 1.0.0
+     */
     public val isExpanded: Boolean
 
+    /**
+     * Asks the collapsible to show its content if it is hidden and to hide it if it is shown, unless the collapsible
+     * is disabled.
+     *
+     * @since 1.0.0
+     */
     public fun toggle()
 }

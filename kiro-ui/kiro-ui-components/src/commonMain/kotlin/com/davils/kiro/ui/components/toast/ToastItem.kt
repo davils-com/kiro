@@ -92,13 +92,15 @@ internal fun ToastItem(
     val face = faceOf(status = status.takeIf { options.isRich }, style = style)
     CompositionLocalProvider(LocalContentColor provides face.content) {
         Box(
-            modifier = modifier
-                .width(style.width)
-                .boxShadow(shape = style.shape, shadow = style.shadow)
-                .then(surfaceOf(face = face, style = style))
-                .hoverable(interactionSource = source)
-                .focusable(interactionSource = source)
-                .semantics { liveRegion = LiveRegionMode.Polite },
+            modifier = modifier.then(
+                Modifier
+                    .width(style.width)
+                    .boxShadow(shape = style.shape, shadow = style.shadow)
+                    .then(surfaceOf(face = face, style = style))
+                    .hoverable(interactionSource = source)
+                    .focusable(interactionSource = source)
+                    .semantics { liveRegion = LiveRegionMode.Polite },
+            ),
         ) {
             ToastBody(toast = toast, status = status, onDismiss = onDismiss, style = style)
             val isCloseShown = toast.isDismissible && (options.isCloseButtonShown || isHovered || isFocused)
@@ -189,11 +191,13 @@ private fun CloseButton(style: ToastStyle, modifier: Modifier, onClick: () -> Un
         .pressableCursor()
         .clickable(role = Role.Button, onClick = onClick)
     Box(
-        modifier = modifier
-            .padding(style.padding / CLOSE_INSET)
-            .size(style.closeSize)
-            .semantics { contentDescription = label }
-            .then(press),
+        modifier = modifier.then(
+            Modifier
+                .padding(style.padding / CLOSE_INSET)
+                .size(style.closeSize)
+                .semantics { contentDescription = label }
+                .then(press),
+        ),
         contentAlignment = Alignment.Center,
     ) {
         CompositionLocalProvider(LocalIconStyle provides IconStyle(size = style.iconSize * CLOSE_ICON_SCALE)) {

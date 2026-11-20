@@ -36,6 +36,21 @@ import com.davils.kiro.ui.components.text.Text
 import com.davils.kiro.ui.core.content.LocalContentColor
 import com.davils.kiro.ui.core.content.LocalTextStyle
 
+/**
+ * A panel of free content that opens in a popup next to its trigger.
+ *
+ * The panel takes the focus when it opens. Pressing escape or clicking outside the panel asks to close it through
+ * [onExpandedChange].
+ *
+ * @param expanded whether the popover is open.
+ * @param onExpandedChange called with `false` when the popover asks to close.
+ * @param trigger the content the popover opens next to, such as a button that sets [expanded].
+ * @param modifier the modifier of the box around the trigger.
+ * @param placement where the popover opens relative to the trigger.
+ * @param style the style of the popover.
+ * @param content the content of the panel, laid out in a column.
+ * @since 1.0.0
+ */
 @Composable
 public fun Popover(
     expanded: Boolean,
@@ -74,6 +89,14 @@ public fun Popover(
     }
 }
 
+/**
+ * The header of a popover: a column that holds its title and description.
+ *
+ * @param modifier the modifier of the column.
+ * @param style the style of the popover; its [PopoverStyle.headerGap] spaces the children.
+ * @param content the children of the header, such as a [PopoverTitle] and a [PopoverDescription].
+ * @since 1.0.0
+ */
 @Composable
 public fun PopoverHeader(
     modifier: Modifier = Modifier,
@@ -83,11 +106,27 @@ public fun PopoverHeader(
     Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(style.headerGap), content = content)
 }
 
+/**
+ * The title of a popover, in the [PopoverStyle.titleStyle].
+ *
+ * @param text the text of the title.
+ * @param modifier the modifier of the text.
+ * @param style the style of the popover.
+ * @since 1.0.0
+ */
 @Composable
 public fun PopoverTitle(text: String, modifier: Modifier = Modifier, style: PopoverStyle = popoverStyle()) {
     Text(text = text, modifier = modifier, style = style.titleStyle)
 }
 
+/**
+ * The description of a popover, in the [PopoverStyle.descriptionColor].
+ *
+ * @param text the text of the description.
+ * @param modifier the modifier of the text.
+ * @param style the style of the popover.
+ * @since 1.0.0
+ */
 @Composable
 public fun PopoverDescription(text: String, modifier: Modifier = Modifier, style: PopoverStyle = popoverStyle()) {
     Text(text = text, modifier = modifier, color = style.descriptionColor)

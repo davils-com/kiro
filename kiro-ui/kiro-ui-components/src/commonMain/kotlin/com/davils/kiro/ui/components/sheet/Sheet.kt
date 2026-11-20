@@ -42,6 +42,21 @@ import com.davils.kiro.ui.components.theme
 import com.davils.kiro.ui.core.content.LocalContentColor
 import com.davils.kiro.ui.core.content.LocalTextStyle
 
+/**
+ * A modal panel that slides in from an edge of the window over a scrim.
+ *
+ * The panel takes a fraction of the width or the height of the window, but at least the minimum size of the style.
+ * Clicking the scrim, pressing Escape or clicking the close button asks to close it.
+ *
+ * @param open whether the sheet is open.
+ * @param onOpenChange called with `false` when the sheet asks to close.
+ * @param modifier the modifier of the panel.
+ * @param side the edge the sheet slides in from; [Side.Start] and [Side.End] follow the layout direction.
+ * @param isCloseButtonShown whether a close button is shown in the top end corner of the panel.
+ * @param style the look of the sheet and its parts.
+ * @param content the content of the panel, laid out in a column.
+ * @since 1.0.0
+ */
 @Composable
 public fun Sheet(
     open: Boolean,
@@ -64,12 +79,14 @@ public fun Sheet(
     ) {
         CompositionLocalProvider(LocalContentColor provides style.content, LocalTextStyle provides style.textStyle) {
             Box(
-                modifier = modifier
-                    .edgeSized(physical = physical, fraction = style.fraction, minSize = style.minSize)
-                    .boxShadow(shape = RectangleShape, shadow = style.shadow)
-                    .background(style.container)
-                    .innerEdge(physical = physical, border = style.border)
-                    .initialFocus(),
+                modifier = modifier.then(
+                    Modifier
+                        .edgeSized(physical = physical, fraction = style.fraction, minSize = style.minSize)
+                        .boxShadow(shape = RectangleShape, shadow = style.shadow)
+                        .background(style.container)
+                        .innerEdge(physical = physical, border = style.border)
+                        .initialFocus(),
+                ),
             ) {
                 Column(verticalArrangement = Arrangement.spacedBy(style.gap), content = content)
                 if (isCloseButtonShown) {
@@ -84,6 +101,14 @@ public fun Sheet(
     }
 }
 
+/**
+ * The top section of a [Sheet], such as for a [SheetTitle] and a [SheetDescription], laid out in a column.
+ *
+ * @param modifier the modifier of the header.
+ * @param style the style that gives the padding and the gap of the header.
+ * @param content the content of the header.
+ * @since 1.0.0
+ */
 @Composable
 public fun SheetHeader(
     modifier: Modifier = Modifier,
@@ -97,6 +122,14 @@ public fun SheetHeader(
     )
 }
 
+/**
+ * The bottom section of a [Sheet], such as for its buttons, pushed to the bottom of the panel and laid out in a column.
+ *
+ * @param modifier the modifier of the footer.
+ * @param style the style that gives the padding and the gap of the footer.
+ * @param content the content of the footer.
+ * @since 1.0.0
+ */
 @Composable
 public fun ColumnScope.SheetFooter(
     modifier: Modifier = Modifier,
@@ -111,11 +144,27 @@ public fun ColumnScope.SheetFooter(
     )
 }
 
+/**
+ * Shows the title of a [Sheet] in the title style.
+ *
+ * @param text the title.
+ * @param modifier the modifier of the title.
+ * @param style the style that gives the text style of the title.
+ * @since 1.0.0
+ */
 @Composable
 public fun SheetTitle(text: String, modifier: Modifier = Modifier, style: SheetStyle = sheetStyle()) {
     Text(text = text, modifier = modifier, style = style.titleStyle)
 }
 
+/**
+ * Shows the description of a [Sheet] in the description style and color.
+ *
+ * @param text the description.
+ * @param modifier the modifier of the description.
+ * @param style the style that gives the text style and the color of the description.
+ * @since 1.0.0
+ */
 @Composable
 public fun SheetDescription(text: String, modifier: Modifier = Modifier, style: SheetStyle = sheetStyle()) {
     Text(text = text, modifier = modifier, style = style.descriptionStyle, color = style.descriptionColor)

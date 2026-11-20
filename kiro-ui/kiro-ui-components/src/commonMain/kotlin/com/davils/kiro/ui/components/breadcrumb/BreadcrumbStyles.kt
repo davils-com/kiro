@@ -32,14 +32,45 @@ import com.davils.kiro.ui.icons.lucide.Lucide
 
 private const val LIGHT_MUTED_ALPHA: Float = 0.65f
 
+/**
+ * Resolves the [BreadcrumbStyle] of a [Breadcrumb] for a theme.
+ *
+ * Register your own under [BreadcrumbStyleKey] in the component styles of a theme to change every breadcrumb.
+ *
+ * @since 1.0.0
+ */
 public fun interface BreadcrumbStyles {
+    /**
+     * Returns the style of a breadcrumb.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of a breadcrumb.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): BreadcrumbStyle
 
+    /**
+     * Holds the default breadcrumb styles.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default breadcrumb styles, derived from the colors, radii and typography of the theme, with a chevron as
+         * separator.
+         *
+         * @since 1.0.0
+         */
         public val Default: BreadcrumbStyles = BreadcrumbStyles(::defaultBreadcrumbStyle)
     }
 }
 
+/**
+ * Returns the breadcrumb style of the current theme.
+ *
+ * @return the style that the [BreadcrumbStyles] registered under [BreadcrumbStyleKey] resolve.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun breadcrumbStyle(): BreadcrumbStyle = BreadcrumbStyleKey.current.resolve(theme)
@@ -60,6 +91,11 @@ internal fun defaultBreadcrumbStyle(theme: Theme): BreadcrumbStyle = BreadcrumbS
     ellipsisHover = theme.colors.accent,
 )
 
+/**
+ * The key of the breadcrumb styles in the component styles of a theme, named `breadcrumb`.
+ *
+ * @since 1.0.0
+ */
 public val BreadcrumbStyleKey: StyleKey<BreadcrumbStyles> = StyleKey(
     name = "breadcrumb",
 ) { _ -> BreadcrumbStyles.Default }

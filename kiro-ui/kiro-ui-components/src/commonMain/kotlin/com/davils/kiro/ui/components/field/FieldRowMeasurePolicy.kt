@@ -34,13 +34,9 @@ internal class FieldRowMeasurePolicy(private val gap: Dp, private val nudge: Dp)
         val flexible = measurables.filter { measurable -> measurable.layoutId is FieldSlot }
         val fixed = measurables.filterNot { measurable -> measurable.layoutId is FieldSlot }
         val fixedPlaceables = fixed.associateWith { measurable -> measurable.measure(loose) }
-        val used = fixedPlaceables.values.sumOf { placeable -> placeable.width } +
-            spacing *
-            maxOf(
-                measurables.size - 1,
-                0,
-            )
-        val share = maxOf(width - used, 0) / maxOf(flexible.size, 1)
+        val widths = fixedPlaceables.values.sumOf { placeable -> placeable.width }
+        val used = widths + spacing * maxOf(a = measurables.size - 1, b = 0)
+        val share = maxOf(a = width - used, b = 0) / maxOf(a = flexible.size, b = 1)
         val flexiblePlaceables = flexible.associateWith { measurable ->
             measurable.measure(
                 loose.copy(maxWidth = share),

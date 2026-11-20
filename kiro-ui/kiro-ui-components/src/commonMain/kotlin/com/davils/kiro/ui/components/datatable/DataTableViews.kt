@@ -16,14 +16,24 @@
 
 package com.davils.kiro.ui.components.datatable
 
+/**
+ * Returns what a [DataTable] with this state shows of its data: the rows filtered by [DataTableState.filter], sorted
+ * by [DataTableState.sort] and cut to the page shown, and the columns that are not hidden.
+ *
+ * @param T the type of a row.
+ * @param data every row, before filtering, sorting and paging.
+ * @param columns the columns of the table, in order.
+ * @return the view of the data.
+ * @since 1.0.0
+ */
 public fun <T> DataTableState<T>.view(data: List<T>, columns: List<DataTableColumn<T>>): DataTableView<T> {
     val filtered = filtered(data = data, columns = columns, text = filter)
     val sorted = sorted(rows = filtered, sort = sort)
-    val pageCount = maxOf((sorted.size + pageSize - 1) / pageSize, 1)
-    val current = page.coerceIn(0, pageCount - 1)
+    val pageCount = maxOf(a = (sorted.size + pageSize - 1) / pageSize, b = 1)
+    val current = page.coerceIn(minimumValue = 0, maximumValue = pageCount - 1)
     val start = current * pageSize
     return DataTableView(
-        rows = sorted.subList(start, minOf(start + pageSize, sorted.size)),
+        rows = sorted.subList(fromIndex = start, toIndex = minOf(a = start + pageSize, b = sorted.size)),
         columns = columns.filterNot { column -> column in hidden },
         rowCount = sorted.size,
         page = current,

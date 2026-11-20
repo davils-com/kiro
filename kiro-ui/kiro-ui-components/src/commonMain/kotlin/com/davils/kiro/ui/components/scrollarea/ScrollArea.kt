@@ -29,6 +29,21 @@ import com.davils.kiro.ui.components.scrollarea.scrollbar.ScrollFrame
 import com.davils.kiro.ui.components.scrollarea.scrollbar.overflows
 import com.davils.kiro.ui.components.scrollarea.scrollbar.wheelProxy
 
+/**
+ * Shows content that scrolls in one or both directions, with a themed scrollbar for each direction in which the
+ * content overflows the area.
+ *
+ * A scrollbar takes its own space at the end or the bottom of the area. When the area scrolls only horizontally, or
+ * only its horizontal direction overflows, the vertical mouse wheel scrolls horizontally.
+ *
+ * @param modifier the modifier of the area.
+ * @param direction the directions in which the content scrolls.
+ * @param verticalState the state of the vertical scroll position.
+ * @param horizontalState the state of the horizontal scroll position.
+ * @param style the style of the scrollbars.
+ * @param content the content.
+ * @since 1.0.0
+ */
 @Composable
 public fun ScrollArea(
     modifier: Modifier = Modifier,

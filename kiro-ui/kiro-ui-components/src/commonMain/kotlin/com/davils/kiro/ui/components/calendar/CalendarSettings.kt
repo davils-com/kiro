@@ -33,7 +33,7 @@ internal data class CalendarSettings(
 @Composable
 internal fun CalendarOptions.settled(): CalendarSettings {
     val english = remember {
-        EnglishCalendarFormatter(previous = Messages.Calendar.previousMonth, next = Messages.Calendar.nextMonth)
+        EnglishCalendarFormatter(previous = Messages.Calendar.PREVIOUS_MONTH, next = Messages.Calendar.NEXT_MONTH)
     }
     return CalendarSettings(
         firstDayOfWeek = firstDayOfWeek ?: DayOfWeek.SUNDAY,

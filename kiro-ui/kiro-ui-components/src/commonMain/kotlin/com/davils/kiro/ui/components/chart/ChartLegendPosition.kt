@@ -16,7 +16,23 @@
 
 package com.davils.kiro.ui.components.chart
 
+/**
+ * Where the legend of a chart is shown.
+ *
+ * @since 1.0.0
+ */
 public enum class ChartLegendPosition {
+    /**
+     * Above the chart.
+     *
+     * @since 1.0.0
+     */
     Top,
+
+    /**
+     * Below the chart.
+     *
+     * @since 1.0.0
+     */
     Bottom,
 }

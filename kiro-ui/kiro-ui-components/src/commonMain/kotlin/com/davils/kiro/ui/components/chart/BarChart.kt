@@ -24,6 +24,20 @@ import com.davils.kiro.ui.components.chart.cartesian.CartesianFrame
 import com.davils.kiro.ui.components.chart.scale.chartNumbers
 import com.davils.kiro.ui.components.chart.spec.CartesianSpec
 
+/**
+ * Draws a bar chart: one bar per series declared in [content] in each category of [data].
+ *
+ * The chart takes its colors, labels and style from the [ChartContainer] around it.
+ *
+ * @param data the points of the chart, one per category, in order.
+ * @param modifier the modifier of the chart.
+ * @param orientation [Orientation.Vertical] for columns that grow upwards, [Orientation.Horizontal] for rows that
+ * grow to the right.
+ * @param isStacked whether the bars of a category are stacked on top of each other instead of standing side by side.
+ * @param content declares the bars, the grid, the axes, the tooltip and the legend of the chart.
+ * @throws IllegalArgumentException if the chart is not placed in a [ChartContainer].
+ * @since 1.0.0
+ */
 @Composable
 public fun BarChart(
     data: List<ChartPoint>,

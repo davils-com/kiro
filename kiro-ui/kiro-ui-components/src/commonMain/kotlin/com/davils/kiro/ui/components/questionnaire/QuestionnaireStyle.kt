@@ -21,6 +21,26 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 
+/**
+ * The style of a [Questionnaire] and of its parts.
+ *
+ * @property gap the space between the parts of the questionnaire and of a [QuestionnaireItem].
+ * @property progressStyle the text style of a [QuestionnaireProgress].
+ * @property progressColor the color of a [QuestionnaireProgress].
+ * @property titleStyle the text style of a [QuestionnaireTitle].
+ * @property titleSpacing the space below a [QuestionnaireTitle] that has no [QuestionnaireDescription].
+ * @property descriptionStyle the text style of a [QuestionnaireDescription].
+ * @property descriptionColor the color of a [QuestionnaireDescription].
+ * @property choicesGap the space between the choices of [QuestionnaireChoices].
+ * @property choice the style of a [QuestionnaireChoice].
+ * @property errorStyle the text style of a [QuestionnaireError].
+ * @property errorColor the color of a [QuestionnaireError].
+ * @property errorSpacing the space above a [QuestionnaireError].
+ * @property actionsGap the space between the buttons of [QuestionnaireActions].
+ * @property actionsMinHeight the smallest height of [QuestionnaireActions].
+ * @property labels the texts of the questionnaire.
+ * @since 1.0.0
+ */
 @Immutable
 public class QuestionnaireStyle(
     public val gap: Dp,
@@ -42,7 +62,7 @@ public class QuestionnaireStyle(
     /**
      * Returns a copy of this [QuestionnaireStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         gap: Dp = this.gap,

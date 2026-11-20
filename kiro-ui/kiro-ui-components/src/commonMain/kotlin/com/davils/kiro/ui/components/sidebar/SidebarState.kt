@@ -23,20 +23,49 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 
+/**
+ * Holds whether the sidebars of a [SidebarProvider] are open.
+ *
+ * @param isInitiallyOpen whether the sidebars are open at first.
+ * @since 1.0.0
+ */
 @Stable
 public class SidebarState(isInitiallyOpen: Boolean = true) {
+    /**
+     * Whether the sidebars are open; a closed sidebar collapses as its [SidebarCollapsible] says.
+     *
+     * @since 1.0.0
+     */
     public var isOpen: Boolean by mutableStateOf(isInitiallyOpen)
         private set
 
+    /**
+     * Opens the sidebars if they are closed and closes them if they are open.
+     *
+     * @since 1.0.0
+     */
     public fun toggle() {
         isOpen = !isOpen
     }
 
+    /**
+     * Opens or closes the sidebars.
+     *
+     * @param isOpen whether the sidebars are open.
+     * @since 1.0.0
+     */
     public fun show(isOpen: Boolean) {
         this.isOpen = isOpen
     }
 }
 
+/**
+ * Creates a [SidebarState] and remembers it across recompositions.
+ *
+ * @param isInitiallyOpen whether the sidebars are open at first; later values are ignored.
+ * @return the remembered state.
+ * @since 1.0.0
+ */
 @Composable
 public fun rememberSidebarState(isInitiallyOpen: Boolean = true): SidebarState =
     remember { SidebarState(isInitiallyOpen) }

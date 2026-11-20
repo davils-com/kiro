@@ -39,16 +39,54 @@ private const val DISABLED_ALPHA: Float = 0.5f
 
 private val known: Set<SelectSize> = setOf(SelectSize.Default, SelectSize.Sm)
 
+/**
+ * Derives the [SelectStyle] of a [Select] of a size from a theme; the value of [SelectStyleKey] in the component
+ * styles of a theme.
+ *
+ * @since 1.0.0
+ */
 public fun interface SelectStyles {
+    /**
+     * Returns the style of a [Select] of a size for a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @param size the size of the select.
+     * @return the style of the select.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme, size: SelectSize): SelectStyle
 
+    /**
+     * Holds the default styles of a [Select].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default styles of a [Select], derived only from the tokens of the theme; they fail with an
+         * [IllegalArgumentException] for a size other than those of [SelectSize].
+         *
+         * @since 1.0.0
+         */
         public val Default: SelectStyles = SelectStyles(::defaultSelectStyle)
     }
 }
 
+/**
+ * The key of the styles of a [Select] in the component styles of a theme.
+ *
+ * @since 1.0.0
+ */
 public val SelectStyleKey: StyleKey<SelectStyles> = StyleKey(name = "select") { _ -> SelectStyles.Default }
 
+/**
+ * Returns the style of a [Select] of a size in the theme of the composition, with the overrides of its component
+ * styles.
+ *
+ * @param size the size of the select.
+ * @return the style of the select.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun selectStyle(size: SelectSize): SelectStyle = SelectStyleKey.current.resolve(theme, size)
@@ -61,7 +99,7 @@ internal fun defaultSelectStyle(theme: Theme, size: SelectSize): SelectStyle {
     val fill = colors.input.copy(alpha = theme.darkAware(light = 0f, dark = DARK_FILL))
     return SelectStyle(
         height = 28.dp.takeIf { isSmall } ?: 32.dp,
-        shape = RoundedCornerShape(minOf(theme.radii.md, 10.dp).takeIf { isSmall } ?: theme.radii.lg),
+        shape = RoundedCornerShape(minOf(a = theme.radii.md, b = 10.dp).takeIf { isSmall } ?: theme.radii.lg),
         startPadding = 10.dp,
         endPadding = 8.dp,
         gap = 6.dp,

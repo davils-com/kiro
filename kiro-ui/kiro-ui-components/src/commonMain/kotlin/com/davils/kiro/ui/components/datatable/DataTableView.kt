@@ -18,6 +18,18 @@ package com.davils.kiro.ui.components.datatable
 
 import androidx.compose.runtime.Immutable
 
+/**
+ * What a [DataTable] shows of its data: the rows of the current page after filtering and sorting, and the shown
+ * columns.
+ *
+ * @param T the type of a row.
+ * @property rows the rows of the page, filtered and sorted.
+ * @property columns the columns that are not hidden, in order.
+ * @property rowCount the number of rows left after filtering, on all pages.
+ * @property page the index of the page shown, from zero.
+ * @property pageCount the number of pages, at least one.
+ * @since 1.0.0
+ */
 @Immutable
 public class DataTableView<T>(
     public val rows: List<T>,
@@ -26,14 +38,24 @@ public class DataTableView<T>(
     public val page: Int,
     public val pageCount: Int,
 ) {
+    /**
+     * Whether a page comes before the page shown.
+     *
+     * @since 1.0.0
+     */
     public val hasPreviousPage: Boolean get() = page > 0
 
+    /**
+     * Whether a page comes after the page shown.
+     *
+     * @since 1.0.0
+     */
     public val hasNextPage: Boolean get() = page < pageCount - 1
 
     /**
      * Returns a copy of this [DataTableView] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         rows: List<T> = this.rows,

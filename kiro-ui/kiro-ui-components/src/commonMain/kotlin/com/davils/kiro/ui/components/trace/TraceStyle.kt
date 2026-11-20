@@ -25,6 +25,30 @@ import com.davils.kiro.ui.components.collapsible.CollapsibleStyle
 import com.davils.kiro.ui.core.style.Border
 import com.davils.kiro.ui.icons.IconGraphic
 
+/**
+ * The style of a [Trace] and of its lines and collapsibles.
+ *
+ * @property gap the gap between the lines of a trace; it also spaces the details of a collapsible from its trigger.
+ * @property lineGap the gap between the parts of a line.
+ * @property textStyle the text style of the lines.
+ * @property color the content color of the lines and the details.
+ * @property hoverColor the content color of a clickable line while hovered.
+ * @property errorColor the content color of a line with [TraceStatus.Error].
+ * @property pendingAlpha the alpha of a line with [TraceStatus.Pending].
+ * @property descriptionColor the color of a [TraceDescription].
+ * @property iconSize the size of a [TraceIcon] and of the icons in a trace.
+ * @property shape the shape of a line, which the focus ring follows.
+ * @property ring the focus ring of a clickable line.
+ * @property chevron the icon at the end of a [TraceCollapsibleTrigger].
+ * @property contentStyle the text style of the details of a collapsible.
+ * @property contentBorder the color of the line along the start of the details.
+ * @property contentIndent the indent of the details before their line.
+ * @property contentPadding the padding between the line and the details.
+ * @property shimmerColor the highlight color of the shimmer of a running title.
+ * @property shimmerMillis the duration of one run of the shimmer, in milliseconds.
+ * @property motion the style of the collapsible that expands and collapses the details.
+ * @since 1.0.0
+ */
 @Immutable
 public class TraceStyle(
     public val gap: Dp,
@@ -50,7 +74,27 @@ public class TraceStyle(
     /**
      * Returns a copy of this [TraceStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param gap the new value of [gap].
+     * @param lineGap the new value of [lineGap].
+     * @param textStyle the new value of [textStyle].
+     * @param color the new value of [color].
+     * @param hoverColor the new value of [hoverColor].
+     * @param errorColor the new value of [errorColor].
+     * @param pendingAlpha the new value of [pendingAlpha].
+     * @param descriptionColor the new value of [descriptionColor].
+     * @param iconSize the new value of [iconSize].
+     * @param shape the new value of [shape].
+     * @param ring the new value of [ring].
+     * @param chevron the new value of [chevron].
+     * @param contentStyle the new value of [contentStyle].
+     * @param contentBorder the new value of [contentBorder].
+     * @param contentIndent the new value of [contentIndent].
+     * @param contentPadding the new value of [contentPadding].
+     * @param shimmerColor the new value of [shimmerColor].
+     * @param shimmerMillis the new value of [shimmerMillis].
+     * @param motion the new value of [motion].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         gap: Dp = this.gap,

@@ -23,16 +23,52 @@ import com.davils.kiro.ui.core.Theme
 import com.davils.kiro.ui.core.style.StyleKey
 import com.davils.kiro.ui.core.style.current
 
+/**
+ * Resolves the [CheckboxStyle] of a [Checkbox] for a theme.
+ *
+ * Register your own under [CheckboxStyleKey] in the component styles of a theme to change every checkbox.
+ *
+ * @since 1.0.0
+ */
 public fun interface CheckboxStyles {
+    /**
+     * Returns the style of a checkbox.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of a checkbox.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): CheckboxStyle
 
+    /**
+     * Holds the default checkbox styles.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default checkbox styles, derived from the colors, the focus ring and the motion of the theme, with a
+         * check and a minus as marks.
+         *
+         * @since 1.0.0
+         */
         public val Default: CheckboxStyles = CheckboxStyles(::defaultCheckboxStyle)
     }
 }
 
+/**
+ * Returns the checkbox style of the current theme.
+ *
+ * @return the style that the [CheckboxStyles] registered under [CheckboxStyleKey] resolve.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun checkboxStyle(): CheckboxStyle = CheckboxStyleKey.current.resolve(theme)
 
+/**
+ * The key of the checkbox styles in the component styles of a theme, named `checkbox`.
+ *
+ * @since 1.0.0
+ */
 public val CheckboxStyleKey: StyleKey<CheckboxStyles> = StyleKey(name = "checkbox") { _ -> CheckboxStyles.Default }

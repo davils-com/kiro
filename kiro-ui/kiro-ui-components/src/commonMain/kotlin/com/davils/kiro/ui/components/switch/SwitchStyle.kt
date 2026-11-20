@@ -22,6 +22,23 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.core.style.StateColors
 
+/**
+ * The style of a [Switch]: the size of its track, its thumb, its colors and its animations.
+ *
+ * @property width the width of the track.
+ * @property height the height of the track.
+ * @property thumb the size, the colors and the border of the thumb.
+ * @property colors the colors of the track, its border and its focus ring in each interaction state while the switch
+ * is off.
+ * @property checkedColors the colors of the track, its border and its focus ring in each interaction state while the
+ * switch is on.
+ * @property borderWidth the width of the border of the track, which also insets the thumb.
+ * @property ringWidth the width of the focus ring.
+ * @property disabledAlpha the opacity of the whole switch while it is disabled.
+ * @property colorAnimation the animation of the colors of the track and the thumb.
+ * @property thumbAnimation the animation of the thumb as it slides between its ends.
+ * @since 1.0.0
+ */
 @Immutable
 public class SwitchStyle(
     public val width: Dp,
@@ -38,7 +55,18 @@ public class SwitchStyle(
     /**
      * Returns a copy of this [SwitchStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param width the new value of [width].
+     * @param height the new value of [height].
+     * @param thumb the new value of [thumb].
+     * @param colors the new value of [colors].
+     * @param checkedColors the new value of [checkedColors].
+     * @param borderWidth the new value of [borderWidth].
+     * @param ringWidth the new value of [ringWidth].
+     * @param disabledAlpha the new value of [disabledAlpha].
+     * @param colorAnimation the new value of [colorAnimation].
+     * @param thumbAnimation the new value of [thumbAnimation].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         width: Dp = this.width,

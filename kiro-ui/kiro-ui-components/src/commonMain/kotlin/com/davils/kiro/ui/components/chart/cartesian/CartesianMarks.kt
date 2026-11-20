@@ -45,19 +45,19 @@ internal fun DrawScope.drawBars(
     val inner = band * (1 - 2 * style.bandPadding)
     val gap = style.barGap.toPx()
     val slots = 1.takeIf { geometry.frame.isStacked } ?: bars.size
-    val thickness = maxOf((inner - gap * (slots - 1)) / maxOf(slots, 1), 1f)
+    val thickness = maxOf(a = (inner - gap * (slots - 1)) / maxOf(a = slots, b = 1), b = 1f)
     bars.forEachIndexed { slot, (mark, bar) ->
         val shift = 0.takeIf { geometry.frame.isStacked } ?: slot
         geometry.spans[mark].forEachIndexed { index, span ->
             val offset = geometry.categories.center(index) - inner / 2 + shift * (thickness + gap)
             val start = geometry.values.map(span.start)
             val end = geometry.values.map(span.at(progress))
-            val low = minOf(start, end)
-            val high = maxOf(start, end)
+            val low = minOf(a = start, b = end)
+            val high = maxOf(a = start, b = end)
             val column = Rect(left = offset, top = low, right = offset + thickness, bottom = high)
             val row = Rect(left = low, top = offset, right = high, bottom = offset + thickness)
             val area = column.takeIf { geometry.frame.isVertical } ?: row
-            val radius = minOf(bar.radius.toPx(), area.width / 2, area.height / 2)
+            val radius = minOf(a = bar.radius.toPx(), b = area.width / 2, c = area.height / 2)
             drawRoundRect(
                 color = colors[mark],
                 topLeft = area.topLeft,
@@ -107,7 +107,7 @@ internal fun DrawScope.drawAreas(
             val bases = spans.mapIndexed { index, span -> geometry.pointOf(index, span.start) }.reversed()
             val outline = ChartCurves.path(tops, area.curve)
             val fill = ChartCurves.path(tops, area.curve)
-            bases.firstOrNull()?.let { base -> fill.lineTo(base.x, base.y) }
+            bases.firstOrNull()?.let { base -> fill.lineTo(x = base.x, y = base.y) }
             ChartCurves.extend(fill, bases, area.curve)
             fill.close()
             val color = colors[mark]

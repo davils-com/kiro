@@ -43,6 +43,20 @@ import com.davils.kiro.ui.components.primitive.textfield.disabledAlphaOf
 import com.davils.kiro.ui.core.style.Border
 import com.davils.kiro.ui.core.style.StateColors
 
+/**
+ * A switch that turns a setting on or off when it is clicked, with a round thumb that slides to the end while it is
+ * checked.
+ *
+ * @param checked whether the switch is on.
+ * @param onCheckedChange called with the new value when the user toggles the switch.
+ * @param modifier the modifier of the switch.
+ * @param size the size of the switch.
+ * @param enabled whether the switch can be toggled; a disabled switch is drawn with the disabled alpha of its style.
+ * @param isInvalid whether the value is invalid, which the switch shows with the invalid colors of its style.
+ * @param style the style of the switch, by default the style of the theme for [size].
+ * @param interactionSource the source of the interactions of the switch, or `null` to use one of its own.
+ * @since 1.0.0
+ */
 @Composable
 public fun Switch(
     checked: Boolean,
@@ -78,12 +92,14 @@ public fun Switch(
         onValueChange = onCheckedChange,
     )
     Box(
-        modifier = modifier
-            .alpha(disabledAlphaOf(isDisabled = !enabled, alpha = style.disabledAlpha))
-            .size(width = style.width, height = style.height)
-            .then(surface)
-            .then(toggle)
-            .padding(style.borderWidth),
+        modifier = modifier.then(
+            Modifier
+                .alpha(disabledAlphaOf(isDisabled = !enabled, alpha = style.disabledAlpha))
+                .size(width = style.width, height = style.height)
+                .then(surface)
+                .then(toggle)
+                .padding(style.borderWidth),
+        ),
         contentAlignment = Alignment.CenterStart,
     ) {
         Box(

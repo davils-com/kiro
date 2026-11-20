@@ -16,4 +16,9 @@
 
 package com.davils.kiro.ui.components.codeblock
 
+/**
+ * The scope of the content of a [CodeBlock], which offers its parts, such as [CodeBlockContent].
+ *
+ * @since 1.0.0
+ */
 public interface CodeBlockScope

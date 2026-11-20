@@ -32,6 +32,21 @@ import com.davils.kiro.ui.components.scrollarea.scrollbar.ScrollFrame
 import com.davils.kiro.ui.components.scrollarea.scrollbar.overflows
 import com.davils.kiro.ui.components.scrollarea.scrollbar.wheelProxy
 
+/**
+ * Shows a lazy list, a column or a row that composes only its visible items, with a themed scrollbar that appears
+ * while the items overflow the area.
+ *
+ * The scrollbar takes its own space at the end or the bottom of the area. In a row, the vertical mouse wheel
+ * scrolls horizontally.
+ *
+ * @param modifier the modifier of the area.
+ * @param state the state of the list, which holds its scroll position.
+ * @param orientation [Orientation.Vertical] for a column, [Orientation.Horizontal] for a row.
+ * @param contentPadding the padding around the items, inside the scrolled content.
+ * @param style the style of the scrollbar.
+ * @param content declares the items of the list.
+ * @since 1.0.0
+ */
 @Composable
 public fun LazyScrollArea(
     modifier: Modifier = Modifier,

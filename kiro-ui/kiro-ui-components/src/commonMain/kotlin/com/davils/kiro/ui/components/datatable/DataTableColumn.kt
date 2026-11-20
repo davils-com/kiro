@@ -20,6 +20,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import androidx.compose.ui.Alignment
 
+/**
+ * A column of a [DataTable]: its header, how its cells are aligned and drawn, and whether it can be sorted, filtered
+ * and hidden.
+ *
+ * @param T the type of a row.
+ * @property header the text of the header.
+ * @property alignment the horizontal alignment of the header and the cells.
+ * @property isHideable whether [DataTableState.toggleColumn] can hide the column.
+ * @property comparator the order of the rows when the column sorts them, or `null` for a column that cannot sort.
+ * @property filterText returns the text of a row that the filter of the table is matched against, or `null` for a
+ * column the filter ignores.
+ * @property cell draws the cell of a row.
+ * @since 1.0.0
+ */
 @Immutable
 public class DataTableColumn<T>(
     public val header: String,
@@ -32,7 +46,7 @@ public class DataTableColumn<T>(
     /**
      * Returns a copy of this [DataTableColumn] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         header: String = this.header,
@@ -58,8 +72,8 @@ public class DataTableColumn<T>(
         "header=$header, " +
         "alignment=$alignment, " +
         "isHideable=$isHideable, " +
-        "comparator=$comparator, " +
-        "filterText=$filterText, " +
+        "comparator=${comparator ?: "null"}, " +
+        "filterText=${filterText ?: "null"}, " +
         "cell=$cell)"
 
     private fun values(): List<Any?> = listOf(

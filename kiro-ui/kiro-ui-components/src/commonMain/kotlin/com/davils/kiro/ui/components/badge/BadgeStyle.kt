@@ -24,6 +24,23 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.core.style.StateColors
 
+/**
+ * The look of a [Badge]: its size, paddings, shape, text, icons and colors.
+ *
+ * @property height the height of the badge.
+ * @property horizontalPadding the padding at the start and the end of the badge.
+ * @property iconEdgePadding the padding between a leading or trailing icon and the edge of the badge.
+ * @property gap the space between the text and the icons of the badge.
+ * @property shape the shape of the container.
+ * @property textStyle the style of the text.
+ * @property iconSize the size of the icons.
+ * @property colors the colors of the container, the content, the border and the focus ring in each interaction state.
+ * @property borderWidth the width of the border.
+ * @property ringWidth the width of the focus ring.
+ * @property isUnderlinedOnHover whether the text is underlined while the pointer hovers over the badge.
+ * @property colorAnimation the animation of the colors when the interaction state changes.
+ * @since 1.0.0
+ */
 @Immutable
 public class BadgeStyle(
     public val height: Dp,
@@ -42,7 +59,7 @@ public class BadgeStyle(
     /**
      * Returns a copy of this [BadgeStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         height: Dp = this.height,

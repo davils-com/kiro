@@ -22,9 +22,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Immutable
 import com.davils.kiro.ui.icons.IconGraphic
 
+/**
+ * The scope of the content of a component that shows text and icons in a row, such as a button or a badge.
+ *
+ * @since 1.0.0
+ */
 @LayoutScopeMarker
 @Immutable
 public interface InlineScope : RowScope {
+    /**
+     * Shows an icon in the row; a [IconPlacement.Leading] or [IconPlacement.Trailing] icon reaches into the padding
+     * of the component on its side.
+     *
+     * @param icon the icon to draw.
+     * @param placement where the icon sits in the row.
+     * @since 1.0.0
+     */
     @Composable
     public fun Icon(icon: IconGraphic, placement: IconPlacement)
 }

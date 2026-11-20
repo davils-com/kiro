@@ -27,6 +27,6 @@ internal fun DrawScope.drawLabel(label: TextLayoutResult, anchor: Offset, color:
     drawText(
         textLayoutResult = label,
         color = color,
-        topLeft = Offset(anchor.x - size.width * alignX, anchor.y - size.height * alignY),
+        topLeft = Offset(x = anchor.x - size.width * alignX, y = anchor.y - size.height * alignY),
     )
 }

@@ -16,8 +16,30 @@
 
 package com.davils.kiro.ui.components.item
 
+/**
+ * The kind of media that an [ItemMedia] shows.
+ *
+ * @since 1.0.0
+ */
 public enum class ItemMediaVariant {
+    /**
+     * Media that keeps the size of its content.
+     *
+     * @since 1.0.0
+     */
     Default,
+
+    /**
+     * An icon, which keeps the size of its content like [Default].
+     *
+     * @since 1.0.0
+     */
     Icon,
+
+    /**
+     * An image, sized to the image size of the style and clipped to its image shape.
+     *
+     * @since 1.0.0
+     */
     Image,
 }

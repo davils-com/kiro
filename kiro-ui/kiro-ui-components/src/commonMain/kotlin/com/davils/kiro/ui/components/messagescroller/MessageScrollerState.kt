@@ -25,6 +25,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 
+/**
+ * The scroll position of a [MessageScroller], which tells whether its start or its end is reached and scrolls to
+ * either. Create it with [rememberMessageScrollerState].
+ *
+ * @since 1.0.0
+ */
 @Stable
 public class MessageScrollerState internal constructor(internal val scroll: ScrollState) {
     internal var isFollowing: Boolean by mutableStateOf(true)
@@ -32,16 +38,36 @@ public class MessageScrollerState internal constructor(internal val scroll: Scro
     internal var isAutoScrolling: Boolean = false
         private set
 
+    /**
+     * Whether the end of the content is shown, or the scroller has not been laid out yet.
+     *
+     * @since 1.0.0
+     */
     public val isAtEnd: Boolean
         get() = scroll.viewportSize == 0 || !scroll.canScrollForward
 
+    /**
+     * Whether the start of the content is shown.
+     *
+     * @since 1.0.0
+     */
     public val isAtStart: Boolean
         get() = !scroll.canScrollBackward
 
+    /**
+     * Scrolls to the end of the content with an animation and suspends until it is there.
+     *
+     * @since 1.0.0
+     */
     public suspend fun scrollToEnd() {
         scroll.animateScrollTo(scroll.maxValue)
     }
 
+    /**
+     * Scrolls to the start of the content with an animation and suspends until it is there.
+     *
+     * @since 1.0.0
+     */
     public suspend fun scrollToStart() {
         scroll.animateScrollTo(0)
     }
@@ -56,6 +82,13 @@ public class MessageScrollerState internal constructor(internal val scroll: Scro
     }
 }
 
+/**
+ * Creates and remembers a [MessageScrollerState] at the start of its content, which follows the end once content
+ * arrives.
+ *
+ * @return the remembered state.
+ * @since 1.0.0
+ */
 @Composable
 public fun rememberMessageScrollerState(): MessageScrollerState {
     val scroll = rememberScrollState()

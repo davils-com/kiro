@@ -16,8 +16,25 @@
 
 package com.davils.kiro.ui.components.codeblock
 
+/**
+ * The variant of a [CodeBlock], which picks its colors.
+ *
+ * The default style knows the variants declared here; a variant of your own needs [CodeBlockStyles] that resolve it.
+ *
+ * @since 1.0.0
+ */
 public interface CodeBlockVariant {
+    /**
+     * Code on the input color, in the foreground color.
+     *
+     * @since 1.0.0
+     */
     public data object Default : CodeBlockVariant
 
+    /**
+     * Code without background, with the border and the text in the destructive color, such as for an error.
+     *
+     * @since 1.0.0
+     */
     public data object Destructive : CodeBlockVariant
 }

@@ -23,6 +23,21 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.core.style.StateColors
 
+/**
+ * The look of an [InputGroup]: its field, its control and its addons.
+ *
+ * @property minHeight the height of a group with a single-line input and no addon above or below it, and the minimum
+ * height of every other group.
+ * @property shape the shape of the field.
+ * @property colors the colors of the field, the text, the border and the focus ring in each state.
+ * @property borderWidth the width of the border.
+ * @property ringWidth the width of the focus ring.
+ * @property disabledAlpha the opacity of a disabled group, from 0 to 1.
+ * @property colorAnimation the animation of the colors when the state changes.
+ * @property control the style of the input or textarea.
+ * @property addon the style of the addons.
+ * @since 1.0.0
+ */
 @Immutable
 public class InputGroupStyle(
     public val minHeight: Dp,
@@ -38,7 +53,7 @@ public class InputGroupStyle(
     /**
      * Returns a copy of this [InputGroupStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         minHeight: Dp = this.minHeight,

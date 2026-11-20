@@ -20,8 +20,18 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.LayoutScopeMarker
 import androidx.compose.runtime.Immutable
 
+/**
+ * The scope of the parts of an [Empty]: the column they are placed in, together with the style of their empty state.
+ *
+ * @since 1.0.0
+ */
 @LayoutScopeMarker
 @Immutable
 public interface EmptyScope : ColumnScope {
+    /**
+     * The style of the empty state the parts belong to.
+     *
+     * @since 1.0.0
+     */
     public val style: EmptyStyle
 }

@@ -16,9 +16,37 @@
 
 package com.davils.kiro.ui.components.primitive.overlay
 
+/**
+ * The side of its anchor on which an overlay opens.
+ *
+ * @since 1.0.0
+ */
 public enum class Side {
+    /**
+     * Above the anchor.
+     *
+     * @since 1.0.0
+     */
     Top,
+
+    /**
+     * Below the anchor.
+     *
+     * @since 1.0.0
+     */
     Bottom,
+
+    /**
+     * Before the anchor in the layout direction: on its left, or on its right in a right-to-left layout.
+     *
+     * @since 1.0.0
+     */
     Start,
+
+    /**
+     * After the anchor in the layout direction: on its right, or on its left in a right-to-left layout.
+     *
+     * @since 1.0.0
+     */
     End,
 }

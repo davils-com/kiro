@@ -31,6 +31,20 @@ import androidx.compose.ui.semantics.expand
 import androidx.compose.ui.semantics.semantics
 import com.davils.kiro.ui.components.primitive.interaction.pressableCursor
 
+/**
+ * A region that shows or hides its content when its trigger is clicked.
+ *
+ * Place a [CollapsibleTrigger] and a [CollapsibleContent] in [content]; the content is shown while [expanded] is
+ * `true` and enters and exits with the transitions of [style].
+ *
+ * @param expanded whether the content is shown.
+ * @param onExpandedChange called with the new value when the trigger asks to show or hide the content.
+ * @param modifier the modifier of the column that holds the trigger and the content.
+ * @param enabled whether the trigger reacts to clicks.
+ * @param style the style of the collapsible, by default the style of the theme.
+ * @param content the trigger and the content of the collapsible.
+ * @since 1.0.0
+ */
 @Composable
 public fun Collapsible(
     expanded: Boolean,
@@ -49,6 +63,14 @@ public fun Collapsible(
     Column(modifier = modifier) { scope.content() }
 }
 
+/**
+ * The row of a [Collapsible] that shows or hides its content when it is clicked, announced as a button that can be
+ * expanded or collapsed.
+ *
+ * @param modifier the modifier of the row.
+ * @param content the content of the row, such as a label and an icon.
+ * @since 1.0.0
+ */
 @Composable
 public fun CollapsibleScope.CollapsibleTrigger(
     modifier: Modifier = Modifier,
@@ -64,15 +86,24 @@ public fun CollapsibleScope.CollapsibleTrigger(
         if (!scope.isExpanded) expand(action = toggled)
     }
     Row(
-        modifier = modifier
-            .then(states)
-            .pressableCursor(enabled = scope.isEnabled)
-            .clickable(enabled = scope.isEnabled, role = Role.Button, onClick = scope::toggle),
+        modifier = modifier.then(
+            Modifier
+                .then(states)
+                .pressableCursor(enabled = scope.isEnabled)
+                .clickable(enabled = scope.isEnabled, role = Role.Button, onClick = scope::toggle),
+        ),
         verticalAlignment = Alignment.CenterVertically,
         content = content,
     )
 }
 
+/**
+ * The content of a [Collapsible], shown while the collapsible is expanded with the transitions of its style.
+ *
+ * @param modifier the modifier of the content.
+ * @param content the content.
+ * @since 1.0.0
+ */
 @Composable
 public fun CollapsibleScope.CollapsibleContent(
     modifier: Modifier = Modifier,

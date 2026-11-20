@@ -43,7 +43,7 @@ private val known: Set<NativeSelectSize> = setOf(NativeSelectSize.Default, Nativ
 internal fun defaultNativeSelectStyle(theme: Theme, size: NativeSelectSize): NativeSelectStyle {
     require(size in known) { "No default style for the native select size $size." }
     val isSmall = size in small
-    val radius = theme.radii.lg.takeUnless { isSmall } ?: minOf(theme.radii.md, 10.dp)
+    val radius = theme.radii.lg.takeUnless { isSmall } ?: minOf(a = theme.radii.md, b = 10.dp)
     val vertical = 4.dp.takeUnless { isSmall } ?: 2.dp
     return NativeSelectStyle(
         height = 32.dp.takeUnless { isSmall } ?: 28.dp,

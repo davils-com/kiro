@@ -44,14 +44,43 @@ import com.davils.kiro.ui.icons.lucide.Lucide
 
 private const val HALF: Float = 0.5f
 
+/**
+ * Derives the [AccordionStyle] of an [Accordion] from a theme; the value of [AccordionStyleKey] in the component styles
+ * of a theme.
+ *
+ * @since 1.0.0
+ */
 public fun interface AccordionStyles {
+    /**
+     * Returns the style of an [Accordion] for a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the accordion.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): AccordionStyle
 
+    /**
+     * Holds the default styles of an [Accordion].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default styles of an [Accordion], derived only from the tokens of the theme.
+         *
+         * @since 1.0.0
+         */
         public val Default: AccordionStyles = AccordionStyles(::defaultAccordionStyle)
     }
 }
 
+/**
+ * Returns the style of an [Accordion] in the theme of the composition, with the overrides of its component styles.
+ *
+ * @return the style of the accordion.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun accordionStyle(): AccordionStyle = AccordionStyleKey.current.resolve(theme)
@@ -91,4 +120,9 @@ private fun accordionMotion(theme: Theme): CollapsibleStyle {
     )
 }
 
+/**
+ * The key of the styles of an [Accordion] in the component styles of a theme.
+ *
+ * @since 1.0.0
+ */
 public val AccordionStyleKey: StyleKey<AccordionStyles> = StyleKey(name = "accordion") { _ -> AccordionStyles.Default }

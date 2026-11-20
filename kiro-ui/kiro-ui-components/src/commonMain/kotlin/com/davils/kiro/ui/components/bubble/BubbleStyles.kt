@@ -52,7 +52,11 @@ private val paints: Map<BubbleVariant, (Theme) -> BubblePaint> = mapOf(
     },
     BubbleVariant.Secondary to { theme ->
         val colors = theme.colors
-        BubblePaint(colors.secondary, colors.secondaryForeground, colors.secondary.mix(colors.foreground, SHADE))
+        BubblePaint(
+            container = colors.secondary,
+            content = colors.secondaryForeground,
+            hover = colors.secondary.mix(colors.foreground, SHADE),
+        )
     },
     BubbleVariant.Muted to { theme ->
         val colors = theme.colors
@@ -89,14 +93,47 @@ private val paints: Map<BubbleVariant, (Theme) -> BubblePaint> = mapOf(
     },
 )
 
+/**
+ * Derives the [BubbleStyle] of a [Bubble] of a variant from a theme; the value of [BubbleStyleKey] in the component
+ * styles of a theme.
+ *
+ * @since 1.0.0
+ */
 public fun interface BubbleStyles {
+    /**
+     * Returns the style of a [Bubble] of a variant for a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @param variant the variant of the bubble.
+     * @return the style of the bubble.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme, variant: BubbleVariant): BubbleStyle
 
+    /**
+     * Holds the default styles of a [Bubble].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default styles of a [Bubble], derived only from the tokens of the theme; they fail with an
+         * [IllegalArgumentException] for a variant other than those of [BubbleVariant].
+         *
+         * @since 1.0.0
+         */
         public val Default: BubbleStyles = BubbleStyles(::defaultBubbleStyle)
     }
 }
 
+/**
+ * Returns the style of a [Bubble] of a variant in the theme of the composition, with the overrides of its component
+ * styles.
+ *
+ * @param variant the variant of the bubble.
+ * @return the style of the bubble.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun bubbleStyle(variant: BubbleVariant): BubbleStyle = BubbleStyleKey.current.resolve(theme, variant)
@@ -141,4 +178,9 @@ private fun Theme.tint(light: Double, dark: Double, chroma: Double): Color {
     return primary.copy(lightness = lightness, chroma = primary.chroma * chroma).toColor()
 }
 
+/**
+ * The key of the styles of a [Bubble] in the component styles of a theme.
+ *
+ * @since 1.0.0
+ */
 public val BubbleStyleKey: StyleKey<BubbleStyles> = StyleKey(name = "bubble") { _ -> BubbleStyles.Default }

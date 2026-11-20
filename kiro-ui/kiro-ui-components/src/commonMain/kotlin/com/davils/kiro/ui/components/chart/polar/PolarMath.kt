@@ -32,13 +32,13 @@ private const val FULL: Float = 360f
 internal object PolarMath {
     fun degreesOf(center: Offset, position: Offset): Float {
         val delta = position - center
-        val degrees = (atan2(-delta.y, delta.x).toDouble() * HALF_TURN_DEGREES / PI).toFloat()
+        val degrees = (atan2(y = -delta.y, x = delta.x).toDouble() * HALF_TURN_DEGREES / PI).toFloat()
         return (degrees + FULL) % FULL
     }
 
     fun pointOf(center: Offset, radius: Float, degrees: Float): Offset {
-        val radians = (degrees.toDouble() * PI / HALF_TURN_DEGREES)
-        return Offset(center.x + radius * cos(radians).toFloat(), center.y - radius * sin(radians).toFloat())
+        val radians = degrees.toDouble() * PI / HALF_TURN_DEGREES
+        return Offset(x = center.x + radius * cos(radians).toFloat(), y = center.y - radius * sin(radians).toFloat())
     }
 
     fun sector(center: Offset, inner: Float, outer: Float, start: Float, sweep: Float): Path {
@@ -50,7 +50,7 @@ internal object PolarMath {
             forceMoveTo = true,
         )
         if (inner <= 0f) {
-            path.lineTo(center.x, center.y)
+            path.lineTo(x = center.x, y = center.y)
             path.close()
             return path
         }

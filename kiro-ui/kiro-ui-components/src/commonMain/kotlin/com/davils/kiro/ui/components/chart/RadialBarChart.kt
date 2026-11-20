@@ -43,6 +43,23 @@ import com.davils.kiro.ui.components.chart.scale.chartNumbers
 import com.davils.kiro.ui.components.chart.spec.RadialMark
 import com.davils.kiro.ui.components.chart.spec.RadialSpec
 
+/**
+ * Draws a radial bar chart: one ring per point of [data], from the inside out, along which the series declared in
+ * [content] are stacked as arcs. The point with the highest total fills the angle from [startAngle] to [endAngle].
+ *
+ * With a single series, each ring is named and colored by the [ChartSeries] whose key is the label of its point;
+ * with more, each arc takes the color of its series. The chart takes its style from the [ChartContainer] around it.
+ *
+ * @param data the points of the chart, one per ring.
+ * @param modifier the modifier of the chart.
+ * @param startAngle the angle in degrees where the arcs start, counterclockwise from the right.
+ * @param endAngle the angle in degrees reached by the highest total, counterclockwise from the right.
+ * @param innerRadius the radius of the free space inside the innermost ring.
+ * @param outerRadius the radius of the outer edge of the outermost ring, or `null` to follow the size of the chart.
+ * @param content declares the series, the tooltip and the legend of the chart.
+ * @throws IllegalArgumentException if the chart is not placed in a [ChartContainer].
+ * @since 1.0.0
+ */
 @Composable
 public fun RadialBarChart(
     data: List<ChartPoint>,
@@ -73,7 +90,7 @@ public fun RadialBarChart(
         )
     }
     val target = targetOf(data = data, keys = keys, colors = colors, palette = context.palette, geometry = geometry)
-    val totals = data.map { point -> keys.sumOf { key -> maxOf(point.valueOf(key), 0.0) } }
+    val totals = data.map { point -> keys.sumOf { key -> maxOf(a = point.valueOf(key), b = 0.0) } }
     val highest = totals.maxOrNull()?.takeIf { value -> value > 0.0 } ?: 1.0
     ChartFrame(
         modifier = modifier,
@@ -82,7 +99,7 @@ public fun RadialBarChart(
         onSize = { measured -> size = measured },
     ) { _, progress ->
         data.forEachIndexed { index, point ->
-            val values = spec.marks.map { mark -> maxOf(point.valueOf(mark.key), 0.0) * progress / highest }
+            val values = spec.marks.map { mark -> maxOf(a = point.valueOf(mark.key), b = 0.0) * progress / highest }
             val shades = colors.takeIf { keys.size > 1 } ?: List(keys.size) { colors[index] }
             drawRow(
                 geometry = geometry,

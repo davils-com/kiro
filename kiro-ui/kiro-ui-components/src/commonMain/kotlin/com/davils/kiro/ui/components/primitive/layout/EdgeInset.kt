@@ -21,6 +21,18 @@ import androidx.compose.ui.layout.layout
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.components.IconPlacement
 
+/**
+ * Lets an icon at the edge of a row reach into the padding of the row by [inset], so that it sits closer to the edge
+ * than the text does.
+ *
+ * The content takes [inset] less width in the row. A [IconPlacement.Leading] icon moves towards the start by [inset], a
+ * [IconPlacement.Trailing] icon reaches past the end of its space, and an [IconPlacement.Inline] icon is left as it is.
+ *
+ * @param placement where the icon sits in the row.
+ * @param inset how far the icon reaches into the padding.
+ * @return this modifier with the inset added.
+ * @since 1.0.0
+ */
 public fun Modifier.edgeInset(placement: IconPlacement, inset: Dp): Modifier = layout { measurable, constraints ->
     val placeable = measurable.measure(constraints)
     val pixels = inset.roundToPx()
@@ -34,5 +46,5 @@ public fun Modifier.edgeInset(placement: IconPlacement, inset: Dp): Modifier = l
         IconPlacement.Leading -> -pixels
         IconPlacement.Trailing -> 0
     }
-    layout(placeable.width - shrink, placeable.height) { placeable.placeRelative(shift, 0) }
+    layout(width = placeable.width - shrink, height = placeable.height) { placeable.placeRelative(x = shift, y = 0) }
 }

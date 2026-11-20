@@ -65,6 +65,24 @@ private const val FADED_FROM: Int = 20
 private const val FADED_UNTIL: Int = 50
 private const val SHOWN_FROM: Int = 70
 
+/**
+ * Shows a field for a one-time password: a row of slots with one character each, split into groups and separators
+ * by [layout].
+ *
+ * The characters are typed into a hidden text field. While the field has the focus, the slot that receives the next
+ * character, or the last slot when every slot is filled, shows the focus ring and, while empty, a caret. Text longer
+ * than [length] is cut to [length] characters before it reaches [onValueChange].
+ *
+ * @param value the characters typed so far.
+ * @param onValueChange called with the new characters when the user types or deletes.
+ * @param length the number of slots.
+ * @param modifier the modifier of the field.
+ * @param enabled whether the field accepts input; a disabled field is drawn with the disabled alpha of its style.
+ * @param isInvalid whether the value is invalid, which shows the invalid ring around each group.
+ * @param style the style of the field.
+ * @param layout declares the groups and separators of the slots; by default all slots form one group.
+ * @since 1.0.0
+ */
 @Composable
 public fun InputOtp(
     value: String,
@@ -79,7 +97,7 @@ public fun InputOtp(
     val parts = InputOtpScopeImpl().apply(layout).parts
     val source = remember { MutableInteractionSource() }
     val isFocused by source.collectIsFocusedAsState()
-    val active = minOf(value.length, length - 1).takeIf { isFocused }
+    val active = minOf(a = value.length, b = length - 1).takeIf { isFocused }
     val slots = OtpSlots(value = value, active = active, isInvalid = isInvalid)
     BasicTextField(
         value = value,

@@ -21,6 +21,19 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 
+/**
+ * How the scrollbars of a [ScrollArea] and a [LazyScrollArea] look: their size and the shape and colors of their
+ * thumb.
+ *
+ * @property thickness the space a scrollbar takes across its direction, inset included.
+ * @property inset the space between the thumb and the edges of its scrollbar.
+ * @property thumbShape the shape of the thumb.
+ * @property thumbColor the color of the thumb.
+ * @property thumbHoverColor the color of the thumb while the pointer is on it.
+ * @property minimalThumbLength the shortest length of the thumb, however long the content is.
+ * @property hoverDurationMillis the duration in milliseconds of the change between the two colors of the thumb.
+ * @since 1.0.0
+ */
 @Immutable
 public class ScrollAreaStyle(
     public val thickness: Dp,
@@ -34,7 +47,15 @@ public class ScrollAreaStyle(
     /**
      * Returns a copy of this [ScrollAreaStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param thickness the new value of [thickness].
+     * @param inset the new value of [inset].
+     * @param thumbShape the new value of [thumbShape].
+     * @param thumbColor the new value of [thumbColor].
+     * @param thumbHoverColor the new value of [thumbHoverColor].
+     * @param minimalThumbLength the new value of [minimalThumbLength].
+     * @param hoverDurationMillis the new value of [hoverDurationMillis].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         thickness: Dp = this.thickness,

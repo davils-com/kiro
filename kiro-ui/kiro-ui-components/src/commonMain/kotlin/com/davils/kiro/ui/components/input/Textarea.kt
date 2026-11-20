@@ -21,6 +21,19 @@ import androidx.compose.ui.Modifier
 import com.davils.kiro.ui.components.primitive.textfield.FieldBox
 import com.davils.kiro.ui.components.primitive.textfield.FieldText
 
+/**
+ * A field for text of several lines that fills the available width and, with the default style, grows with its text.
+ *
+ * @param value the text of the field.
+ * @param onValueChange called with the new text when the user edits it.
+ * @param modifier the modifier of the field.
+ * @param placeholder the text shown while the field is empty, or `null` for none.
+ * @param enabled whether the field can be focused and edited.
+ * @param isInvalid whether the text is invalid, which the field shows in its invalid colors.
+ * @param options the behavior of the field: whether it hides its text, is read only, and which keyboard it asks for.
+ * @param style the style of the field.
+ * @since 1.0.0
+ */
 @Composable
 public fun Textarea(
     value: String,

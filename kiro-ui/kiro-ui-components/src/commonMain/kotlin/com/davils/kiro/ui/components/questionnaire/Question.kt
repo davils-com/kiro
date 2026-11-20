@@ -18,6 +18,14 @@ package com.davils.kiro.ui.components.questionnaire
 
 import androidx.compose.runtime.Immutable
 
+/**
+ * A question of a questionnaire.
+ *
+ * @property key the key of the question, unique in its questionnaire.
+ * @property kind what kind of answer the question takes.
+ * @property isRequired whether the question needs an answer that is not empty; a required question cannot be skipped.
+ * @since 1.0.0
+ */
 @Immutable
 public class Question(
     public val key: QuestionKey,
@@ -27,7 +35,7 @@ public class Question(
     /**
      * Returns a copy of this [Question] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         key: QuestionKey = this.key,

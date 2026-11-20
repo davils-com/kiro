@@ -20,6 +20,16 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 
+/**
+ * The line that marks the selected tab of [Tabs], drawn along the bottom edge of a tab in a horizontal list and along
+ * its end edge in a vertical list.
+ *
+ * @property color the color of the line.
+ * @property thickness the thickness of the line.
+ * @property offset how far the line is moved down, below the bottom edge of a tab in a horizontal list.
+ * @property verticalOffset how far the line is moved outward, past the end edge of a tab in a vertical list.
+ * @since 1.0.0
+ */
 @Immutable
 public class TabsIndicator(
     public val color: Color,
@@ -30,7 +40,7 @@ public class TabsIndicator(
     /**
      * Returns a copy of this [TabsIndicator] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         color: Color = this.color,

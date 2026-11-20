@@ -53,6 +53,26 @@ import com.davils.kiro.ui.icons.Icon
 import com.davils.kiro.ui.icons.IconStyle
 import com.davils.kiro.ui.icons.LocalIconStyle
 
+/**
+ * A field that picks one value from a list of options, drawn by Kiro in the manner of the select element of a web
+ * page.
+ *
+ * The field is as wide as its longest option. Clicking it opens a menu below it, at least as wide as the field, in
+ * which the arrow keys move the highlight and Enter or Space pick the highlighted option. The arrow keys on the
+ * focused field step to the previous or next enabled option without opening the menu.
+ *
+ * @param T the type of the values.
+ * @param selected the value of the picked option.
+ * @param onSelectedChange called with the value of the option the user picks.
+ * @param modifier the modifier of the field.
+ * @param size the size of the field.
+ * @param enabled whether the field can be opened and changed; a disabled field is drawn with the disabled alpha of
+ * its style.
+ * @param isInvalid whether the value is invalid, which the field shows with the invalid colors of its style.
+ * @param style the style of the field, by default the style of the theme for [size].
+ * @param content declares the options and the groups of the field.
+ * @since 1.0.0
+ */
 @Composable
 public fun <T> NativeSelect(
     selected: T,
@@ -91,14 +111,15 @@ public fun <T> NativeSelect(
         onClick = { isOpen = true },
     )
     Box(
-        modifier = modifier
-            .alpha(disabledAlphaOf(isDisabled = !enabled, alpha = style.disabledAlpha))
-            .height(style.height)
-            .onSizeChanged { measured -> anchorWidth = measured.width }
-            .then(surface)
-            .hoverable(interactionSource = source, enabled = enabled)
-            .then(open)
-            .then(keys),
+        modifier = modifier.then(
+            Modifier
+                .alpha(disabledAlphaOf(isDisabled = !enabled, alpha = style.disabledAlpha))
+                .height(style.height)
+                .onSizeChanged { measured -> anchorWidth = measured.width }
+                .then(surface)
+                .hoverable(interactionSource = source, enabled = enabled)
+                .then(open.then(keys)),
+        ),
         contentAlignment = Alignment.CenterStart,
     ) {
         CompositionLocalProvider(LocalContentColor provides colors.content, LocalTextStyle provides style.textStyle) {

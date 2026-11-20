@@ -22,6 +22,21 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 
+/**
+ * The style of a [Kbd] and of a [KbdGroup].
+ *
+ * @property height the height of a key.
+ * @property minWidth the smallest width of a key.
+ * @property horizontalPadding the horizontal padding inside a key.
+ * @property gap the space between the parts of a key.
+ * @property groupGap the space between the keys of a [KbdGroup].
+ * @property shape the shape of a key.
+ * @property container the color of the container of a key.
+ * @property content the color of the text and icons of a key.
+ * @property textStyle the text style of a key.
+ * @property iconSize the size of the icons of a key.
+ * @since 1.0.0
+ */
 @Immutable
 public class KbdStyle(
     public val height: Dp,
@@ -38,7 +53,7 @@ public class KbdStyle(
     /**
      * Returns a copy of this [KbdStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         height: Dp = this.height,

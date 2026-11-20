@@ -64,10 +64,12 @@ internal fun ToastProgressBar(progress: ToastProgress, style: ToastStyle) {
 internal fun ToastTimerBar(remaining: Float, height: Dp, color: Color, modifier: Modifier) {
     val fraction = animateFloatAsState(targetValue = remaining, animationSpec = theme.sizeTransition())
     Box(
-        modifier = modifier
-            .fillMaxWidth()
-            .height(height)
-            .drawBehind { bar(start = 0f, length = fraction.value, color = color) },
+        modifier = modifier.then(
+            Modifier
+                .fillMaxWidth()
+                .height(height)
+                .drawBehind { bar(start = 0f, length = fraction.value, color = color) },
+        ),
     )
 }
 

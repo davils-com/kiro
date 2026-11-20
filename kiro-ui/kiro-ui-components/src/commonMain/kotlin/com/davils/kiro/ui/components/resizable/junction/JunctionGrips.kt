@@ -62,7 +62,7 @@ internal fun JunctionGrips(coordinator: ResizableCoordinator, isGripShown: Boole
 @Composable
 private fun JunctionGrip(junction: Junction, isGripShown: Boolean, style: ResizableStyle) {
     val latest by rememberUpdatedState(junction)
-    val hit = maxOf(style.hitArea, style.gripThickness) * 2
+    val hit = maxOf(a = style.hitArea, b = style.gripThickness) * 2
     val drag = Modifier.pointerInput(Unit) {
         var total = Offset.Zero
         detectDragGestures(

@@ -16,12 +16,40 @@
 
 package com.davils.kiro.ui.components.inputgroup
 
+/**
+ * The size of an [InputGroupButton], which selects its default height, padding and shape.
+ *
+ * The sizes of Kiro are the objects nested in this interface; implement it to add a size of your own and give it a
+ * style through [InputGroupButtonStyles].
+ *
+ * @since 1.0.0
+ */
 public interface InputGroupButtonSize {
+    /**
+     * The extra small size for a button with text: 24 dp high with a narrow padding.
+     *
+     * @since 1.0.0
+     */
     public data object Xs : InputGroupButtonSize
 
+    /**
+     * The small size for a button with text: the height of a default button.
+     *
+     * @since 1.0.0
+     */
     public data object Sm : InputGroupButtonSize
 
+    /**
+     * The extra small size for a button with only an icon: a square of 24 dp.
+     *
+     * @since 1.0.0
+     */
     public data object IconXs : InputGroupButtonSize
 
+    /**
+     * The small size for a button with only an icon: a square as high as a default button.
+     *
+     * @since 1.0.0
+     */
     public data object IconSm : InputGroupButtonSize
 }

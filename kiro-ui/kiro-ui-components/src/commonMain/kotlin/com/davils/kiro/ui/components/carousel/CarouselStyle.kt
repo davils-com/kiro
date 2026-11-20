@@ -21,6 +21,18 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.icons.IconGraphic
 
+/**
+ * The style of a [Carousel].
+ *
+ * @property spacing the space between two items.
+ * @property buttonOffset how far the navigation buttons sit outside the edges of the carousel.
+ * @property buttonShape the shape of the navigation buttons.
+ * @property previousIcon the icon of the button that moves to the previous item.
+ * @property nextIcon the icon of the button that moves to the next item.
+ * @property previousLabel the text that announces the button that moves to the previous item.
+ * @property nextLabel the text that announces the button that moves to the next item.
+ * @since 1.0.0
+ */
 @Immutable
 public class CarouselStyle(
     public val spacing: Dp,
@@ -34,7 +46,7 @@ public class CarouselStyle(
     /**
      * Returns a copy of this [CarouselStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         spacing: Dp = this.spacing,

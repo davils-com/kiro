@@ -37,16 +37,53 @@ private const val INVALID_RING_DARK: Float = 0.4f
 private const val DISABLED_ALPHA: Float = 0.5f
 private const val DARK_BORDER: Float = 0.3f
 
+/**
+ * Derives the style of an [InputOtp] from the tokens of a theme.
+ *
+ * Register an implementation under [InputOtpStyleKey] in the components of a theme to change how every one-time
+ * password field looks.
+ *
+ * @since 1.0.0
+ */
 public fun interface InputOtpStyles {
+    /**
+     * Returns the style of an [InputOtp] for a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of the field.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): InputOtpStyle
 
+    /**
+     * Holds the default [InputOtpStyles].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default style of an [InputOtp], with the colors of an input field and a caret that blinks once a
+         * second unless the theme reduces motion.
+         *
+         * @since 1.0.0
+         */
         public val Default: InputOtpStyles = InputOtpStyles(::defaultInputOtpStyle)
     }
 }
 
+/**
+ * The key of the styles of an [InputOtp] in the components of a theme, with [InputOtpStyles.Default] as its default.
+ *
+ * @since 1.0.0
+ */
 public val InputOtpStyleKey: StyleKey<InputOtpStyles> = StyleKey(name = "input-otp") { _ -> InputOtpStyles.Default }
 
+/**
+ * Returns the style of an [InputOtp] in the current theme, with the overrides of its components.
+ *
+ * @return the style of the field.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun inputOtpStyle(): InputOtpStyle = InputOtpStyleKey.current.resolve(theme)

@@ -52,6 +52,14 @@ import com.davils.kiro.ui.core.content.LocalContentColor
 import com.davils.kiro.ui.core.content.LocalTextStyle
 import com.davils.kiro.ui.core.style.Border
 
+/**
+ * A column of bubbles that fills the available width and keeps the group gap of the style between them.
+ *
+ * @param modifier the modifier of the group.
+ * @param style the style whose group gap separates the bubbles.
+ * @param content the bubbles of the group.
+ * @since 1.0.0
+ */
 @Composable
 public fun BubbleGroup(
     modifier: Modifier = Modifier,
@@ -65,6 +73,21 @@ public fun BubbleGroup(
     )
 }
 
+/**
+ * A chat bubble: stacks its [BubbleContent] parts with the gap of the style, limits their width to a fraction of the
+ * available width and places them at the start or the end of the row.
+ *
+ * Inside a message the bubble takes its alignment from the message, and a bubble of [BubbleVariant.Ghost] removes the
+ * label padding of the message. [BubbleReactions] in the content are placed on the edge of the bubble instead of in
+ * the stack.
+ *
+ * @param modifier the modifier of the bubble.
+ * @param variant the variant of the bubble, which chooses its default style.
+ * @param align the side of the row the bubble is placed on.
+ * @param style the style of the bubble.
+ * @param content the parts and reactions of the bubble.
+ * @since 1.0.0
+ */
 @Composable
 public fun Bubble(
     modifier: Modifier = Modifier,
@@ -86,6 +109,18 @@ public fun Bubble(
     }
 }
 
+/**
+ * A part of a [Bubble]: its content in the shape, colors and padding of the style of the bubble.
+ *
+ * With [onClick] the part is clickable, shows the hover color of the style while the pointer is over it and the focus
+ * border and ring while its focus is visible.
+ *
+ * @param modifier the modifier of the part.
+ * @param onClick called when the part is clicked, or `null` for a part that cannot be clicked.
+ * @param content the content of the part.
+ * @throws IllegalArgumentException if it is not placed inside a [Bubble].
+ * @since 1.0.0
+ */
 @Composable
 public fun BubbleContent(
     modifier: Modifier = Modifier,
@@ -109,16 +144,28 @@ public fun BubbleContent(
         )
     }
     Box(
-        modifier = modifier
-            .surface(shape = style.shape, color = container, border = border, ring = ring)
-            .hoverable(interactionSource = source)
-            .then(click ?: Modifier)
-            .padding(style.padding),
+        modifier = modifier.then(
+            Modifier
+                .surface(shape = style.shape, color = container, border = border, ring = ring)
+                .hoverable(interactionSource = source)
+                .then(click ?: Modifier)
+                .padding(style.padding),
+        ),
     ) {
         content()
     }
 }
 
+/**
+ * A row of reactions, such as emoji, placed on the top or bottom edge of its [Bubble] so that it overlaps the edge.
+ *
+ * @param modifier the modifier of the row.
+ * @param side the edge of the bubble the row is placed on.
+ * @param align whether the row sits at the start or at the end of that edge.
+ * @param content the reactions.
+ * @throws IllegalArgumentException if it is not placed inside a [Bubble].
+ * @since 1.0.0
+ */
 @Composable
 public fun BubbleReactions(
     modifier: Modifier = Modifier,
@@ -130,10 +177,12 @@ public fun BubbleReactions(
     val ring = Border(width = style.ringWidth, color = style.ring)
     CompositionLocalProvider(LocalContentColor provides style.content, LocalTextStyle provides style.textStyle) {
         Row(
-            modifier = modifier
-                .layoutId(BubbleReactionsSlot(side = side, align = align))
-                .surface(shape = style.shape, color = style.container, ring = ring)
-                .padding(style.padding),
+            modifier = modifier.then(
+                Modifier
+                    .layoutId(BubbleReactionsSlot(side = side, align = align))
+                    .surface(shape = style.shape, color = style.container, ring = ring)
+                    .padding(style.padding),
+            ),
             horizontalArrangement = Arrangement.spacedBy(style.gap),
             verticalAlignment = Alignment.CenterVertically,
             content = content,

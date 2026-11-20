@@ -23,11 +23,11 @@ import io.kotest.matchers.floats.shouldBeGreaterThanOrEqual
 import io.kotest.matchers.shouldBe
 
 private val points: List<Offset> = listOf(
-    Offset(0f, 50f),
-    Offset(50f, 10f),
-    Offset(100f, 30f),
-    Offset(150f, 30f),
-    Offset(150f, 60f),
+    Offset(x = 0f, y = 50f),
+    Offset(x = 50f, y = 10f),
+    Offset(x = 100f, y = 30f),
+    Offset(x = 150f, y = 30f),
+    Offset(x = 150f, y = 60f),
 )
 
 private const val END: Float = 150f

@@ -22,6 +22,20 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 
+/**
+ * How the legend of a chart looks: the gaps of its items, their color swatches and icons, its distance from the chart
+ * and its text style.
+ *
+ * @property gap the horizontal gap between two items.
+ * @property itemGap the gap between the swatch or icon of an item and its label.
+ * @property swatchSize the width and height of the color swatch of an item.
+ * @property swatchShape the shape of the color swatch of an item.
+ * @property spacing the distance between the legend and the chart.
+ * @property iconSize the width and height of the icon of an item.
+ * @property iconColor the color of the icon of an item.
+ * @property textStyle the text style of the labels.
+ * @since 1.0.0
+ */
 @Immutable
 public class ChartLegendStyle(
     public val gap: Dp,
@@ -36,7 +50,16 @@ public class ChartLegendStyle(
     /**
      * Returns a copy of this [ChartLegendStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param gap the new value of [gap].
+     * @param itemGap the new value of [itemGap].
+     * @param swatchSize the new value of [swatchSize].
+     * @param swatchShape the new value of [swatchShape].
+     * @param spacing the new value of [spacing].
+     * @param iconSize the new value of [iconSize].
+     * @param iconColor the new value of [iconColor].
+     * @param textStyle the new value of [textStyle].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         gap: Dp = this.gap,

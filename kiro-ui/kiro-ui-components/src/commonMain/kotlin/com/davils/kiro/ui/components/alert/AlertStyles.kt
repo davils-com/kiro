@@ -23,16 +23,54 @@ import com.davils.kiro.ui.core.Theme
 import com.davils.kiro.ui.core.style.StyleKey
 import com.davils.kiro.ui.core.style.current
 
+/**
+ * Derives the style of an [Alert] for each [AlertVariant] from the tokens of a theme.
+ *
+ * Register an implementation under [AlertStyleKey] in the components of a theme to change how every alert looks.
+ *
+ * @since 1.0.0
+ */
 public fun interface AlertStyles {
+    /**
+     * Returns the style of an [Alert] of a variant for a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @param variant the variant of the alert.
+     * @return the style of the alert.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme, variant: AlertVariant): AlertStyle
 
+    /**
+     * Holds the default [AlertStyles].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default styles of an [Alert], derived from the colors, radii and typography of the theme. They
+         * throw an [IllegalArgumentException] for a variant other than the five of [AlertVariant].
+         *
+         * @since 1.0.0
+         */
         public val Default: AlertStyles = AlertStyles(::defaultAlertStyle)
     }
 }
 
+/**
+ * Returns the style of an [Alert] of a variant in the current theme, with the overrides of its components.
+ *
+ * @param variant the variant of the alert.
+ * @return the style of the alert.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun alertStyle(variant: AlertVariant): AlertStyle = AlertStyleKey.current.resolve(theme, variant)
 
+/**
+ * The key of the styles of an [Alert] in the components of a theme, with [AlertStyles.Default] as its default.
+ *
+ * @since 1.0.0
+ */
 public val AlertStyleKey: StyleKey<AlertStyles> = StyleKey(name = "alert") { _ -> AlertStyles.Default }

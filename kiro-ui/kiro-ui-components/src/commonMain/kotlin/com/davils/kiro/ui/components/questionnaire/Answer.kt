@@ -18,10 +18,27 @@ package com.davils.kiro.ui.components.questionnaire
 
 import androidx.compose.runtime.Immutable
 
+/**
+ * The answer to a [Question] of a questionnaire.
+ *
+ * @since 1.0.0
+ */
 @Immutable
 public sealed interface Answer {
+    /**
+     * Whether the answer gives nothing: no chosen value, only blank text, or a skipped question. A required question
+     * with an empty answer is missing.
+     *
+     * @since 1.0.0
+     */
     public val isEmpty: Boolean
 
+    /**
+     * The answer to a question of the kind [QuestionKind.Single]: the one chosen value.
+     *
+     * @property value the value of the chosen [QuestionnaireChoice].
+     * @since 1.0.0
+     */
     public class Single(
         public val value: String,
     ) : Answer {
@@ -31,7 +48,7 @@ public sealed interface Answer {
         /**
          * Returns a copy of this [Single] with the given values replaced and every other value kept.
          *
-         * @since 0.1.0
+         * @since 1.0.0
          */
         public fun copy(value: String = this.value): Single = Single(
             value = value,
@@ -49,6 +66,12 @@ public sealed interface Answer {
         )
     }
 
+    /**
+     * The answer to a question of the kind [QuestionKind.Multiple]: every chosen value.
+     *
+     * @property values the values of the chosen [QuestionnaireChoice]s; empty when none is chosen.
+     * @since 1.0.0
+     */
     public class Multiple(
         public val values: Set<String>,
     ) : Answer {
@@ -58,7 +81,7 @@ public sealed interface Answer {
         /**
          * Returns a copy of this [Multiple] with the given values replaced and every other value kept.
          *
-         * @since 0.1.0
+         * @since 1.0.0
          */
         public fun copy(values: Set<String> = this.values): Multiple = Multiple(
             values = values,
@@ -76,6 +99,12 @@ public sealed interface Answer {
         )
     }
 
+    /**
+     * The answer to a question of the kind [QuestionKind.Text]: the typed text.
+     *
+     * @property text the text typed into the [QuestionnaireInput].
+     * @since 1.0.0
+     */
     public class Text(
         public val text: String,
     ) : Answer {
@@ -85,7 +114,7 @@ public sealed interface Answer {
         /**
          * Returns a copy of this [Text] with the given values replaced and every other value kept.
          *
-         * @since 0.1.0
+         * @since 1.0.0
          */
         public fun copy(text: String = this.text): Text = Text(
             text = text,
@@ -103,6 +132,11 @@ public sealed interface Answer {
         )
     }
 
+    /**
+     * The answer to a question that was skipped. It is empty.
+     *
+     * @since 1.0.0
+     */
     public data object Skipped : Answer {
         override val isEmpty: Boolean
             get() = true

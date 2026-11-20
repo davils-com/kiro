@@ -39,7 +39,7 @@ internal fun stackOf(
     }
     val offsets = pairs.toMap()
     val front = sizes.firstOrNull() ?: 0
-    val collapsedHeight = front + stackGap * maxOf(toasts.size - 1, 0)
-    val expandedHeight = maxOf(expanded.last() - expandedGap, 0)
+    val collapsedHeight = front + stackGap * maxOf(a = toasts.size - 1, b = 0)
+    val expandedHeight = maxOf(a = expanded.last() - expandedGap, b = 0)
     return ToastStack(offsets = offsets, height = expandedHeight.takeIf { isExpanded } ?: collapsedHeight)
 }

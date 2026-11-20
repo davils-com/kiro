@@ -49,6 +49,20 @@ import kotlin.math.roundToInt
 
 private const val PERCENT: Float = 100f
 
+/**
+ * A horizontal bar that shows how far a task has come, with an optional label and percentage above it.
+ *
+ * The indicator fills the track from the start edge, following the layout direction, and animates between values.
+ *
+ * @param value the progress as a fraction from `0` to `1`, clamped to that range, or `null` if it is unknown, which
+ * leaves the track empty and announces the progress as indeterminate.
+ * @param modifier the modifier of the progress.
+ * @param label the text above the start of the bar, or `null` for none.
+ * @param isValueShown whether the value is shown as a rounded percentage above the end of the bar; an unknown value
+ * shows none.
+ * @param style the look of the progress.
+ * @since 1.0.0
+ */
 @Composable
 public fun Progress(
     value: Float?,
@@ -57,7 +71,7 @@ public fun Progress(
     isValueShown: Boolean = false,
     style: ProgressStyle = progressStyle(),
 ) {
-    val fraction = value?.coerceIn(0f, 1f)
+    val fraction = value?.coerceIn(minimumValue = 0f, maximumValue = 1f)
     val animated = animateFloatAsState(targetValue = fraction ?: 0f, animationSpec = style.animation)
     Column(modifier = modifier.semanticsOf(fraction), verticalArrangement = Arrangement.spacedBy(style.gap)) {
         ProgressHeader(fraction = fraction, label = label, isValueShown = isValueShown, style = style)

@@ -16,7 +16,23 @@
 
 package com.davils.kiro.ui.components.message
 
+/**
+ * The side of a [Message] that its avatar and its content are aligned to.
+ *
+ * @since 1.0.0
+ */
 public enum class MessageAlign {
+    /**
+     * The avatar at the start and the content aligned to the start, such as for messages of others.
+     *
+     * @since 1.0.0
+     */
     Start,
+
+    /**
+     * The avatar at the end and the content aligned to the end, such as for messages of the user.
+     *
+     * @since 1.0.0
+     */
     End,
 }

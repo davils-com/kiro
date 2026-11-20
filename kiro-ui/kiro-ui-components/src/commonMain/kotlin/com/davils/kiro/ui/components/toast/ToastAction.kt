@@ -18,6 +18,13 @@ package com.davils.kiro.ui.components.toast
 
 import androidx.compose.runtime.Immutable
 
+/**
+ * The action button of a [Toast].
+ *
+ * @property label the text of the button.
+ * @property onClick called when the button is clicked; the toast is dismissed right after.
+ * @since 1.0.0
+ */
 @Immutable
 public class ToastAction(
     public val label: String,
@@ -26,7 +33,10 @@ public class ToastAction(
     /**
      * Returns a copy of this [ToastAction] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param label the new value of [label].
+     * @param onClick the new value of [onClick].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(label: String = this.label, onClick: () -> Unit = this.onClick): ToastAction = ToastAction(
         label = label,

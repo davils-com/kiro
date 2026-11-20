@@ -16,8 +16,31 @@
 
 package com.davils.kiro.ui.components.field
 
+/**
+ * How a [Field] lays out its label, its content and its control.
+ *
+ * @since 1.0.0
+ */
 public enum class FieldOrientation {
+    /**
+     * The parts are laid out one below the other.
+     *
+     * @since 1.0.0
+     */
     Vertical,
+
+    /**
+     * The parts are laid out side by side: the labels and the content share the width that the controls leave.
+     *
+     * @since 1.0.0
+     */
     Horizontal,
+
+    /**
+     * The parts are laid out side by side when the field is at least as wide as [FieldStyle.responsiveBreakpoint], and
+     * one below the other otherwise.
+     *
+     * @since 1.0.0
+     */
     Responsive,
 }

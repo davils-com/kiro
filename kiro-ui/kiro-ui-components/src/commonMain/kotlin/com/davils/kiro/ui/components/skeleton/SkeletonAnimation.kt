@@ -16,8 +16,30 @@
 
 package com.davils.kiro.ui.components.skeleton
 
+/**
+ * The animation of a [Skeleton] while it is shown.
+ *
+ * @since 1.0.0
+ */
 public enum class SkeletonAnimation {
+    /**
+     * The skeleton fades to the dimmed opacity of its style and back.
+     *
+     * @since 1.0.0
+     */
     Pulse,
+
+    /**
+     * A light band runs across the skeleton from the start to the end.
+     *
+     * @since 1.0.0
+     */
     Shimmer,
+
+    /**
+     * The skeleton does not move.
+     *
+     * @since 1.0.0
+     */
     None,
 }

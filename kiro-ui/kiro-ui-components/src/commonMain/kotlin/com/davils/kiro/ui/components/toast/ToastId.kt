@@ -18,5 +18,11 @@ package com.davils.kiro.ui.components.toast
 
 import kotlin.jvm.JvmInline
 
+/**
+ * Identifies a toast of a [ToasterState], for [ToasterState.update] and [ToasterState.dismiss].
+ *
+ * @property value the number of the toast, unique within its toaster.
+ * @since 1.0.0
+ */
 @JvmInline
 public value class ToastId(public val value: Long)

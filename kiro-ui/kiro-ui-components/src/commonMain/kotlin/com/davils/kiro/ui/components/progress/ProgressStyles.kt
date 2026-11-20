@@ -23,16 +23,52 @@ import com.davils.kiro.ui.core.Theme
 import com.davils.kiro.ui.core.style.StyleKey
 import com.davils.kiro.ui.core.style.current
 
+/**
+ * Resolves the [ProgressStyle] of a [Progress] for a theme.
+ *
+ * Register your own under [ProgressStyleKey] in the component styles of a theme to change every progress.
+ *
+ * @since 1.0.0
+ */
 public fun interface ProgressStyles {
+    /**
+     * Returns the style of a progress.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of a progress.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): ProgressStyle
 
+    /**
+     * Holds the default progress styles.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default progress styles, derived from the colors, typography and motion of the theme, with a round
+         * track.
+         *
+         * @since 1.0.0
+         */
         public val Default: ProgressStyles = ProgressStyles(::defaultProgressStyle)
     }
 }
 
+/**
+ * The key of the progress styles in the component styles of a theme, named `progress`.
+ *
+ * @since 1.0.0
+ */
 public val ProgressStyleKey: StyleKey<ProgressStyles> = StyleKey(name = "progress") { _ -> ProgressStyles.Default }
 
+/**
+ * Returns the progress style of the current theme.
+ *
+ * @return the style that the [ProgressStyles] registered under [ProgressStyleKey] resolve.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun progressStyle(): ProgressStyle = ProgressStyleKey.current.resolve(theme)

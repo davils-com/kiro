@@ -16,8 +16,25 @@
 
 package com.davils.kiro.ui.components.codeblock
 
+/**
+ * The size of a [CodeBlock], which picks its text size, padding and the gap between its sections.
+ *
+ * The default style knows the sizes declared here; a size of your own needs [CodeBlockStyles] that resolve it.
+ *
+ * @since 1.0.0
+ */
 public interface CodeBlockSize {
+    /**
+     * The regular size, with small text.
+     *
+     * @since 1.0.0
+     */
     public data object Default : CodeBlockSize
 
+    /**
+     * A smaller size, with extra small text and less padding.
+     *
+     * @since 1.0.0
+     */
     public data object Sm : CodeBlockSize
 }

@@ -20,6 +20,13 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 
+/**
+ * The style of a [Separator].
+ *
+ * @property thickness the thickness of the line.
+ * @property color the color of the line.
+ * @since 1.0.0
+ */
 @Immutable
 public class SeparatorStyle(
     public val thickness: Dp,
@@ -28,7 +35,7 @@ public class SeparatorStyle(
     /**
      * Returns a copy of this [SeparatorStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(thickness: Dp = this.thickness, color: Color = this.color): SeparatorStyle = SeparatorStyle(
         thickness = thickness,

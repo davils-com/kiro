@@ -33,6 +33,16 @@ import androidx.compose.ui.text.TextStyle
 import com.davils.kiro.ui.components.text.Text
 import com.davils.kiro.ui.core.content.LocalContentColor
 
+/**
+ * A set of related fields, such as the fields of an address, laid out in a column under an optional [FieldLegend].
+ *
+ * Assistive technologies traverse the set as one group.
+ *
+ * @param modifier the modifier of the column.
+ * @param style the style of the fields; its [FieldStyle.setGap] spaces the children.
+ * @param content the children of the set, such as a [FieldLegend], a [FieldDescription] and a [FieldGroup].
+ * @since 1.0.0
+ */
 @Composable
 public fun FieldSet(
     modifier: Modifier = Modifier,
@@ -46,6 +56,15 @@ public fun FieldSet(
     )
 }
 
+/**
+ * The legend of a [FieldSet], the text that names the set.
+ *
+ * @param text the text of the legend.
+ * @param modifier the modifier of the text.
+ * @param variant the text style of the legend.
+ * @param style the style of the fields.
+ * @since 1.0.0
+ */
 @Composable
 public fun FieldLegend(
     text: String,
@@ -60,6 +79,14 @@ public fun FieldLegend(
     )
 }
 
+/**
+ * A group of fields that fills the available width and lays them out in a column.
+ *
+ * @param modifier the modifier of the column.
+ * @param style the style of the fields; its [FieldStyle.groupGap] spaces the children.
+ * @param content the children of the group, such as [Field]s and [FieldSeparator]s.
+ * @since 1.0.0
+ */
 @Composable
 public fun FieldGroup(
     modifier: Modifier = Modifier,
@@ -73,6 +100,22 @@ public fun FieldGroup(
     )
 }
 
+/**
+ * One field of a form: a control together with its [FieldLabel], [FieldDescription] and [FieldError].
+ *
+ * The field fills the available width, and assistive technologies traverse it as one group. While it is invalid, its
+ * content takes the [FieldStyle.invalidColor] as the content color; while it is disabled, its label and title are
+ * faded. In a horizontal layout, every child that is not a [FieldLabel] or a [FieldContent] counts as a control: it
+ * keeps its own width, and the labels and the content share the rest.
+ *
+ * @param modifier the modifier of the field.
+ * @param orientation how the field lays out its children.
+ * @param isInvalid whether the value of the field is invalid.
+ * @param isDisabled whether the field is disabled; the control itself is disabled through its own parameter.
+ * @param style the style of the field.
+ * @param content the children of the field: its label or content and its control.
+ * @since 1.0.0
+ */
 @Composable
 public fun Field(
     modifier: Modifier = Modifier,

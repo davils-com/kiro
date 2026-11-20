@@ -44,6 +44,15 @@ import com.davils.kiro.ui.icons.IconGraphic
 import com.davils.kiro.ui.icons.IconStyle
 import com.davils.kiro.ui.icons.LocalIconStyle
 
+/**
+ * Lays out the links of a pagination in a row that fills the width of its parent and centers them, with the gap of the
+ * style between them.
+ *
+ * @param modifier the modifier of the row.
+ * @param style the style that gives the gap between the links.
+ * @param content the links, such as [PaginationPrevious], [PaginationLink], [PaginationEllipsis] and [PaginationNext].
+ * @since 1.0.0
+ */
 @Composable
 public fun Pagination(
     modifier: Modifier = Modifier,
@@ -58,6 +67,17 @@ public fun Pagination(
     )
 }
 
+/**
+ * Shows a link to one page as a button: an outline button when it is the current page, a ghost button otherwise.
+ *
+ * @param onClick called when the link is clicked.
+ * @param modifier the modifier of the link.
+ * @param isActive whether the link leads to the current page; it is announced as selected.
+ * @param size the size of the button.
+ * @param enabled whether the link can be clicked.
+ * @param content the content of the link, usually the number of the page.
+ * @since 1.0.0
+ */
 @Composable
 public fun PaginationLink(
     onClick: () -> Unit,
@@ -79,11 +99,21 @@ public fun PaginationLink(
     )
 }
 
+/**
+ * Shows a ghost button that leads to the previous page, with the previous icon of the style before its text.
+ *
+ * @param onClick called when the button is clicked.
+ * @param modifier the modifier of the button.
+ * @param text the text of the button.
+ * @param enabled whether the button can be clicked.
+ * @param style the style that gives the icon and the padding at the edge of the button.
+ * @since 1.0.0
+ */
 @Composable
 public fun PaginationPrevious(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    text: String = Messages.Pagination.previous,
+    text: String = Messages.Pagination.PREVIOUS,
     enabled: Boolean = true,
     style: PaginationStyle = paginationStyle(),
 ) {
@@ -93,11 +123,21 @@ public fun PaginationPrevious(
     }
 }
 
+/**
+ * Shows a ghost button that leads to the next page, with the next icon of the style after its text.
+ *
+ * @param onClick called when the button is clicked.
+ * @param modifier the modifier of the button.
+ * @param text the text of the button.
+ * @param enabled whether the button can be clicked.
+ * @param style the style that gives the icon and the padding at the edge of the button.
+ * @since 1.0.0
+ */
 @Composable
 public fun PaginationNext(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    text: String = Messages.Pagination.next,
+    text: String = Messages.Pagination.NEXT,
     enabled: Boolean = true,
     style: PaginationStyle = paginationStyle(),
 ) {
@@ -107,6 +147,14 @@ public fun PaginationNext(
     }
 }
 
+/**
+ * Shows the ellipsis icon of the style in place of skipped pages.
+ *
+ * @param contentDescription the text that accessibility services read for the ellipsis, such as `More pages`.
+ * @param modifier the modifier of the ellipsis.
+ * @param style the style that gives the icon, its size and the size of its box.
+ * @since 1.0.0
+ */
 @Composable
 public fun PaginationEllipsis(
     contentDescription: String,

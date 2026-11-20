@@ -22,6 +22,40 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 
+/**
+ * How the charts in a [ChartContainer] look: their colors, text style, margins, marks, animation, tooltip and legend.
+ *
+ * @property palette the colors of the series without a color of their own, taken in turn by their position.
+ * @property textStyle the text style of the labels drawn in a chart, which the container also hands down to its
+ * content.
+ * @property tickColor the color of the tick labels of the axes and of the labels around a [RadarChart].
+ * @property labelColor the color of the value labels of a [PieChart], which the container also hands down to its
+ * content as the content color.
+ * @property gridColor the color of the grid of a [BarChart], a [LineChart] and an [AreaChart].
+ * @property polarGridColor the color of the grid of a [RadarChart].
+ * @property cursorFill the color of the band behind the active category of a [BarChart].
+ * @property cursorLine the color of the vertical line at the active category of a [LineChart] and an [AreaChart].
+ * @property trackColor the color of the track behind the arcs of a [RadialBarChart].
+ * @property tickMargin the distance between an axis and its tick labels, and between a [RadarChart] and the labels
+ * around it.
+ * @property margin the space kept free around the plot of a chart.
+ * @property barGap the gap between two bars of the same category.
+ * @property bandPadding the fraction of a category, or of a ring of a [RadialBarChart], left free on each side of
+ * its bars.
+ * @property dotRadius the radius of the dots on the points of a line or a radar.
+ * @property activeDotRadius the radius of the dots on the points of the active category.
+ * @property outerRadius the fraction of the available radius that a [PieChart], a [RadarChart] or a
+ * [RadialBarChart] fills.
+ * @property labelOffset the length of the line from a slice of a [PieChart] to its value label.
+ * @property pointInset the space at the start and the end of the plot of a [LineChart] and an [AreaChart], so that
+ * the first and the last point do not touch its edges.
+ * @property aspectRatio the ratio of the width to the height of a [ChartContainer] by default.
+ * @property animationMillis the duration in milliseconds of the animation that draws the marks in.
+ * @property animationEasing the easing of the animation that draws the marks in.
+ * @property tooltip the style of the tooltip.
+ * @property legend the style of the legend.
+ * @since 1.0.0
+ */
 @Immutable
 public class ChartStyle(
     public val palette: List<Color>,
@@ -51,7 +85,31 @@ public class ChartStyle(
     /**
      * Returns a copy of this [ChartStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param palette the new value of [palette].
+     * @param textStyle the new value of [textStyle].
+     * @param tickColor the new value of [tickColor].
+     * @param labelColor the new value of [labelColor].
+     * @param gridColor the new value of [gridColor].
+     * @param polarGridColor the new value of [polarGridColor].
+     * @param cursorFill the new value of [cursorFill].
+     * @param cursorLine the new value of [cursorLine].
+     * @param trackColor the new value of [trackColor].
+     * @param tickMargin the new value of [tickMargin].
+     * @param margin the new value of [margin].
+     * @param barGap the new value of [barGap].
+     * @param bandPadding the new value of [bandPadding].
+     * @param dotRadius the new value of [dotRadius].
+     * @param activeDotRadius the new value of [activeDotRadius].
+     * @param outerRadius the new value of [outerRadius].
+     * @param labelOffset the new value of [labelOffset].
+     * @param pointInset the new value of [pointInset].
+     * @param aspectRatio the new value of [aspectRatio].
+     * @param animationMillis the new value of [animationMillis].
+     * @param animationEasing the new value of [animationEasing].
+     * @param tooltip the new value of [tooltip].
+     * @param legend the new value of [legend].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         palette: List<Color> = this.palette,

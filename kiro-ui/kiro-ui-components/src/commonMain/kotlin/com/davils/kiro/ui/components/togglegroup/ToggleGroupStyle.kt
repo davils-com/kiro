@@ -20,6 +20,16 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.components.toggle.ToggleStyle
 
+/**
+ * The look of a [ToggleGroup] and of its toggles.
+ *
+ * @property spacing the space between the toggles; zero joins them.
+ * @property item the style of a toggle.
+ * @property joinedPadding the horizontal padding of a joined toggle.
+ * @property joinedIconEdgePadding the padding between a leading or trailing icon and the edge of a joined toggle.
+ * @property radius the corner radius of the outer corners of joined toggles.
+ * @since 1.0.0
+ */
 @Immutable
 public class ToggleGroupStyle(
     public val spacing: Dp,
@@ -31,7 +41,13 @@ public class ToggleGroupStyle(
     /**
      * Returns a copy of this [ToggleGroupStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param spacing the new value of [spacing].
+     * @param item the new value of [item].
+     * @param joinedPadding the new value of [joinedPadding].
+     * @param joinedIconEdgePadding the new value of [joinedIconEdgePadding].
+     * @param radius the new value of [radius].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         spacing: Dp = this.spacing,

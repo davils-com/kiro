@@ -24,19 +24,21 @@ import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 
 internal fun Modifier.animatedWidth(width: State<Dp>): Modifier = layout { measurable, constraints ->
-    val pixels = width.value.roundToPx().coerceIn(constraints.minWidth, constraints.maxWidth)
+    val wanted = width.value.roundToPx()
+    val pixels = wanted.coerceIn(minimumValue = constraints.minWidth, maximumValue = constraints.maxWidth)
     val placeable = measurable.measure(
         Constraints.fixedWidth(pixels).copy(minHeight = constraints.minHeight, maxHeight = constraints.maxHeight),
     )
-    layout(placeable.width, placeable.height) { placeable.place(x = 0, y = 0) }
+    layout(width = placeable.width, height = placeable.height) { placeable.place(x = 0, y = 0) }
 }
 
 internal fun Modifier.animatedHeight(height: State<Dp>): Modifier = layout { measurable, constraints ->
-    val pixels = height.value.roundToPx().coerceIn(constraints.minHeight, constraints.maxHeight)
+    val wanted = height.value.roundToPx()
+    val pixels = wanted.coerceIn(minimumValue = constraints.minHeight, maximumValue = constraints.maxHeight)
     val placeable = measurable.measure(
         Constraints.fixedHeight(pixels).copy(minWidth = constraints.minWidth, maxWidth = constraints.maxWidth),
     )
-    layout(placeable.width, placeable.height) { placeable.place(x = 0, y = 0) }
+    layout(width = placeable.width, height = placeable.height) { placeable.place(x = 0, y = 0) }
 }
 
 internal fun Modifier.fadeBy(alpha: State<Float>): Modifier = graphicsLayer { this.alpha = alpha.value }

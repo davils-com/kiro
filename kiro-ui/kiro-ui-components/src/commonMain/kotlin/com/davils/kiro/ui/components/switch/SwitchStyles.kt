@@ -23,16 +23,55 @@ import com.davils.kiro.ui.core.Theme
 import com.davils.kiro.ui.core.style.StyleKey
 import com.davils.kiro.ui.core.style.current
 
+/**
+ * Resolves the [SwitchStyle] of a [Switch] for a theme and a size.
+ *
+ * Register an implementation under [SwitchStyleKey] in the components of a theme to change the style of every
+ * switch.
+ *
+ * @since 1.0.0
+ */
 public fun interface SwitchStyles {
+    /**
+     * Returns the style of a switch with the given size.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @param size the size of the switch.
+     * @return the style of the switch.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme, size: SwitchSize): SwitchStyle
 
+    /**
+     * Holds the default styles of a switch.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default styles of a switch, derived from the tokens of the theme for every [SwitchSize] that Kiro
+         * declares.
+         *
+         * @since 1.0.0
+         */
         public val Default: SwitchStyles = SwitchStyles(::defaultSwitchStyle)
     }
 }
 
+/**
+ * The key of the [SwitchStyles] of a [Switch] in the components of a theme; its default is [SwitchStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val SwitchStyleKey: StyleKey<SwitchStyles> = StyleKey(name = "switch") { _ -> SwitchStyles.Default }
 
+/**
+ * Returns the style of a [Switch] with the given size, as the [SwitchStyles] of the current theme resolve it.
+ *
+ * @param size the size of the switch.
+ * @return the style of the switch.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun switchStyle(size: SwitchSize): SwitchStyle = SwitchStyleKey.current.resolve(theme, size)

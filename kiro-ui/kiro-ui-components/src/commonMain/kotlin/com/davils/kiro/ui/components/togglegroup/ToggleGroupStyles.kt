@@ -25,18 +25,58 @@ import com.davils.kiro.ui.core.Theme
 import com.davils.kiro.ui.core.style.StyleKey
 import com.davils.kiro.ui.core.style.current
 
+/**
+ * Derives the [ToggleGroupStyle] of a [ToggleGroup] of a variant and a size from a theme; the value of
+ * [ToggleGroupStyleKey] in the component styles of a theme.
+ *
+ * @since 1.0.0
+ */
 public fun interface ToggleGroupStyles {
+    /**
+     * Returns the style of a [ToggleGroup] of a variant and a size for a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @param variant the variant of the toggles.
+     * @param size the size of the toggles.
+     * @return the style of the toggle group.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme, variant: ToggleVariant, size: ToggleSize): ToggleGroupStyle
 
+    /**
+     * Holds the default styles of a [ToggleGroup].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default styles of a [ToggleGroup], derived only from the tokens of the theme and the default style of a
+         * toggle.
+         *
+         * @since 1.0.0
+         */
         public val Default: ToggleGroupStyles = ToggleGroupStyles(::defaultToggleGroupStyle)
     }
 }
 
+/**
+ * The key of the styles of a [ToggleGroup] in the component styles of a theme.
+ *
+ * @since 1.0.0
+ */
 public val ToggleGroupStyleKey: StyleKey<ToggleGroupStyles> = StyleKey(
     name = "toggle-group",
 ) { _ -> ToggleGroupStyles.Default }
 
+/**
+ * Returns the style of a [ToggleGroup] of a variant and a size in the theme of the composition, with the overrides of
+ * its component styles.
+ *
+ * @param variant the variant of the toggles.
+ * @param size the size of the toggles.
+ * @return the style of the toggle group.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun toggleGroupStyle(

@@ -20,6 +20,15 @@ import androidx.compose.animation.EnterTransition
 import androidx.compose.animation.ExitTransition
 import androidx.compose.runtime.Immutable
 
+/**
+ * How a modal overlay, such as a dialog, a sheet or a drawer, and the scrim behind it appear and disappear.
+ *
+ * @property scrimEnter how the scrim appears.
+ * @property scrimExit how the scrim disappears.
+ * @property panelEnter how the panel appears.
+ * @property panelExit how the panel disappears.
+ * @since 1.0.0
+ */
 @Immutable
 public class ModalTransitions(
     public val scrimEnter: EnterTransition,
@@ -27,19 +36,15 @@ public class ModalTransitions(
     public val panelEnter: EnterTransition,
     public val panelExit: ExitTransition,
 ) {
-    public companion object {
-        public val None: ModalTransitions = ModalTransitions(
-            scrimEnter = EnterTransition.None,
-            scrimExit = ExitTransition.None,
-            panelEnter = EnterTransition.None,
-            panelExit = ExitTransition.None,
-        )
-    }
-
     /**
      * Returns a copy of this [ModalTransitions] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param scrimEnter the new value of [scrimEnter].
+     * @param scrimExit the new value of [scrimExit].
+     * @param panelEnter the new value of [panelEnter].
+     * @param panelExit the new value of [panelExit].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         scrimEnter: EnterTransition = this.scrimEnter,
@@ -69,4 +74,24 @@ public class ModalTransitions(
         panelEnter,
         panelExit,
     )
+
+    /**
+     * Holds the [ModalTransitions] that Kiro ships.
+     *
+     * @since 1.0.0
+     */
+    public companion object {
+        /**
+         * Transitions that show and hide the scrim and the panel at once, without any animation, as with reduced
+         * motion.
+         *
+         * @since 1.0.0
+         */
+        public val None: ModalTransitions = ModalTransitions(
+            scrimEnter = EnterTransition.None,
+            scrimExit = ExitTransition.None,
+            panelEnter = EnterTransition.None,
+            panelExit = ExitTransition.None,
+        )
+    }
 }

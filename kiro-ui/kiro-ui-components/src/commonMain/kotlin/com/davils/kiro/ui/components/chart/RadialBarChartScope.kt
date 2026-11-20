@@ -19,6 +19,20 @@ package com.davils.kiro.ui.components.chart
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
+/**
+ * The scope in which the content of a [RadialBarChart] declares its series.
+ *
+ * @since 1.0.0
+ */
 public interface RadialBarChartScope : ChartScope {
+    /**
+     * Declares the arcs of one series. The arcs of a ring are stacked in the order they are declared.
+     *
+     * @param key the key of the series in the values of each [ChartPoint].
+     * @param isBackgroundShown whether each ring shows its full track behind the arcs, in the track color of the
+     * [ChartStyle].
+     * @param cornerRadius any value above zero gives the arcs round ends.
+     * @since 1.0.0
+     */
     public fun radialBar(key: ChartKey, isBackgroundShown: Boolean = false, cornerRadius: Dp = 0.dp)
 }

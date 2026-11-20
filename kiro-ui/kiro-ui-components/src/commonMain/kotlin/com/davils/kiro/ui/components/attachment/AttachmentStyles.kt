@@ -42,14 +42,47 @@ private val known: Set<AttachmentSize> = setOf(
     AttachmentSize.Xs,
 )
 
+/**
+ * Resolves the [AttachmentStyle] of an [Attachment] for a theme and a size.
+ *
+ * Register your own under [AttachmentStyleKey] in the component styles of a theme to change every attachment.
+ *
+ * @since 1.0.0
+ */
 public fun interface AttachmentStyles {
+    /**
+     * Returns the style of an attachment.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @param size the size of the attachment.
+     * @return the style of an attachment of [size].
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme, size: AttachmentSize): AttachmentStyle
 
+    /**
+     * Holds the default attachment styles.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default attachment styles, derived from the colors, radii and typography of the theme for the sizes of
+         * [AttachmentSize].
+         *
+         * @since 1.0.0
+         */
         public val Default: AttachmentStyles = AttachmentStyles(::defaultAttachmentStyle)
     }
 }
 
+/**
+ * Returns the attachment style of the current theme for a size.
+ *
+ * @param size the size of the attachment.
+ * @return the style that the [AttachmentStyles] registered under [AttachmentStyleKey] resolve for [size].
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun attachmentStyle(size: AttachmentSize): AttachmentStyle = AttachmentStyleKey.current.resolve(
@@ -106,6 +139,11 @@ private fun AttachmentSize.pick(xs: Dp, sm: Dp, default: Dp): Dp {
 
 internal fun AttachmentStyle.errorDescription(): Color = errorContent.copy(alpha = ERROR_TEXT)
 
+/**
+ * The key of the attachment styles in the component styles of a theme, named `attachment`.
+ *
+ * @since 1.0.0
+ */
 public val AttachmentStyleKey: StyleKey<AttachmentStyles> = StyleKey(
     name = "attachment",
 ) { _ -> AttachmentStyles.Default }

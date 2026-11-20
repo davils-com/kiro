@@ -43,17 +43,14 @@ internal class TableMeasurePolicy(private val minRowHeights: List<Int>) : Measur
             slot to measurable.measure(Constraints(minWidth = width, maxWidth = width))
         }
         val heights = minRowHeights.mapIndexed { row, minimum ->
-            maxOf(
-                minimum,
-                placedCells.filter { (slot, _) -> slot.row == row }.maxOfOrNull { (_, placeable) -> placeable.height }
-                    ?: 0,
-            )
+            val rowCells = placedCells.filter { (slot, _) -> slot.row == row }
+            maxOf(a = minimum, b = rowCells.maxOfOrNull { (_, placeable) -> placeable.height } ?: 0)
         }
         val tops = heights.runningFold(0) { top, height -> top + height }
         val placedBackgrounds = backgrounds.map { (slot, measurable) ->
             slot to measurable.measure(Constraints.fixed(width = tableWidth, height = heights[slot.row]))
         }
-        return layout(tableWidth, tops.last()) {
+        return layout(width = tableWidth, height = tops.last()) {
             placedBackgrounds.forEach { (slot, placeable) -> placeable.placeRelative(x = 0, y = tops[slot.row]) }
             placedCells.forEach { (slot, placeable) ->
                 placeable.placeRelative(
@@ -73,12 +70,12 @@ internal fun columnWidthsOf(cells: List<Pair<TableSlot.Cell, Measurable>>, minWi
     val intrinsic = cells.map { (_, measurable) -> measurable.maxIntrinsicWidth(Constraints.Infinity) }
     val single = MutableList(count) { 0 }
     slots.forEachIndexed { index, slot ->
-        if (slot.span == 1) single[slot.column] = maxOf(single[slot.column], intrinsic[index])
+        if (slot.span == 1) single[slot.column] = maxOf(a = single[slot.column], b = intrinsic[index])
     }
     slots.forEachIndexed { index, slot ->
         val covered = (slot.column until slot.column + slot.span).sumOf { column -> single[column] }
         val last = slot.column + slot.span - 1
-        single[last] += maxOf(intrinsic[index] - covered, 0)
+        single[last] += maxOf(a = intrinsic[index] - covered, b = 0)
     }
     return stretched(widths = single.toList(), minWidth = minWidth)
 }
@@ -87,7 +84,7 @@ internal fun stretched(widths: List<Int>, minWidth: Int): List<Int> {
     val total = widths.sum()
     val extra = minWidth - total
     if (extra <= 0 || widths.isEmpty()) return widths
-    val shares = widths.map { width -> width.toLong() * extra / maxOf(total, 1) }
+    val shares = widths.map { width -> width.toLong() * extra / maxOf(a = total, b = 1) }
     val evenShares = List(widths.size) { (extra / widths.size).toLong() }
     val used = shares.takeIf { total > 0 } ?: evenShares
     val rest = extra - used.sum().toInt()

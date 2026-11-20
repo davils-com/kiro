@@ -27,16 +27,51 @@ import com.davils.kiro.ui.core.Theme
 import com.davils.kiro.ui.core.style.StyleKey
 import com.davils.kiro.ui.core.style.current
 
+/**
+ * Derives the [MessageStyle] from the tokens of a theme.
+ *
+ * Register an implementation for [MessageStyleKey] in the components of a theme to change the style of every message.
+ *
+ * @since 1.0.0
+ */
 public fun interface MessageStyles {
+    /**
+     * Returns the style of a message under a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of a message.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): MessageStyle
 
+    /**
+     * Holds the default message styles.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default message styles, derived from the colors and the typography of a theme.
+         *
+         * @since 1.0.0
+         */
         public val Default: MessageStyles = MessageStyles(::defaultMessageStyle)
     }
 }
 
+/**
+ * The key of the message styles in the components of a theme; its default is [MessageStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val MessageStyleKey: StyleKey<MessageStyles> = StyleKey(name = "message") { _ -> MessageStyles.Default }
 
+/**
+ * Returns the message style of the current theme, with the overrides of the theme for [MessageStyleKey].
+ *
+ * @return the style of a message.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun messageStyle(): MessageStyle = MessageStyleKey.current.resolve(theme)

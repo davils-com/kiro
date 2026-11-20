@@ -23,6 +23,28 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.core.style.Border
 
+/**
+ * The style of an [Empty] and of its parts.
+ *
+ * @property shape the shape of the empty state.
+ * @property border the border of the empty state, or `null` for none.
+ * @property padding the padding inside the empty state.
+ * @property gap the space between the parts of the empty state.
+ * @property textStyle the text style of the content of the empty state.
+ * @property headerGap the space between the parts of an [EmptyHeader].
+ * @property maxContentWidth the largest width of an [EmptyHeader] and an [EmptyContent].
+ * @property mediaBottomGap the extra space below an [EmptyMedia].
+ * @property iconMediaSize the size of the container of an [EmptyMedia] of the variant [EmptyMediaVariant.Icon].
+ * @property iconMediaShape the shape of that container.
+ * @property iconMediaContainer the color of that container.
+ * @property iconMediaContent the color of the icon on that container.
+ * @property iconSize the size of the icon on that container.
+ * @property titleStyle the text style of an [EmptyTitle].
+ * @property descriptionStyle the text style of an [EmptyDescription].
+ * @property descriptionColor the color of an [EmptyDescription].
+ * @property contentGap the space between the parts of an [EmptyContent].
+ * @since 1.0.0
+ */
 @Immutable
 public class EmptyStyle(
     public val shape: Shape,
@@ -46,7 +68,7 @@ public class EmptyStyle(
     /**
      * Returns a copy of this [EmptyStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         shape: Shape = this.shape,
@@ -92,7 +114,7 @@ public class EmptyStyle(
 
     override fun toString(): String = "EmptyStyle(" +
         "shape=$shape, " +
-        "border=$border, " +
+        "border=${border ?: "null"}, " +
         "padding=$padding, " +
         "gap=$gap, " +
         "textStyle=$textStyle, " +

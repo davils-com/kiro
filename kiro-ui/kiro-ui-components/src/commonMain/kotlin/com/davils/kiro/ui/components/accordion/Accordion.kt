@@ -61,6 +61,22 @@ import com.davils.kiro.ui.icons.Icon
 import com.davils.kiro.ui.icons.IconStyle
 import com.davils.kiro.ui.icons.LocalIconStyle
 
+/**
+ * A vertical list of items that each show a trigger row and, while expanded, their content below it.
+ *
+ * Clicking a trigger toggles its item: with [isMultiple] the item is added to or removed from [expanded], otherwise it
+ * replaces every other expanded item. The arrow keys move the focus between the enabled triggers, and a divider of the
+ * style separates the items.
+ *
+ * @param T the type of the values that identify the items.
+ * @param expanded the values of the items that are expanded.
+ * @param onExpandedChange called with the new set of expanded values when a trigger is clicked.
+ * @param modifier the modifier of the list.
+ * @param isMultiple whether several items can be expanded at once.
+ * @param style the style of the accordion.
+ * @param content declares the items through [AccordionScope.item].
+ * @since 1.0.0
+ */
 @Composable
 public fun <T> Accordion(
     expanded: Set<T>,

@@ -37,6 +37,21 @@ import com.davils.kiro.ui.components.theme
 import com.davils.kiro.ui.core.content.LocalContentColor
 import com.davils.kiro.ui.core.content.LocalTextStyle
 
+/**
+ * A modal dialog in the center of the window, above a scrim that blocks the content behind it.
+ *
+ * The dialog takes the focus when it opens and asks to close when the scrim is clicked, when it is dismissed or when
+ * its close button is clicked. Build its content from a [DialogHeader] with a [DialogTitle] and a
+ * [DialogDescription], the body and a [DialogFooter].
+ *
+ * @param open whether the dialog is shown.
+ * @param onOpenChange called with `false` when the dialog asks to close.
+ * @param modifier the modifier of the panel of the dialog.
+ * @param isCloseButtonShown whether a close button sits in the top end corner of the panel.
+ * @param style the style of the dialog, by default the style of the theme.
+ * @param content the content of the dialog, laid out in a column.
+ * @since 1.0.0
+ */
 @Composable
 public fun Dialog(
     open: Boolean,
@@ -75,17 +90,27 @@ public fun Dialog(
 internal fun DialogPanel(modifier: Modifier, style: DialogStyle, content: @Composable BoxScope.() -> Unit) {
     CompositionLocalProvider(LocalContentColor provides style.panel.content, LocalTextStyle provides style.textStyle) {
         Box(
-            modifier = modifier
-                .padding(style.margin)
-                .widthIn(max = style.maxWidth)
-                .fillMaxWidth()
-                .surface(shape = style.panel.shape, color = style.panel.container, ring = style.panel.ring)
-                .initialFocus(),
+            modifier = modifier.then(
+                Modifier
+                    .padding(style.margin)
+                    .widthIn(max = style.maxWidth)
+                    .fillMaxWidth()
+                    .surface(shape = style.panel.shape, color = style.panel.container, ring = style.panel.ring)
+                    .initialFocus(),
+            ),
             content = content,
         )
     }
 }
 
+/**
+ * The header of a [Dialog], a column that holds its [DialogTitle] and its [DialogDescription].
+ *
+ * @param modifier the modifier of the header.
+ * @param style the style of the dialog, by default the style of the theme.
+ * @param content the content of the header.
+ * @since 1.0.0
+ */
 @Composable
 public fun DialogHeader(
     modifier: Modifier = Modifier,
@@ -95,16 +120,41 @@ public fun DialogHeader(
     Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(style.headerGap), content = content)
 }
 
+/**
+ * The title of a [Dialog], drawn with the title style of the dialog.
+ *
+ * @param text the title.
+ * @param modifier the modifier of the title.
+ * @param style the style of the dialog, by default the style of the theme.
+ * @since 1.0.0
+ */
 @Composable
 public fun DialogTitle(text: String, modifier: Modifier = Modifier, style: DialogStyle = dialogStyle()) {
     Text(text = text, modifier = modifier, style = style.titleStyle)
 }
 
+/**
+ * The description of a [Dialog], drawn below its title with the description style and color of the dialog.
+ *
+ * @param text the description.
+ * @param modifier the modifier of the description.
+ * @param style the style of the dialog, by default the style of the theme.
+ * @since 1.0.0
+ */
 @Composable
 public fun DialogDescription(text: String, modifier: Modifier = Modifier, style: DialogStyle = dialogStyle()) {
     Text(text = text, modifier = modifier, style = style.descriptionStyle, color = style.descriptionColor)
 }
 
+/**
+ * The footer of a [Dialog], a row of actions aligned to the end that reaches the edges of the panel, with a
+ * container of its own and a line above it.
+ *
+ * @param modifier the modifier of the footer.
+ * @param style the style of the dialog, by default the style of the theme.
+ * @param content the actions of the footer.
+ * @since 1.0.0
+ */
 @Composable
 public fun DialogFooter(
     modifier: Modifier = Modifier,

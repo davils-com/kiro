@@ -23,6 +23,17 @@ import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.core.elevation.BoxShadow
 import com.davils.kiro.ui.core.style.Border
 
+/**
+ * How the panel of an overlay, such as a popover or a menu, looks.
+ *
+ * @property container the color of the panel.
+ * @property content the color of text and icons on the panel.
+ * @property shape the shape of the panel.
+ * @property ring the ring around the outer edge of the panel.
+ * @property shadow the shadow of the panel.
+ * @property padding the padding between the edge of the panel and its content.
+ * @since 1.0.0
+ */
 @Immutable
 public class PanelStyle(
     public val container: Color,
@@ -35,7 +46,14 @@ public class PanelStyle(
     /**
      * Returns a copy of this [PanelStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param container the new value of [container].
+     * @param content the new value of [content].
+     * @param shape the new value of [shape].
+     * @param ring the new value of [ring].
+     * @param shadow the new value of [shadow].
+     * @param padding the new value of [padding].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         container: Color = this.container,

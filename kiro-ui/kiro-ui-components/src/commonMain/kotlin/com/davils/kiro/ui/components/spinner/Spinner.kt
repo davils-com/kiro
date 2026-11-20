@@ -43,10 +43,21 @@ import kotlin.time.Duration.Companion.seconds
 
 private const val FULL_TURN: Float = 360f
 
+/**
+ * Shows that something is loading with the icon of its style turning endlessly, or standing still when the style is
+ * not animated.
+ *
+ * The spinner is a polite live region, so that accessibility services announce it when it appears.
+ *
+ * @param modifier the modifier of the spinner.
+ * @param contentDescription the text that accessibility services read for the spinner.
+ * @param style the style of the spinner.
+ * @since 1.0.0
+ */
 @Composable
 public fun Spinner(
     modifier: Modifier = Modifier,
-    contentDescription: String = Messages.Spinner.loading,
+    contentDescription: String = Messages.Spinner.LOADING,
     style: SpinnerStyle = spinnerStyle(),
 ) {
     val rotation by rotationOf(style)

@@ -75,7 +75,7 @@ private val colorsByVariant: Map<ButtonVariant, (Theme) -> StateColors> = mapOf(
 internal fun defaultButtonStyle(theme: Theme, variant: ButtonVariant, size: ButtonSize): ButtonStyle {
     val metrics = requireNotNull(metricsBySize[size]) { "No default style for the button size $size." }
     val colors = requireNotNull(colorsByVariant[variant]) { "No default style for the button variant $variant." }
-    val radius = metrics.radiusCap?.let { cap -> minOf(theme.radii.md, cap) } ?: theme.radii.lg
+    val radius = metrics.radiusCap?.let { cap -> minOf(a = theme.radii.md, b = cap) } ?: theme.radii.lg
     return ButtonStyle(
         height = metrics.height,
         minWidth = minWidthOf(metrics),

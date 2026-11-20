@@ -22,6 +22,17 @@ import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
+/**
+ * Sizes its content to a fixed ratio of width to height.
+ *
+ * The box takes the width its constraints allow and derives its height from [ratio], or the other way round when only
+ * the height is bounded.
+ *
+ * @param ratio the width divided by the height, greater than zero.
+ * @param modifier the modifier of the box.
+ * @param content the content, laid out in a box of the computed size.
+ * @since 1.0.0
+ */
 @Composable
 public fun AspectRatio(ratio: Float, modifier: Modifier = Modifier, content: @Composable BoxScope.() -> Unit) {
     Box(modifier = modifier.aspectRatio(ratio), content = content)

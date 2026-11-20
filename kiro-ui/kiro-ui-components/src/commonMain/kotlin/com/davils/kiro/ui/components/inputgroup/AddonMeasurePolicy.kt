@@ -36,7 +36,8 @@ internal class AddonMeasurePolicy(
         val placeables = measurables.map { measurable -> measurable.measure(loose) }
         val spacing = gap.roundToPx()
         val shift = shiftOf(measurables, buttonOffset.roundToPx())
-        val content = placeables.sumOf { placeable -> placeable.width } + spacing * maxOf(placeables.size - 1, 0)
+        val gaps = spacing * maxOf(a = placeables.size - 1, b = 0)
+        val content = placeables.sumOf { placeable -> placeable.width } + gaps
         val width = constraints.constrainWidth(content - shift)
         val height = constraints.constrainHeight(placeables.maxOfOrNull { placeable -> placeable.height } ?: 0)
         val positions = placeables.runningFold(startOf(shift)) { x, placeable -> x + placeable.width + spacing }

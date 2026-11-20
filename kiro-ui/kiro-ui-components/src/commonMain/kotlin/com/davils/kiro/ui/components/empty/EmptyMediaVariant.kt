@@ -16,7 +16,23 @@
 
 package com.davils.kiro.ui.components.empty
 
+/**
+ * How an [EmptyMedia] presents its content.
+ *
+ * @since 1.0.0
+ */
 public enum class EmptyMediaVariant {
+    /**
+     * Shows the content as it is, such as an image or an avatar.
+     *
+     * @since 1.0.0
+     */
     Default,
+
+    /**
+     * Shows an icon centered on a small muted container, in the icon size of the style.
+     *
+     * @since 1.0.0
+     */
     Icon,
 }

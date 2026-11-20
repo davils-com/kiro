@@ -16,8 +16,30 @@
 
 package com.davils.kiro.ui.components.chart
 
+/**
+ * How the tooltip of a chart marks each value with the color of its series.
+ *
+ * @since 1.0.0
+ */
 public enum class ChartTooltipIndicator {
+    /**
+     * A small square with rounded corners before the value.
+     *
+     * @since 1.0.0
+     */
     Dot,
+
+    /**
+     * A solid vertical bar along the height of the row.
+     *
+     * @since 1.0.0
+     */
     Line,
+
+    /**
+     * A dashed vertical line along the height of the row.
+     *
+     * @since 1.0.0
+     */
     Dashed,
 }

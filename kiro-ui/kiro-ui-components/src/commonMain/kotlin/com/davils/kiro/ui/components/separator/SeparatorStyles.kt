@@ -23,16 +23,53 @@ import com.davils.kiro.ui.core.Theme
 import com.davils.kiro.ui.core.style.StyleKey
 import com.davils.kiro.ui.core.style.current
 
+/**
+ * Resolves the [SeparatorStyle] of a theme.
+ *
+ * The styles of a theme are found under [SeparatorStyleKey]. Override them in [Theme.components] to change every
+ * separator of the theme.
+ *
+ * @since 1.0.0
+ */
 public fun interface SeparatorStyles {
+    /**
+     * Returns the style of a separator for a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style of a separator.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): SeparatorStyle
 
+    /**
+     * Holds the default [SeparatorStyles].
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default separator styles, which derive the style from the tokens of the theme alone.
+         *
+         * @since 1.0.0
+         */
         public val Default: SeparatorStyles = SeparatorStyles(::defaultSeparatorStyle)
     }
 }
 
+/**
+ * The key of the separator styles in [Theme.components]. Its default is [SeparatorStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val SeparatorStyleKey: StyleKey<SeparatorStyles> = StyleKey(name = "separator") { _ -> SeparatorStyles.Default }
 
+/**
+ * Returns the style of a separator in the current theme: the [SeparatorStyles] under [SeparatorStyleKey], changed by
+ * the overrides of [Theme.components]. It is the default style of [Separator].
+ *
+ * @return the style of a separator in the current theme.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun separatorStyle(): SeparatorStyle = SeparatorStyleKey.current.resolve(theme)

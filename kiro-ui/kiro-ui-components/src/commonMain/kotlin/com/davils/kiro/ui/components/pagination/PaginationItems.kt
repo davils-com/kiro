@@ -18,13 +18,27 @@ package com.davils.kiro.ui.components.pagination
 
 private const val EDGE_PAGES: Int = 1
 
+/**
+ * Returns the pages and gaps that a pagination shows: the first and the last page, the current page with
+ * [siblingCount] pages on each side and an ellipsis for each gap of more than one page. A gap of exactly one page shows
+ * that page instead.
+ *
+ * @param page the current page, counted from 1; it is clamped to the pages that exist.
+ * @param pageCount the number of pages.
+ * @param siblingCount the number of pages shown on each side of the current page.
+ * @return the items in the order to show them.
+ * @throws IllegalArgumentException if [pageCount] or [siblingCount] is negative.
+ * @since 1.0.0
+ */
 public fun paginationItems(page: Int, pageCount: Int, siblingCount: Int = 1): List<PaginationItem> {
     require(pageCount >= 0) { "A pagination needs a page count of zero or more, not $pageCount." }
     require(siblingCount >= 0) { "A pagination needs a sibling count of zero or more, not $siblingCount." }
-    val current = page.coerceIn(1, maxOf(pageCount, 1))
-    val first = maxOf(current - siblingCount, 1)
-    val last = minOf(current + siblingCount, pageCount)
-    val shown = (1..minOf(EDGE_PAGES, pageCount)) + (first..last) + (maxOf(pageCount - EDGE_PAGES + 1, 1)..pageCount)
+    val current = page.coerceIn(minimumValue = 1, maximumValue = maxOf(a = pageCount, b = 1))
+    val first = maxOf(a = current - siblingCount, b = 1)
+    val last = minOf(a = current + siblingCount, b = pageCount)
+    val leading = 1..minOf(a = EDGE_PAGES, b = pageCount)
+    val trailing = maxOf(a = pageCount - EDGE_PAGES + 1, b = 1)..pageCount
+    val shown = leading + (first..last) + trailing
     val pages = shown.distinct().sorted()
     return pages.flatMapIndexed { index, number ->
         gapBefore(

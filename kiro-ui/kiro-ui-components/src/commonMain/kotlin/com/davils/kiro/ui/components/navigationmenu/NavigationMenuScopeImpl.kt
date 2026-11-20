@@ -18,8 +18,8 @@ package com.davils.kiro.ui.components.navigationmenu
 
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.runtime.Composable
-import com.davils.kiro.ui.components.menu.MenuScopeImpl
 import com.davils.kiro.ui.components.menu.MenuScope
+import com.davils.kiro.ui.components.menu.MenuScopeImpl
 
 internal class NavigationMenuScopeImpl : NavigationMenuScope {
     private val collected = mutableListOf<NavigationEntry>()

@@ -51,6 +51,23 @@ private val MEDIA_SIZE = 40.dp
 private val MEDIA_ICON = 24.dp
 private val TEXT_GAP = 6.dp
 
+/**
+ * A modal dialog that asks the user to confirm or cancel an action and, unlike a dialog, is not dismissed by a click on
+ * its scrim.
+ *
+ * The dialog shows over a scrim in the middle of the window while [open] is true and asks to be closed when Escape is
+ * pressed. Its width is limited by [size], which also decides how [AlertDialogHeader], [AlertDialogTitle],
+ * [AlertDialogDescription], [AlertDialogAction] and [AlertDialogCancel] lay out their content.
+ *
+ * @param open whether the dialog is shown.
+ * @param onOpenChange called with `false` when the dialog asks to be closed.
+ * @param modifier the modifier of the panel of the dialog.
+ * @param size the size of the dialog.
+ * @param style the style of the dialog.
+ * @param content the content of the dialog, laid out in a column.
+ * @throws IllegalArgumentException if [size] is neither [AlertDialogSize.Default] nor [AlertDialogSize.Sm].
+ * @since 1.0.0
+ */
 @Composable
 public fun AlertDialog(
     open: Boolean,
@@ -81,6 +98,15 @@ public fun AlertDialog(
     }
 }
 
+/**
+ * The header of an [AlertDialog]: an optional media next to its title and description, or centered above them in a
+ * dialog of size [AlertDialogSize.Sm].
+ *
+ * @param modifier the modifier of the header.
+ * @param media the media of the header, such as an [AlertDialogMedia], or `null` for none.
+ * @param content the title and description of the header, laid out in a column.
+ * @since 1.0.0
+ */
 @Composable
 public fun AlertDialogHeader(
     modifier: Modifier = Modifier,
@@ -105,6 +131,13 @@ public fun AlertDialogHeader(
     }
 }
 
+/**
+ * A square box with the muted color of the theme that holds an icon in the header of an [AlertDialog].
+ *
+ * @param modifier the modifier of the box.
+ * @param content the content of the box, usually an icon, centered in it.
+ * @since 1.0.0
+ */
 @Composable
 public fun AlertDialogMedia(modifier: Modifier = Modifier, content: @Composable () -> Unit) {
     val colors = theme.colors
@@ -118,6 +151,14 @@ public fun AlertDialogMedia(modifier: Modifier = Modifier, content: @Composable 
     }
 }
 
+/**
+ * The title of an [AlertDialog], centered in a dialog of size [AlertDialogSize.Sm] and aligned to the start otherwise.
+ *
+ * @param text the title.
+ * @param modifier the modifier of the title.
+ * @param style the style of the dialog whose title style is used.
+ * @since 1.0.0
+ */
 @Composable
 public fun AlertDialogTitle(text: String, modifier: Modifier = Modifier, style: DialogStyle = dialogStyle()) {
     Text(
@@ -127,6 +168,15 @@ public fun AlertDialogTitle(text: String, modifier: Modifier = Modifier, style: 
     )
 }
 
+/**
+ * The description of an [AlertDialog], centered in a dialog of size [AlertDialogSize.Sm] and aligned to the start
+ * otherwise.
+ *
+ * @param text the description.
+ * @param modifier the modifier of the description.
+ * @param style the style of the dialog whose description style and color are used.
+ * @since 1.0.0
+ */
 @Composable
 public fun AlertDialogDescription(text: String, modifier: Modifier = Modifier, style: DialogStyle = dialogStyle()) {
     Text(
@@ -137,6 +187,15 @@ public fun AlertDialogDescription(text: String, modifier: Modifier = Modifier, s
     )
 }
 
+/**
+ * The footer of an [AlertDialog]: a row at the bottom edge of the dialog, with the footer container and border of the
+ * style, that aligns its actions to the end.
+ *
+ * @param modifier the modifier of the footer.
+ * @param style the style of the dialog.
+ * @param content the actions of the footer, such as [AlertDialogAction] and [AlertDialogCancel].
+ * @since 1.0.0
+ */
 @Composable
 public fun AlertDialogFooter(
     modifier: Modifier = Modifier,
@@ -146,6 +205,16 @@ public fun AlertDialogFooter(
     BleedingFooter(style = style, modifier = modifier, content = content)
 }
 
+/**
+ * The button of an [AlertDialog] that performs the action; in a dialog of size [AlertDialogSize.Sm] it shares the width
+ * of the footer with the other buttons.
+ *
+ * @param onClick called when the button is clicked.
+ * @param modifier the modifier of the button.
+ * @param variant the variant of the button.
+ * @param content the content of the button.
+ * @since 1.0.0
+ */
 @Composable
 public fun RowScope.AlertDialogAction(
     onClick: () -> Unit,
@@ -156,6 +225,16 @@ public fun RowScope.AlertDialogAction(
     Button(onClick = onClick, modifier = modifier.then(stretchOf(this)), variant = variant, content = content)
 }
 
+/**
+ * The button of an [AlertDialog] that cancels the action, drawn as an outline button by default; in a dialog of size
+ * [AlertDialogSize.Sm] it shares the width of the footer with the other buttons.
+ *
+ * @param onClick called when the button is clicked.
+ * @param modifier the modifier of the button.
+ * @param variant the variant of the button.
+ * @param content the content of the button.
+ * @since 1.0.0
+ */
 @Composable
 public fun RowScope.AlertDialogCancel(
     onClick: () -> Unit,

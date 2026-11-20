@@ -20,8 +20,18 @@ import androidx.compose.foundation.layout.LayoutScopeMarker
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.runtime.Immutable
 
+/**
+ * The scope of the content of an [AvatarGroup]: a row that also hands its children the style of the group.
+ *
+ * @since 1.0.0
+ */
 @LayoutScopeMarker
 @Immutable
 public interface AvatarGroupScope : RowScope {
+    /**
+     * The style of the group, which its avatars and its count use.
+     *
+     * @since 1.0.0
+     */
     public val style: AvatarStyle
 }

@@ -23,6 +23,20 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.Dp
 
+/**
+ * The look of a [Progress].
+ *
+ * @property gap the space between the label and the bar.
+ * @property trackHeight the height of the bar.
+ * @property trackShape the shape of the track and of the indicator.
+ * @property trackColor the color of the track.
+ * @property indicatorColor the color of the indicator.
+ * @property labelStyle the text style of the label.
+ * @property valueStyle the text style of the percentage.
+ * @property valueColor the color of the percentage.
+ * @property animation the animation of the indicator from one value to the next.
+ * @since 1.0.0
+ */
 @Immutable
 public class ProgressStyle(
     public val gap: Dp,
@@ -38,7 +52,7 @@ public class ProgressStyle(
     /**
      * Returns a copy of this [ProgressStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         gap: Dp = this.gap,

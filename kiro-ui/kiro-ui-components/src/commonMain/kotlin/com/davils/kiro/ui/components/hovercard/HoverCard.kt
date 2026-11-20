@@ -35,6 +35,19 @@ import com.davils.kiro.ui.components.primitive.overlay.panel
 import com.davils.kiro.ui.core.content.LocalContentColor
 import com.davils.kiro.ui.core.content.LocalTextStyle
 
+/**
+ * Shows a card next to a trigger while the pointer hovers over the trigger or the card.
+ *
+ * The card appears after the open delay of [style] and disappears after its close delay, so that the pointer can
+ * move from the trigger to the card. It does not take the focus.
+ *
+ * @param trigger the content that shows the card while hovered.
+ * @param modifier the modifier of the box around the trigger.
+ * @param placement where the card sits relative to the trigger.
+ * @param style the style of the hover card.
+ * @param content the content of the card.
+ * @since 1.0.0
+ */
 @Composable
 public fun HoverCard(
     trigger: @Composable () -> Unit,

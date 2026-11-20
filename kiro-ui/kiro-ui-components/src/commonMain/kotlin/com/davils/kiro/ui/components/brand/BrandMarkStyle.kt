@@ -20,6 +20,14 @@ import androidx.compose.runtime.Immutable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 
+/**
+ * How a [BrandMark] looks: its size and the two colors of its gradient.
+ *
+ * @property size the width and height of the mark.
+ * @property startColor the color at the top of the gradient.
+ * @property endColor the color at the bottom of the gradient.
+ * @since 1.0.0
+ */
 @Immutable
 public class BrandMarkStyle(
     public val size: Dp,
@@ -29,7 +37,11 @@ public class BrandMarkStyle(
     /**
      * Returns a copy of this [BrandMarkStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param size the new value of [size].
+     * @param startColor the new value of [startColor].
+     * @param endColor the new value of [endColor].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         size: Dp = this.size,

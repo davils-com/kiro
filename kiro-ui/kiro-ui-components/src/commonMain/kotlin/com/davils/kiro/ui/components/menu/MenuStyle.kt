@@ -25,6 +25,43 @@ import com.davils.kiro.ui.components.primitive.overlay.PanelStyle
 import com.davils.kiro.ui.icons.IconGraphic
 import kotlin.time.Duration
 
+/**
+ * How a menu looks and behaves: its panels, its rows, labels, separators, shortcuts and indicators, and how long a
+ * submenu waits before it opens or closes.
+ *
+ * The dropdown menu, the context menu, the menubar and the list of a select draw their menus with this style.
+ *
+ * @property panel the panel of the menu itself.
+ * @property subPanel the panel of a submenu.
+ * @property minWidth the smallest width of the menu.
+ * @property subMinWidth the smallest width of a submenu.
+ * @property itemShape the shape of the highlight behind a row.
+ * @property itemHorizontalPadding the padding at the start and the end of a row, and of a label.
+ * @property itemVerticalPadding the padding above and below a row, and a label.
+ * @property insetPadding the padding at the start of an inset row or label, which lines its text up with rows that show
+ * an icon.
+ * @property indicatorPadding the padding at the end of a checkbox or radio row, which leaves room for its check mark.
+ * @property indicatorEnd the distance between the check mark of a checkbox or radio row and the end of the row.
+ * @property gap the space between the icon, the label, the shortcut and the submenu arrow of a row.
+ * @property textStyle the text style of the label of a row.
+ * @property iconSize the size of the icons of a row and of its check mark.
+ * @property highlight the color behind the highlighted row.
+ * @property highlightContent the color of the text and icons of the highlighted row.
+ * @property destructive the color of the text and icons of a destructive row.
+ * @property destructiveHighlight the color behind a destructive row while it is highlighted.
+ * @property labelStyle the text style of a label between the rows.
+ * @property labelColor the color of a label between the rows.
+ * @property separatorColor the color of a separator line.
+ * @property separatorSpacing the space above and below a separator line.
+ * @property shortcutStyle the text style of the keyboard shortcut of a row.
+ * @property shortcutColor the color of the keyboard shortcut of a row that is not highlighted.
+ * @property checkIcon the check mark of a checked checkbox row and of the selected radio row.
+ * @property subIcon the arrow at the end of a row that opens a submenu; it is mirrored in a right-to-left layout.
+ * @property subOpenDelay how long the pointer rests on a row before its submenu opens.
+ * @property subCloseDelay how long a submenu stays open after the pointer moves to another row.
+ * @property disabledAlpha the alpha of a disabled row.
+ * @since 1.0.0
+ */
 @Immutable
 public class MenuStyle(
     public val panel: PanelStyle,
@@ -59,7 +96,36 @@ public class MenuStyle(
     /**
      * Returns a copy of this [MenuStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param panel the new value of [panel].
+     * @param subPanel the new value of [subPanel].
+     * @param minWidth the new value of [minWidth].
+     * @param subMinWidth the new value of [subMinWidth].
+     * @param itemShape the new value of [itemShape].
+     * @param itemHorizontalPadding the new value of [itemHorizontalPadding].
+     * @param itemVerticalPadding the new value of [itemVerticalPadding].
+     * @param insetPadding the new value of [insetPadding].
+     * @param indicatorPadding the new value of [indicatorPadding].
+     * @param indicatorEnd the new value of [indicatorEnd].
+     * @param gap the new value of [gap].
+     * @param textStyle the new value of [textStyle].
+     * @param iconSize the new value of [iconSize].
+     * @param highlight the new value of [highlight].
+     * @param highlightContent the new value of [highlightContent].
+     * @param destructive the new value of [destructive].
+     * @param destructiveHighlight the new value of [destructiveHighlight].
+     * @param labelStyle the new value of [labelStyle].
+     * @param labelColor the new value of [labelColor].
+     * @param separatorColor the new value of [separatorColor].
+     * @param separatorSpacing the new value of [separatorSpacing].
+     * @param shortcutStyle the new value of [shortcutStyle].
+     * @param shortcutColor the new value of [shortcutColor].
+     * @param checkIcon the new value of [checkIcon].
+     * @param subIcon the new value of [subIcon].
+     * @param subOpenDelay the new value of [subOpenDelay].
+     * @param subCloseDelay the new value of [subCloseDelay].
+     * @param disabledAlpha the new value of [disabledAlpha].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         panel: PanelStyle = this.panel,

@@ -27,6 +27,19 @@ import com.davils.kiro.ui.components.primitive.surface.surface
 import com.davils.kiro.ui.core.content.LocalContentColor
 import com.davils.kiro.ui.core.content.LocalTextStyle
 
+/**
+ * Shows content on a container with a ring, as a column of a header, a body and a footer.
+ *
+ * The parts, such as [CardHeader], [CardContent] and [CardFooter], are stacked with the spacing of the style between
+ * them and above the first part. Below the last part there is the same spacing, unless the last part is a [CardFooter],
+ * which reaches the bottom edge.
+ *
+ * @param modifier the modifier of the card, which fills the available width.
+ * @param size the size of the card, which sets its default style.
+ * @param style the style of the card.
+ * @param content the parts of the card.
+ * @since 1.0.0
+ */
 @Composable
 public fun Card(
     modifier: Modifier = Modifier,
@@ -39,10 +52,12 @@ public fun Card(
     CompositionLocalProvider(LocalContentColor provides style.content, LocalTextStyle provides style.textStyle) {
         Layout(
             content = { CardScopeImpl(style = style).content() },
-            modifier = modifier
-                .fillMaxWidth()
-                .then(surface)
-                .clip(style.shape),
+            modifier = modifier.then(
+                Modifier
+                    .fillMaxWidth()
+                    .then(surface)
+                    .clip(style.shape),
+            ),
             measurePolicy = policy,
         )
     }

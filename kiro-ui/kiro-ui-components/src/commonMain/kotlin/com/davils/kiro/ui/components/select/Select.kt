@@ -65,6 +65,24 @@ import com.davils.kiro.ui.icons.LocalIconStyle
 
 private val openKeys: Set<Key> = setOf(Key.DirectionDown, Key.DirectionUp)
 
+/**
+ * A field that shows the label of the selected option and opens a menu of options to choose from.
+ *
+ * A click on the field, or the Up or Down arrow key, opens the menu, which is at least as wide as the field; choosing
+ * an option calls [onSelectedChange] and closes the menu. Without a selected option the field shows the placeholder
+ * declared in [content].
+ *
+ * @param T the type of the values of the options.
+ * @param selected the value of the selected option, or `null` if no option is selected.
+ * @param onSelectedChange called with the value of the option that is chosen.
+ * @param modifier the modifier of the field.
+ * @param size the size of the field, which chooses its default style.
+ * @param enabled whether the field can be opened and focused.
+ * @param isInvalid whether the field shows the invalid state.
+ * @param style the style of the select.
+ * @param content declares the placeholder, options, groups and separators through [SelectScope].
+ * @since 1.0.0
+ */
 @Composable
 public fun <T> Select(
     selected: T?,
@@ -167,7 +185,7 @@ private fun SelectMenu(
             MenuPanel(
                 entries = entries,
                 controller = remember { MenuController().apply { highlighted = selectedIndexOf(entries) } },
-                minWidth = maxOf(style.minWidth, anchor),
+                minWidth = maxOf(a = style.minWidth, b = anchor),
                 panelStyle = style.menu.panel,
                 style = style.menu,
                 onCloseAll = onClose,

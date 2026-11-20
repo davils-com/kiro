@@ -196,7 +196,7 @@ private fun MenuOption(
 @Composable
 private fun rememberMenuPosition(offset: Int): AnchorPositionProvider {
     val padding = with(LocalDensity.current) { MENU_PADDING.roundToPx() }
-    return remember(offset, padding) {
+    return remember(key1 = offset, key2 = padding) {
         AnchorPositionProvider(
             side = Side.Bottom,
             align = Align.Center,

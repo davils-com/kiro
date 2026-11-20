@@ -67,7 +67,7 @@ internal fun outwards(physical: Physical, distance: Int): IntOffset = when (phys
 
 private fun edgeTransitions(motion: Motion, physical: Physical): ModalTransitions {
     if (motion.isReduced) return ModalTransitions.None
-    val offset = { size: IntSize -> outwards(physical = physical, distance = maxOf(size.width, size.height)) }
+    val offset = { size: IntSize -> outwards(physical = physical, distance = maxOf(a = size.width, b = size.height)) }
     val enter = motion.durations.long
     val exit = motion.durations.medium
     return ModalTransitions(

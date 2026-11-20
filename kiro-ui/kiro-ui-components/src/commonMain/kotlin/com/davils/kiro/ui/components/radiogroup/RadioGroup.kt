@@ -56,6 +56,23 @@ import com.davils.kiro.ui.core.style.StateColors
 
 private const val DISABLED_ALPHA: Float = 0.5f
 
+/**
+ * A group of radio items, of which at most one is selected; [content] adds the items with [RadioGroupItem].
+ *
+ * The group is one tab stop: the selected item, or the first one while none is selected, takes the focus, and the arrow
+ * keys of the [orientation] move the focus to the next enabled item and select it.
+ *
+ * @param T the type of the values of the items.
+ * @param selected the value of the selected item, or `null` while none is selected.
+ * @param onSelectedChange called with the value of the item the user selects.
+ * @param modifier the modifier of the row or column of the items.
+ * @param enabled whether the items can be selected.
+ * @param isInvalid whether the selection is invalid, which the items show in their invalid colors.
+ * @param orientation whether the items are laid out in a column or in a row.
+ * @param style the style of the group; its [RadioStyle.groupGap] spaces the items.
+ * @param content adds the items of the group.
+ * @since 1.0.0
+ */
 @Composable
 public fun <T> RadioGroup(
     selected: T?,
@@ -103,6 +120,16 @@ public fun <T> RadioGroup(
     }
 }
 
+/**
+ * One radio item of a [RadioGroup]: a circle that shows a dot while its value is the selected one.
+ *
+ * @param T the type of the values of the group.
+ * @param value the value this item stands for.
+ * @param modifier the modifier of the circle.
+ * @param enabled whether the item can be selected; it cannot while the group is disabled.
+ * @param style the style of the item.
+ * @since 1.0.0
+ */
 @Composable
 public fun <T> RadioGroupScope<T>.RadioGroupItem(
     value: T,
@@ -135,22 +162,24 @@ public fun <T> RadioGroupScope<T>.RadioGroupItem(
         ring = Border(width = style.ringWidth, color = colors.ring),
     )
     Box(
-        modifier = modifier
-            .alpha(disabledAlphaOf(isDisabled = !isEnabled, alpha = style.disabledAlpha))
-            .size(style.size)
-            .then(surface)
-            .focusRequester(requester)
-            .onFocusChanged { focus -> if (focus.isFocused) registry.focused = value }
-            .focusProperties { canFocus = isTabbable }
-            .pressableCursor(enabled = isEnabled)
-            .selectable(
-                selected = isChecked,
-                interactionSource = source,
-                indication = null,
-                enabled = isEnabled,
-                role = Role.RadioButton,
-                onClick = { group.onSelect(value) },
-            ),
+        modifier = modifier.then(
+            Modifier
+                .alpha(disabledAlphaOf(isDisabled = !isEnabled, alpha = style.disabledAlpha))
+                .size(style.size)
+                .then(surface)
+                .focusRequester(requester)
+                .onFocusChanged { focus -> if (focus.isFocused) registry.focused = value }
+                .focusProperties { canFocus = isTabbable }
+                .pressableCursor(enabled = isEnabled)
+                .selectable(
+                    selected = isChecked,
+                    interactionSource = source,
+                    indication = null,
+                    enabled = isEnabled,
+                    role = Role.RadioButton,
+                    onClick = { group.onSelect(value) },
+                ),
+        ),
         contentAlignment = Alignment.Center,
     ) {
         if (isChecked) {

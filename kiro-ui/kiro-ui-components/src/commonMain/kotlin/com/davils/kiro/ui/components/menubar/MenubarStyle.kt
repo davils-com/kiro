@@ -24,6 +24,26 @@ import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.components.menu.MenuStyle
 import com.davils.kiro.ui.core.style.Border
 
+/**
+ * The look of a [Menubar], its triggers and its menus.
+ *
+ * @property height the height of the menubar.
+ * @property padding the padding inside the border of the menubar.
+ * @property gap the space between the triggers.
+ * @property shape the shape of the menubar.
+ * @property border the border of the menubar.
+ * @property triggerShape the shape of the background of a trigger.
+ * @property triggerHorizontalPadding the padding at the start and the end of a trigger.
+ * @property triggerVerticalPadding the padding at the top and the bottom of a trigger.
+ * @property triggerTextStyle the text style of the label of a trigger.
+ * @property triggerActive the background color of a trigger whose menu is open, that is under the pointer or that
+ * shows focus.
+ * @property menuMinWidth the minimum width of a menu.
+ * @property sideOffset the distance between a trigger and its menu.
+ * @property alignOffset the offset of a menu from the start of its trigger, along the menubar.
+ * @property menu the look of the menus, whose disabled alpha also dims a disabled trigger.
+ * @since 1.0.0
+ */
 @Immutable
 public class MenubarStyle(
     public val height: Dp,
@@ -44,7 +64,7 @@ public class MenubarStyle(
     /**
      * Returns a copy of this [MenubarStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         height: Dp = this.height,

@@ -67,6 +67,25 @@ import com.davils.kiro.ui.core.content.LocalContentColor
 import com.davils.kiro.ui.core.content.LocalTextStyle
 import kotlin.math.roundToInt
 
+/**
+ * A modal panel that slides in from an edge of the window over a scrim and can be dragged away.
+ *
+ * A drawer at the top or bottom edge opens to the first snap point of the style, a fraction of the height of the window
+ * less the edge inset, and can be dragged between the snap points; dragged far enough below the first one, it asks to
+ * be closed. A drawer at the start or end edge takes a fraction of the width of the window and asks to be closed when
+ * it is dragged further than the dismiss fraction of its width. A click on the scrim and the Escape key ask to close it
+ * too.
+ *
+ * @param open whether the drawer is shown.
+ * @param onOpenChange called with `false` when the drawer asks to be closed.
+ * @param modifier the modifier of the panel of the drawer.
+ * @param side the edge of the window the drawer slides in from; start and end follow the layout direction.
+ * @param style the style of the drawer.
+ * @param content the content of the drawer, laid out in a column.
+ * @throws IllegalArgumentException if the drawer is at the top or bottom edge and the snap points of [style] are
+ * empty.
+ * @since 1.0.0
+ */
 @Composable
 public fun Drawer(
     open: Boolean,
@@ -152,12 +171,14 @@ private fun EdgeDrawer(
     )
     val handle: @Composable () -> Unit = { DrawerHandle(isVertical = true, style = style) }
     Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .snapped(snaps = snaps, inset = style.edgeInset)
-            .then(face)
-            .then(drag)
-            .initialFocus(),
+        modifier = modifier.then(
+            Modifier
+                .fillMaxWidth()
+                .snapped(snaps = snaps, inset = style.edgeInset)
+                .then(face)
+                .then(drag)
+                .initialFocus(),
+        ),
     ) {
         if (isHandleFirst(physical)) handle()
         Column(modifier = Modifier.weight(1f).clipToBounds(), content = content)
@@ -195,13 +216,15 @@ private fun SideDrawer(
     )
     val handle: @Composable () -> Unit = { DrawerHandle(isVertical = false, style = style) }
     Row(
-        modifier = modifier
-            .graphicsLayer { translationX = offset * sign }
-            .edgeSized(physical = physical, fraction = style.sideFraction, minSize = style.minSize)
-            .onSizeChanged { size -> extent = size.width.toFloat() }
-            .then(face)
-            .then(drag)
-            .initialFocus(),
+        modifier = modifier.then(
+            Modifier
+                .graphicsLayer { translationX = offset * sign }
+                .edgeSized(physical = physical, fraction = style.sideFraction, minSize = style.minSize)
+                .onSizeChanged { size -> extent = size.width.toFloat() }
+                .then(face)
+                .then(drag)
+                .initialFocus(),
+        ),
     ) {
         if (isHandleFirst(physical)) handle()
         Column(modifier = Modifier.weight(1f), content = content)
@@ -226,9 +249,9 @@ private suspend fun settle(
 private fun Modifier.snapped(snaps: DrawerSnaps, inset: Dp): Modifier = layout { measurable, constraints ->
     val space = (constraints.maxHeight - inset.roundToPx()).coerceAtLeast(0)
     snaps.measure(space.toFloat())
-    val height = snaps.shown.roundToInt().coerceIn(0, space)
+    val height = snaps.shown.roundToInt().coerceIn(minimumValue = 0, maximumValue = space)
     val placeable = measurable.measure(constraints.copy(minHeight = height, maxHeight = height))
-    layout(placeable.width, placeable.height) { placeable.place(x = 0, y = 0) }
+    layout(width = placeable.width, height = placeable.height) { placeable.place(x = 0, y = 0) }
 }
 
 @Composable
@@ -250,6 +273,15 @@ private fun handleBarOf(isVertical: Boolean, style: DrawerStyle): Modifier {
     return Modifier.size(width = style.handleThickness, height = style.handleLength)
 }
 
+/**
+ * The header of a [Drawer]: a column for its title and description with the section padding of the style above and to
+ * the sides, centered in a drawer at the top or bottom edge.
+ *
+ * @param modifier the modifier of the header.
+ * @param style the style of the drawer.
+ * @param content the title and description of the header.
+ * @since 1.0.0
+ */
 @Composable
 public fun DrawerHeader(
     modifier: Modifier = Modifier,
@@ -269,6 +301,15 @@ public fun DrawerHeader(
     )
 }
 
+/**
+ * The footer of a [Drawer]: a column for its actions at the bottom of the drawer, with the section padding of the style
+ * below and to the sides.
+ *
+ * @param modifier the modifier of the footer.
+ * @param style the style of the drawer.
+ * @param content the actions of the footer.
+ * @since 1.0.0
+ */
 @Composable
 public fun ColumnScope.DrawerFooter(
     modifier: Modifier = Modifier,
@@ -287,6 +328,14 @@ public fun ColumnScope.DrawerFooter(
     )
 }
 
+/**
+ * The title of a [Drawer], centered in a drawer at the top or bottom edge and aligned to the start otherwise.
+ *
+ * @param text the title.
+ * @param modifier the modifier of the title.
+ * @param style the style of the drawer whose title style is used.
+ * @since 1.0.0
+ */
 @Composable
 public fun DrawerTitle(text: String, modifier: Modifier = Modifier, style: DrawerStyle = drawerStyle()) {
     Text(
@@ -296,6 +345,14 @@ public fun DrawerTitle(text: String, modifier: Modifier = Modifier, style: Drawe
     )
 }
 
+/**
+ * The description of a [Drawer], centered in a drawer at the top or bottom edge and aligned to the start otherwise.
+ *
+ * @param text the description.
+ * @param modifier the modifier of the description.
+ * @param style the style of the drawer whose description style and color are used.
+ * @since 1.0.0
+ */
 @Composable
 public fun DrawerDescription(text: String, modifier: Modifier = Modifier, style: DrawerStyle = drawerStyle()) {
     Text(

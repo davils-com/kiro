@@ -24,6 +24,17 @@ import com.davils.kiro.ui.components.calendar.CalendarStyle
 import com.davils.kiro.ui.components.popover.PopoverStyle
 import com.davils.kiro.ui.icons.IconGraphic
 
+/**
+ * The look of a [DatePicker]: its button, the popover and the calendar inside it.
+ *
+ * @property trigger the style of the button that opens the calendar.
+ * @property triggerWidth the width of the button.
+ * @property icon the icon at the start of the button.
+ * @property placeholderColor the color of the placeholder while no date is chosen.
+ * @property popover the style of the popover around the calendar.
+ * @property calendar the style of the calendar.
+ * @since 1.0.0
+ */
 @Immutable
 public class DatePickerStyle(
     public val trigger: ButtonStyle,
@@ -36,7 +47,7 @@ public class DatePickerStyle(
     /**
      * Returns a copy of this [DatePickerStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         trigger: ButtonStyle = this.trigger,

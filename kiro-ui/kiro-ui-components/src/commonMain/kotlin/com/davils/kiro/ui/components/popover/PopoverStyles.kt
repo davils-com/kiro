@@ -27,16 +27,54 @@ import com.davils.kiro.ui.core.Theme
 import com.davils.kiro.ui.core.style.StyleKey
 import com.davils.kiro.ui.core.style.current
 
+/**
+ * Derives the [PopoverStyle] of a popover from the tokens of a theme.
+ *
+ * The components of a theme hold one under each key of this type; override a key in the components of a theme to change
+ * the style of every popover that reads it.
+ *
+ * @since 1.0.0
+ */
 public fun interface PopoverStyles {
+    /**
+     * Returns the style of a popover for the tokens of a theme.
+     *
+     * @param theme the theme whose tokens the style follows.
+     * @return the style.
+     * @since 1.0.0
+     */
     public fun resolve(theme: Theme): PopoverStyle
 
+    /**
+     * Holds the [PopoverStyles] that Kiro ships.
+     *
+     * @since 1.0.0
+     */
     public companion object {
+        /**
+         * The default styles of a popover, derived only from the tokens of the theme.
+         *
+         * @since 1.0.0
+         */
         public val Default: PopoverStyles = PopoverStyles(::defaultPopoverStyle)
     }
 }
 
+/**
+ * The key of the styles of a popover in the components of a theme, named `popover`; its default is
+ * [PopoverStyles.Default].
+ *
+ * @since 1.0.0
+ */
 public val PopoverStyleKey: StyleKey<PopoverStyles> = StyleKey(name = "popover") { _ -> PopoverStyles.Default }
 
+/**
+ * Returns the style of a popover in the theme of the composition, resolved through the styles that the components of
+ * the theme hold under [PopoverStyleKey].
+ *
+ * @return the style.
+ * @since 1.0.0
+ */
 @Composable
 @ReadOnlyComposable
 public fun popoverStyle(): PopoverStyle = PopoverStyleKey.current.resolve(theme)

@@ -21,6 +21,23 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import com.davils.kiro.ui.core.state.StateValue
 
+/**
+ * The look of the days of a [Calendar] in their different roles.
+ *
+ * @property textStyle the text style of the number of a day.
+ * @property container the container color of a day that is not selected, by interaction state.
+ * @property content the color of the number of a day that is not selected.
+ * @property selectedContainer the container color of a selected day and of the ends of a selected range.
+ * @property selectedContent the color of the number of a selected day and of the ends of a selected range.
+ * @property todayContainer the container color of today while it is not selected.
+ * @property rangeContainer the color of the band behind a selected range and the container color of the days inside it.
+ * @property rangeContent the color of the number of a day inside a selected range.
+ * @property outsideContent the color of the number of a day of the previous or next month.
+ * @property focusBorder the color of the focus border of a day; the calendar currently draws only the focus ring.
+ * @property focusRing the color of the ring around a day while its focus is visible.
+ * @property disabledAlpha the opacity of a disabled day.
+ * @since 1.0.0
+ */
 @Immutable
 public class CalendarDayStyle(
     public val textStyle: TextStyle,
@@ -39,7 +56,20 @@ public class CalendarDayStyle(
     /**
      * Returns a copy of this [CalendarDayStyle] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param textStyle the new value of [textStyle].
+     * @param container the new value of [container].
+     * @param content the new value of [content].
+     * @param selectedContainer the new value of [selectedContainer].
+     * @param selectedContent the new value of [selectedContent].
+     * @param todayContainer the new value of [todayContainer].
+     * @param rangeContainer the new value of [rangeContainer].
+     * @param rangeContent the new value of [rangeContent].
+     * @param outsideContent the new value of [outsideContent].
+     * @param focusBorder the new value of [focusBorder].
+     * @param focusRing the new value of [focusRing].
+     * @param disabledAlpha the new value of [disabledAlpha].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         textStyle: TextStyle = this.textStyle,

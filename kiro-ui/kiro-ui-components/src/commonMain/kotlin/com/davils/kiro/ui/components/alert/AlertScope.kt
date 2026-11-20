@@ -20,8 +20,18 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.LayoutScopeMarker
 import androidx.compose.runtime.Immutable
 
+/**
+ * The scope of the content of an [Alert]: a column that knows the style of its alert.
+ *
+ * @since 1.0.0
+ */
 @LayoutScopeMarker
 @Immutable
 public interface AlertScope : ColumnScope {
+    /**
+     * The style of the alert, which [AlertTitle] and [AlertDescription] follow.
+     *
+     * @since 1.0.0
+     */
     public val style: AlertStyle
 }

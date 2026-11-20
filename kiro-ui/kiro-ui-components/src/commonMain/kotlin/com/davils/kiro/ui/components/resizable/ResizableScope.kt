@@ -18,7 +18,22 @@ package com.davils.kiro.ui.components.resizable
 
 import androidx.compose.runtime.Composable
 
+/**
+ * The scope in which the panels of a [ResizablePanelGroup] are declared.
+ *
+ * @since 1.0.0
+ */
 public interface ResizableScope {
+    /**
+     * Adds a panel to the end of the group.
+     *
+     * @param minSize the smallest size of the panel, in percent.
+     * @param maxSize the largest size of the panel, in percent.
+     * @param isCollapsible whether [ResizableState.collapse] can shrink the panel to [collapsedSize].
+     * @param collapsedSize the size of the collapsed panel, in percent.
+     * @param content the content of the panel, clipped to its bounds.
+     * @since 1.0.0
+     */
     public fun panel(
         minSize: Float = 0f,
         maxSize: Float = 100f,

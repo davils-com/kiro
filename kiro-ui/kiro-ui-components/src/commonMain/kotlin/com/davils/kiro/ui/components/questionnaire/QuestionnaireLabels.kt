@@ -19,13 +19,25 @@ package com.davils.kiro.ui.components.questionnaire
 import androidx.compose.runtime.Immutable
 import com.davils.kiro.ui.components.Messages
 
+/**
+ * The texts that a [Questionnaire] shows, with English defaults.
+ *
+ * @property previous the text of [QuestionnairePrevious].
+ * @property skip the text of [QuestionnaireSkip].
+ * @property next the text of [QuestionnaireNext].
+ * @property submit the text of [QuestionnaireSubmit].
+ * @property required the text of [QuestionnaireError].
+ * @property progress the text of [QuestionnaireProgress] for the number of the current question, counted from one, and
+ * the number of questions.
+ * @since 1.0.0
+ */
 @Immutable
 public class QuestionnaireLabels(
-    public val previous: String = Messages.Questionnaire.previous,
-    public val skip: String = Messages.Questionnaire.skip,
-    public val next: String = Messages.Questionnaire.next,
-    public val submit: String = Messages.Questionnaire.submit,
-    public val required: String = Messages.Questionnaire.required,
+    public val previous: String = Messages.Questionnaire.PREVIOUS,
+    public val skip: String = Messages.Questionnaire.SKIP,
+    public val next: String = Messages.Questionnaire.NEXT,
+    public val submit: String = Messages.Questionnaire.SUBMIT,
+    public val required: String = Messages.Questionnaire.REQUIRED,
     public val progress: (current: Int, total: Int) -> String = { current, total ->
         Messages.Questionnaire.progress(current = current, total = total)
     },
@@ -33,7 +45,7 @@ public class QuestionnaireLabels(
     /**
      * Returns a copy of this [QuestionnaireLabels] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @since 1.0.0
      */
     public fun copy(
         previous: String = this.previous,

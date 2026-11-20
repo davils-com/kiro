@@ -47,6 +47,21 @@ import com.davils.kiro.ui.components.theme
 import com.davils.kiro.ui.core.content.LocalContentColor
 import com.davils.kiro.ui.core.style.Border
 
+/**
+ * A bordered block for code, made of an optional [CodeBlockHeader], a [CodeBlockContent] and an optional
+ * [CodeBlockFooter].
+ *
+ * While its content shows focus, the border takes the focus color and the focus ring appears.
+ *
+ * @param modifier the modifier of the code block.
+ * @param variant the variant of the code block, which picks its default [style].
+ * @param size the size of the code block, which picks its default [style].
+ * @param actions the actions that float over the top end corner while the code block is hovered or holds the focus,
+ * such as a [CodeBlockCopyButton], or `null` for none.
+ * @param style the look of the code block and its parts.
+ * @param content the parts of the code block.
+ * @since 1.0.0
+ */
 @Composable
 public fun CodeBlock(
     modifier: Modifier = Modifier,
@@ -74,11 +89,13 @@ public fun CodeBlock(
     )
     CompositionLocalProvider(LocalContentColor provides style.content, LocalCodeBlock provides slots) {
         Box(
-            modifier = modifier
-                .fillMaxWidth()
-                .then(surface)
-                .hoverable(interactionSource = source)
-                .onFocusChanged { focus -> hasFocus = focus.hasFocus },
+            modifier = modifier.then(
+                Modifier
+                    .fillMaxWidth()
+                    .then(surface)
+                    .hoverable(interactionSource = source)
+                    .onFocusChanged { focus -> hasFocus = focus.hasFocus },
+            ),
         ) {
             Column(modifier = Modifier.fillMaxWidth()) { slots.content() }
             actions?.let { slot ->
@@ -102,10 +119,12 @@ private fun FloatingActions(
 ) {
     val alpha = animateFloatAsState(1f.takeIf { isShown } ?: 0f, animationSpec = theme.fadeTransition())
     Row(
-        modifier = modifier
-            .padding(style.gap)
-            .fadeBy(alpha)
-            .surface(shape = style.shape, color = style.actionSurface, ring = style.actionRing),
+        modifier = modifier.then(
+            Modifier
+                .padding(style.gap)
+                .fadeBy(alpha)
+                .surface(shape = style.shape, color = style.actionSurface, ring = style.actionRing),
+        ),
         horizontalArrangement = Arrangement.spacedBy(style.gap / 2),
         verticalAlignment = Alignment.CenterVertically,
         content = content,

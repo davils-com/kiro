@@ -21,6 +21,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import com.davils.kiro.ui.icons.IconGraphic
 
+/**
+ * An icon of a [NativeSelect], such as the chevron of the field or the check mark of the picked option.
+ *
+ * @property icon the icon to draw.
+ * @property size the size of the icon.
+ * @property color the color of the icon; [Color.Unspecified] takes the color of the content around it.
+ * @property endPadding the space between the icon and the end edge of the field or of the option.
+ * @since 1.0.0
+ */
 @Immutable
 public class NativeSelectIcon(
     public val icon: IconGraphic,
@@ -31,7 +40,12 @@ public class NativeSelectIcon(
     /**
      * Returns a copy of this [NativeSelectIcon] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param icon the new value of [icon].
+     * @param size the new value of [size].
+     * @param color the new value of [color].
+     * @param endPadding the new value of [endPadding].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         icon: IconGraphic = this.icon,

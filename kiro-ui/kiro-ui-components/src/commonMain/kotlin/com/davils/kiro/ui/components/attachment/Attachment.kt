@@ -79,6 +79,23 @@ import com.davils.kiro.ui.icons.LocalIconStyle
 
 private val VERTICAL_ICON = 24.dp
 
+/**
+ * Shows a file that is attached or being attached, made of an [AttachmentMedia], an [AttachmentContent] and
+ * [AttachmentActions].
+ *
+ * In a row, the media and the actions take their own width and the content the rest. In a column, the media and the
+ * content fill the width one below the other and the actions float over the top end corner. The outline is dashed
+ * while the attachment is [AttachmentState.Idle] and takes the destructive color in [AttachmentState.Error].
+ *
+ * @param modifier the modifier of the attachment.
+ * @param state the state of the file, which decides the outline, the colors and the animation of the title.
+ * @param size the size of the attachment, which picks its default [style].
+ * @param orientation whether the parts are laid out in a row or in a column.
+ * @param onClick called when the attachment is clicked, or `null` if it is not clickable.
+ * @param style the look of the attachment and its parts.
+ * @param content the parts of the attachment.
+ * @since 1.0.0
+ */
 @Composable
 public fun Attachment(
     modifier: Modifier = Modifier,
@@ -119,14 +136,16 @@ public fun Attachment(
     ) {
         Layout(
             content = content,
-            modifier = modifier
-                .then(sizeOf(context))
-                .surface(shape = style.shape, color = container, ring = ring)
-                .then(outlineOf(isDashed = state == AttachmentState.Idle, color = border, style = style))
-                .onFocusChanged { focus -> hasFocus = focus.hasFocus }
-                .hoverable(interactionSource = source)
-                .then(click ?: Modifier)
-                .padding(paddingOf(context)),
+            modifier = modifier.then(
+                Modifier
+                    .then(sizeOf(context))
+                    .surface(shape = style.shape, color = container, ring = ring)
+                    .then(outlineOf(isDashed = state == AttachmentState.Idle, color = border, style = style))
+                    .onFocusChanged { focus -> hasFocus = focus.hasFocus }
+                    .hoverable(interactionSource = source)
+                    .then(click ?: Modifier)
+                    .padding(paddingOf(context)),
+            ),
             measurePolicy = AttachmentMeasurePolicy(
                 orientation = orientation,
                 gap = style.gap,
@@ -136,6 +155,18 @@ public fun Attachment(
     }
 }
 
+/**
+ * Shows the icon or the image of an [Attachment].
+ *
+ * In a row it takes the media size of the style, in a column the full width as a square. In
+ * [AttachmentState.Error] it takes the destructive colors.
+ *
+ * @param modifier the modifier of the media.
+ * @param variant whether the media shows an icon or an image.
+ * @param content the icon or the image.
+ * @throws IllegalArgumentException if it is not placed in an [Attachment].
+ * @since 1.0.0
+ */
 @Composable
 public fun AttachmentMedia(
     modifier: Modifier = Modifier,
@@ -153,12 +184,14 @@ public fun AttachmentMedia(
     val isDim = variant == AttachmentMediaVariant.Image && context.state !in settled
     val sizing = Modifier.fillMaxWidth().aspectRatio(1f).takeIf { isVertical } ?: Modifier.size(style.mediaSize)
     Box(
-        modifier = modifier
-            .layoutId(AttachmentSlot.Media)
-            .then(sizing)
-            .alpha(style.pendingAlpha.takeIf { isDim } ?: 1f)
-            .clip(style.mediaShape)
-            .surface(shape = style.mediaShape, color = style.errorMedia.takeIf { isError } ?: style.mediaContainer),
+        modifier = modifier.then(
+            Modifier
+                .layoutId(AttachmentSlot.Media)
+                .then(sizing)
+                .alpha(style.pendingAlpha.takeIf { isDim } ?: 1f)
+                .clip(style.mediaShape)
+                .surface(shape = style.mediaShape, color = style.errorMedia.takeIf { isError } ?: style.mediaContainer),
+        ),
         contentAlignment = Alignment.Center,
     ) {
         CompositionLocalProvider(
@@ -169,6 +202,14 @@ public fun AttachmentMedia(
     }
 }
 
+/**
+ * Holds the [AttachmentTitle] and the [AttachmentDescription] of an [Attachment] in a column.
+ *
+ * @param modifier the modifier of the column.
+ * @param content the title and the description.
+ * @throws IllegalArgumentException if it is not placed in an [Attachment].
+ * @since 1.0.0
+ */
 @Composable
 public fun AttachmentContent(modifier: Modifier = Modifier, content: @Composable ColumnScope.() -> Unit) {
     val context = requireNotNull(LocalAttachment.current) { "An attachment content needs its attachment." }
@@ -180,6 +221,16 @@ public fun AttachmentContent(modifier: Modifier = Modifier, content: @Composable
     Column(modifier = modifier.layoutId(AttachmentSlot.Content).padding(horizontal = inset), content = content)
 }
 
+/**
+ * Shows the name of the file of an [Attachment] on one line.
+ *
+ * While the attachment is uploading or processing, the title shimmers unless the motion of the theme is reduced.
+ *
+ * @param text the name of the file.
+ * @param modifier the modifier of the title.
+ * @throws IllegalArgumentException if it is not placed in an [Attachment].
+ * @since 1.0.0
+ */
 @Composable
 public fun AttachmentTitle(text: String, modifier: Modifier = Modifier) {
     val context = requireNotNull(LocalAttachment.current) { "An attachment title needs its attachment." }
@@ -197,6 +248,15 @@ public fun AttachmentTitle(text: String, modifier: Modifier = Modifier) {
     Text(text = text, modifier = modifier, style = context.style.titleStyle, maxLines = 1)
 }
 
+/**
+ * Shows a line about the file of an [Attachment], such as its size or an error, in the destructive color while the
+ * attachment is in [AttachmentState.Error].
+ *
+ * @param text the description.
+ * @param modifier the modifier of the description.
+ * @throws IllegalArgumentException if it is not placed in an [Attachment].
+ * @since 1.0.0
+ */
 @Composable
 public fun AttachmentDescription(text: String, modifier: Modifier = Modifier) {
     val context = requireNotNull(LocalAttachment.current) { "An attachment description needs its attachment." }
@@ -211,6 +271,13 @@ public fun AttachmentDescription(text: String, modifier: Modifier = Modifier) {
     )
 }
 
+/**
+ * Holds the [AttachmentAction]s of an [Attachment] in a row.
+ *
+ * @param modifier the modifier of the row.
+ * @param content the actions.
+ * @since 1.0.0
+ */
 @Composable
 public fun AttachmentActions(modifier: Modifier = Modifier, content: @Composable RowScope.() -> Unit) {
     Row(
@@ -221,6 +288,15 @@ public fun AttachmentActions(modifier: Modifier = Modifier, content: @Composable
     )
 }
 
+/**
+ * An icon button for an action on an attachment, such as removing it or retrying the upload.
+ *
+ * @param onClick called when the action is clicked.
+ * @param icon the icon of the action.
+ * @param contentDescription the text that describes the action to assistive technologies.
+ * @param modifier the modifier of the button.
+ * @since 1.0.0
+ */
 @Composable
 public fun AttachmentAction(
     onClick: () -> Unit,
@@ -238,6 +314,14 @@ public fun AttachmentAction(
     }
 }
 
+/**
+ * Lays out attachments in a row that scrolls horizontally when it does not fit.
+ *
+ * @param modifier the modifier of the row.
+ * @param style the style whose group gap separates the attachments.
+ * @param content the attachments.
+ * @since 1.0.0
+ */
 @Composable
 public fun AttachmentGroup(
     modifier: Modifier = Modifier,

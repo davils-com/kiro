@@ -20,6 +20,18 @@ import androidx.compose.runtime.Immutable
 import kotlinx.datetime.DayOfWeek
 import kotlinx.datetime.LocalDate
 
+/**
+ * The settings of a [Calendar] apart from its look: the first day of the week, the days it shows and disables and the
+ * formatter of its texts.
+ *
+ * @property firstDayOfWeek the day each week starts with, or `null` for Sunday.
+ * @property isOutsideDayShown whether the days of the previous and next month that fill the first and last week are
+ * shown.
+ * @property isWeekNumberShown whether the ISO number of each week is shown before it.
+ * @property isDisabled decides for a day whether it is disabled, so that it can neither be selected nor focused.
+ * @property formatter the formatter of the texts, or `null` for English texts.
+ * @since 1.0.0
+ */
 @Immutable
 public class CalendarOptions(
     public val firstDayOfWeek: DayOfWeek? = null,
@@ -31,7 +43,13 @@ public class CalendarOptions(
     /**
      * Returns a copy of this [CalendarOptions] with the given values replaced and every other value kept.
      *
-     * @since 0.1.0
+     * @param firstDayOfWeek the new value of [firstDayOfWeek].
+     * @param isOutsideDayShown the new value of [isOutsideDayShown].
+     * @param isWeekNumberShown the new value of [isWeekNumberShown].
+     * @param isDisabled the new value of [isDisabled].
+     * @param formatter the new value of [formatter].
+     * @return the copy.
+     * @since 1.0.0
      */
     public fun copy(
         firstDayOfWeek: DayOfWeek? = this.firstDayOfWeek,
@@ -52,11 +70,11 @@ public class CalendarOptions(
     override fun hashCode(): Int = values().hashCode()
 
     override fun toString(): String = "CalendarOptions(" +
-        "firstDayOfWeek=$firstDayOfWeek, " +
+        "firstDayOfWeek=${firstDayOfWeek ?: "null"}, " +
         "isOutsideDayShown=$isOutsideDayShown, " +
         "isWeekNumberShown=$isWeekNumberShown, " +
         "isDisabled=$isDisabled, " +
-        "formatter=$formatter)"
+        "formatter=${formatter ?: "null"})"
 
     private fun values(): List<Any?> = listOf(
         firstDayOfWeek,
