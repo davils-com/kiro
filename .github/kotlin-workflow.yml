@@ -1,0 +1,111 @@
+#
+# Copyright 2026 Davils
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+# What the pipeline of Kiro does. Every key overrides a default of
+# actions/plan/defaults.yml in davils-com/kotlin-workflow; a key that is not there stops the run.
+version: 1
+gradle:
+  args: ["--stacktrace"]
+
+check:
+  tasks: [check]
+  reproducible:
+    clean-tasks: [":kiro-ui:kiro-ui-core:clean", ":kiro-ui:kiro-ui-icons:clean", ":kiro-ui:kiro-ui-components:clean"]
+    tasks: [":kiro-ui:kiro-ui-core:jvmJar", ":kiro-ui:kiro-ui-icons:jvmJar", ":kiro-ui:kiro-ui-components:jvmJar"]
+    artifacts: ["kiro-ui/kiro-ui-core/build/libs/*.jar", "kiro-ui/kiro-ui-icons/build/libs/*.jar", "kiro-ui/kiro-ui-components/build/libs/*.jar"]
+
+policy:
+  push-develop:
+    stages: [check, snapshot]
+    os: [ubuntu-latest, windows-latest]
+    overrides:
+      check:
+        reproducible: { enabled: true }
+  push-main:
+    os: [ubuntu-latest, windows-latest]
+    overrides:
+      check:
+        reproducible: { enabled: true }
+  tag:
+    os: [ubuntu-latest, windows-latest]
+
+security:
+  gradle:
+    tasks: ["kreateAssurance"]
+  dependency-submission:
+    enabled: false
+
+publish:
+  build-tasks: [assemble]
+  tasks:
+    - ":kiro-ui:kiro-ui-core:publishAllPublicationsToDavilsRepository"
+    - ":kiro-ui:kiro-ui-icons:publishAllPublicationsToDavilsRepository"
+    - ":kiro-ui:kiro-ui-components:publishAllPublicationsToDavilsRepository"
+
+snapshot:
+  # Kiro's own build makes every build without a release tag a snapshot.
+  kreate-snapshot: false
+
+release:
+  publications:
+    discovery: explicit
+    # In upload order: the publication of every target before the multiplatform publication that names them.
+    list:
+      - path: com/davils/kiro-ui-core-jvm
+        artifact: kiro-ui-core-jvm
+        task: ":kiro-ui:kiro-ui-core:publishJvmPublicationToDavilsRepository"
+      - path: com/davils/kiro-ui-core-wasm-js
+        artifact: kiro-ui-core-wasm-js
+        task: ":kiro-ui:kiro-ui-core:publishWasmJsPublicationToDavilsRepository"
+      - path: com/davils/kiro-ui-core
+        artifact: kiro-ui-core
+        task: ":kiro-ui:kiro-ui-core:publishKotlinMultiplatformPublicationToDavilsRepository"
+      - path: com/davils/kiro-ui-icons-jvm
+        artifact: kiro-ui-icons-jvm
+        task: ":kiro-ui:kiro-ui-icons:publishJvmPublicationToDavilsRepository"
+      - path: com/davils/kiro-ui-icons-wasm-js
+        artifact: kiro-ui-icons-wasm-js
+        task: ":kiro-ui:kiro-ui-icons:publishWasmJsPublicationToDavilsRepository"
+      - path: com/davils/kiro-ui-icons
+        artifact: kiro-ui-icons
+        task: ":kiro-ui:kiro-ui-icons:publishKotlinMultiplatformPublicationToDavilsRepository"
+      - path: com/davils/kiro-ui-components-jvm
+        artifact: kiro-ui-components-jvm
+        task: ":kiro-ui:kiro-ui-components:publishJvmPublicationToDavilsRepository"
+      - path: com/davils/kiro-ui-components-wasm-js
+        artifact: kiro-ui-components-wasm-js
+        task: ":kiro-ui:kiro-ui-components:publishWasmJsPublicationToDavilsRepository"
+      - path: com/davils/kiro-ui-components
+        artifact: kiro-ui-components
+        task: ":kiro-ui:kiro-ui-components:publishKotlinMultiplatformPublicationToDavilsRepository"
+  attest:
+    subjects:
+      - "kiro-ui/kiro-ui-core/build/libs/*.jar"
+      - "kiro-ui/kiro-ui-core/build/libs/*.klib"
+      - "kiro-ui/kiro-ui-icons/build/libs/*.jar"
+      - "kiro-ui/kiro-ui-icons/build/libs/*.klib"
+      - "kiro-ui/kiro-ui-components/build/libs/*.jar"
+      - "kiro-ui/kiro-ui-components/build/libs/*.klib"
+  github-release:
+    enabled: false
+
+# How a pull request of Dependabot repairs itself, see CONTRIBUTING.md, "Changing a Dependency".
+dependencies:
+  lock:
+    invocations:
+      - ["kreateResolveAndLockAll", "--write-locks", "--no-configuration-cache"]
+  verification:
+    tasks: [check]
