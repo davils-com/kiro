@@ -19,9 +19,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **The audio players of Kiro in `kiro-ui-audio`**, migrated from the media components of Kide: `AudioPlayerBar`,
   `AudioPlayerCard`, `AudioPlayerFull` and `AudioPlayerMini` as separate components with a style each, sharing the
   `AudioPlayerState`, the controls and their `AudioControlsStyle`, tinted by the cover of the track.
+- **The audio visualizers of Kiro in `kiro-ui-audio`**, modeled on the panels of editing programs and on the
+  visualizers of desktops. They only show values: the caller measures, smooths and holds them, and Kiro decodes, plays
+  and analyzes nothing. The values arrive as `AudioLevels`, `AudioSpectrum`, `AudioScope` and `WaveformPeaks` over
+  `Samples`, `Decibels`, `DecibelRange` and `FrequencyRange`.
+  - Meters: `LevelMeter` with zones, peak hold, clip indicators, a scale and readouts, upright or lying, continuous or
+    segmented, and `CorrelationMeter`.
+  - Scopes: `Goniometer` with dots or lines on a round or square grid, and `Oscilloscope`, overlaid or split.
+  - Analyzers: `SpectrumAnalyzer` with a logarithmic grid, smooth, linear or stepped curves, held peaks and a
+    crosshair, and `Spectrogram`, a scrolling heat map over a `SpectrogramState`.
+  - Desktop visualizers: `SpectrumBars` with peak caps, blocks, a reflection and a centered baseline,
+    `RadialSpectrum` around a content of its own that pulses with the lowest band, and `SpectrumWave` in layers.
+  - Timeline: `Waveform` that seeks, and the clips of an editing program, `AudioClip`, `ClipTrack`, `TimeRuler` and
+    `ClipTimeline`, which ask through `TimelineAction` to select, move, trim, fade, change the gain of a clip, seek,
+    scroll, zoom and switch mute, solo and record of a track, carried out by `TimelineState`.
 - **The gallery of Kiro in `kiro-gallery`**, which shows every component in the light and the dark theme with the
   source of its demo, as a desktop application and in the browser. A demo can show several sections, each with its own
-  box and its own code, as the Audio Player page does for the four players.
+  box and its own code, as the Audio Player page does for the four players. The Audio Visualizer and Audio Timeline
+  pages feed the visualizers with a song the gallery synthesizes and analyzes itself.
 
 ### Fixed
 

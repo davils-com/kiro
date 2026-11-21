@@ -12,7 +12,7 @@ to the same standard as Kore. Where this file is silent, the rules of Kore apply
 | `kiro-ui/kiro-ui-core` | `com.davils:kiro-ui-core` | The theme: color roles, typography and the bundled fonts, radii, spacing, border widths, elevation, motion, the focus ring, icon tokens, interaction states and the `ComponentStyles` registry |
 | `kiro-ui/kiro-ui-icons` | `com.davils:kiro-ui-icons` | The `Icon` composable and the complete Lucide set, generated from the SVGs of the pinned Lucide release |
 | `kiro-ui/kiro-ui-components` | `com.davils:kiro-ui-components` | The components, from buttons and inputs to menus, dialogs, tables, calendars and charts |
-| `kiro-ui/kiro-ui-audio` | `com.davils:kiro-ui-audio` | The audio players: bar, card, full view and mini player, their shared state and controls, tinted by the cover of the track |
+| `kiro-ui/kiro-ui-audio` | `com.davils:kiro-ui-audio` | The audio players: bar, card, full view and mini player, their shared state and controls, tinted by the cover of the track; and the audio visualizers: meters, scopes, analyzers, desktop visualizers, the waveform and the clips of a timeline, which show the values a caller measured and analyze nothing themselves |
 | `build-logic` | - | One convention plugin per Kreate concern, composed by `kiro.kotlin-library`, `kiro.ui-library` and `kiro.root`, and the Lucide generator |
 | `kiro-gallery` | - | The gallery: every component in a light and a dark theme with its source, as a desktop application and in the browser; never published |
 | `kiro-application` | - | Not part of the build yet; nothing in it is touched until it is planned |
