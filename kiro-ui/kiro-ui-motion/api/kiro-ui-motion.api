@@ -1,0 +1,2912 @@
+public abstract interface class com/davils/kiro/ui/motion/art/Art {
+	public fun isStatic ()Z
+	public abstract fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+}
+
+public final class com/davils/kiro/ui/motion/art/ArtContext {
+	public static final field $stable I
+	public synthetic fun <init> (ILcom/davils/kiro/ui/motion/color/ArtPalette;Lcom/davils/kiro/ui/core/Theme;Lcom/davils/kiro/ui/motion/quality/QualityLevel;Landroidx/compose/ui/text/TextMeasurer;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-mqu5FBU (ILcom/davils/kiro/ui/motion/color/ArtPalette;Lcom/davils/kiro/ui/core/Theme;Lcom/davils/kiro/ui/motion/quality/QualityLevel;Landroidx/compose/ui/text/TextMeasurer;)Lcom/davils/kiro/ui/motion/art/ArtContext;
+	public static synthetic fun copy-mqu5FBU$default (Lcom/davils/kiro/ui/motion/art/ArtContext;ILcom/davils/kiro/ui/motion/color/ArtPalette;Lcom/davils/kiro/ui/core/Theme;Lcom/davils/kiro/ui/motion/quality/QualityLevel;Landroidx/compose/ui/text/TextMeasurer;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/ArtContext;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPalette ()Lcom/davils/kiro/ui/motion/color/ArtPalette;
+	public final fun getQuality ()Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public final fun getSeed-aaY7A1g ()I
+	public final fun getTextMeasurer ()Landroidx/compose/ui/text/TextMeasurer;
+	public final fun getTheme ()Lcom/davils/kiro/ui/core/Theme;
+	public fun hashCode ()I
+	public final fun styles (Lcom/davils/kiro/ui/core/style/StyleKey;)Ljava/lang/Object;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/ArtFrame {
+	public static final field $stable I
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/time/ArtTime;Lcom/davils/kiro/ui/motion/input/ArtInputs;Lcom/davils/kiro/ui/motion/color/ArtPalette;Lcom/davils/kiro/ui/motion/quality/QualityLevel;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-HVmDfbY (Lcom/davils/kiro/ui/motion/time/ArtTime;Lcom/davils/kiro/ui/motion/input/ArtInputs;Lcom/davils/kiro/ui/motion/color/ArtPalette;Lcom/davils/kiro/ui/motion/quality/QualityLevel;I)Lcom/davils/kiro/ui/motion/art/ArtFrame;
+	public static synthetic fun copy-HVmDfbY$default (Lcom/davils/kiro/ui/motion/art/ArtFrame;Lcom/davils/kiro/ui/motion/time/ArtTime;Lcom/davils/kiro/ui/motion/input/ArtInputs;Lcom/davils/kiro/ui/motion/color/ArtPalette;Lcom/davils/kiro/ui/motion/quality/QualityLevel;IILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/ArtFrame;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getInputs ()Lcom/davils/kiro/ui/motion/input/ArtInputs;
+	public final fun getPalette ()Lcom/davils/kiro/ui/motion/color/ArtPalette;
+	public final fun getQuality ()Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public final fun getSeed-aaY7A1g ()I
+	public final fun getTime ()Lcom/davils/kiro/ui/motion/time/ArtTime;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/ArtRenderer {
+	public abstract fun drawFrame (Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/davils/kiro/ui/motion/art/ArtFrame;)V
+	public fun drawStatic (Landroidx/compose/ui/graphics/drawscope/DrawScope;Lcom/davils/kiro/ui/motion/art/ArtFrame;)V
+	public fun getHasStatic ()Z
+}
+
+public final class com/davils/kiro/ui/motion/art/ArtSeed {
+	public static final synthetic fun box-impl (I)Lcom/davils/kiro/ui/motion/art/ArtSeed;
+	public static fun constructor-impl (I)I
+	public static final fun derive-P7Hgs6c (II)I
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (ILjava/lang/Object;)Z
+	public static final fun equals-impl0 (II)Z
+	public final fun getValue ()I
+	public fun hashCode ()I
+	public static fun hashCode-impl (I)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (I)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()I
+}
+
+public final class com/davils/kiro/ui/motion/art/field/ContourArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/field/ContourArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/field/ContourArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/field/ContourArtStyle;)Lcom/davils/kiro/ui/motion/art/field/ContourArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/field/ContourArt;Lcom/davils/kiro/ui/motion/art/field/ContourArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/field/ContourArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/field/ContourArtStyle;
+	public fun hashCode ()I
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/ContourArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Ljava/util/List;FIIFFFFLandroidx/compose/ui/graphics/Color;FFFIFFFJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-T4Wji2s (Ljava/util/List;FIIFFFFLandroidx/compose/ui/graphics/Color;FFFIFFFJ)Lcom/davils/kiro/ui/motion/art/field/ContourArtStyle;
+	public static synthetic fun copy-T4Wji2s$default (Lcom/davils/kiro/ui/motion/art/field/ContourArtStyle;Ljava/util/List;FIIFFFFLandroidx/compose/ui/graphics/Color;FFFIFFFJILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/field/ContourArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBandAlpha ()F
+	public final fun getCell-D9Ej5fM ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getContrast ()F
+	public final fun getDrift ()F
+	public final fun getIndexAlpha ()F
+	public final fun getIndexEvery ()I
+	public final fun getIndexWidth-D9Ej5fM ()F
+	public final fun getInk-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getLevels ()I
+	public final fun getLineAlpha ()F
+	public final fun getLineTint ()F
+	public final fun getLineWidth-D9Ej5fM ()F
+	public final fun getOctaves ()I
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getScale-D9Ej5fM ()F
+	public final fun getWarp ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/field/ContourArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/field/ContourArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/field/ContourArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/ContourArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/field/ContourArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/ContourArtStylesKt {
+	public static final fun contourArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/field/ContourArtStyle;
+	public static final fun getContourArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/HalftoneArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/field/HalftoneArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/field/HalftoneArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/field/HalftoneArtStyle;)Lcom/davils/kiro/ui/motion/art/field/HalftoneArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/field/HalftoneArt;Lcom/davils/kiro/ui/motion/art/field/HalftoneArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/field/HalftoneArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/field/HalftoneArtStyle;
+	public fun hashCode ()I
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/HalftoneArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Ljava/util/List;FFFFLcom/davils/kiro/ui/motion/art/field/HalftonePattern;Lcom/davils/kiro/ui/motion/art/field/HalftoneShape;FFILjava/util/List;Ljava/util/List;FJJFFFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-Ucc-IrA (Ljava/util/List;FFFFLcom/davils/kiro/ui/motion/art/field/HalftonePattern;Lcom/davils/kiro/ui/motion/art/field/HalftoneShape;FFILjava/util/List;Ljava/util/List;FJJFFF)Lcom/davils/kiro/ui/motion/art/field/HalftoneArtStyle;
+	public static synthetic fun copy-Ucc-IrA$default (Lcom/davils/kiro/ui/motion/art/field/HalftoneArtStyle;Ljava/util/List;FFFFLcom/davils/kiro/ui/motion/art/field/HalftonePattern;Lcom/davils/kiro/ui/motion/art/field/HalftoneShape;FFILjava/util/List;Ljava/util/List;FJJFFFILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/field/HalftoneArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlpha ()F
+	public final fun getAngle ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getGradientAngle ()F
+	public final fun getMaxDot ()F
+	public final fun getMinDot ()F
+	public final fun getOrbit ()F
+	public final fun getPattern ()Lcom/davils/kiro/ui/motion/art/field/HalftonePattern;
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getPitch-D9Ej5fM ()F
+	public final fun getPointerRadius-D9Ej5fM ()F
+	public final fun getPointerStrength ()F
+	public final fun getPointerWavelength-D9Ej5fM ()F
+	public final fun getShape ()Lcom/davils/kiro/ui/motion/art/field/HalftoneShape;
+	public final fun getSpeeds ()Ljava/util/List;
+	public final fun getWanderPeriod-UwyO8pc ()J
+	public final fun getWavelengths ()Ljava/util/List;
+	public final fun getWaves ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/field/HalftoneArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/field/HalftoneArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/field/HalftoneArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/HalftoneArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/field/HalftoneArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/HalftoneArtStylesKt {
+	public static final fun getHalftoneArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun halftoneArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/field/HalftoneArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/HalftonePattern : java/lang/Enum {
+	public static final field Hex Lcom/davils/kiro/ui/motion/art/field/HalftonePattern;
+	public static final field Square Lcom/davils/kiro/ui/motion/art/field/HalftonePattern;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/motion/art/field/HalftonePattern;
+	public static fun values ()[Lcom/davils/kiro/ui/motion/art/field/HalftonePattern;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/HalftoneShape : java/lang/Enum {
+	public static final field Circle Lcom/davils/kiro/ui/motion/art/field/HalftoneShape;
+	public static final field Diamond Lcom/davils/kiro/ui/motion/art/field/HalftoneShape;
+	public static final field Square Lcom/davils/kiro/ui/motion/art/field/HalftoneShape;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/motion/art/field/HalftoneShape;
+	public static fun values ()[Lcom/davils/kiro/ui/motion/art/field/HalftoneShape;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/LowPolyArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/field/LowPolyArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/field/LowPolyArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/field/LowPolyArtStyle;)Lcom/davils/kiro/ui/motion/art/field/LowPolyArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/field/LowPolyArt;Lcom/davils/kiro/ui/motion/art/field/LowPolyArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/field/LowPolyArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/field/LowPolyArtStyle;
+	public fun hashCode ()I
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/LowPolyArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FFFJFFFFFJFFLjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-juRAYJg (FFFJFFFFFJFFLjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/field/LowPolyArtStyle;
+	public static synthetic fun copy-juRAYJg$default (Lcom/davils/kiro/ui/motion/art/field/LowPolyArtStyle;FFFJFFFFFJFFLjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/field/LowPolyArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getCell-D9Ej5fM ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getContrast ()F
+	public final fun getDrift ()F
+	public final fun getDriftPeriod-UwyO8pc ()J
+	public final fun getEdge-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getEdgeAlpha ()F
+	public final fun getEdgeWidth-D9Ej5fM ()F
+	public final fun getElevation ()F
+	public final fun getJitter ()F
+	public final fun getLightPeriod-UwyO8pc ()J
+	public final fun getRelief ()F
+	public final fun getReliefScale-D9Ej5fM ()F
+	public final fun getTint ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/field/LowPolyArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/field/LowPolyArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/field/LowPolyArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/LowPolyArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/field/LowPolyArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/LowPolyArtStylesKt {
+	public static final fun getLowPolyArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun lowPolyArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/field/LowPolyArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/RidgeArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/field/RidgeArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/field/RidgeArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/field/RidgeArtStyle;)Lcom/davils/kiro/ui/motion/art/field/RidgeArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/field/RidgeArt;Lcom/davils/kiro/ui/motion/art/field/RidgeArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/field/RidgeArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/field/RidgeArtStyle;
+	public fun hashCode ()I
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/RidgeArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Ljava/util/List;Landroidx/compose/ui/graphics/Color;IFFFFFFFFIFFFJJLcom/davils/kiro/ui/motion/art/field/RidgeGradient;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-6yzNhjQ (Ljava/util/List;Landroidx/compose/ui/graphics/Color;IFFFFFFFFIFFFJJLcom/davils/kiro/ui/motion/art/field/RidgeGradient;Z)Lcom/davils/kiro/ui/motion/art/field/RidgeArtStyle;
+	public static synthetic fun copy-6yzNhjQ$default (Lcom/davils/kiro/ui/motion/art/field/RidgeArtStyle;Ljava/util/List;Landroidx/compose/ui/graphics/Color;IFFFFFFFFIFFFJJLcom/davils/kiro/ui/motion/art/field/RidgeGradient;ZILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/field/RidgeArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAmplitude-D9Ej5fM ()F
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getBottom ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getEvolution-UwyO8pc ()J
+	public final fun getFlat ()F
+	public final fun getFrequency ()F
+	public final fun getGradient ()Lcom/davils/kiro/ui/motion/art/field/RidgeGradient;
+	public final fun getHasFill ()Z
+	public final fun getLineAlpha ()F
+	public final fun getLineWidth-D9Ej5fM ()F
+	public final fun getLines ()I
+	public final fun getOctaves ()I
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getSharpness ()F
+	public final fun getSpread ()F
+	public final fun getStep-D9Ej5fM ()F
+	public final fun getTop ()F
+	public final fun getWander ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/field/RidgeArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/field/RidgeArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/field/RidgeArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/RidgeArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/field/RidgeArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/RidgeArtStylesKt {
+	public static final fun getRidgeArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun ridgeArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/field/RidgeArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/RidgeGradient : java/lang/Enum {
+	public static final field BackToFront Lcom/davils/kiro/ui/motion/art/field/RidgeGradient;
+	public static final field FrontToBack Lcom/davils/kiro/ui/motion/art/field/RidgeGradient;
+	public static final field Mirrored Lcom/davils/kiro/ui/motion/art/field/RidgeGradient;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/motion/art/field/RidgeGradient;
+	public static fun values ()[Lcom/davils/kiro/ui/motion/art/field/RidgeGradient;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/VoronoiArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/field/VoronoiArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/field/VoronoiArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/field/VoronoiArtStyle;)Lcom/davils/kiro/ui/motion/art/field/VoronoiArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/field/VoronoiArt;Lcom/davils/kiro/ui/motion/art/field/VoronoiArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/field/VoronoiArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/field/VoronoiArtStyle;
+	public fun hashCode ()I
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/VoronoiArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FFFJFFFFFFFFLjava/util/List;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-QXkbZ54 (FFFJFFFFFFFFLjava/util/List;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/field/VoronoiArtStyle;
+	public static synthetic fun copy-QXkbZ54$default (Lcom/davils/kiro/ui/motion/art/field/VoronoiArtStyle;FFFJFFFFFFFFLjava/util/List;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/field/VoronoiArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCell-D9Ej5fM ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getDrift ()F
+	public final fun getJitter ()F
+	public final fun getLine-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getLineAlpha ()F
+	public final fun getLineWidth-D9Ej5fM ()F
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getPointerAlpha ()F
+	public final fun getSeedAlpha ()F
+	public final fun getSeedRadius-D9Ej5fM ()F
+	public final fun getTintAlpha ()F
+	public final fun getTintVariance ()F
+	public final fun getToneJitter ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/field/VoronoiArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/field/VoronoiArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/field/VoronoiArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/VoronoiArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/field/VoronoiArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/field/VoronoiArtStylesKt {
+	public static final fun getVoronoiArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun voronoiArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/field/VoronoiArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/BlueprintArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/geometry/BlueprintArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/geometry/BlueprintArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/geometry/BlueprintArtStyle;)Lcom/davils/kiro/ui/motion/art/geometry/BlueprintArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/geometry/BlueprintArt;Lcom/davils/kiro/ui/motion/art/geometry/BlueprintArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/geometry/BlueprintArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/geometry/BlueprintArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/BlueprintArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FIFFFFFFFFFZLandroidx/compose/ui/text/TextStyle;FFILkotlin/jvm/functions/Function1;FFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;FJLandroidx/compose/animation/core/Easing;ILandroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-aCpbvUA (FIFFFFFFFFFZLandroidx/compose/ui/text/TextStyle;FFILkotlin/jvm/functions/Function1;FFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;FJLandroidx/compose/animation/core/Easing;ILandroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/geometry/BlueprintArtStyle;
+	public static synthetic fun copy-aCpbvUA$default (Lcom/davils/kiro/ui/motion/art/geometry/BlueprintArtStyle;FIFFFFFFFFFZLandroidx/compose/ui/text/TextStyle;FFILkotlin/jvm/functions/Function1;FFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;FJLandroidx/compose/animation/core/Easing;ILandroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/geometry/BlueprintArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccent-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getBandAlpha ()F
+	public final fun getBandQuality ()Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public final fun getBracket-D9Ej5fM ()F
+	public final fun getBracketAlpha ()F
+	public final fun getBracketWidth-D9Ej5fM ()F
+	public final fun getCell-D9Ej5fM ()F
+	public final fun getEasing ()Landroidx/compose/animation/core/Easing;
+	public final fun getLabel ()Lkotlin/jvm/functions/Function1;
+	public final fun getLabelAlpha ()F
+	public final fun getLabelPadding-D9Ej5fM ()F
+	public final fun getLabelStep ()I
+	public final fun getLabelStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getLine-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getLineWidth-D9Ej5fM ()F
+	public final fun getLitAlpha ()F
+	public final fun getMajor ()I
+	public final fun getMajorAlpha ()F
+	public final fun getMargin-D9Ej5fM ()F
+	public final fun getMark-D9Ej5fM ()F
+	public final fun getMarkAlpha ()F
+	public final fun getMinorAlpha ()F
+	public final fun getSalt ()I
+	public final fun getScanAlpha ()F
+	public final fun getScanBand-D9Ej5fM ()F
+	public final fun getScanPeriod-UwyO8pc ()J
+	public final fun getScanWidth-D9Ej5fM ()F
+	public fun hashCode ()I
+	public final fun isRulerShown ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/geometry/BlueprintArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/geometry/BlueprintArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/geometry/BlueprintArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/BlueprintArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/geometry/BlueprintArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/BlueprintArtStylesKt {
+	public static final fun blueprintArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/geometry/BlueprintArtStyle;
+	public static final fun getBlueprintArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/IsometricCityArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/geometry/IsometricCityArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/geometry/IsometricCityArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/geometry/IsometricCityArtStyle;)Lcom/davils/kiro/ui/motion/art/geometry/IsometricCityArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/geometry/IsometricCityArt;Lcom/davils/kiro/ui/motion/art/geometry/IsometricCityArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/geometry/IsometricCityArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/geometry/IsometricCityArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/IsometricCityArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FFFFFFFJFFFFFFFFFFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;ILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-ECfiN0Y (FFFFFFFJFFFFFFFFFFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;ILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/geometry/IsometricCityArtStyle;
+	public static synthetic fun copy-ECfiN0Y$default (Lcom/davils/kiro/ui/motion/art/geometry/IsometricCityArtStyle;FFFFFFFJFFFFFFFFFFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;ILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/geometry/IsometricCityArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getBase-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getColorBias ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getDetail-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getDetailQuality ()Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public final fun getFloor-D9Ej5fM ()F
+	public final fun getFrequency ()F
+	public final fun getInset ()F
+	public final fun getJitter ()F
+	public final fun getLeftShade ()F
+	public final fun getMaxHeight-D9Ej5fM ()F
+	public final fun getMinHeight-D9Ej5fM ()F
+	public final fun getOriginX ()F
+	public final fun getOriginY ()F
+	public final fun getOutlineAlpha ()F
+	public final fun getOutlineWidth-D9Ej5fM ()F
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getRightShade ()F
+	public final fun getSalt ()I
+	public final fun getShade-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getTile-D9Ej5fM ()F
+	public final fun getTint ()F
+	public final fun getVacancy ()F
+	public final fun getWindow-D9Ej5fM ()F
+	public final fun getWindowAlpha ()F
+	public final fun getWindowGap-D9Ej5fM ()F
+	public final fun getWindowHeight-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/geometry/IsometricCityArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/geometry/IsometricCityArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/geometry/IsometricCityArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/IsometricCityArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/geometry/IsometricCityArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/IsometricCityArtStylesKt {
+	public static final fun getIsometricCityArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun isometricCityArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/geometry/IsometricCityArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/LissajousArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/geometry/LissajousArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/geometry/LissajousArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/geometry/LissajousArtStyle;)Lcom/davils/kiro/ui/motion/art/geometry/LissajousArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/geometry/LissajousArt;Lcom/davils/kiro/ui/motion/art/geometry/LissajousArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/geometry/LissajousArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/geometry/LissajousArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/LissajousArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (IFFFFIIFFFFFIFFFFFFFJFJILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-XWZm2z8 (IFFFFIIFFFFFIFFFFFFFJFJILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/geometry/LissajousArtStyle;
+	public static synthetic fun copy-XWZm2z8$default (Lcom/davils/kiro/ui/motion/art/geometry/LissajousArtStyle;IFFFFIIFFFFFIFFFFFFFJFJILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/geometry/LissajousArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getCenterX ()F
+	public final fun getCenterY ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getCurves ()I
+	public final fun getDamping ()F
+	public final fun getDetune ()F
+	public final fun getDrawPeriod-UwyO8pc ()J
+	public final fun getDrawShare ()F
+	public final fun getDriftPeriod-UwyO8pc ()J
+	public final fun getFaintAlpha ()F
+	public final fun getGlowAlpha ()F
+	public final fun getGuideAlpha ()F
+	public final fun getHead-D9Ej5fM ()F
+	public final fun getHeadGlow-D9Ej5fM ()F
+	public final fun getLine-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getLineAlpha ()F
+	public final fun getLineWidth-D9Ej5fM ()F
+	public final fun getMaxFrequency ()I
+	public final fun getMinFrequency ()I
+	public final fun getPen-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getSalt ()I
+	public final fun getSize ()F
+	public final fun getSpread ()F
+	public final fun getSteps ()I
+	public final fun getStretch ()F
+	public final fun getTurns ()F
+	public final fun getTwist ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/geometry/LissajousArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/geometry/LissajousArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/geometry/LissajousArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/LissajousArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/geometry/LissajousArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/LissajousArtStylesKt {
+	public static final fun getLissajousArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun lissajousArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/geometry/LissajousArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/OrbitArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/geometry/OrbitArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/geometry/OrbitArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/geometry/OrbitArtStyle;)Lcom/davils/kiro/ui/motion/art/geometry/OrbitArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/geometry/OrbitArt;Lcom/davils/kiro/ui/motion/art/geometry/OrbitArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/geometry/OrbitArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/geometry/OrbitArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/OrbitArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FFFFIFFFFJIIFFFFFIFFFFJFFJZILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-5G4AmDM (FFFFIFFFFJIIFFFFFIFFFFJFFJZILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/geometry/OrbitArtStyle;
+	public static synthetic fun copy-5G4AmDM$default (Lcom/davils/kiro/ui/motion/art/geometry/OrbitArtStyle;FFFFIFFFFJIIFFFFFIFFFFJFFJZILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;IILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/geometry/OrbitArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getCenterX ()F
+	public final fun getCenterY ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getDash-D9Ej5fM ()F
+	public final fun getDashGap-D9Ej5fM ()F
+	public final fun getDrift-UwyO8pc ()J
+	public final fun getFirstRadius-D9Ej5fM ()F
+	public final fun getGlow-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getGlowAlpha ()F
+	public final fun getGlowRadius-D9Ej5fM ()F
+	public final fun getHighlight-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getMaxPlanet-D9Ej5fM ()F
+	public final fun getMaxPlanets ()I
+	public final fun getMinPlanet-D9Ej5fM ()F
+	public final fun getMinPlanets ()I
+	public final fun getMoon-D9Ej5fM ()F
+	public final fun getMoonChance ()F
+	public final fun getMoonDistance-D9Ej5fM ()F
+	public final fun getMoonPeriod-UwyO8pc ()J
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getRing-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getRingAlpha ()F
+	public final fun getRingSpacing-D9Ej5fM ()F
+	public final fun getRingWidth-D9Ej5fM ()F
+	public final fun getRings ()I
+	public final fun getSalt ()I
+	public final fun getShine ()F
+	public final fun getShineSize ()F
+	public final fun getTrail ()F
+	public final fun getTrailAlpha ()F
+	public final fun getTrailSegments ()I
+	public fun hashCode ()I
+	public final fun isAlternating ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/geometry/OrbitArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/geometry/OrbitArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/geometry/OrbitArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/OrbitArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/geometry/OrbitArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/OrbitArtStylesKt {
+	public static final fun getOrbitArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun orbitArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/geometry/OrbitArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/PolygonsArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/geometry/PolygonsArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/geometry/PolygonsArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/geometry/PolygonsArtStyle;)Lcom/davils/kiro/ui/motion/art/geometry/PolygonsArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/geometry/PolygonsArt;Lcom/davils/kiro/ui/motion/art/geometry/PolygonsArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/geometry/PolygonsArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/geometry/PolygonsArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/PolygonsArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (IFFFFIIFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;FJFZJFFFFILandroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-3YkpAoo (IFFFFIIFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;FJFZJFFFFILandroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/geometry/PolygonsArtStyle;
+	public static synthetic fun copy-3YkpAoo$default (Lcom/davils/kiro/ui/motion/art/geometry/PolygonsArtStyle;IFFFFIIFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;FJFZJFFFFILandroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/geometry/PolygonsArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccent-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getCenterX ()F
+	public final fun getCenterY ()F
+	public final fun getDot-D9Ej5fM ()F
+	public final fun getDotAlpha ()F
+	public final fun getDotQuality ()Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public final fun getDrawShare ()F
+	public final fun getFirstRadius-D9Ej5fM ()F
+	public final fun getGuideAlpha ()F
+	public final fun getHead-D9Ej5fM ()F
+	public final fun getLine-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getLineAlpha ()F
+	public final fun getLineWidth-D9Ej5fM ()F
+	public final fun getMaxSides ()I
+	public final fun getMinSides ()I
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getRingSpacing-D9Ej5fM ()F
+	public final fun getRings ()I
+	public final fun getSalt ()I
+	public final fun getSlowdown ()F
+	public final fun getTraceAlpha ()F
+	public final fun getTracePeriod-UwyO8pc ()J
+	public final fun getTraceWidth-D9Ej5fM ()F
+	public fun hashCode ()I
+	public final fun isAlternating ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/geometry/PolygonsArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/geometry/PolygonsArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/geometry/PolygonsArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/PolygonsArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/geometry/PolygonsArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/PolygonsArtStylesKt {
+	public static final fun getPolygonsArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun polygonsArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/geometry/PolygonsArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/RadarArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/geometry/RadarArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/geometry/RadarArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/geometry/RadarArtStyle;)Lcom/davils/kiro/ui/motion/art/geometry/RadarArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/geometry/RadarArt;Lcom/davils/kiro/ui/motion/art/geometry/RadarArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/geometry/RadarArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/geometry/RadarArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/RadarArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FFFIFFFFIIFFFFFFIFFFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;JILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-YnhBNHM (FFFIFFFFIIFFFFFFIFFFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;JILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/geometry/RadarArtStyle;
+	public static synthetic fun copy-YnhBNHM$default (Lcom/davils/kiro/ui/motion/art/geometry/RadarArtStyle;FFFIFFFFIIFFFFFFIFFFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;JILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/geometry/RadarArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccent-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getBeamAlpha ()F
+	public final fun getBlip-D9Ej5fM ()F
+	public final fun getBlipAlpha ()F
+	public final fun getBlips ()I
+	public final fun getCenterX ()F
+	public final fun getCenterY ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getCrossAlpha ()F
+	public final fun getCrossReach ()F
+	public final fun getFade ()F
+	public final fun getHalo-D9Ej5fM ()F
+	public final fun getHaloAlpha ()F
+	public final fun getHaloQuality ()Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public final fun getInner ()F
+	public final fun getLine-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getLineWidth-D9Ej5fM ()F
+	public final fun getMajorEvery ()I
+	public final fun getMajorTick-D9Ej5fM ()F
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getRingAlpha ()F
+	public final fun getRings ()I
+	public final fun getSalt ()I
+	public final fun getSize ()F
+	public final fun getTick-D9Ej5fM ()F
+	public final fun getTickAlpha ()F
+	public final fun getTicks ()I
+	public final fun getWedge ()F
+	public final fun getWedgeAlpha ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/geometry/RadarArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/geometry/RadarArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/geometry/RadarArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/RadarArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/geometry/RadarArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/RadarArtStylesKt {
+	public static final fun getRadarArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun radarArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/geometry/RadarArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/SpirographArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/geometry/SpirographArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/geometry/SpirographArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/geometry/SpirographArtStyle;)Lcom/davils/kiro/ui/motion/art/geometry/SpirographArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/geometry/SpirographArt;Lcom/davils/kiro/ui/motion/art/geometry/SpirographArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/geometry/SpirographArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/geometry/SpirographArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/SpirographArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (IFFFFFFFFIFIFFJFJFFFFIFILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-5S0PKMg (IFFFFFFFFIFIFFJFJFFFFIFILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/geometry/SpirographArtStyle;
+	public static synthetic fun copy-5S0PKMg$default (Lcom/davils/kiro/ui/motion/art/geometry/SpirographArtStyle;IFFFFFFFFIFIFFJFJFFFFIFILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/geometry/SpirographArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getCenterX ()F
+	public final fun getCenterY ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getCurves ()I
+	public final fun getDrawPeriod-UwyO8pc ()J
+	public final fun getDrawShare ()F
+	public final fun getEchoAngle ()F
+	public final fun getEchoes ()I
+	public final fun getEpicycles ()F
+	public final fun getGlowAlpha ()F
+	public final fun getHead-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getHeadGlow-D9Ej5fM ()F
+	public final fun getHeadSize-D9Ej5fM ()F
+	public final fun getLineAlpha ()F
+	public final fun getLineWidth-D9Ej5fM ()F
+	public final fun getLoops ()I
+	public final fun getMaxPen ()F
+	public final fun getMaxRoller ()F
+	public final fun getMinPen ()F
+	public final fun getMinRoller ()F
+	public final fun getMinSize ()F
+	public final fun getRotationPeriod-UwyO8pc ()J
+	public final fun getSalt ()I
+	public final fun getSize ()F
+	public final fun getSteps ()I
+	public final fun getTrailAlpha ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/geometry/SpirographArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/geometry/SpirographArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/geometry/SpirographArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/SpirographArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/geometry/SpirographArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/SpirographArtStylesKt {
+	public static final fun getSpirographArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun spirographArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/geometry/SpirographArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/WireframeArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/geometry/WireframeArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/geometry/WireframeArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/geometry/WireframeArtStyle;)Lcom/davils/kiro/ui/motion/art/geometry/WireframeArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/geometry/WireframeArt;Lcom/davils/kiro/ui/motion/art/geometry/WireframeArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/geometry/WireframeArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/geometry/WireframeArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/WireframeArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/geometry/WireframeSolid;FFFFFFFFFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;FJJILandroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy--8DYP7o (Lcom/davils/kiro/ui/motion/art/geometry/WireframeSolid;FFFFFFFFFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;FJJILandroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/geometry/WireframeArtStyle;
+	public static synthetic fun copy--8DYP7o$default (Lcom/davils/kiro/ui/motion/art/geometry/WireframeArtStyle;Lcom/davils/kiro/ui/motion/art/geometry/WireframeSolid;FFFFFFFFFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;FJJILandroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/geometry/WireframeArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccent-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getCenterX ()F
+	public final fun getCenterY ()F
+	public final fun getDot-D9Ej5fM ()F
+	public final fun getDotAlpha ()F
+	public final fun getDotQuality ()Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public final fun getFarAlpha ()F
+	public final fun getFarDot ()F
+	public final fun getGuideAlpha ()F
+	public final fun getLine-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getLineWidth-D9Ej5fM ()F
+	public final fun getNearAlpha ()F
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getPerspective ()F
+	public final fun getSalt ()I
+	public final fun getSize ()F
+	public final fun getSolid ()Lcom/davils/kiro/ui/motion/art/geometry/WireframeSolid;
+	public final fun getTilt ()F
+	public final fun getWobble ()F
+	public final fun getWobblePeriod-UwyO8pc ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/geometry/WireframeArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/geometry/WireframeArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/geometry/WireframeArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/WireframeArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/geometry/WireframeArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/WireframeArtStylesKt {
+	public static final fun getWireframeArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun wireframeArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/geometry/WireframeArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/geometry/WireframeSolid : java/lang/Enum {
+	public static final field Cube Lcom/davils/kiro/ui/motion/art/geometry/WireframeSolid;
+	public static final field Dodecahedron Lcom/davils/kiro/ui/motion/art/geometry/WireframeSolid;
+	public static final field Icosahedron Lcom/davils/kiro/ui/motion/art/geometry/WireframeSolid;
+	public static final field Octahedron Lcom/davils/kiro/ui/motion/art/geometry/WireframeSolid;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/motion/art/geometry/WireframeSolid;
+	public static fun values ()[Lcom/davils/kiro/ui/motion/art/geometry/WireframeSolid;
+}
+
+public final class com/davils/kiro/ui/motion/art/gradient/AuroraArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;)Lcom/davils/kiro/ui/motion/art/gradient/AuroraArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/gradient/AuroraArt;Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/gradient/AuroraArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;
+	public fun hashCode ()I
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/gradient/AuroraArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (IIFFFFFFJFFILjava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-RV7S1_Y (IIFFFFFFJFFILjava/util/List;)Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;
+	public static synthetic fun copy-RV7S1_Y$default (Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;IIFFFFFFJFFILjava/util/List;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlpha ()F
+	public final fun getAmplitude-D9Ej5fM ()F
+	public final fun getBands ()I
+	public final fun getBlendMode-0nO6VwU ()I
+	public final fun getColors ()Ljava/util/List;
+	public final fun getGap ()F
+	public final fun getLift ()F
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getRipple ()F
+	public final fun getSegments ()I
+	public final fun getThickness-D9Ej5fM ()F
+	public final fun getTop ()F
+	public final fun getWavelength-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/gradient/AuroraArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/gradient/AuroraArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/gradient/AuroraArtStylesKt {
+	public static final fun auroraArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;
+	public static final fun getAuroraArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+}
+
+public final class com/davils/kiro/ui/motion/art/gradient/GradientArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/gradient/GradientArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/gradient/GradientArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/gradient/GradientArtStyle;)Lcom/davils/kiro/ui/motion/art/gradient/GradientArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/gradient/GradientArt;Lcom/davils/kiro/ui/motion/art/gradient/GradientArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/gradient/GradientArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/gradient/GradientArtStyle;
+	public fun hashCode ()I
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/gradient/GradientArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/gradient/GradientKind;FIJFJFLjava/util/List;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-HVYPFxU (Lcom/davils/kiro/ui/motion/art/gradient/GradientKind;FIJFJFLjava/util/List;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/gradient/GradientArtStyle;
+	public static synthetic fun copy-HVYPFxU$default (Lcom/davils/kiro/ui/motion/art/gradient/GradientArtStyle;Lcom/davils/kiro/ui/motion/art/gradient/GradientKind;FIJFJFLjava/util/List;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/gradient/GradientArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getColors ()Ljava/util/List;
+	public final fun getKind ()Lcom/davils/kiro/ui/motion/art/gradient/GradientKind;
+	public final fun getOrbit-D9Ej5fM ()F
+	public final fun getOrbitPeriod-UwyO8pc ()J
+	public final fun getReach ()F
+	public final fun getRotation-UwyO8pc ()J
+	public final fun getSteps ()I
+	public final fun getStrength ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/gradient/GradientArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/gradient/GradientArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/gradient/GradientArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/gradient/GradientArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/gradient/GradientArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/gradient/GradientArtStylesKt {
+	public static final fun getGradientArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun gradientArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/gradient/GradientArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/gradient/GradientKind : java/lang/Enum {
+	public static final field Linear Lcom/davils/kiro/ui/motion/art/gradient/GradientKind;
+	public static final field Radial Lcom/davils/kiro/ui/motion/art/gradient/GradientKind;
+	public static final field Sweep Lcom/davils/kiro/ui/motion/art/gradient/GradientKind;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/motion/art/gradient/GradientKind;
+	public static fun values ()[Lcom/davils/kiro/ui/motion/art/gradient/GradientKind;
+}
+
+public final class com/davils/kiro/ui/motion/art/grid/FlickeringGridArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/grid/FlickeringGridArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/grid/FlickeringGridArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/grid/FlickeringGridArtStyle;)Lcom/davils/kiro/ui/motion/art/grid/FlickeringGridArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/grid/FlickeringGridArt;Lcom/davils/kiro/ui/motion/art/grid/FlickeringGridArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/grid/FlickeringGridArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/grid/FlickeringGridArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/grid/FlickeringGridArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FFIFFJFFJFIILandroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-Zbg8E0M (FFIFFJFFJFIILandroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/grid/FlickeringGridArtStyle;
+	public static synthetic fun copy-Zbg8E0M$default (Lcom/davils/kiro/ui/motion/art/grid/FlickeringGridArtStyle;FFIFFJFFJFIILandroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/grid/FlickeringGridArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccent-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getAccentShare ()F
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getColor-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getDrift-UwyO8pc ()J
+	public final fun getFieldSize-D9Ej5fM ()F
+	public final fun getGap-D9Ej5fM ()F
+	public final fun getLevels ()I
+	public final fun getMaxAlpha ()F
+	public final fun getMaxCells ()I
+	public final fun getMinAlpha ()F
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getSalt ()I
+	public final fun getSquare-D9Ej5fM ()F
+	public final fun getStructure ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/grid/FlickeringGridArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/grid/FlickeringGridArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/grid/FlickeringGridArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/grid/FlickeringGridArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/grid/FlickeringGridArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/grid/FlickeringGridArtStylesKt {
+	public static final fun flickeringGridArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/grid/FlickeringGridArtStyle;
+	public static final fun getFlickeringGridArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+}
+
+public final class com/davils/kiro/ui/motion/art/grid/GridPatternArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/grid/GridPatternArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/grid/GridPatternArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/grid/GridPatternArtStyle;)Lcom/davils/kiro/ui/motion/art/grid/GridPatternArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/grid/GridPatternArt;Lcom/davils/kiro/ui/motion/art/grid/GridPatternArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/grid/GridPatternArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/grid/GridPatternArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/grid/GridPatternArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/grid/GridPatternKind;FFFFIFIFFFJLandroidx/compose/animation/core/Easing;FFILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-ufRpWzc (Lcom/davils/kiro/ui/motion/art/grid/GridPatternKind;FFFFIFIFFFJLandroidx/compose/animation/core/Easing;FFILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/grid/GridPatternArtStyle;
+	public static synthetic fun copy-ufRpWzc$default (Lcom/davils/kiro/ui/motion/art/grid/GridPatternArtStyle;Lcom/davils/kiro/ui/motion/art/grid/GridPatternKind;FFFFIFIFFFJLandroidx/compose/animation/core/Easing;FFILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/grid/GridPatternArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getCell-D9Ej5fM ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getEasing ()Landroidx/compose/animation/core/Easing;
+	public final fun getHighlightAlpha ()F
+	public final fun getHighlights ()I
+	public final fun getInset-D9Ej5fM ()F
+	public final fun getKind ()Lcom/davils/kiro/ui/motion/art/grid/GridPatternKind;
+	public final fun getLine-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getLineAlpha ()F
+	public final fun getLineWidth-D9Ej5fM ()F
+	public final fun getMajorAlpha ()F
+	public final fun getMajorEvery ()I
+	public final fun getMark-D9Ej5fM ()F
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getPointer-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getPointerAlpha ()F
+	public final fun getPointerOutlineAlpha ()F
+	public final fun getRadius-D9Ej5fM ()F
+	public final fun getSalt ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/grid/GridPatternArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/grid/GridPatternArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/grid/GridPatternArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/grid/GridPatternArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/grid/GridPatternArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/grid/GridPatternArtStylesKt {
+	public static final fun getGridPatternArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun gridPatternArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/grid/GridPatternArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/grid/GridPatternKind : java/lang/Enum {
+	public static final field Crosses Lcom/davils/kiro/ui/motion/art/grid/GridPatternKind;
+	public static final field Dots Lcom/davils/kiro/ui/motion/art/grid/GridPatternKind;
+	public static final field Lines Lcom/davils/kiro/ui/motion/art/grid/GridPatternKind;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/motion/art/grid/GridPatternKind;
+	public static fun values ()[Lcom/davils/kiro/ui/motion/art/grid/GridPatternKind;
+}
+
+public final class com/davils/kiro/ui/motion/art/grid/MatrixArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/grid/MatrixArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/grid/MatrixArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/grid/MatrixArtStyle;)Lcom/davils/kiro/ui/motion/art/grid/MatrixArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/grid/MatrixArt;Lcom/davils/kiro/ui/motion/art/grid/MatrixArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/grid/MatrixArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/grid/MatrixArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/grid/MatrixArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FLandroidx/compose/ui/text/TextStyle;Ljava/lang/String;FIIJFJFFFFILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-oKrjFoQ (FLandroidx/compose/ui/text/TextStyle;Ljava/lang/String;FIIJFJFFFFILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/grid/MatrixArtStyle;
+	public static synthetic fun copy-oKrjFoQ$default (Lcom/davils/kiro/ui/motion/art/grid/MatrixArtStyle;FLandroidx/compose/ui/text/TextStyle;Ljava/lang/String;FIIJFJFFFFILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/grid/MatrixArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getCell-D9Ej5fM ()F
+	public final fun getChangePeriod-UwyO8pc ()J
+	public final fun getColors ()Ljava/util/List;
+	public final fun getColumnShare ()F
+	public final fun getGlyphHeight ()F
+	public final fun getGlyphWidth ()F
+	public final fun getGlyphs ()Ljava/lang/String;
+	public final fun getHead-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getHeadAlpha ()F
+	public final fun getPause ()I
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getSalt ()I
+	public final fun getSpeedSpread ()F
+	public final fun getTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getTrail ()I
+	public final fun getTrailAlpha ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/grid/MatrixArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/grid/MatrixArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/grid/MatrixArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/grid/MatrixArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/grid/MatrixArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/grid/MatrixArtStylesKt {
+	public static final fun getMatrixArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun matrixArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/grid/MatrixArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/grid/RetroGridArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/grid/RetroGridArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/grid/RetroGridArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/grid/RetroGridArtStyle;)Lcom/davils/kiro/ui/motion/art/grid/RetroGridArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/grid/RetroGridArt;Lcom/davils/kiro/ui/motion/art/grid/RetroGridArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/grid/RetroGridArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/grid/RetroGridArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/grid/RetroGridArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FFFFFFIJFFIFFFJILandroidx/compose/ui/graphics/Color;Ljava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-Rm6kLIY (FFFFFFIJFFIFFFJILandroidx/compose/ui/graphics/Color;Ljava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/grid/RetroGridArtStyle;
+	public static synthetic fun copy-Rm6kLIY$default (Lcom/davils/kiro/ui/motion/art/grid/RetroGridArtStyle;FFFFFFIJFFIFFFJILandroidx/compose/ui/graphics/Color;Ljava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/grid/RetroGridArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getCell-D9Ej5fM ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getDepth ()F
+	public final fun getFade ()F
+	public final fun getGlow-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getGlowAlpha ()F
+	public final fun getGlowHeight ()F
+	public final fun getHorizon ()F
+	public final fun getLine-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getLineAlpha ()F
+	public final fun getLineWidth-D9Ej5fM ()F
+	public final fun getMaxRows ()I
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getPulseAlpha ()F
+	public final fun getPulseLength ()F
+	public final fun getPulsePeriod-UwyO8pc ()J
+	public final fun getPulseWidth-D9Ej5fM ()F
+	public final fun getPulses ()I
+	public final fun getSalt ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/grid/RetroGridArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/grid/RetroGridArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/grid/RetroGridArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/grid/RetroGridArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/grid/RetroGridArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/grid/RetroGridArtStylesKt {
+	public static final fun getRetroGridArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun retroGridArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/grid/RetroGridArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/line/BeamsArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/line/BeamsArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/line/BeamsArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/line/BeamsArtStyle;)Lcom/davils/kiro/ui/motion/art/line/BeamsArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/line/BeamsArt;Lcom/davils/kiro/ui/motion/art/line/BeamsArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/line/BeamsArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/line/BeamsArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/line/BeamsArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (IFFFFFFFFFJFILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-Kta0d10 (IFFFFFFFFFJFILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/line/BeamsArtStyle;
+	public static synthetic fun copy-Kta0d10$default (Lcom/davils/kiro/ui/motion/art/line/BeamsArtStyle;IFFFFFFFFFJFILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/line/BeamsArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getBeamAlpha ()F
+	public final fun getBeamWidth-D9Ej5fM ()F
+	public final fun getBeams ()I
+	public final fun getBend ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getGlowAlpha ()F
+	public final fun getGlowWidth-D9Ej5fM ()F
+	public final fun getGuide-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getGuideAlpha ()F
+	public final fun getLineWidth-D9Ej5fM ()F
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getPeriodSpread ()F
+	public final fun getSalt ()I
+	public final fun getSegment ()F
+	public final fun getSpread ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/line/BeamsArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/line/BeamsArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/line/BeamsArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/line/BeamsArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/line/BeamsArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/line/BeamsArtStylesKt {
+	public static final fun beamsArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/line/BeamsArtStyle;
+	public static final fun getBeamsArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+}
+
+public final class com/davils/kiro/ui/motion/art/line/RippleArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/line/RippleArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/line/RippleArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/line/RippleArtStyle;)Lcom/davils/kiro/ui/motion/art/line/RippleArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/line/RippleArt;Lcom/davils/kiro/ui/motion/art/line/RippleArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/line/RippleArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/line/RippleArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/line/RippleArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FFIFFFFJLandroidx/compose/animation/core/Easing;IFFFILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-Vexe4Uk (FFIFFFFJLandroidx/compose/animation/core/Easing;IFFFILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/line/RippleArtStyle;
+	public static synthetic fun copy-Vexe4Uk$default (Lcom/davils/kiro/ui/motion/art/line/RippleArtStyle;FFIFFFFJLandroidx/compose/animation/core/Easing;IFFFILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/line/RippleArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getColors ()Ljava/util/List;
+	public final fun getEasing ()Landroidx/compose/animation/core/Easing;
+	public final fun getFillAlpha ()F
+	public final fun getGuide-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getGuideAlpha ()F
+	public final fun getGuideSpacing-D9Ej5fM ()F
+	public final fun getGuides ()I
+	public final fun getLineWidth-D9Ej5fM ()F
+	public final fun getOriginX ()F
+	public final fun getOriginY ()F
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getPointerFollow ()F
+	public final fun getReach ()F
+	public final fun getRingAlpha ()F
+	public final fun getRings ()I
+	public final fun getSalt ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/line/RippleArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/line/RippleArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/line/RippleArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/line/RippleArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/line/RippleArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/line/RippleArtStylesKt {
+	public static final fun getRippleArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun rippleArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/line/RippleArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/BokehArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/particle/BokehArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/particle/BokehArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/particle/BokehArtStyle;)Lcom/davils/kiro/ui/motion/art/particle/BokehArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/particle/BokehArt;Lcom/davils/kiro/ui/motion/art/particle/BokehArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/particle/BokehArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/particle/BokehArtStyle;
+	public fun hashCode ()I
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/BokehArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (IFFFJFJFFFFFLjava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-KhhqiaY (IFFFJFJFFFFFLjava/util/List;)Lcom/davils/kiro/ui/motion/art/particle/BokehArtStyle;
+	public static synthetic fun copy-KhhqiaY$default (Lcom/davils/kiro/ui/motion/art/particle/BokehArtStyle;IFFFJFJFFFFFLjava/util/List;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/particle/BokehArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlpha ()F
+	public final fun getAlphaFloor ()F
+	public final fun getBreathe ()F
+	public final fun getBreathePeriod-UwyO8pc ()J
+	public final fun getColors ()Ljava/util/List;
+	public final fun getCount ()I
+	public final fun getMaxRadius-D9Ej5fM ()F
+	public final fun getMinRadius-D9Ej5fM ()F
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getRimAlpha ()F
+	public final fun getRimWidth-D9Ej5fM ()F
+	public final fun getSoftness ()F
+	public final fun getWander-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/particle/BokehArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/particle/BokehArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/particle/BokehArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/BokehArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/particle/BokehArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/BokehArtStylesKt {
+	public static final fun bokehArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/particle/BokehArtStyle;
+	public static final fun getBokehArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/FlowColorMode : java/lang/Enum {
+	public static final field Angle Lcom/davils/kiro/ui/motion/art/particle/FlowColorMode;
+	public static final field Line Lcom/davils/kiro/ui/motion/art/particle/FlowColorMode;
+	public static final field Position Lcom/davils/kiro/ui/motion/art/particle/FlowColorMode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/motion/art/particle/FlowColorMode;
+	public static fun values ()[Lcom/davils/kiro/ui/motion/art/particle/FlowColorMode;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/FlowFieldArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/particle/FlowFieldArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/particle/FlowFieldArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/particle/FlowFieldArtStyle;)Lcom/davils/kiro/ui/motion/art/particle/FlowFieldArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/particle/FlowFieldArt;Lcom/davils/kiro/ui/motion/art/particle/FlowFieldArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/particle/FlowFieldArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/particle/FlowFieldArtStyle;
+	public fun hashCode ()I
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/FlowFieldArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Ljava/util/List;IFIIFFFLcom/davils/kiro/ui/motion/art/particle/FlowFieldKind;FIFJJLcom/davils/kiro/ui/motion/art/particle/FlowColorMode;FFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-xFc0oo0 (Ljava/util/List;IFIIFFFLcom/davils/kiro/ui/motion/art/particle/FlowFieldKind;FIFJJLcom/davils/kiro/ui/motion/art/particle/FlowColorMode;FF)Lcom/davils/kiro/ui/motion/art/particle/FlowFieldArtStyle;
+	public static synthetic fun copy-xFc0oo0$default (Lcom/davils/kiro/ui/motion/art/particle/FlowFieldArtStyle;Ljava/util/List;IFIIFFFLcom/davils/kiro/ui/motion/art/particle/FlowFieldKind;FIFJJLcom/davils/kiro/ui/motion/art/particle/FlowColorMode;FFILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/particle/FlowFieldArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlpha ()F
+	public final fun getColorMode ()Lcom/davils/kiro/ui/motion/art/particle/FlowColorMode;
+	public final fun getColors ()Ljava/util/List;
+	public final fun getEvolution-UwyO8pc ()J
+	public final fun getFade ()F
+	public final fun getKind ()Lcom/davils/kiro/ui/motion/art/particle/FlowFieldKind;
+	public final fun getLife-UwyO8pc ()J
+	public final fun getLineWidth-D9Ej5fM ()F
+	public final fun getLines ()I
+	public final fun getOctaves ()I
+	public final fun getPointerRadius-D9Ej5fM ()F
+	public final fun getPointerStrength ()F
+	public final fun getScale-D9Ej5fM ()F
+	public final fun getSegment-D9Ej5fM ()F
+	public final fun getSteps ()I
+	public final fun getTrail ()I
+	public final fun getTurns ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/particle/FlowFieldArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/particle/FlowFieldArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/particle/FlowFieldArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/FlowFieldArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/particle/FlowFieldArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/FlowFieldArtStylesKt {
+	public static final fun flowFieldArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/particle/FlowFieldArtStyle;
+	public static final fun getFlowFieldArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/FlowFieldKind : java/lang/Enum {
+	public static final field Angle Lcom/davils/kiro/ui/motion/art/particle/FlowFieldKind;
+	public static final field Curl Lcom/davils/kiro/ui/motion/art/particle/FlowFieldKind;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/motion/art/particle/FlowFieldKind;
+	public static fun values ()[Lcom/davils/kiro/ui/motion/art/particle/FlowFieldKind;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/MeteorsArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/particle/MeteorsArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/particle/MeteorsArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/particle/MeteorsArtStyle;)Lcom/davils/kiro/ui/motion/art/particle/MeteorsArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/particle/MeteorsArt;Lcom/davils/kiro/ui/motion/art/particle/MeteorsArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/particle/MeteorsArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/particle/MeteorsArtStyle;
+	public fun hashCode ()I
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/MeteorsArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (IFJFFFFFFFIFFLjava/util/List;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-l0RjmQQ (IFJFFFFFFFIFFLjava/util/List;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/particle/MeteorsArtStyle;
+	public static synthetic fun copy-l0RjmQQ$default (Lcom/davils/kiro/ui/motion/art/particle/MeteorsArtStyle;IFJFFFFFFFIFFLjava/util/List;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/particle/MeteorsArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlpha ()F
+	public final fun getAngle ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getCount ()I
+	public final fun getDuty ()F
+	public final fun getHeadRadius-D9Ej5fM ()F
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getStar-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getStarAlpha ()F
+	public final fun getStarRadius-D9Ej5fM ()F
+	public final fun getStars ()I
+	public final fun getTail-D9Ej5fM ()F
+	public final fun getToneFrom ()F
+	public final fun getTravel ()F
+	public final fun getWidth-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/particle/MeteorsArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/particle/MeteorsArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/particle/MeteorsArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/MeteorsArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/particle/MeteorsArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/MeteorsArtStylesKt {
+	public static final fun getMeteorsArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun meteorsArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/particle/MeteorsArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/ParticlesArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/particle/ParticlesArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/particle/ParticlesArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/particle/ParticlesArtStyle;)Lcom/davils/kiro/ui/motion/art/particle/ParticlesArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/particle/ParticlesArt;Lcom/davils/kiro/ui/motion/art/particle/ParticlesArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/particle/ParticlesArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/particle/ParticlesArtStyle;
+	public fun hashCode ()I
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/ParticlesArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FIFFFFFJFJFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;Ljava/util/List;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-pWyu63M (FIFFFFFJFJFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;Ljava/util/List;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/particle/ParticlesArtStyle;
+	public static synthetic fun copy-pWyu63M$default (Lcom/davils/kiro/ui/motion/art/particle/ParticlesArtStyle;FIFFFFFJFJFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;Ljava/util/List;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/particle/ParticlesArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColors ()Ljava/util/List;
+	public final fun getDistance-D9Ej5fM ()F
+	public final fun getDrift-D9Ej5fM ()F
+	public final fun getLink-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getLinkAlpha ()F
+	public final fun getLinkDistance-D9Ej5fM ()F
+	public final fun getLinkQuality ()Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public final fun getLinkWidth-D9Ej5fM ()F
+	public final fun getMaxAlpha ()F
+	public final fun getMaxCount ()I
+	public final fun getMaxRadius-D9Ej5fM ()F
+	public final fun getMinAlpha ()F
+	public final fun getMinRadius-D9Ej5fM ()F
+	public final fun getParallax-D9Ej5fM ()F
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getTwinkle ()F
+	public final fun getTwinklePeriod-UwyO8pc ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/particle/ParticlesArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/particle/ParticlesArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/particle/ParticlesArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/ParticlesArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/particle/ParticlesArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/ParticlesArtStylesKt {
+	public static final fun getParticlesArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun particlesArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/particle/ParticlesArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/StarfieldArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/particle/StarfieldArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/particle/StarfieldArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/particle/StarfieldArtStyle;)Lcom/davils/kiro/ui/motion/art/particle/StarfieldArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/particle/StarfieldArt;Lcom/davils/kiro/ui/motion/art/particle/StarfieldArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/particle/StarfieldArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/particle/StarfieldArtStyle;
+	public fun hashCode ()I
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/StarfieldArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (IFFFFJFFFFFLjava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-cDYXciU (IFFFFJFFFFFLjava/util/List;)Lcom/davils/kiro/ui/motion/art/particle/StarfieldArtStyle;
+	public static synthetic fun copy-cDYXciU$default (Lcom/davils/kiro/ui/motion/art/particle/StarfieldArtStyle;IFFFFJFFFFFLjava/util/List;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/particle/StarfieldArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlpha ()F
+	public final fun getCenterX ()F
+	public final fun getCenterY ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getCount ()I
+	public final fun getFadeIn ()F
+	public final fun getMaxWidth-D9Ej5fM ()F
+	public final fun getMinWidth-D9Ej5fM ()F
+	public final fun getNearest ()F
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getSpread ()F
+	public final fun getStreak ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/particle/StarfieldArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/particle/StarfieldArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/particle/StarfieldArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/StarfieldArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/particle/StarfieldArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/particle/StarfieldArtStylesKt {
+	public static final fun getStarfieldArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun starfieldArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/particle/StarfieldArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/BauhausArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/tiling/BauhausArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/tiling/BauhausArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/tiling/BauhausArtStyle;)Lcom/davils/kiro/ui/motion/art/tiling/BauhausArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/tiling/BauhausArt;Lcom/davils/kiro/ui/motion/art/tiling/BauhausArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/tiling/BauhausArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/tiling/BauhausArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/BauhausArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FFFLjava/util/Map;FFFFIFFFFFFJFFFLandroidx/compose/animation/core/Easing;ILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-8yNElA8 (FFFLjava/util/Map;FFFFIFFFFFFJFFFLandroidx/compose/animation/core/Easing;ILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/tiling/BauhausArtStyle;
+	public static synthetic fun copy-8yNElA8$default (Lcom/davils/kiro/ui/motion/art/tiling/BauhausArtStyle;FFFLjava/util/Map;FFFFIFFFFFFJFFFLandroidx/compose/animation/core/Easing;ILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/tiling/BauhausArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccentShare ()F
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getCell-D9Ej5fM ()F
+	public final fun getCircle ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getDot ()F
+	public final fun getEasing ()Landroidx/compose/animation/core/Easing;
+	public final fun getGap-D9Ej5fM ()F
+	public final fun getOutline-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getOutlineAlpha ()F
+	public final fun getOutlineWidth-D9Ej5fM ()F
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getPop ()F
+	public final fun getRadius-D9Ej5fM ()F
+	public final fun getRing ()F
+	public final fun getRingWidth ()F
+	public final fun getSalt ()I
+	public final fun getShapeTint ()F
+	public final fun getStagger ()F
+	public final fun getStripeWidth ()F
+	public final fun getStripes ()I
+	public final fun getTileTint ()F
+	public final fun getTurn ()F
+	public final fun getWeights ()Ljava/util/Map;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/tiling/BauhausArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/tiling/BauhausArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/tiling/BauhausArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/BauhausArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/tiling/BauhausArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/BauhausArtStylesKt {
+	public static final fun bauhausArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/tiling/BauhausArtStyle;
+	public static final fun getBauhausArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/BauhausShape : java/lang/Enum {
+	public static final field Circle Lcom/davils/kiro/ui/motion/art/tiling/BauhausShape;
+	public static final field Dot Lcom/davils/kiro/ui/motion/art/tiling/BauhausShape;
+	public static final field DoubleQuarter Lcom/davils/kiro/ui/motion/art/tiling/BauhausShape;
+	public static final field HalfCircle Lcom/davils/kiro/ui/motion/art/tiling/BauhausShape;
+	public static final field QuarterCircle Lcom/davils/kiro/ui/motion/art/tiling/BauhausShape;
+	public static final field Ring Lcom/davils/kiro/ui/motion/art/tiling/BauhausShape;
+	public static final field Stripes Lcom/davils/kiro/ui/motion/art/tiling/BauhausShape;
+	public static final field Triangle Lcom/davils/kiro/ui/motion/art/tiling/BauhausShape;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/motion/art/tiling/BauhausShape;
+	public static fun values ()[Lcom/davils/kiro/ui/motion/art/tiling/BauhausShape;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/CheckerMorphArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/tiling/CheckerMorphArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/tiling/CheckerMorphArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/tiling/CheckerMorphArtStyle;)Lcom/davils/kiro/ui/motion/art/tiling/CheckerMorphArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/tiling/CheckerMorphArt;Lcom/davils/kiro/ui/motion/art/tiling/CheckerMorphArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/tiling/CheckerMorphArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/tiling/CheckerMorphArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/CheckerMorphArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FFFFFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;IFFFJLandroidx/compose/animation/core/Easing;ILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-ZApc0IU (FFFFFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;IFFFJLandroidx/compose/animation/core/Easing;ILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/tiling/CheckerMorphArtStyle;
+	public static synthetic fun copy-ZApc0IU$default (Lcom/davils/kiro/ui/motion/art/tiling/CheckerMorphArtStyle;FFFFFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;IFFFJLandroidx/compose/animation/core/Easing;ILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/tiling/CheckerMorphArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccentAlpha ()F
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getBand ()I
+	public final fun getCell-D9Ej5fM ()F
+	public final fun getCircle ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getEasing ()Landroidx/compose/animation/core/Easing;
+	public final fun getFillAlpha ()F
+	public final fun getGridAlpha ()F
+	public final fun getGridWidth-D9Ej5fM ()F
+	public final fun getInset ()F
+	public final fun getJitter ()F
+	public final fun getLag ()F
+	public final fun getLine-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getMorph ()F
+	public final fun getOutlineAlpha ()F
+	public final fun getOutlineQuality ()Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getSalt ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/tiling/CheckerMorphArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/tiling/CheckerMorphArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/tiling/CheckerMorphArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/CheckerMorphArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/tiling/CheckerMorphArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/CheckerMorphArtStylesKt {
+	public static final fun checkerMorphArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/tiling/CheckerMorphArtStyle;
+	public static final fun getCheckerMorphArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/HexFlipArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/tiling/HexFlipArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/tiling/HexFlipArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/tiling/HexFlipArtStyle;)Lcom/davils/kiro/ui/motion/art/tiling/HexFlipArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/tiling/HexFlipArt;Lcom/davils/kiro/ui/motion/art/tiling/HexFlipArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/tiling/HexFlipArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/tiling/HexFlipArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/HexFlipArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FFFFFFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;FFIFFFFJLandroidx/compose/animation/core/Easing;ILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-OEVhVyE (FFFFFFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;FFIFFFFJLandroidx/compose/animation/core/Easing;ILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/tiling/HexFlipArtStyle;
+	public static synthetic fun copy-OEVhVyE$default (Lcom/davils/kiro/ui/motion/art/tiling/HexFlipArtStyle;FFFFFFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;FFIFFFFJLandroidx/compose/animation/core/Easing;ILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/tiling/HexFlipArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackAlpha ()F
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getCenterX ()F
+	public final fun getCenterY ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getDetail ()F
+	public final fun getDetailAlpha ()F
+	public final fun getDetailQuality ()Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public final fun getEasing ()Landroidx/compose/animation/core/Easing;
+	public final fun getEdgeAlpha ()F
+	public final fun getFrontAlpha ()F
+	public final fun getGap-D9Ej5fM ()F
+	public final fun getLine-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getOutlineAlpha ()F
+	public final fun getOutlineWidth-D9Ej5fM ()F
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getRadius-D9Ej5fM ()F
+	public final fun getSalt ()I
+	public final fun getShade-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getShades ()I
+	public final fun getShading ()F
+	public final fun getShare ()F
+	public final fun getSpread ()F
+	public final fun getTurn ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/tiling/HexFlipArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/tiling/HexFlipArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/tiling/HexFlipArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/HexFlipArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/tiling/HexFlipArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/HexFlipArtStylesKt {
+	public static final fun getHexFlipArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun hexFlipArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/tiling/HexFlipArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/TruchetArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/tiling/TruchetArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/tiling/TruchetArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/tiling/TruchetArtStyle;)Lcom/davils/kiro/ui/motion/art/tiling/TruchetArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/tiling/TruchetArt;Lcom/davils/kiro/ui/motion/art/tiling/TruchetArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/tiling/TruchetArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/tiling/TruchetArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/TruchetArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FFIFLcom/davils/kiro/ui/motion/quality/QualityLevel;IIFFLcom/davils/kiro/ui/motion/art/tiling/TruchetVariant;FFJFFLandroidx/compose/animation/core/Easing;FFILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-XNjtr4A (FFIFLcom/davils/kiro/ui/motion/quality/QualityLevel;IIFFLcom/davils/kiro/ui/motion/art/tiling/TruchetVariant;FFJFFLandroidx/compose/animation/core/Easing;FFILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/tiling/TruchetArtStyle;
+	public static synthetic fun copy-XNjtr4A$default (Lcom/davils/kiro/ui/motion/art/tiling/TruchetArtStyle;FFIFLcom/davils/kiro/ui/motion/quality/QualityLevel;IIFFLcom/davils/kiro/ui/motion/art/tiling/TruchetVariant;FFJFFLandroidx/compose/animation/core/Easing;FFILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/tiling/TruchetArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccentAlpha ()F
+	public final fun getAccentEvery ()I
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getBand ()I
+	public final fun getCap-KaPHkGw ()I
+	public final fun getCell-D9Ej5fM ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getEasing ()Landroidx/compose/animation/core/Easing;
+	public final fun getFillAlpha ()F
+	public final fun getFillQuality ()Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public final fun getFlip ()F
+	public final fun getLag ()F
+	public final fun getLine-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getLineAlpha ()F
+	public final fun getLineShare ()F
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getPointerLead ()F
+	public final fun getPointerRadius-D9Ej5fM ()F
+	public final fun getSalt ()I
+	public final fun getStrokeWidth-D9Ej5fM ()F
+	public final fun getTurn ()F
+	public final fun getVariant ()Lcom/davils/kiro/ui/motion/art/tiling/TruchetVariant;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/tiling/TruchetArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/tiling/TruchetArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/tiling/TruchetArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/TruchetArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/tiling/TruchetArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/TruchetArtStylesKt {
+	public static final fun getTruchetArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun truchetArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/tiling/TruchetArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/TruchetVariant : java/lang/Enum {
+	public static final field Arcs Lcom/davils/kiro/ui/motion/art/tiling/TruchetVariant;
+	public static final field Lines Lcom/davils/kiro/ui/motion/art/tiling/TruchetVariant;
+	public static final field Mixed Lcom/davils/kiro/ui/motion/art/tiling/TruchetVariant;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/motion/art/tiling/TruchetVariant;
+	public static fun values ()[Lcom/davils/kiro/ui/motion/art/tiling/TruchetVariant;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/WeaveArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/art/tiling/WeaveArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/tiling/WeaveArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/art/tiling/WeaveArtStyle;)Lcom/davils/kiro/ui/motion/art/tiling/WeaveArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/tiling/WeaveArt;Lcom/davils/kiro/ui/motion/art/tiling/WeaveArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/tiling/WeaveArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/tiling/WeaveArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/WeaveArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/tiling/WeavePattern;FFFFFFFIFIFFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;JLandroidx/compose/animation/core/Easing;ILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-knFJCZY (Lcom/davils/kiro/ui/motion/art/tiling/WeavePattern;FFFFFFFIFIFFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;JLandroidx/compose/animation/core/Easing;ILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;)Lcom/davils/kiro/ui/motion/art/tiling/WeaveArtStyle;
+	public static synthetic fun copy-knFJCZY$default (Lcom/davils/kiro/ui/motion/art/tiling/WeaveArtStyle;Lcom/davils/kiro/ui/motion/art/tiling/WeavePattern;FFFFFFFIFIFFFFFLcom/davils/kiro/ui/motion/quality/QualityLevel;JLandroidx/compose/animation/core/Easing;ILjava/util/List;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/tiling/WeaveArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccent-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getAngle ()F
+	public final fun getArcSteps ()I
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getBand-D9Ej5fM ()F
+	public final fun getBands ()I
+	public final fun getCell-D9Ej5fM ()F
+	public final fun getColors ()Ljava/util/List;
+	public final fun getEasing ()Landroidx/compose/animation/core/Easing;
+	public final fun getFrameAlpha ()F
+	public final fun getFrameWidth-D9Ej5fM ()F
+	public final fun getGlowAlpha ()F
+	public final fun getGlowQuality ()Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public final fun getGlowWidth-D9Ej5fM ()F
+	public final fun getHighlightAlpha ()F
+	public final fun getHighlightWidth-D9Ej5fM ()F
+	public final fun getLine-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getLineAlpha ()F
+	public final fun getLineWidth-D9Ej5fM ()F
+	public final fun getPanelAlpha ()F
+	public final fun getPanelShare ()F
+	public final fun getPattern ()Lcom/davils/kiro/ui/motion/art/tiling/WeavePattern;
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getSalt ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/art/tiling/WeaveArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/art/tiling/WeaveArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/tiling/WeaveArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/WeaveArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/tiling/WeaveArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/WeaveArtStylesKt {
+	public static final fun getWeaveArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun weaveArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/tiling/WeaveArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/art/tiling/WeavePattern : java/lang/Enum {
+	public static final field Asanoha Lcom/davils/kiro/ui/motion/art/tiling/WeavePattern;
+	public static final field Kagome Lcom/davils/kiro/ui/motion/art/tiling/WeavePattern;
+	public static final field Shippo Lcom/davils/kiro/ui/motion/art/tiling/WeavePattern;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/motion/art/tiling/WeavePattern;
+	public static fun values ()[Lcom/davils/kiro/ui/motion/art/tiling/WeavePattern;
+}
+
+public final class com/davils/kiro/ui/motion/color/ArtPalette {
+	public static final field $stable I
+	public synthetic fun <init> (JJLjava/util/List;JJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun accent-vNxB06k (I)J
+	public final fun copy-w8f9n5g (JJLjava/util/List;JJ)Lcom/davils/kiro/ui/motion/color/ArtPalette;
+	public static synthetic fun copy-w8f9n5g$default (Lcom/davils/kiro/ui/motion/color/ArtPalette;JJLjava/util/List;JJILjava/lang/Object;)Lcom/davils/kiro/ui/motion/color/ArtPalette;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAccents ()Ljava/util/List;
+	public final fun getBackground-0d7_KjU ()J
+	public final fun getHighlight-0d7_KjU ()J
+	public final fun getInk-0d7_KjU ()J
+	public final fun getShade-0d7_KjU ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/color/ArtPalettes {
+	public static final field Companion Lcom/davils/kiro/ui/motion/color/ArtPalettes$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/color/ArtPalette;
+}
+
+public final class com/davils/kiro/ui/motion/color/ArtPalettes$Companion {
+	public final fun getDuotone ()Lcom/davils/kiro/ui/motion/color/ArtPalettes;
+	public final fun getExpressive ()Lcom/davils/kiro/ui/motion/color/ArtPalettes;
+	public final fun getMonochrome ()Lcom/davils/kiro/ui/motion/color/ArtPalettes;
+	public final fun getNight ()Lcom/davils/kiro/ui/motion/color/ArtPalettes;
+	public final fun getPastel ()Lcom/davils/kiro/ui/motion/color/ArtPalettes;
+	public final fun getRefined ()Lcom/davils/kiro/ui/motion/color/ArtPalettes;
+	public final fun getVivid ()Lcom/davils/kiro/ui/motion/color/ArtPalettes;
+}
+
+public final class com/davils/kiro/ui/motion/color/ArtPalettesKt {
+	public static final fun artPalette (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/color/ArtPalette;
+	public static final fun artPaletteOf (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/color/ArtPalette;
+	public static final fun getArtPaletteKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+}
+
+public final class com/davils/kiro/ui/motion/color/PaletteRampsKt {
+	public static final fun rampOf-jxsXWHM (JJI)Ljava/util/List;
+	public static final fun wheelOf (DDDI)Ljava/util/List;
+}
+
+public final class com/davils/kiro/ui/motion/diagnostics/ArtDiagnostics {
+	public static final field $stable I
+	public synthetic fun <init> (FJILcom/davils/kiro/ui/motion/quality/QualityLevel;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-dWUq8MI (FJILcom/davils/kiro/ui/motion/quality/QualityLevel;)Lcom/davils/kiro/ui/motion/diagnostics/ArtDiagnostics;
+	public static synthetic fun copy-dWUq8MI$default (Lcom/davils/kiro/ui/motion/diagnostics/ArtDiagnostics;FJILcom/davils/kiro/ui/motion/quality/QualityLevel;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/diagnostics/ArtDiagnostics;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getFrameTime-UwyO8pc ()J
+	public final fun getFramesPerSecond ()F
+	public final fun getLayers ()I
+	public final fun getQuality ()Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/diagnostics/DiagnosticsOverlayKt {
+	public static final fun DiagnosticsOverlay (Lcom/davils/kiro/ui/motion/diagnostics/ArtDiagnostics;Landroidx/compose/ui/Modifier;Lcom/davils/kiro/ui/motion/diagnostics/DiagnosticsOverlayStyle;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/motion/diagnostics/DiagnosticsOverlayStyle {
+	public static final field $stable I
+	public synthetic fun <init> (JJLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/graphics/Shape;FFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-kN0HXjk (JJLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/graphics/Shape;FF)Lcom/davils/kiro/ui/motion/diagnostics/DiagnosticsOverlayStyle;
+	public static synthetic fun copy-kN0HXjk$default (Lcom/davils/kiro/ui/motion/diagnostics/DiagnosticsOverlayStyle;JJLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/graphics/Shape;FFILjava/lang/Object;)Lcom/davils/kiro/ui/motion/diagnostics/DiagnosticsOverlayStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContainer-0d7_KjU ()J
+	public final fun getContent-0d7_KjU ()J
+	public final fun getHorizontalPadding-D9Ej5fM ()F
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getVerticalPadding-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/diagnostics/DiagnosticsOverlayStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/diagnostics/DiagnosticsOverlayStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/diagnostics/DiagnosticsOverlayStyle;
+}
+
+public final class com/davils/kiro/ui/motion/diagnostics/DiagnosticsOverlayStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/diagnostics/DiagnosticsOverlayStyles;
+}
+
+public final class com/davils/kiro/ui/motion/diagnostics/DiagnosticsOverlayStylesKt {
+	public static final fun diagnosticsOverlayStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/diagnostics/DiagnosticsOverlayStyle;
+	public static final fun getDiagnosticsOverlayStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+}
+
+public final class com/davils/kiro/ui/motion/export/ExportOptions {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Landroidx/compose/ui/unit/Density;Lcom/davils/kiro/ui/motion/art/ArtSeed;Lcom/davils/kiro/ui/motion/quality/QualityLevel;Lcom/davils/kiro/ui/motion/input/ArtInputs;Landroidx/compose/ui/text/TextMeasurer;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Landroidx/compose/ui/unit/Density;Lcom/davils/kiro/ui/motion/art/ArtSeed;Lcom/davils/kiro/ui/motion/quality/QualityLevel;Lcom/davils/kiro/ui/motion/input/ArtInputs;Landroidx/compose/ui/text/TextMeasurer;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-EPWWJic (Landroidx/compose/ui/unit/Density;Lcom/davils/kiro/ui/motion/art/ArtSeed;Lcom/davils/kiro/ui/motion/quality/QualityLevel;Lcom/davils/kiro/ui/motion/input/ArtInputs;Landroidx/compose/ui/text/TextMeasurer;)Lcom/davils/kiro/ui/motion/export/ExportOptions;
+	public static synthetic fun copy-EPWWJic$default (Lcom/davils/kiro/ui/motion/export/ExportOptions;Landroidx/compose/ui/unit/Density;Lcom/davils/kiro/ui/motion/art/ArtSeed;Lcom/davils/kiro/ui/motion/quality/QualityLevel;Lcom/davils/kiro/ui/motion/input/ArtInputs;Landroidx/compose/ui/text/TextMeasurer;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/export/ExportOptions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDensity ()Landroidx/compose/ui/unit/Density;
+	public final fun getInputs ()Lcom/davils/kiro/ui/motion/input/ArtInputs;
+	public final fun getQuality ()Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public final fun getSeed-tcohJug ()Lcom/davils/kiro/ui/motion/art/ArtSeed;
+	public final fun getTextMeasurer ()Landroidx/compose/ui/text/TextMeasurer;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/export/FrameExportKt {
+	public static final fun renderFrame-lCyXFq8 (Lcom/davils/kiro/ui/motion/scene/Scene;JJLcom/davils/kiro/ui/core/Theme;Lcom/davils/kiro/ui/motion/export/ExportOptions;)Landroidx/compose/ui/graphics/ImageBitmap;
+	public static synthetic fun renderFrame-lCyXFq8$default (Lcom/davils/kiro/ui/motion/scene/Scene;JJLcom/davils/kiro/ui/core/Theme;Lcom/davils/kiro/ui/motion/export/ExportOptions;ILjava/lang/Object;)Landroidx/compose/ui/graphics/ImageBitmap;
+	public static final fun renderFrames-dxtic5Y (Lcom/davils/kiro/ui/motion/scene/Scene;JJJILcom/davils/kiro/ui/core/Theme;Lcom/davils/kiro/ui/motion/export/ExportOptions;)Lkotlin/sequences/Sequence;
+	public static synthetic fun renderFrames-dxtic5Y$default (Lcom/davils/kiro/ui/motion/scene/Scene;JJJILcom/davils/kiro/ui/core/Theme;Lcom/davils/kiro/ui/motion/export/ExportOptions;ILjava/lang/Object;)Lkotlin/sequences/Sequence;
+}
+
+public final class com/davils/kiro/ui/motion/host/ComposableSingletons$MotionCanvasKt {
+	public static final field INSTANCE Lcom/davils/kiro/ui/motion/host/ComposableSingletons$MotionCanvasKt;
+	public fun <init> ()V
+	public final fun getLambda$-1856095552$com_davils_kiro_ui_motion ()Lkotlin/jvm/functions/Function3;
+}
+
+public final class com/davils/kiro/ui/motion/host/MotionCanvasKt {
+	public static final fun MotionCanvas (Lcom/davils/kiro/ui/motion/scene/Scene;Landroidx/compose/ui/Modifier;Lcom/davils/kiro/ui/motion/time/ArtPlayback;Lcom/davils/kiro/ui/motion/input/ArtInputs;Lcom/davils/kiro/ui/motion/host/MotionStyle;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/motion/host/MotionStyle {
+	public static final field $stable I
+	public synthetic fun <init> (ZFLcom/davils/kiro/ui/motion/quality/QualityPolicy;Lcom/davils/kiro/ui/motion/power/PowerPolicy;FJIZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-R9cSQ8c (ZFLcom/davils/kiro/ui/motion/quality/QualityPolicy;Lcom/davils/kiro/ui/motion/power/PowerPolicy;FJIZI)Lcom/davils/kiro/ui/motion/host/MotionStyle;
+	public static synthetic fun copy-R9cSQ8c$default (Lcom/davils/kiro/ui/motion/host/MotionStyle;ZFLcom/davils/kiro/ui/motion/quality/QualityPolicy;Lcom/davils/kiro/ui/motion/power/PowerPolicy;FJIZIILjava/lang/Object;)Lcom/davils/kiro/ui/motion/host/MotionStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDiagnosticsInterval ()I
+	public final fun getPointerSmoothing ()F
+	public final fun getPower ()Lcom/davils/kiro/ui/motion/power/PowerPolicy;
+	public final fun getQuality ()Lcom/davils/kiro/ui/motion/quality/QualityPolicy;
+	public final fun getSeed-aaY7A1g ()I
+	public final fun getSpeed ()F
+	public final fun getStillTime-UwyO8pc ()J
+	public fun hashCode ()I
+	public final fun isAnimated ()Z
+	public final fun isInteractive ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/host/MotionStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/host/MotionStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/host/MotionStyle;
+}
+
+public final class com/davils/kiro/ui/motion/host/MotionStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/host/MotionStyles;
+}
+
+public final class com/davils/kiro/ui/motion/host/MotionStylesKt {
+	public static final fun getMotionStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun motionStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/host/MotionStyle;
+}
+
+public final class com/davils/kiro/ui/motion/input/ArtInputs {
+	public static final field $stable I
+	public static final field Companion Lcom/davils/kiro/ui/motion/input/ArtInputs$Companion;
+	public synthetic fun <init> (Landroidx/compose/ui/geometry/Offset;JZLjava/lang/Float;FLjava/util/Map;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-6K8pyYE (Landroidx/compose/ui/geometry/Offset;JZLjava/lang/Float;FLjava/util/Map;)Lcom/davils/kiro/ui/motion/input/ArtInputs;
+	public static synthetic fun copy-6K8pyYE$default (Lcom/davils/kiro/ui/motion/input/ArtInputs;Landroidx/compose/ui/geometry/Offset;JZLjava/lang/Float;FLjava/util/Map;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/input/ArtInputs;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun get (Lcom/davils/kiro/ui/motion/input/SignalKey;)F
+	public final fun getPointer-_m7T9-E ()Landroidx/compose/ui/geometry/Offset;
+	public final fun getProgress ()Ljava/lang/Float;
+	public final fun getScroll ()F
+	public final fun getSignals ()Ljava/util/Map;
+	public final fun getVelocity-F1C5BW0 ()J
+	public fun hashCode ()I
+	public final fun isPressed ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/input/ArtInputs$Companion {
+	public final fun getNone ()Lcom/davils/kiro/ui/motion/input/ArtInputs;
+}
+
+public final class com/davils/kiro/ui/motion/input/RememberedInputsKt {
+	public static final fun rememberArtInputs (Ljava/lang/Float;FLjava/util/Map;Landroidx/compose/runtime/Composer;II)Lcom/davils/kiro/ui/motion/input/ArtInputs;
+}
+
+public final class com/davils/kiro/ui/motion/input/SignalKey {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;F)V
+	public final fun getDefault ()F
+	public final fun getName ()Ljava/lang/String;
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/mask/Mask {
+}
+
+public final class com/davils/kiro/ui/motion/mask/Mask$Linear : com/davils/kiro/ui/motion/mask/Mask {
+	public static final field $stable I
+	public fun <init> (FLjava/util/List;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAngle ()F
+	public final fun getStops ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/mask/Mask$None : com/davils/kiro/ui/motion/mask/Mask {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/davils/kiro/ui/motion/mask/Mask$None;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/mask/Mask$Radial : com/davils/kiro/ui/motion/mask/Mask {
+	public static final field $stable I
+	public synthetic fun <init> (JFLjava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCenter-F1C5BW0 ()J
+	public final fun getRadius ()F
+	public final fun getStops ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/mask/Mask$Vignette : com/davils/kiro/ui/motion/mask/Mask {
+	public static final field $stable I
+	public fun <init> (FF)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getExtent ()F
+	public final fun getStrength ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/mask/MaskStop {
+	public static final field $stable I
+	public fun <init> (FF)V
+	public final fun copy (FF)Lcom/davils/kiro/ui/motion/mask/MaskStop;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/mask/MaskStop;FFILjava/lang/Object;)Lcom/davils/kiro/ui/motion/mask/MaskStop;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlpha ()F
+	public final fun getPosition ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/noise/FractalNoiseKt {
+	public static final fun fractalNoise (FFFIIFF)F
+	public static final fun ridgedNoise (FFFIIFF)F
+	public static final fun warpedNoise (FFFIFI)F
+}
+
+public final class com/davils/kiro/ui/motion/noise/GradientNoiseKt {
+	public static final fun perlinNoise (FFFI)F
+	public static final fun perlinNoise (FFI)F
+}
+
+public final class com/davils/kiro/ui/motion/noise/HashingKt {
+	public static final fun hashOf (IIII)I
+	public static synthetic fun hashOf$default (IIIIILjava/lang/Object;)I
+	public static final fun pickOf (IIIII)I
+	public static synthetic fun pickOf$default (IIIIIILjava/lang/Object;)I
+	public static final fun rangeOf (FFIII)F
+	public static synthetic fun rangeOf$default (FFIIIILjava/lang/Object;)F
+	public static final fun unitOf (IIII)F
+	public static synthetic fun unitOf$default (IIIIILjava/lang/Object;)F
+}
+
+public final class com/davils/kiro/ui/motion/noise/ValueNoiseKt {
+	public static final fun lerp (FFF)F
+	public static final fun smoothstep (F)F
+	public static final fun valueNoise (FFI)F
+	public static final fun valueNoise (FII)F
+	public static synthetic fun valueNoise$default (FIIILjava/lang/Object;)F
+}
+
+public final class com/davils/kiro/ui/motion/power/PowerPolicy {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (ZZZLjava/lang/Integer;)V
+	public synthetic fun <init> (ZZZLjava/lang/Integer;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (ZZZLjava/lang/Integer;)Lcom/davils/kiro/ui/motion/power/PowerPolicy;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/power/PowerPolicy;ZZZLjava/lang/Integer;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/power/PowerPolicy;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMaxFrameRate ()Ljava/lang/Integer;
+	public fun hashCode ()I
+	public final fun isPausedWhenHidden ()Z
+	public final fun isPausedWhenReducedMotion ()Z
+	public final fun isPausedWhenUnfocused ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/quality/QualityLevel : java/lang/Enum {
+	public static final field Balanced Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public static final field High Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public static final field Low Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public static final field Medium Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public final fun getDensity ()F
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public static fun values ()[Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/quality/QualityPolicy {
+}
+
+public final class com/davils/kiro/ui/motion/quality/QualityPolicy$Adaptive : com/davils/kiro/ui/motion/quality/QualityPolicy {
+	public static final field $stable I
+	public synthetic fun <init> (JLcom/davils/kiro/ui/motion/quality/QualityLevel;Lcom/davils/kiro/ui/motion/quality/QualityLevel;Lcom/davils/kiro/ui/motion/quality/QualityLevel;FFILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-ABIMYHs (JLcom/davils/kiro/ui/motion/quality/QualityLevel;Lcom/davils/kiro/ui/motion/quality/QualityLevel;Lcom/davils/kiro/ui/motion/quality/QualityLevel;FFI)Lcom/davils/kiro/ui/motion/quality/QualityPolicy$Adaptive;
+	public static synthetic fun copy-ABIMYHs$default (Lcom/davils/kiro/ui/motion/quality/QualityPolicy$Adaptive;JLcom/davils/kiro/ui/motion/quality/QualityLevel;Lcom/davils/kiro/ui/motion/quality/QualityLevel;Lcom/davils/kiro/ui/motion/quality/QualityLevel;FFIILjava/lang/Object;)Lcom/davils/kiro/ui/motion/quality/QualityPolicy$Adaptive;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBudget-UwyO8pc ()J
+	public final fun getHeadroom ()F
+	public final fun getInitial ()Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public final fun getMaximum ()Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public final fun getMinimum ()Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public final fun getPatience ()I
+	public final fun getSmoothing ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/quality/QualityPolicy$Fixed : com/davils/kiro/ui/motion/quality/QualityPolicy {
+	public static final field $stable I
+	public fun <init> (Lcom/davils/kiro/ui/motion/quality/QualityLevel;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/quality/QualityLevel;)Lcom/davils/kiro/ui/motion/quality/QualityPolicy$Fixed;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/quality/QualityPolicy$Fixed;Lcom/davils/kiro/ui/motion/quality/QualityLevel;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/quality/QualityPolicy$Fixed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLevel ()Lcom/davils/kiro/ui/motion/quality/QualityLevel;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/scene/Layer {
+	public static final field $stable I
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/Art;FILcom/davils/kiro/ui/motion/scene/LayerTransform;Lcom/davils/kiro/ui/motion/mask/Mask;Lcom/davils/kiro/ui/motion/time/TimeRemap;Lcom/davils/kiro/ui/motion/art/ArtSeed;ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/Art;FILcom/davils/kiro/ui/motion/scene/LayerTransform;Lcom/davils/kiro/ui/motion/mask/Mask;Lcom/davils/kiro/ui/motion/time/TimeRemap;Lcom/davils/kiro/ui/motion/art/ArtSeed;ZZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-Oot1KmI (Lcom/davils/kiro/ui/motion/art/Art;FILcom/davils/kiro/ui/motion/scene/LayerTransform;Lcom/davils/kiro/ui/motion/mask/Mask;Lcom/davils/kiro/ui/motion/time/TimeRemap;Lcom/davils/kiro/ui/motion/art/ArtSeed;ZZ)Lcom/davils/kiro/ui/motion/scene/Layer;
+	public static synthetic fun copy-Oot1KmI$default (Lcom/davils/kiro/ui/motion/scene/Layer;Lcom/davils/kiro/ui/motion/art/Art;FILcom/davils/kiro/ui/motion/scene/LayerTransform;Lcom/davils/kiro/ui/motion/mask/Mask;Lcom/davils/kiro/ui/motion/time/TimeRemap;Lcom/davils/kiro/ui/motion/art/ArtSeed;ZZILjava/lang/Object;)Lcom/davils/kiro/ui/motion/scene/Layer;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getArt ()Lcom/davils/kiro/ui/motion/art/Art;
+	public final fun getBlend-0nO6VwU ()I
+	public final fun getMask ()Lcom/davils/kiro/ui/motion/mask/Mask;
+	public final fun getOpacity ()F
+	public final fun getSeed-tcohJug ()Lcom/davils/kiro/ui/motion/art/ArtSeed;
+	public final fun getTime ()Lcom/davils/kiro/ui/motion/time/TimeRemap;
+	public final fun getTransform ()Lcom/davils/kiro/ui/motion/scene/LayerTransform;
+	public fun hashCode ()I
+	public final fun isInteractive ()Z
+	public final fun isVisible ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/scene/LayerScope {
+	public abstract fun getBlend-0nO6VwU ()I
+	public abstract fun getMask ()Lcom/davils/kiro/ui/motion/mask/Mask;
+	public abstract fun getOpacity ()F
+	public abstract fun getSeed-tcohJug ()Lcom/davils/kiro/ui/motion/art/ArtSeed;
+	public abstract fun getTime ()Lcom/davils/kiro/ui/motion/time/TimeRemap;
+	public abstract fun getTransform ()Lcom/davils/kiro/ui/motion/scene/LayerTransform;
+	public abstract fun isInteractive ()Z
+	public abstract fun isVisible ()Z
+	public abstract fun setBlend-s9anfk8 (I)V
+	public abstract fun setInteractive (Z)V
+	public abstract fun setMask (Lcom/davils/kiro/ui/motion/mask/Mask;)V
+	public abstract fun setOpacity (F)V
+	public abstract fun setSeed-0ZLWGIg (Lcom/davils/kiro/ui/motion/art/ArtSeed;)V
+	public abstract fun setTime (Lcom/davils/kiro/ui/motion/time/TimeRemap;)V
+	public abstract fun setTransform (Lcom/davils/kiro/ui/motion/scene/LayerTransform;)V
+	public abstract fun setVisible (Z)V
+}
+
+public final class com/davils/kiro/ui/motion/scene/LayerTransform {
+	public static final field $stable I
+	public static final field Companion Lcom/davils/kiro/ui/motion/scene/LayerTransform$Companion;
+	public synthetic fun <init> (JFFJFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-qJlre10 (JFFJF)Lcom/davils/kiro/ui/motion/scene/LayerTransform;
+	public static synthetic fun copy-qJlre10$default (Lcom/davils/kiro/ui/motion/scene/LayerTransform;JFFJFILjava/lang/Object;)Lcom/davils/kiro/ui/motion/scene/LayerTransform;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAnchor-F1C5BW0 ()J
+	public final fun getOffset-F1C5BW0 ()J
+	public final fun getParallax ()F
+	public final fun getRotation ()F
+	public final fun getScale ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/scene/LayerTransform$Companion {
+	public final fun getIdentity ()Lcom/davils/kiro/ui/motion/scene/LayerTransform;
+}
+
+public final class com/davils/kiro/ui/motion/scene/Scene {
+	public static final field $stable I
+	public synthetic fun <init> (Ljava/util/List;Landroidx/compose/ui/graphics/Color;Lcom/davils/kiro/ui/motion/color/ArtPalette;Lcom/davils/kiro/ui/motion/mask/Mask;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/util/List;Landroidx/compose/ui/graphics/Color;Lcom/davils/kiro/ui/motion/color/ArtPalette;Lcom/davils/kiro/ui/motion/mask/Mask;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-bMF-p3s (Ljava/util/List;Landroidx/compose/ui/graphics/Color;Lcom/davils/kiro/ui/motion/color/ArtPalette;Lcom/davils/kiro/ui/motion/mask/Mask;)Lcom/davils/kiro/ui/motion/scene/Scene;
+	public static synthetic fun copy-bMF-p3s$default (Lcom/davils/kiro/ui/motion/scene/Scene;Ljava/util/List;Landroidx/compose/ui/graphics/Color;Lcom/davils/kiro/ui/motion/color/ArtPalette;Lcom/davils/kiro/ui/motion/mask/Mask;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/scene/Scene;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getLayers ()Ljava/util/List;
+	public final fun getMask ()Lcom/davils/kiro/ui/motion/mask/Mask;
+	public final fun getPalette ()Lcom/davils/kiro/ui/motion/color/ArtPalette;
+	public fun hashCode ()I
+	public final fun isStatic ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/scene/SceneBuilderKt {
+	public static final fun scene (Lkotlin/jvm/functions/Function1;)Lcom/davils/kiro/ui/motion/scene/Scene;
+}
+
+public final class com/davils/kiro/ui/motion/scene/ScenePresets {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/davils/kiro/ui/motion/scene/ScenePresets;
+	public final fun getAll ()Ljava/util/List;
+	public final fun getComposition ()Lcom/davils/kiro/ui/motion/scene/Scene;
+	public final fun getFlow ()Lcom/davils/kiro/ui/motion/scene/Scene;
+	public final fun getHalftone ()Lcom/davils/kiro/ui/motion/scene/Scene;
+	public final fun getMaze ()Lcom/davils/kiro/ui/motion/scene/Scene;
+	public final fun getOrbits ()Lcom/davils/kiro/ui/motion/scene/Scene;
+	public final fun getSignal ()Lcom/davils/kiro/ui/motion/scene/Scene;
+	public final fun getSkyline ()Lcom/davils/kiro/ui/motion/scene/Scene;
+	public final fun getSpirograph ()Lcom/davils/kiro/ui/motion/scene/Scene;
+	public final fun getTopography ()Lcom/davils/kiro/ui/motion/scene/Scene;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/scene/SceneScope {
+	public abstract fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public abstract fun getMask ()Lcom/davils/kiro/ui/motion/mask/Mask;
+	public abstract fun getPalette ()Lcom/davils/kiro/ui/motion/color/ArtPalette;
+	public abstract fun layer (Lcom/davils/kiro/ui/motion/art/Art;Lkotlin/jvm/functions/Function1;)V
+	public static synthetic fun layer$default (Lcom/davils/kiro/ui/motion/scene/SceneScope;Lcom/davils/kiro/ui/motion/art/Art;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+	public abstract fun setBackground-Y2TPw74 (Landroidx/compose/ui/graphics/Color;)V
+	public abstract fun setMask (Lcom/davils/kiro/ui/motion/mask/Mask;)V
+	public abstract fun setPalette (Lcom/davils/kiro/ui/motion/color/ArtPalette;)V
+}
+
+public final class com/davils/kiro/ui/motion/shader/ColorUniform : com/davils/kiro/ui/motion/shader/Uniform {
+	public static final field $stable I
+	public synthetic fun <init> (Ljava/lang/String;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-4WTKRHQ (Ljava/lang/String;J)Lcom/davils/kiro/ui/motion/shader/ColorUniform;
+	public static synthetic fun copy-4WTKRHQ$default (Lcom/davils/kiro/ui/motion/shader/ColorUniform;Ljava/lang/String;JILjava/lang/Object;)Lcom/davils/kiro/ui/motion/shader/ColorUniform;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getColor-0d7_KjU ()J
+	public fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/shader/FloatUniform : com/davils/kiro/ui/motion/shader/Uniform {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;F)V
+	public final fun copy (Ljava/lang/String;F)Lcom/davils/kiro/ui/motion/shader/FloatUniform;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/shader/FloatUniform;Ljava/lang/String;FILjava/lang/Object;)Lcom/davils/kiro/ui/motion/shader/FloatUniform;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getName ()Ljava/lang/String;
+	public final fun getValue ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/shader/PointerUniform : com/davils/kiro/ui/motion/shader/Uniform {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;)V
+	public final fun copy (Ljava/lang/String;)Lcom/davils/kiro/ui/motion/shader/PointerUniform;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/shader/PointerUniform;Ljava/lang/String;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/shader/PointerUniform;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/shader/ProgressUniform : com/davils/kiro/ui/motion/shader/Uniform {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;F)V
+	public final fun copy (Ljava/lang/String;F)Lcom/davils/kiro/ui/motion/shader/ProgressUniform;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/shader/ProgressUniform;Ljava/lang/String;FILjava/lang/Object;)Lcom/davils/kiro/ui/motion/shader/ProgressUniform;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMissing ()F
+	public fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/shader/ShaderArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/util/List;Lcom/davils/kiro/ui/motion/art/Art;Lcom/davils/kiro/ui/motion/shader/ShaderBackend;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/util/List;Lcom/davils/kiro/ui/motion/art/Art;Lcom/davils/kiro/ui/motion/shader/ShaderBackend;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Ljava/lang/String;Ljava/util/List;Lcom/davils/kiro/ui/motion/art/Art;Lcom/davils/kiro/ui/motion/shader/ShaderBackend;)Lcom/davils/kiro/ui/motion/shader/ShaderArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/shader/ShaderArt;Ljava/lang/String;Ljava/util/List;Lcom/davils/kiro/ui/motion/art/Art;Lcom/davils/kiro/ui/motion/shader/ShaderBackend;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/shader/ShaderArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackend ()Lcom/davils/kiro/ui/motion/shader/ShaderBackend;
+	public final fun getFallback ()Lcom/davils/kiro/ui/motion/art/Art;
+	public final fun getSource ()Ljava/lang/String;
+	public final fun getUniforms ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/shader/ShaderBackend : java/lang/Enum {
+	public static final field Auto Lcom/davils/kiro/ui/motion/shader/ShaderBackend;
+	public static final field Canvas Lcom/davils/kiro/ui/motion/shader/ShaderBackend;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/motion/shader/ShaderBackend;
+	public static fun values ()[Lcom/davils/kiro/ui/motion/shader/ShaderBackend;
+}
+
+public final class com/davils/kiro/ui/motion/shader/SizeUniform : com/davils/kiro/ui/motion/shader/Uniform {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;)V
+	public final fun copy (Ljava/lang/String;)Lcom/davils/kiro/ui/motion/shader/SizeUniform;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/shader/SizeUniform;Ljava/lang/String;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/shader/SizeUniform;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getName ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/shader/TimeUniform : com/davils/kiro/ui/motion/shader/Uniform {
+	public static final field $stable I
+	public synthetic fun <init> (Ljava/lang/String;JLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-HG0u8IE (Ljava/lang/String;J)Lcom/davils/kiro/ui/motion/shader/TimeUniform;
+	public static synthetic fun copy-HG0u8IE$default (Lcom/davils/kiro/ui/motion/shader/TimeUniform;Ljava/lang/String;JILjava/lang/Object;)Lcom/davils/kiro/ui/motion/shader/TimeUniform;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getName ()Ljava/lang/String;
+	public final fun getPeriod-UwyO8pc ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/shader/Uniform {
+	public abstract fun getName ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/shader/Vec2Uniform : com/davils/kiro/ui/motion/shader/Uniform {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;FF)V
+	public final fun copy (Ljava/lang/String;FF)Lcom/davils/kiro/ui/motion/shader/Vec2Uniform;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/shader/Vec2Uniform;Ljava/lang/String;FFILjava/lang/Object;)Lcom/davils/kiro/ui/motion/shader/Vec2Uniform;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getName ()Ljava/lang/String;
+	public final fun getX ()F
+	public final fun getY ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/shader/grain/GrainArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/shader/grain/GrainArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/shader/grain/GrainArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/shader/grain/GrainArtStyle;)Lcom/davils/kiro/ui/motion/shader/grain/GrainArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/shader/grain/GrainArt;Lcom/davils/kiro/ui/motion/shader/grain/GrainArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/shader/grain/GrainArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/shader/grain/GrainArtStyle;
+	public fun hashCode ()I
+	public fun isStatic ()Z
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/shader/grain/GrainArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;FFFLkotlin/time/Duration;ILcom/davils/kiro/ui/motion/shader/ShaderBackend;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-Utr_brI (Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;FFFLkotlin/time/Duration;ILcom/davils/kiro/ui/motion/shader/ShaderBackend;)Lcom/davils/kiro/ui/motion/shader/grain/GrainArtStyle;
+	public static synthetic fun copy-Utr_brI$default (Lcom/davils/kiro/ui/motion/shader/grain/GrainArtStyle;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;FFFLkotlin/time/Duration;ILcom/davils/kiro/ui/motion/shader/ShaderBackend;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/shader/grain/GrainArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAmount ()F
+	public final fun getBackend ()Lcom/davils/kiro/ui/motion/shader/ShaderBackend;
+	public final fun getBalance ()F
+	public final fun getCell-D9Ej5fM ()F
+	public final fun getDots ()I
+	public final fun getRefresh-FghU774 ()Lkotlin/time/Duration;
+	public final fun getShade-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getTone-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/shader/grain/GrainArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/shader/grain/GrainArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/shader/grain/GrainArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/shader/grain/GrainArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/shader/grain/GrainArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/shader/grain/GrainArtStylesKt {
+	public static final fun getGrainArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun grainArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/shader/grain/GrainArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/shader/mesh/MeshGradientArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/shader/mesh/MeshGradientArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/shader/mesh/MeshGradientArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/shader/mesh/MeshGradientArtStyle;)Lcom/davils/kiro/ui/motion/shader/mesh/MeshGradientArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/shader/mesh/MeshGradientArt;Lcom/davils/kiro/ui/motion/shader/mesh/MeshGradientArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/shader/mesh/MeshGradientArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/shader/mesh/MeshGradientArtStyle;
+	public fun hashCode ()I
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/shader/mesh/MeshGradientArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Ljava/util/List;Landroidx/compose/ui/graphics/Color;IFFFFFJFFLcom/davils/kiro/ui/motion/shader/ShaderBackend;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-agUMQ9I (Ljava/util/List;Landroidx/compose/ui/graphics/Color;IFFFFFJFFLcom/davils/kiro/ui/motion/shader/ShaderBackend;)Lcom/davils/kiro/ui/motion/shader/mesh/MeshGradientArtStyle;
+	public static synthetic fun copy-agUMQ9I$default (Lcom/davils/kiro/ui/motion/shader/mesh/MeshGradientArtStyle;Ljava/util/List;Landroidx/compose/ui/graphics/Color;IFFFFFJFFLcom/davils/kiro/ui/motion/shader/ShaderBackend;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/shader/mesh/MeshGradientArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAnchors ()I
+	public final fun getBackend ()Lcom/davils/kiro/ui/motion/shader/ShaderBackend;
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getColors ()Ljava/util/List;
+	public final fun getDither ()F
+	public final fun getDrift ()F
+	public final fun getIntensity ()F
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getPointerPull ()F
+	public final fun getRadius ()F
+	public final fun getSoftness ()F
+	public final fun getSpread ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/shader/mesh/MeshGradientArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/shader/mesh/MeshGradientArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/shader/mesh/MeshGradientArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/shader/mesh/MeshGradientArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/shader/mesh/MeshGradientArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/shader/mesh/MeshGradientArtStylesKt {
+	public static final fun getMeshGradientArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun meshGradientArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/shader/mesh/MeshGradientArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/shader/silk/SilkArt : com/davils/kiro/ui/motion/art/Art {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/motion/shader/silk/SilkArtStyle;)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/shader/silk/SilkArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Lcom/davils/kiro/ui/motion/shader/silk/SilkArtStyle;)Lcom/davils/kiro/ui/motion/shader/silk/SilkArt;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/shader/silk/SilkArt;Lcom/davils/kiro/ui/motion/shader/silk/SilkArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/shader/silk/SilkArt;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStyle ()Lcom/davils/kiro/ui/motion/shader/silk/SilkArtStyle;
+	public fun hashCode ()I
+	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/shader/silk/SilkArtStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;FFFFFFFFJFFLcom/davils/kiro/ui/motion/shader/ShaderBackend;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-NqGkiPI (Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;FFFFFFFFJFFLcom/davils/kiro/ui/motion/shader/ShaderBackend;)Lcom/davils/kiro/ui/motion/shader/silk/SilkArtStyle;
+	public static synthetic fun copy-NqGkiPI$default (Lcom/davils/kiro/ui/motion/shader/silk/SilkArtStyle;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;Landroidx/compose/ui/graphics/Color;FFFFFFFFJFFLcom/davils/kiro/ui/motion/shader/ShaderBackend;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/shader/silk/SilkArtStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAngle ()F
+	public final fun getBackend ()Lcom/davils/kiro/ui/motion/shader/ShaderBackend;
+	public final fun getBackground-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getColor-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getDither ()F
+	public final fun getIntensity ()F
+	public final fun getPeriod-UwyO8pc ()J
+	public final fun getPointerLight ()F
+	public final fun getRelief ()F
+	public final fun getScale ()F
+	public final fun getShadow-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getShadowAlpha ()F
+	public final fun getSheen-QN2ZGVo ()Landroidx/compose/ui/graphics/Color;
+	public final fun getSheenAlpha ()F
+	public final fun getShine ()F
+	public final fun getWarp ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/shader/silk/SilkArtStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/shader/silk/SilkArtStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/shader/silk/SilkArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/shader/silk/SilkArtStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/shader/silk/SilkArtStyles;
+}
+
+public final class com/davils/kiro/ui/motion/shader/silk/SilkArtStylesKt {
+	public static final fun getSilkArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun silkArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/shader/silk/SilkArtStyle;
+}
+
+public final class com/davils/kiro/ui/motion/time/ArtPlayback {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (JZFLkotlin/time/Duration;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JZFLkotlin/time/Duration;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getElapsed-UwyO8pc ()J
+	public final fun getLoop-FghU774 ()Lkotlin/time/Duration;
+	public final fun getSpeed ()F
+	public final fun getTime ()Lcom/davils/kiro/ui/motion/time/ArtTime;
+	public final fun isPingPong ()Z
+	public final fun isPlaying ()Z
+	public final fun pause ()V
+	public final fun play ()V
+	public final fun reset ()V
+	public final fun seek-LRDsOJo (J)V
+	public final fun setLoop-BwNAW2A (Lkotlin/time/Duration;)V
+	public final fun setPingPong (Z)V
+	public final fun setSpeed (F)V
+	public fun toString ()Ljava/lang/String;
+	public final fun toggle ()V
+}
+
+public final class com/davils/kiro/ui/motion/time/ArtPlaybackKt {
+	public static final fun rememberArtPlayback-4M_FChI (JZFLkotlin/time/Duration;ZLandroidx/compose/runtime/Composer;II)Lcom/davils/kiro/ui/motion/time/ArtPlayback;
+}
+
+public final class com/davils/kiro/ui/motion/time/ArtTime {
+	public static final field $stable I
+	public static final field Companion Lcom/davils/kiro/ui/motion/time/ArtTime$Companion;
+	public fun <init> (J)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDuration-UwyO8pc ()J
+	public final fun getNanos ()J
+	public final fun getSeconds ()D
+	public fun hashCode ()I
+	public final fun phase-LRDsOJo (J)D
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/time/ArtTime$Companion {
+	public final fun getZero ()Lcom/davils/kiro/ui/motion/time/ArtTime;
+	public final fun of-LRDsOJo (J)Lcom/davils/kiro/ui/motion/time/ArtTime;
+}
+
+public final class com/davils/kiro/ui/motion/time/Easings {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/davils/kiro/ui/motion/time/Easings;
+	public final fun backInOut (F)Landroidx/compose/animation/core/Easing;
+	public final fun backOut (F)Landroidx/compose/animation/core/Easing;
+	public final fun cubicBezier (FFFF)Landroidx/compose/animation/core/Easing;
+	public final fun elasticOut (F)Landroidx/compose/animation/core/Easing;
+	public final fun getBackInOut ()Landroidx/compose/animation/core/Easing;
+	public final fun getBackOut ()Landroidx/compose/animation/core/Easing;
+	public final fun getBounceOut ()Landroidx/compose/animation/core/Easing;
+	public final fun getElasticOut ()Landroidx/compose/animation/core/Easing;
+	public final fun steps (IZ)Landroidx/compose/animation/core/Easing;
+	public static synthetic fun steps$default (Lcom/davils/kiro/ui/motion/time/Easings;IZILjava/lang/Object;)Landroidx/compose/animation/core/Easing;
+}
+
+public final class com/davils/kiro/ui/motion/time/Keyframe {
+	public static final field $stable I
+	public synthetic fun <init> (JLjava/lang/Object;Landroidx/compose/animation/core/Easing;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (JLjava/lang/Object;Landroidx/compose/animation/core/Easing;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-KLykuaI (JLjava/lang/Object;Landroidx/compose/animation/core/Easing;)Lcom/davils/kiro/ui/motion/time/Keyframe;
+	public static synthetic fun copy-KLykuaI$default (Lcom/davils/kiro/ui/motion/time/Keyframe;JLjava/lang/Object;Landroidx/compose/animation/core/Easing;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/time/Keyframe;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEasing ()Landroidx/compose/animation/core/Easing;
+	public final fun getTime-UwyO8pc ()J
+	public final fun getValue ()Ljava/lang/Object;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/time/KeyframeLoop : java/lang/Enum {
+	public static final field Clamp Lcom/davils/kiro/ui/motion/time/KeyframeLoop;
+	public static final field Loop Lcom/davils/kiro/ui/motion/time/KeyframeLoop;
+	public static final field PingPong Lcom/davils/kiro/ui/motion/time/KeyframeLoop;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/motion/time/KeyframeLoop;
+	public static fun values ()[Lcom/davils/kiro/ui/motion/time/KeyframeLoop;
+}
+
+public final class com/davils/kiro/ui/motion/time/Keyframes {
+	public static final field $stable I
+	public fun <init> (Ljava/util/List;Lkotlin/jvm/functions/Function3;Lcom/davils/kiro/ui/motion/time/KeyframeLoop;)V
+	public synthetic fun <init> (Ljava/util/List;Lkotlin/jvm/functions/Function3;Lcom/davils/kiro/ui/motion/time/KeyframeLoop;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Ljava/util/List;Lkotlin/jvm/functions/Function3;Lcom/davils/kiro/ui/motion/time/KeyframeLoop;)Lcom/davils/kiro/ui/motion/time/Keyframes;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/time/Keyframes;Ljava/util/List;Lkotlin/jvm/functions/Function3;Lcom/davils/kiro/ui/motion/time/KeyframeLoop;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/time/Keyframes;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDuration-UwyO8pc ()J
+	public final fun getFrames ()Ljava/util/List;
+	public final fun getLerp ()Lkotlin/jvm/functions/Function3;
+	public final fun getLoop ()Lcom/davils/kiro/ui/motion/time/KeyframeLoop;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public final fun valueAt (Lcom/davils/kiro/ui/motion/time/ArtTime;)Ljava/lang/Object;
+	public final fun valueAt-LRDsOJo (J)Ljava/lang/Object;
+}
+
+public final class com/davils/kiro/ui/motion/time/TimeRemap {
+	public static final field $stable I
+	public static final field Companion Lcom/davils/kiro/ui/motion/time/TimeRemap$Companion;
+	public synthetic fun <init> (FJZLkotlin/time/Duration;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun apply (Lcom/davils/kiro/ui/motion/time/ArtTime;)Lcom/davils/kiro/ui/motion/time/ArtTime;
+	public final fun copy-Xf29890 (FJZLkotlin/time/Duration;Z)Lcom/davils/kiro/ui/motion/time/TimeRemap;
+	public static synthetic fun copy-Xf29890$default (Lcom/davils/kiro/ui/motion/time/TimeRemap;FJZLkotlin/time/Duration;ZILjava/lang/Object;)Lcom/davils/kiro/ui/motion/time/TimeRemap;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLoop-FghU774 ()Lkotlin/time/Duration;
+	public final fun getOffset-UwyO8pc ()J
+	public final fun getSpeed ()F
+	public fun hashCode ()I
+	public final fun isFrozen ()Z
+	public final fun isPingPong ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/time/TimeRemap$Companion {
+	public final fun getIdentity ()Lcom/davils/kiro/ui/motion/time/TimeRemap;
+}
+
+public final class com/davils/kiro/ui/motion/typewriter/DeleteStep : com/davils/kiro/ui/motion/typewriter/TypewriterStep {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/Integer;)V
+	public synthetic fun <init> (Ljava/lang/Integer;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Ljava/lang/Integer;)Lcom/davils/kiro/ui/motion/typewriter/DeleteStep;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/typewriter/DeleteStep;Ljava/lang/Integer;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/typewriter/DeleteStep;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCount ()Ljava/lang/Integer;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/typewriter/PauseStep : com/davils/kiro/ui/motion/typewriter/TypewriterStep {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Lkotlin/time/Duration;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Lkotlin/time/Duration;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-BwNAW2A (Lkotlin/time/Duration;)Lcom/davils/kiro/ui/motion/typewriter/PauseStep;
+	public static synthetic fun copy-BwNAW2A$default (Lcom/davils/kiro/ui/motion/typewriter/PauseStep;Lkotlin/time/Duration;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/typewriter/PauseStep;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDuration-FghU774 ()Lkotlin/time/Duration;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/typewriter/TypeStep : com/davils/kiro/ui/motion/typewriter/TypewriterStep {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;)V
+	public final fun copy (Ljava/lang/String;)Lcom/davils/kiro/ui/motion/typewriter/TypeStep;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/typewriter/TypeStep;Ljava/lang/String;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/typewriter/TypeStep;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getText ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/typewriter/TypewriterScript {
+	public static final field $stable I
+	public fun <init> (Ljava/util/List;Z)V
+	public final fun copy (Ljava/util/List;Z)Lcom/davils/kiro/ui/motion/typewriter/TypewriterScript;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/typewriter/TypewriterScript;Ljava/util/List;ZILjava/lang/Object;)Lcom/davils/kiro/ui/motion/typewriter/TypewriterScript;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getSteps ()Ljava/util/List;
+	public fun hashCode ()I
+	public final fun isRepeating ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/motion/typewriter/TypewriterScriptBuilder {
+	public static final field $stable I
+	public final fun delete (Ljava/lang/Integer;)V
+	public static synthetic fun delete$default (Lcom/davils/kiro/ui/motion/typewriter/TypewriterScriptBuilder;Ljava/lang/Integer;ILjava/lang/Object;)V
+	public final fun pause-BwNAW2A (Lkotlin/time/Duration;)V
+	public static synthetic fun pause-BwNAW2A$default (Lcom/davils/kiro/ui/motion/typewriter/TypewriterScriptBuilder;Lkotlin/time/Duration;ILjava/lang/Object;)V
+	public final fun repeat ()V
+	public final fun type (Ljava/lang/String;)V
+}
+
+public abstract interface class com/davils/kiro/ui/motion/typewriter/TypewriterStep {
+}
+
+public final class com/davils/kiro/ui/motion/typewriter/TypewriterStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Landroidx/compose/ui/text/TextStyle;JJFFFLandroidx/compose/ui/graphics/Shape;JJLandroidx/compose/animation/core/Easing;ZJJJLjava/lang/String;FJFZZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-qMimF-Y (Landroidx/compose/ui/text/TextStyle;JJFFFLandroidx/compose/ui/graphics/Shape;JJLandroidx/compose/animation/core/Easing;ZJJJLjava/lang/String;FJFZZ)Lcom/davils/kiro/ui/motion/typewriter/TypewriterStyle;
+	public static synthetic fun copy-qMimF-Y$default (Lcom/davils/kiro/ui/motion/typewriter/TypewriterStyle;Landroidx/compose/ui/text/TextStyle;JJFFFLandroidx/compose/ui/graphics/Shape;JJLandroidx/compose/animation/core/Easing;ZJJJLjava/lang/String;FJFZZILjava/lang/Object;)Lcom/davils/kiro/ui/motion/typewriter/TypewriterStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCaretColor-0d7_KjU ()J
+	public final fun getCaretEasing ()Landroidx/compose/animation/core/Easing;
+	public final fun getCaretFade-UwyO8pc ()J
+	public final fun getCaretGap-D9Ej5fM ()F
+	public final fun getCaretHeight ()F
+	public final fun getCaretPeriod-UwyO8pc ()J
+	public final fun getCaretShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getCaretWidth-D9Ej5fM ()F
+	public final fun getColor-0d7_KjU ()J
+	public final fun getDeleteDelay-UwyO8pc ()J
+	public final fun getHasCaret ()Z
+	public final fun getHold-UwyO8pc ()J
+	public final fun getJitter ()F
+	public final fun getPunctuation ()Ljava/lang/String;
+	public final fun getPunctuationDelay-UwyO8pc ()J
+	public final fun getSpeed ()F
+	public final fun getTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getTypeDelay-UwyO8pc ()J
+	public fun hashCode ()I
+	public final fun isAnimated ()Z
+	public final fun isSpaceReserved ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/motion/typewriter/TypewriterStyles {
+	public static final field Companion Lcom/davils/kiro/ui/motion/typewriter/TypewriterStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/typewriter/TypewriterStyle;
+}
+
+public final class com/davils/kiro/ui/motion/typewriter/TypewriterStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/motion/typewriter/TypewriterStyles;
+}
+
+public final class com/davils/kiro/ui/motion/typewriter/TypewriterStylesKt {
+	public static final fun getTypewriterStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun typewriterStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/typewriter/TypewriterStyle;
+}
+
+public final class com/davils/kiro/ui/motion/typewriter/TypewriterTextKt {
+	public static final fun TypewriterText (Lcom/davils/kiro/ui/motion/typewriter/TypewriterScript;Landroidx/compose/ui/Modifier;Lcom/davils/kiro/ui/motion/typewriter/TypewriterStyle;ILkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/motion/typewriter/TypewritersKt {
+	public static final fun typewriter (Lkotlin/jvm/functions/Function1;)Lcom/davils/kiro/ui/motion/typewriter/TypewriterScript;
+	public static final fun typewriterCycle-6Au4x4Y (Ljava/util/List;Lkotlin/time/Duration;)Lcom/davils/kiro/ui/motion/typewriter/TypewriterScript;
+	public static synthetic fun typewriterCycle-6Au4x4Y$default (Ljava/util/List;Lkotlin/time/Duration;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/typewriter/TypewriterScript;
+}
+
