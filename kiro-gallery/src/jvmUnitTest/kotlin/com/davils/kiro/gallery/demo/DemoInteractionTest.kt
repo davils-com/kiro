@@ -66,7 +66,8 @@ private val texts: List<String> = listOf(
 )
 
 private fun demoNamed(file: String): @Composable () -> Unit = demos
-    .first { demo -> demo.file == "${file}Demo.kt" }
+    .flatMap { demo -> demo.sections }
+    .first { section -> section.file == "${file}Demo.kt" }
     .content
 
 @OptIn(ExperimentalTestApi::class)

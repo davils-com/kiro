@@ -27,6 +27,7 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
@@ -59,23 +60,41 @@ private const val HIDE: String = "Hide code"
 
 @Composable
 internal fun DemoPage(demo: GalleryDemo) {
-    val code by produceState(initialValue = "", demo) { value = demo.source() }
-    var isCodeShown by remember(demo) { mutableStateOf(false) }
-    val colors = theme.colors
     val typography = theme.typography
     val title = TextStyle(
         fontFamily = typography.families.heading,
         fontSize = typography.scale.xl3.fontSize,
         fontWeight = FontWeight.SemiBold,
     )
-    val shape = RoundedCornerShape(theme.radii.xl)
+    val isTitled = demo.sections.size > 1
+    Column(modifier = Modifier.widthIn(max = 960.dp), verticalArrangement = Arrangement.spacedBy(24.dp)) {
+        Text(text = demo.name, style = title)
+        demo.sections.forEach { section ->
+            key(section) { DemoSectionView(section = section, isTitled = isTitled) }
+        }
+    }
+}
+
+@Composable
+private fun DemoSectionView(section: DemoSection, isTitled: Boolean) {
+    val code by produceState(initialValue = "", section) { value = section.source() }
+    var isCodeShown by remember(section) { mutableStateOf(false) }
+    val colors = theme.colors
+    val typography = theme.typography
+    val heading = TextStyle(
+        fontFamily = typography.families.heading,
+        fontSize = typography.scale.xl.fontSize,
+        fontWeight = FontWeight.SemiBold,
+    )
     val frame = Modifier.surface(
-        shape = shape,
+        shape = RoundedCornerShape(theme.radii.xl),
         color = colors.background,
         border = Border(width = 1.dp, color = colors.border),
     )
-    Column(modifier = Modifier.widthIn(max = 960.dp), verticalArrangement = Arrangement.spacedBy(24.dp)) {
-        Text(text = demo.name, style = title)
+    Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+        if (isTitled) {
+            Text(text = section.name, style = heading)
+        }
         Box(
             modifier = Modifier
                 .fillMaxWidth()
@@ -84,9 +103,9 @@ internal fun DemoPage(demo: GalleryDemo) {
                 .padding(40.dp),
             contentAlignment = Alignment.Center,
         ) {
-            demo.content()
+            section.content()
         }
-        DemoSource(file = demo.file, code = code, isShown = isCodeShown) { shown -> isCodeShown = shown }
+        DemoSource(file = section.file, code = code, isShown = isCodeShown) { shown -> isCodeShown = shown }
     }
 }
 

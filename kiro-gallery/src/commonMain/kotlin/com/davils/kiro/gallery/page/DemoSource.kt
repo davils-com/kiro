@@ -22,11 +22,11 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 private const val DEMO_DIRECTORY: String = "files/demos"
 private const val PACKAGE: String = "package "
 
-internal val GalleryDemo.file: String
+internal val DemoSection.file: String
     get() = "${name.filterNot { character -> character.isWhitespace() }}Demo.kt"
 
 @OptIn(ExperimentalResourceApi::class)
-internal suspend fun GalleryDemo.source(): String {
+internal suspend fun DemoSection.source(): String {
     val bytes = Res.readBytes("$DEMO_DIRECTORY/$file")
     val text = bytes.decodeToString()
     val body = text.substringAfter(PACKAGE).substringAfter('\n')

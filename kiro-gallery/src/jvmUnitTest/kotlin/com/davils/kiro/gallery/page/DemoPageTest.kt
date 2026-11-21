@@ -34,32 +34,30 @@ import kotlinx.coroutines.runBlocking
 import org.jetbrains.compose.resources.MissingResourceException
 
 private const val SETTLE: Long = 1_000L
+private const val SHOW_CODE: String = "Show code"
 
 @OptIn(ExperimentalTestApi::class)
 class DemoPageTest : FunSpec({
     context("source") {
         test("shows the demo file from its imports on") {
-            demos.forEach { demo ->
-                val source = demo.source()
+            demos.flatMap { demo -> demo.sections }.forEach { section ->
+                val source = section.source()
 
                 source shouldStartWith "import "
-                source shouldContain "internal fun ${demo.file.removeSuffix(".kt")}()"
+                source shouldContain "internal fun ${section.file.removeSuffix(".kt")}()"
             }
         }
 
         test("names the file after the component without spaces") {
-            GalleryDemo(
-                name = "Alert Dialog",
-                category = GalleryCategory.Overlays,
-            ) {}.file shouldBe "AlertDialogDemo.kt"
+            val name = "Alert Dialog"
+
+            DemoSection(name = name) {}.file shouldBe "AlertDialogDemo.kt"
+            GalleryDemo(name = name, category = GalleryCategory.Overlays) {}.sections.single().name shouldBe name
         }
 
         test("fails for a component without a demo file") {
             shouldThrow<MissingResourceException> {
-                GalleryDemo(
-                    name = "Missing",
-                    category = GalleryCategory.Utilities,
-                ) {}.source()
+                DemoSection(name = "Missing") {}.source()
             }
         }
     }
@@ -73,7 +71,7 @@ class DemoPageTest : FunSpec({
                     demos.forEach { demo ->
                         current = demo
                         waitForIdle()
-                        onNodeWithText(demo.file).assertExists()
+                        demo.sections.forEach { section -> onNodeWithText(section.file).assertExists() }
                     }
                 }
             }
@@ -83,17 +81,17 @@ class DemoPageTest : FunSpec({
             var current by mutableStateOf(demos.first())
 
             shown(content = { DemoPage(current) }) {
-                val source = runBlocking { current.source() }
+                val source = runBlocking { current.sections.single().source() }
                 val line = source.lines().first()
                 onNodeWithText(line, substring = true).assertDoesNotExist()
-                click("Show code")
+                click(SHOW_CODE)
                 mainClock.advanceTimeBy(SETTLE)
                 waitForIdle()
                 onNodeWithText("Hide code").assertExists()
                 current = demos.last()
                 mainClock.advanceTimeBy(SETTLE)
                 waitForIdle()
-                onNodeWithText("Show code").assertExists()
+                onNodeWithText(SHOW_CODE).assertExists()
             }
         }
     }

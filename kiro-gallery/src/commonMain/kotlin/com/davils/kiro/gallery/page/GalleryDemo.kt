@@ -18,4 +18,7 @@ package com.davils.kiro.gallery.page
 
 import androidx.compose.runtime.Composable
 
-internal data class GalleryDemo(val name: String, val category: GalleryCategory, val content: @Composable () -> Unit)
+internal data class GalleryDemo(val name: String, val category: GalleryCategory, val sections: List<DemoSection>) {
+    constructor(name: String, category: GalleryCategory, content: @Composable () -> Unit) :
+        this(name = name, category = category, sections = listOf(DemoSection(name = name, content = content)))
+}
