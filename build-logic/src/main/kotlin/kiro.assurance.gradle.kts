@@ -116,6 +116,7 @@ kreate {
                 ":kiro-ui:kiro-ui-core",
                 ":kiro-ui:kiro-ui-icons",
                 ":kiro-ui:kiro-ui-components",
+                ":kiro-ui:kiro-ui-audio",
                 ":kiro-gallery",
             )
         }
