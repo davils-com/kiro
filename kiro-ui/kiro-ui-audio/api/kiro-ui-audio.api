@@ -1,0 +1,475 @@
+public abstract interface class com/davils/kiro/ui/audio/AudioAction {
+}
+
+public final class com/davils/kiro/ui/audio/AudioAction$Mute : com/davils/kiro/ui/audio/AudioAction {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/davils/kiro/ui/audio/AudioAction$Mute;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/audio/AudioAction$Next : com/davils/kiro/ui/audio/AudioAction {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/davils/kiro/ui/audio/AudioAction$Next;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/audio/AudioAction$Pause : com/davils/kiro/ui/audio/AudioAction {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/davils/kiro/ui/audio/AudioAction$Pause;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/audio/AudioAction$Play : com/davils/kiro/ui/audio/AudioAction {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/davils/kiro/ui/audio/AudioAction$Play;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/audio/AudioAction$Previous : com/davils/kiro/ui/audio/AudioAction {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/davils/kiro/ui/audio/AudioAction$Previous;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/audio/AudioAction$Repeat : com/davils/kiro/ui/audio/AudioAction {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/davils/kiro/ui/audio/AudioAction$Repeat;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/audio/AudioAction$Seek : com/davils/kiro/ui/audio/AudioAction {
+	public static final field $stable I
+	public synthetic fun <init> (JLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPosition-UwyO8pc ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/audio/AudioAction$Select : com/davils/kiro/ui/audio/AudioAction {
+	public static final field $stable I
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getTrack-B7MD1Uc ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/audio/AudioAction$Shuffle : com/davils/kiro/ui/audio/AudioAction {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/davils/kiro/ui/audio/AudioAction$Shuffle;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/audio/AudioAction$Volume : com/davils/kiro/ui/audio/AudioAction {
+	public static final field $stable I
+	public fun <init> (F)V
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLevel ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/audio/AudioControlsStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;FFFFFFJFFFFFFJJFFFFFFFFFFFJFIFFFFFFFFFJJFFFLcom/davils/kiro/ui/core/motion/Motion;Lcom/davils/kiro/ui/audio/AudioIcons;Lcom/davils/kiro/ui/audio/AudioLabels;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-sNNmIm8 (FLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;FFFFFFJFFFFFFJJFFFFFFFFFFFJFIFFFFFFFFFJJFFFLcom/davils/kiro/ui/core/motion/Motion;Lcom/davils/kiro/ui/audio/AudioIcons;Lcom/davils/kiro/ui/audio/AudioLabels;Lkotlin/jvm/functions/Function1;)Lcom/davils/kiro/ui/audio/AudioControlsStyle;
+	public static synthetic fun copy-sNNmIm8$default (Lcom/davils/kiro/ui/audio/AudioControlsStyle;FLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;FFFFFFJFFFFFFJJFFFFFFFFFFFJFIFFFFFFFFFJJFFFLcom/davils/kiro/ui/core/motion/Motion;Lcom/davils/kiro/ui/audio/AudioIcons;Lcom/davils/kiro/ui/audio/AudioLabels;Lkotlin/jvm/functions/Function1;IILjava/lang/Object;)Lcom/davils/kiro/ui/audio/AudioControlsStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActionSize-D9Ej5fM ()F
+	public final fun getArtistStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getBackdropBlur-D9Ej5fM ()F
+	public final fun getBackdropBottomAlpha ()F
+	public final fun getBackdropSaturation ()F
+	public final fun getBackdropScrim ()F
+	public final fun getBackdropTopAlpha ()F
+	public final fun getBreathDuration-UwyO8pc ()J
+	public final fun getBreathScale ()F
+	public final fun getBufferAlpha ()F
+	public final fun getCoverElevation-D9Ej5fM ()F
+	public final fun getCoverRadius-D9Ej5fM ()F
+	public final fun getDarkContent-0d7_KjU ()J
+	public final fun getGap-D9Ej5fM ()F
+	public final fun getGlowAlpha ()F
+	public final fun getHoverAlpha ()F
+	public final fun getIconSize-D9Ej5fM ()F
+	public final fun getIcons ()Lcom/davils/kiro/ui/audio/AudioIcons;
+	public final fun getIdleAlpha ()F
+	public final fun getLabels ()Lcom/davils/kiro/ui/audio/AudioLabels;
+	public final fun getLightContent-0d7_KjU ()J
+	public final fun getMotion ()Lcom/davils/kiro/ui/core/motion/Motion;
+	public final fun getMutedDepth ()F
+	public final fun getPausedScale ()F
+	public final fun getPlaceholderIconSize-D9Ej5fM ()F
+	public final fun getPlayContainer-0d7_KjU ()J
+	public final fun getPlayContent-0d7_KjU ()J
+	public final fun getPlaySize-D9Ej5fM ()F
+	public final fun getPressedScale ()F
+	public final fun getSecondaryAlpha ()F
+	public final fun getSeekStep-UwyO8pc ()J
+	public final fun getSlideShare ()F
+	public final fun getThumbActiveSize-D9Ej5fM ()F
+	public final fun getThumbSize-D9Ej5fM ()F
+	public final fun getTime ()Lkotlin/jvm/functions/Function1;
+	public final fun getTimeStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getTitleStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getTrackAlpha ()F
+	public final fun getTrackHeight-D9Ej5fM ()F
+	public final fun getVibrantSaturation ()F
+	public final fun getVisualizerBars ()I
+	public final fun getVisualizerGap ()F
+	public final fun getVisualizerRest ()F
+	public final fun getVisualizerSize-D9Ej5fM ()F
+	public final fun getVisualizerSpeed ()F
+	public final fun getVisualizerSpread ()F
+	public final fun getVisualizerWave ()F
+	public final fun getVolumeMedium ()F
+	public final fun getVolumeQuiet ()F
+	public final fun getVolumeWheelStep ()F
+	public final fun getVolumeWidth-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/audio/AudioControlsStyles {
+	public static final field Companion Lcom/davils/kiro/ui/audio/AudioControlsStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/audio/AudioControlsStyle;
+}
+
+public final class com/davils/kiro/ui/audio/AudioControlsStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/audio/AudioControlsStyles;
+}
+
+public final class com/davils/kiro/ui/audio/AudioControlsStylesKt {
+	public static final fun audioControlsStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/audio/AudioControlsStyle;
+	public static final fun getAudioControlsStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+}
+
+public final class com/davils/kiro/ui/audio/AudioIcons {
+	public static final field $stable I
+	public fun <init> (Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;)V
+	public final fun copy (Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;)Lcom/davils/kiro/ui/audio/AudioIcons;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/audio/AudioIcons;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;ILjava/lang/Object;)Lcom/davils/kiro/ui/audio/AudioIcons;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLoud ()Lcom/davils/kiro/ui/icons/IconGraphic;
+	public final fun getMedium ()Lcom/davils/kiro/ui/icons/IconGraphic;
+	public final fun getMuted ()Lcom/davils/kiro/ui/icons/IconGraphic;
+	public final fun getNext ()Lcom/davils/kiro/ui/icons/IconGraphic;
+	public final fun getPlaceholder ()Lcom/davils/kiro/ui/icons/IconGraphic;
+	public final fun getPrevious ()Lcom/davils/kiro/ui/icons/IconGraphic;
+	public final fun getQueue ()Lcom/davils/kiro/ui/icons/IconGraphic;
+	public final fun getQuiet ()Lcom/davils/kiro/ui/icons/IconGraphic;
+	public final fun getRepeat ()Lcom/davils/kiro/ui/icons/IconGraphic;
+	public final fun getRepeatOne ()Lcom/davils/kiro/ui/icons/IconGraphic;
+	public final fun getShuffle ()Lcom/davils/kiro/ui/icons/IconGraphic;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/audio/AudioLabels {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/davils/kiro/ui/audio/AudioLabels;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/audio/AudioLabels;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/davils/kiro/ui/audio/AudioLabels;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMute ()Ljava/lang/String;
+	public final fun getNext ()Ljava/lang/String;
+	public final fun getNothingPlaying ()Ljava/lang/String;
+	public final fun getPause ()Ljava/lang/String;
+	public final fun getPlay ()Ljava/lang/String;
+	public final fun getPrevious ()Ljava/lang/String;
+	public final fun getQueue ()Ljava/lang/String;
+	public final fun getRepeat ()Ljava/lang/String;
+	public final fun getSeek ()Ljava/lang/String;
+	public final fun getShuffle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/audio/AudioPlayerState {
+	public static final field $stable I
+	public fun <init> (Ljava/util/List;Lkotlin/jvm/functions/Function1;)V
+	public synthetic fun <init> (Ljava/util/List;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun advance-LRDsOJo (J)V
+	public final fun apply (Lcom/davils/kiro/ui/audio/AudioAction;)V
+	public final fun buffer-LRDsOJo (J)V
+	public final fun getBuffered-UwyO8pc ()J
+	public final fun getCurrent-XyT0uvM ()Ljava/lang/String;
+	public final fun getPosition-UwyO8pc ()J
+	public final fun getProgress ()F
+	public final fun getQueue ()Ljava/util/List;
+	public final fun getRepeat ()Lcom/davils/kiro/ui/audio/RepeatMode;
+	public final fun getTrack ()Lcom/davils/kiro/ui/audio/Track;
+	public final fun getVolume ()F
+	public final fun isMuted ()Z
+	public final fun isPlaying ()Z
+	public final fun isShuffled ()Z
+	public final fun load-w0l4v08 (Ljava/util/List;Ljava/lang/String;)V
+	public static synthetic fun load-w0l4v08$default (Lcom/davils/kiro/ui/audio/AudioPlayerState;Ljava/util/List;Ljava/lang/String;ILjava/lang/Object;)V
+}
+
+public final class com/davils/kiro/ui/audio/AudioPlayerStatesKt {
+	public static final fun rememberAudioPlayerState (Ljava/util/List;Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/audio/AudioPlayerState;
+}
+
+public final class com/davils/kiro/ui/audio/RepeatMode : java/lang/Enum {
+	public static final field All Lcom/davils/kiro/ui/audio/RepeatMode;
+	public static final field Off Lcom/davils/kiro/ui/audio/RepeatMode;
+	public static final field One Lcom/davils/kiro/ui/audio/RepeatMode;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/audio/RepeatMode;
+	public static fun values ()[Lcom/davils/kiro/ui/audio/RepeatMode;
+}
+
+public final class com/davils/kiro/ui/audio/Track {
+	public static final field $stable I
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Landroidx/compose/ui/graphics/ImageBitmap;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Landroidx/compose/ui/graphics/ImageBitmap;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-6ELvT5o (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Landroidx/compose/ui/graphics/ImageBitmap;)Lcom/davils/kiro/ui/audio/Track;
+	public static synthetic fun copy-6ELvT5o$default (Lcom/davils/kiro/ui/audio/Track;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/String;Landroidx/compose/ui/graphics/ImageBitmap;ILjava/lang/Object;)Lcom/davils/kiro/ui/audio/Track;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAlbum ()Ljava/lang/String;
+	public final fun getArtist ()Ljava/lang/String;
+	public final fun getCover ()Landroidx/compose/ui/graphics/ImageBitmap;
+	public final fun getDuration-UwyO8pc ()J
+	public final fun getId-B7MD1Uc ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/audio/TrackId {
+	public static final synthetic fun box-impl (Ljava/lang/String;)Lcom/davils/kiro/ui/audio/TrackId;
+	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/lang/String;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/audio/bar/AudioPlayerBarKt {
+	public static final fun AudioPlayerBar (Lcom/davils/kiro/ui/audio/AudioPlayerState;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function0;Lcom/davils/kiro/ui/audio/bar/AudioPlayerBarStyle;Lcom/davils/kiro/ui/audio/AudioControlsStyle;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/audio/bar/AudioPlayerBarStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FFFLandroidx/compose/ui/graphics/Shape;JJLcom/davils/kiro/ui/core/style/Border;FFFFFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-UmK98ws (FFFLandroidx/compose/ui/graphics/Shape;JJLcom/davils/kiro/ui/core/style/Border;FFFFF)Lcom/davils/kiro/ui/audio/bar/AudioPlayerBarStyle;
+	public static synthetic fun copy-UmK98ws$default (Lcom/davils/kiro/ui/audio/bar/AudioPlayerBarStyle;FFFLandroidx/compose/ui/graphics/Shape;JJLcom/davils/kiro/ui/core/style/Border;FFFFFILjava/lang/Object;)Lcom/davils/kiro/ui/audio/bar/AudioPlayerBarStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorder ()Lcom/davils/kiro/ui/core/style/Border;
+	public final fun getCenterWeight ()F
+	public final fun getContainer-0d7_KjU ()J
+	public final fun getContent-0d7_KjU ()J
+	public final fun getCoverElevation-D9Ej5fM ()F
+	public final fun getCoverRadius-D9Ej5fM ()F
+	public final fun getCoverSize-D9Ej5fM ()F
+	public final fun getGap-D9Ej5fM ()F
+	public final fun getHeight-D9Ej5fM ()F
+	public final fun getPadding-D9Ej5fM ()F
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getTint ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/audio/bar/AudioPlayerBarStyles {
+	public static final field Companion Lcom/davils/kiro/ui/audio/bar/AudioPlayerBarStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/audio/bar/AudioPlayerBarStyle;
+}
+
+public final class com/davils/kiro/ui/audio/bar/AudioPlayerBarStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/audio/bar/AudioPlayerBarStyles;
+}
+
+public final class com/davils/kiro/ui/audio/bar/AudioPlayerBarStylesKt {
+	public static final fun audioPlayerBarStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/audio/bar/AudioPlayerBarStyle;
+	public static final fun getAudioPlayerBarStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+}
+
+public final class com/davils/kiro/ui/audio/card/AudioPlayerCardKt {
+	public static final fun AudioPlayerCard (Lcom/davils/kiro/ui/audio/AudioPlayerState;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lcom/davils/kiro/ui/audio/card/AudioPlayerCardStyle;Lcom/davils/kiro/ui/audio/AudioControlsStyle;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/audio/card/AudioPlayerCardStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FFFLandroidx/compose/ui/graphics/Shape;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-DRUOcmI (FFFLandroidx/compose/ui/graphics/Shape;)Lcom/davils/kiro/ui/audio/card/AudioPlayerCardStyle;
+	public static synthetic fun copy-DRUOcmI$default (Lcom/davils/kiro/ui/audio/card/AudioPlayerCardStyle;FFFLandroidx/compose/ui/graphics/Shape;ILjava/lang/Object;)Lcom/davils/kiro/ui/audio/card/AudioPlayerCardStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getGap-D9Ej5fM ()F
+	public final fun getPadding-D9Ej5fM ()F
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getWidth-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/audio/card/AudioPlayerCardStyles {
+	public static final field Companion Lcom/davils/kiro/ui/audio/card/AudioPlayerCardStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/audio/card/AudioPlayerCardStyle;
+}
+
+public final class com/davils/kiro/ui/audio/card/AudioPlayerCardStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/audio/card/AudioPlayerCardStyles;
+}
+
+public final class com/davils/kiro/ui/audio/card/AudioPlayerCardStylesKt {
+	public static final fun audioPlayerCardStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/audio/card/AudioPlayerCardStyle;
+	public static final fun getAudioPlayerCardStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+}
+
+public final class com/davils/kiro/ui/audio/controls/AudioCoverKt {
+	public static final fun AudioCover-HYR8e34 (Lcom/davils/kiro/ui/audio/Track;ZLandroidx/compose/ui/Modifier;Lcom/davils/kiro/ui/audio/AudioControlsStyle;Landroidx/compose/ui/graphics/Shape;FLandroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/audio/controls/AudioScrubberKt {
+	public static final fun AudioScrubber-uDo3WH8 (Lcom/davils/kiro/ui/audio/AudioPlayerState;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;JLcom/davils/kiro/ui/audio/AudioControlsStyle;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/audio/controls/AudioVisualizerKt {
+	public static final fun AudioVisualizer-cf5BqRc (ZLandroidx/compose/ui/Modifier;JLcom/davils/kiro/ui/audio/AudioControlsStyle;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/audio/controls/CoverBackdropKt {
+	public static final fun CoverBackdrop (Lcom/davils/kiro/ui/audio/Track;Landroidx/compose/ui/Modifier;ZLcom/davils/kiro/ui/audio/AudioControlsStyle;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/audio/controls/PlayPauseButtonKt {
+	public static final fun PlayPauseButton-xWeB9-s (ZLkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lcom/davils/kiro/ui/audio/AudioControlsStyle;JJFLandroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/audio/controls/TrackInfoKt {
+	public static final fun TrackInfo (Lcom/davils/kiro/ui/audio/AudioPlayerState;Landroidx/compose/ui/Modifier;ZZLcom/davils/kiro/ui/audio/AudioControlsStyle;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/audio/controls/TransportControlsKt {
+	public static final fun TransportControls-fWhpE4E (Lcom/davils/kiro/ui/audio/AudioPlayerState;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;JZLcom/davils/kiro/ui/audio/AudioControlsStyle;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/audio/controls/VolumeControlKt {
+	public static final fun VolumeControl-9nDbdT8 (Lcom/davils/kiro/ui/audio/AudioPlayerState;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lcom/davils/kiro/ui/audio/AudioControlsStyle;FJLandroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/audio/full/AudioPlayerFullKt {
+	public static final fun AudioPlayerFull (Lcom/davils/kiro/ui/audio/AudioPlayerState;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;ZLcom/davils/kiro/ui/audio/full/AudioPlayerFullStyle;Lcom/davils/kiro/ui/audio/AudioControlsStyle;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function2;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/audio/full/AudioPlayerFullStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FFFFFFFFLandroidx/compose/ui/graphics/Shape;FFFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-8Mn4VcY (FFFFFFFFLandroidx/compose/ui/graphics/Shape;FFF)Lcom/davils/kiro/ui/audio/full/AudioPlayerFullStyle;
+	public static synthetic fun copy-8Mn4VcY$default (Lcom/davils/kiro/ui/audio/full/AudioPlayerFullStyle;FFFFFFFFLandroidx/compose/ui/graphics/Shape;FFFILjava/lang/Object;)Lcom/davils/kiro/ui/audio/full/AudioPlayerFullStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActiveAlpha ()F
+	public final fun getControlsGap-D9Ej5fM ()F
+	public final fun getCoverSize-D9Ej5fM ()F
+	public final fun getGap-D9Ej5fM ()F
+	public final fun getPadding-D9Ej5fM ()F
+	public final fun getQueueCoverElevation-D9Ej5fM ()F
+	public final fun getQueueCoverSize-D9Ej5fM ()F
+	public final fun getQueueGap-D9Ej5fM ()F
+	public final fun getQueueRowGap-D9Ej5fM ()F
+	public final fun getQueueRowPadding-D9Ej5fM ()F
+	public final fun getQueueRowShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getQueueWidth-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/audio/full/AudioPlayerFullStyles {
+	public static final field Companion Lcom/davils/kiro/ui/audio/full/AudioPlayerFullStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/audio/full/AudioPlayerFullStyle;
+}
+
+public final class com/davils/kiro/ui/audio/full/AudioPlayerFullStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/audio/full/AudioPlayerFullStyles;
+}
+
+public final class com/davils/kiro/ui/audio/full/AudioPlayerFullStylesKt {
+	public static final fun audioPlayerFullStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/audio/full/AudioPlayerFullStyle;
+	public static final fun getAudioPlayerFullStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+}
+
+public final class com/davils/kiro/ui/audio/mini/AudioPlayerMiniKt {
+	public static final fun AudioPlayerMini (Lcom/davils/kiro/ui/audio/AudioPlayerState;Lkotlin/jvm/functions/Function1;Landroidx/compose/ui/Modifier;Lcom/davils/kiro/ui/audio/mini/AudioPlayerMiniStyle;Lcom/davils/kiro/ui/audio/AudioControlsStyle;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/audio/mini/AudioPlayerMiniStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FFFFLandroidx/compose/ui/graphics/Shape;JJLcom/davils/kiro/ui/core/style/Border;FLandroidx/compose/ui/graphics/Shape;FFFFFJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-kkc0RyM (FFFFLandroidx/compose/ui/graphics/Shape;JJLcom/davils/kiro/ui/core/style/Border;FLandroidx/compose/ui/graphics/Shape;FFFFFJJ)Lcom/davils/kiro/ui/audio/mini/AudioPlayerMiniStyle;
+	public static synthetic fun copy-kkc0RyM$default (Lcom/davils/kiro/ui/audio/mini/AudioPlayerMiniStyle;FFFFLandroidx/compose/ui/graphics/Shape;JJLcom/davils/kiro/ui/core/style/Border;FLandroidx/compose/ui/graphics/Shape;FFFFFJJILjava/lang/Object;)Lcom/davils/kiro/ui/audio/mini/AudioPlayerMiniStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorder ()Lcom/davils/kiro/ui/core/style/Border;
+	public final fun getContainer-0d7_KjU ()J
+	public final fun getContent-0d7_KjU ()J
+	public final fun getCoverElevation-D9Ej5fM ()F
+	public final fun getCoverShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getGap-D9Ej5fM ()F
+	public final fun getHeight-D9Ej5fM ()F
+	public final fun getMaxWidth-D9Ej5fM ()F
+	public final fun getPadding-D9Ej5fM ()F
+	public final fun getPlayContainer-0d7_KjU ()J
+	public final fun getPlayContent-0d7_KjU ()J
+	public final fun getRingAlpha ()F
+	public final fun getRingGap-D9Ej5fM ()F
+	public final fun getRingStart ()F
+	public final fun getRingWidth-D9Ej5fM ()F
+	public final fun getShape ()Landroidx/compose/ui/graphics/Shape;
+	public final fun getTint ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface class com/davils/kiro/ui/audio/mini/AudioPlayerMiniStyles {
+	public static final field Companion Lcom/davils/kiro/ui/audio/mini/AudioPlayerMiniStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/audio/mini/AudioPlayerMiniStyle;
+}
+
+public final class com/davils/kiro/ui/audio/mini/AudioPlayerMiniStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/audio/mini/AudioPlayerMiniStyles;
+}
+
+public final class com/davils/kiro/ui/audio/mini/AudioPlayerMiniStylesKt {
+	public static final fun audioPlayerMiniStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/audio/mini/AudioPlayerMiniStyle;
+	public static final fun getAudioPlayerMiniStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+}
+
+public final class com/davils/kiro/ui/audio/palette/CoverPalette {
+	public static final field $stable I
+	public synthetic fun <init> (JJJJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-jRlVdoo (JJJJ)Lcom/davils/kiro/ui/audio/palette/CoverPalette;
+	public static synthetic fun copy-jRlVdoo$default (Lcom/davils/kiro/ui/audio/palette/CoverPalette;JJJJILjava/lang/Object;)Lcom/davils/kiro/ui/audio/palette/CoverPalette;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDominant-0d7_KjU ()J
+	public final fun getMuted-0d7_KjU ()J
+	public final fun getOnDominant-0d7_KjU ()J
+	public final fun getVibrant-0d7_KjU ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/audio/palette/CoverPalettesKt {
+	public static final fun rememberCoverPalette (Lcom/davils/kiro/ui/audio/Track;Lcom/davils/kiro/ui/audio/AudioControlsStyle;Landroidx/compose/runtime/Composer;II)Lcom/davils/kiro/ui/audio/palette/CoverPalette;
+}
+
