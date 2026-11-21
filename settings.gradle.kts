@@ -174,4 +174,5 @@ rootProject.name = "kiro"
 include(":kiro-ui:kiro-ui-core")
 include(":kiro-ui:kiro-ui-icons")
 include(":kiro-ui:kiro-ui-components")
+include(":kiro-ui:kiro-ui-audio")
 include(":kiro-gallery")
