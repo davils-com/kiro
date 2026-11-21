@@ -2859,6 +2859,81 @@ public final class com/davils/kiro/ui/components/menubar/WindowMenubarKt {
 	public static final fun WindowMenubar (Landroidx/compose/ui/window/FrameWindowScope;Landroidx/compose/ui/Modifier;Lcom/davils/kiro/ui/components/menubar/DesktopPlatform;Lcom/davils/kiro/ui/components/menubar/MenubarStyle;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
 }
 
+public final class com/davils/kiro/ui/components/menubar/native/NativeEntriesKt {
+	public static final fun NativeEntries (Landroidx/compose/ui/window/MenuScope;Ljava/util/List;Landroidx/compose/runtime/Composer;I)V
+}
+
+public abstract interface class com/davils/kiro/ui/components/menubar/native/NativeMenuEntry {
+}
+
+public final class com/davils/kiro/ui/components/menubar/native/NativeMenuEntry$Checkbox : com/davils/kiro/ui/components/menubar/native/NativeMenuEntry {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;ZZLandroidx/compose/ui/input/key/KeyShortcut;Lkotlin/jvm/functions/Function1;)V
+	public final fun copy (Ljava/lang/String;ZZLandroidx/compose/ui/input/key/KeyShortcut;Lkotlin/jvm/functions/Function1;)Lcom/davils/kiro/ui/components/menubar/native/NativeMenuEntry$Checkbox;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/components/menubar/native/NativeMenuEntry$Checkbox;Ljava/lang/String;ZZLandroidx/compose/ui/input/key/KeyShortcut;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/davils/kiro/ui/components/menubar/native/NativeMenuEntry$Checkbox;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getOnCheckedChange ()Lkotlin/jvm/functions/Function1;
+	public final fun getShortcut ()Landroidx/compose/ui/input/key/KeyShortcut;
+	public fun hashCode ()I
+	public final fun isChecked ()Z
+	public final fun isEnabled ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/components/menubar/native/NativeMenuEntry$Item : com/davils/kiro/ui/components/menubar/native/NativeMenuEntry {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;ZLandroidx/compose/ui/input/key/KeyShortcut;Lkotlin/jvm/functions/Function0;)V
+	public final fun copy (Ljava/lang/String;ZLandroidx/compose/ui/input/key/KeyShortcut;Lkotlin/jvm/functions/Function0;)Lcom/davils/kiro/ui/components/menubar/native/NativeMenuEntry$Item;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/components/menubar/native/NativeMenuEntry$Item;Ljava/lang/String;ZLandroidx/compose/ui/input/key/KeyShortcut;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lcom/davils/kiro/ui/components/menubar/native/NativeMenuEntry$Item;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getOnClick ()Lkotlin/jvm/functions/Function0;
+	public final fun getShortcut ()Landroidx/compose/ui/input/key/KeyShortcut;
+	public fun hashCode ()I
+	public final fun isEnabled ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/components/menubar/native/NativeMenuEntry$Menu : com/davils/kiro/ui/components/menubar/native/NativeMenuEntry {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;ZLjava/util/List;)V
+	public final fun copy (Ljava/lang/String;ZLjava/util/List;)Lcom/davils/kiro/ui/components/menubar/native/NativeMenuEntry$Menu;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/components/menubar/native/NativeMenuEntry$Menu;Ljava/lang/String;ZLjava/util/List;ILjava/lang/Object;)Lcom/davils/kiro/ui/components/menubar/native/NativeMenuEntry$Menu;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEntries ()Ljava/util/List;
+	public final fun getLabel ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isEnabled ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/components/menubar/native/NativeMenuEntry$Radio : com/davils/kiro/ui/components/menubar/native/NativeMenuEntry {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;ZZLkotlin/jvm/functions/Function0;)V
+	public final fun copy (Ljava/lang/String;ZZLkotlin/jvm/functions/Function0;)Lcom/davils/kiro/ui/components/menubar/native/NativeMenuEntry$Radio;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/components/menubar/native/NativeMenuEntry$Radio;Ljava/lang/String;ZZLkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lcom/davils/kiro/ui/components/menubar/native/NativeMenuEntry$Radio;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getOnSelect ()Lkotlin/jvm/functions/Function0;
+	public fun hashCode ()I
+	public final fun isEnabled ()Z
+	public final fun isSelected ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/components/menubar/native/NativeMenuEntry$Separator : com/davils/kiro/ui/components/menubar/native/NativeMenuEntry {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/davils/kiro/ui/components/menubar/native/NativeMenuEntry$Separator;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/components/menubar/native/NativeMenusKt {
+	public static final fun nativeEntriesOf (Lkotlin/jvm/functions/Function1;)Ljava/util/List;
+}
+
 public final class com/davils/kiro/ui/components/message/MessageAlign : java/lang/Enum {
 	public static final field End Lcom/davils/kiro/ui/components/message/MessageAlign;
 	public static final field Start Lcom/davils/kiro/ui/components/message/MessageAlign;

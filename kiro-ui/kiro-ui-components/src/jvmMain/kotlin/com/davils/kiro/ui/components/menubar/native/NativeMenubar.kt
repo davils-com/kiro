@@ -34,9 +34,14 @@ internal object NativeMenubar {
         val current by rememberUpdatedState(menus)
         window.MenuBar {
             current.forEach { menu ->
-                Menu(text = menu.label, enabled = menu.isEnabled) { menu.entries.forEach { entry -> Entry(entry) } }
+                Menu(text = menu.label, enabled = menu.isEnabled) { Entries(scope = this, entries = menu.entries) }
             }
         }
+    }
+
+    @Composable
+    fun Entries(scope: MenuScope, entries: List<NativeMenuEntry>) {
+        entries.forEach { entry -> scope.Entry(entry) }
     }
 
     @Composable
@@ -65,7 +70,7 @@ internal object NativeMenubar {
             )
 
             is NativeMenuEntry.Menu -> Menu(text = entry.label, enabled = entry.isEnabled) {
-                entry.entries.forEach { child -> Entry(child) }
+                Entries(scope = this, entries = entry.entries)
             }
 
             NativeMenuEntry.Separator -> Separator()

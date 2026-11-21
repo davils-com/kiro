@@ -14,12 +14,32 @@
  * limitations under the License.
  */
 
+@file:OptIn(DavilsInternal::class)
+
 package com.davils.kiro.ui.components.menubar.native
 
 import com.davils.kiro.ui.components.menu.MenuEntry
+import com.davils.kiro.ui.components.menu.MenuScope
+import com.davils.kiro.ui.components.menu.MenuScopeImpl
 import com.davils.kiro.ui.components.menubar.MenubarMenu
+import com.davils.kore.core.annotation.DavilsInternal
 
 private val nothing: () -> Unit = {}
+
+/**
+ * Collects the entries that [content] declares and translates them into entries of a menu that the operating system
+ * draws. A label becomes an item that is not enabled, a shortcut is parsed into a key shortcut, and icons, insets and
+ * variants are dropped, since the operating system draws its menus in its own way.
+ *
+ * @param content declares the entries of the menu.
+ * @return the entries of the menu, in the order [content] declares them.
+ * @since 1.0.0
+ */
+@DavilsInternal
+public fun nativeEntriesOf(content: MenuScope.() -> Unit): List<NativeMenuEntry> {
+    val scope = MenuScopeImpl().apply(content)
+    return nativeEntriesOf(scope.entries)
+}
 
 internal fun nativeMenusOf(menus: List<MenubarMenu>): List<NativeMenuEntry.Menu> = menus.map { menu ->
     NativeMenuEntry.Menu(label = menu.label, isEnabled = menu.isEnabled, entries = nativeEntriesOf(menu.entries))

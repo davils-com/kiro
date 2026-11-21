@@ -14,6 +14,8 @@
  * limitations under the License.
  */
 
+@file:OptIn(DavilsInternal::class)
+
 package com.davils.kiro.ui.components.menubar
 
 import androidx.compose.runtime.Composable
@@ -21,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.window.FrameWindowScope
 import com.davils.kiro.ui.components.menubar.native.NativeMenubar
 import com.davils.kiro.ui.components.menubar.native.nativeMenusOf
+import com.davils.kore.core.annotation.DavilsInternal
 
 /**
  * The menubar of a window: on macOS the menus go to the menu bar of the system, elsewhere a [Menubar] shows them
