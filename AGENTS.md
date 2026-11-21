@@ -13,6 +13,8 @@ to the same standard as Kore. Where this file is silent, the rules of Kore apply
 | `kiro-ui/kiro-ui-icons` | `com.davils:kiro-ui-icons` | The `Icon` composable and the complete Lucide set, generated from the SVGs of the pinned Lucide release |
 | `kiro-ui/kiro-ui-components` | `com.davils:kiro-ui-components` | The components, from buttons and inputs to menus, dialogs, tables, calendars and charts |
 | `kiro-ui/kiro-ui-audio` | `com.davils:kiro-ui-audio` | The audio players: bar, card, full view and mini player, their shared state and controls, tinted by the cover of the track; and the audio visualizers: meters, scopes, analyzers, desktop visualizers, the waveform and the clips of a timeline, which show the values a caller measured and analyze nothing themselves |
+| `kiro-ui/kiro-ui-motion` | `com.davils:kiro-ui-motion` | The motion engine: generative art in layered scenes (`Scene`, `Layer`, `MotionCanvas`), thirty arts in tiling, geometry, field, particle, gradient, grid and line families, shader arts with a canvas fallback, palettes, playback, power and quality policies, inputs, masks, export, diagnostics and the typewriter |
+| `kiro-ui/kiro-ui-window` | `com.davils:kiro-ui-window` | The desktop shell, on the JVM only: the `ChromeWindow` with its title bar, the tray, the native application menu and dock, and the splash screens |
 | `build-logic` | - | One convention plugin per Kreate concern, composed by `kiro.kotlin-library`, `kiro.ui-library` and `kiro.root`, and the Lucide generator |
 | `kiro-gallery` | - | The gallery: every component in a light and a dark theme with its source, as a desktop application and in the browser; never published |
 | `kiro-application` | - | Not part of the build yet; nothing in it is touched until it is planned |
@@ -22,7 +24,16 @@ and its `Automatic-Module-Name` has the same name.
 
 ## Targets
 
-Every module is a Kotlin Multiplatform library with two targets: `jvm` and `wasmJs`.
+Every module is a Kotlin Multiplatform library with two targets: `jvm` and `wasmJs`, except `kiro-ui-window`.
+
+- An art of `kiro-ui-motion` follows one pattern: `XArt(style: XArtStyle? = null)` with its `XArtStyle`, `XArtStyles`,
+  `XArtStyleKey` and `xArtStyle()`; every visible value, from a size to a period or an alpha, is a field of the style; a
+  `null` colour takes the palette of the scene; randomness comes only from the seed of the frame; the parts that never
+  move are drawn in `drawStatic`. Defaults stay calm and fit the interface; bold looks come from styles and palettes.
+- `kiro-ui-window` is a plain JVM library, because windows, the tray and the menus of the operating system exist only
+  on the desktop. Its code lives in `src/main/kotlin`, its tests in `src/unitTest/kotlin`, and it may use AWT and the
+  API of the JetBrains Runtime directly, behind seams marked `@DavilsInternal` and bindings marked
+  `@DavilsPlatformBinding`.
 
 - Code lives in `src/commonMain/kotlin`. What only the desktop can offer, such as AWT, window menus and native menu
   bars, lives in `src/jvmMain/kotlin`.
@@ -96,13 +107,15 @@ The test rules of Kore apply. In addition:
 ## Build
 
 - Every module applies exactly one plugin and declares nothing but its description and its dependencies: `kiro.lucide`
-  for `kiro-ui-icons`, `kiro.gallery` for `kiro-gallery`, `kiro.ui-library` for the other modules.
+  for `kiro-ui-icons`, `kiro.gallery` for `kiro-gallery`, `kiro.desktop-library` for `kiro-ui-window`,
+  `kiro.ui-library` for the other modules.
 - The convention plugins follow Kore, with `kiro.` instead of `kore.`. Kiro adds:
 
   | Plugin | Configures |
   |---|---|
   | `kiro.compose` | The Compose compiler and Compose Multiplatform, the exclusion of Material, the Compose test libraries of the JVM tests and the package of the generated resource class |
   | `kiro.ui-library` | `kiro.kotlin-library` and `kiro.compose` for a module of the user interface |
+  | `kiro.desktop-library` | The same conventions as `kiro.ui-library` for a plain JVM module, without the targets of Kotlin Multiplatform and the tools of the web; `kiro.platform`, `kiro.api-validation` and `kiro.compose` apply their multiplatform parts only where the multiplatform plugin is applied |
   | `kiro.lucide` | The `lucide` configuration and the `generateLucideIcons` task, whose output is part of `commonMain` |
   | `kiro.gallery` | The gallery as an application: the desktop main class, the executable of the browser, Binaryen from the repositories of the settings and the sources of the demos as Compose resources; it applies neither publishing nor API validation, documentation or coverage |
 
@@ -127,7 +140,8 @@ The test rules of Kore apply. In addition:
 ## Gallery
 
 - Every component has a demo in `kiro-gallery/src/commonMain/kotlin/com/davils/kiro/gallery/demo`, named `<Name>Demo.kt`
-  and listed in `Demos.kt`. The gallery shows the source of that file, so a demo is written to be read: short, with
+  and listed in `Demos.kt`. A demo of `kiro-ui-window` lives in the same package under `src/jvmMain` and is listed in
+  `PlatformDemos.jvm.kt`. The gallery shows the source of that file, so a demo is written to be read: short, with
   the values a user would write.
 - The gallery runs with `./gradlew :kiro-gallery:run` on the desktop and is built for the browser with
   `./gradlew :kiro-gallery:wasmJsBrowserDistribution`.

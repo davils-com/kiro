@@ -10,6 +10,8 @@ WebAssembly (`wasmJs`), built on Compose Foundation, without Material. It is pub
 | `kiro-ui-icons` | `com.davils:kiro-ui-icons` | The `Icon` composable and every icon of Lucide, generated from its SVGs |
 | `kiro-ui-components` | `com.davils:kiro-ui-components` | Buttons, inputs, menus, dialogs, sheets, tables, calendars, charts and more |
 | `kiro-ui-audio` | `com.davils:kiro-ui-audio` | Audio players as a bar, a card, a full view and a mini player, tinted by their cover, and audio visualizers: level meters, goniometer, oscilloscope, spectrum analyzer, spectrogram, desktop visualizers, waveform and timeline clips |
+| `kiro-ui-motion` | `com.davils:kiro-ui-motion` | Generative, animated art in layered scenes: thirty themeable arts, shader layers, presets, playback, power and quality policies, export and the typewriter |
+| `kiro-ui-window` | `com.davils:kiro-ui-window` | The desktop shell (JVM only): windows with a themed title bar that still behave natively, the tray, the native application menu and splash screens |
 
 ## Every detail is yours
 
@@ -54,6 +56,50 @@ dependencies {
     implementation("com.davils:kiro-ui-components:1.0.0")
 }
 ```
+
+## Motion
+
+`kiro-ui-motion` draws generative art behind an interface, calm by default and themeable down to every value:
+
+```kotlin
+MotionCanvas(scene = ScenePresets.Orbits, modifier = Modifier.fillMaxSize()) {
+    SignInForm(modifier = Modifier.align(Alignment.Center))
+}
+
+val custom = scene {
+    layer(RidgeArt(style = ridgeArtStyle().copy(lines = 24)))
+    layer(GrainArt()) { opacity = 0.4f }
+}
+```
+
+Scenes stop their clock while the window is unfocused or hidden, step their quality down when frames run late and show
+a still frame under reduced motion.
+
+## Desktop shell
+
+`kiro-ui-window` runs on the JVM only and turns a Compose application into a desktop application that looks like
+Kiro and still behaves like the operating system:
+
+```kotlin
+fun main() {
+    DesktopEnvironment.prepare(name = "Studio")
+    application {
+        ApplicationMenu(onQuitRequest = { request -> request.confirm() })
+        Tray(icon = TrayIcon(light = logo), tooltip = "Studio", menu = { item("Quit", onClick = ::exitApplication) })
+        ChromeWindow(onCloseRequest = ::exitApplication, title = "Studio", titleBar = {
+            start { WindowMenubar { menu("File") { item("Open…", onClick = {}) } } }
+            center { WindowTitle("Studio") }
+            end { NotificationBell(count = 3, onClick = {}) }
+        }) {
+            Workspace()
+        }
+    }
+}
+```
+
+The window keeps the native frame where the JetBrains Runtime offers it and draws its own frame elsewhere; its title
+stays in the middle of the window. `SplitSplash`, `CenteredSplash`, `ChecklistSplash`, `MinimalSplash` and
+`HeroSplash` show the start of an application in a `SplashWindow`.
 
 ## Gallery
 
