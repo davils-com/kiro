@@ -16,8 +16,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   by the build, with the `Icon` composable and a catalog for search.
 - **The components of Kiro in `kiro-ui-components`**, migrated from the user interface of Kide to Compose
   Multiplatform for the JVM and WebAssembly, without Material and without localization of their own.
+- **The audio players of Kiro in `kiro-ui-audio`**, migrated from the media components of Kide: `AudioPlayerBar`,
+  `AudioPlayerCard`, `AudioPlayerFull` and `AudioPlayerMini` as separate components with a style each, sharing the
+  `AudioPlayerState`, the controls and their `AudioControlsStyle`, tinted by the cover of the track.
 - **The gallery of Kiro in `kiro-gallery`**, which shows every component in the light and the dark theme with the
-  source of its demo, as a desktop application and in the browser.
+  source of its demo, as a desktop application and in the browser. A demo can show several sections, each with its own
+  box and its own code, as the Audio Player page does for the four players.
 
 ### Fixed
 
