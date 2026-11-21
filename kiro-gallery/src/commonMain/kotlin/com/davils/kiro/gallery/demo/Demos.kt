@@ -120,4 +120,4 @@ internal val demos: List<GalleryDemo> = listOf(
     GalleryDemo(name = "Toggle Group", category = GalleryCategory.Forms) { ToggleGroupDemo() },
     GalleryDemo(name = "Tooltip", category = GalleryCategory.Overlays) { TooltipDemo() },
     GalleryDemo(name = "Trace", category = GalleryCategory.Conversation) { TraceDemo() },
-)
+) + platformDemos()

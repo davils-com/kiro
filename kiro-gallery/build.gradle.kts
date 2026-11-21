@@ -28,5 +28,6 @@ dependencies {
     commonMainImplementation(project(":kiro-ui:kiro-ui-components"))
     commonMainImplementation(project(":kiro-ui:kiro-ui-audio"))
     commonMainImplementation(libs.compose.resources)
+    jvmMainImplementation(project(":kiro-ui:kiro-ui-window"))
     jvmMainImplementation(libs.bundles.gallery.desktop)
 }

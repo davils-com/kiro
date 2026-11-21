@@ -23,22 +23,60 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Window
+import androidx.compose.ui.window.ApplicationScope
 import androidx.compose.ui.window.rememberWindowState
 import com.davils.kiro.ui.components.menubar.DesktopPlatform
 import com.davils.kiro.ui.components.menubar.WindowMenubar
 import com.davils.kiro.ui.core.ApplicationThemeProvider
+import com.davils.kiro.ui.window.ChromeWindow
+import com.davils.kiro.ui.window.WindowOptions
+import com.davils.kiro.ui.window.application.ApplicationMenu
+import com.davils.kiro.ui.window.rememberChromeWindowState
+import com.davils.kiro.ui.window.titlebar.WindowTitle
+import com.davils.kiro.ui.window.tray.Tray
+import com.davils.kiro.ui.window.tray.TrayIcon
+import com.davils.kiro.ui.window.tray.TrayNotification
+import com.davils.kiro.ui.window.tray.rememberTrayState
 
 private const val TITLE: String = "Kiro UI"
 
 @Composable
-internal fun GalleryWindow(onQuit: () -> Unit, platform: DesktopPlatform = DesktopPlatform.current()) {
+internal fun ApplicationScope.GalleryWindow(onQuit: () -> Unit, platform: DesktopPlatform = DesktopPlatform.current()) {
     var isDark by remember { mutableStateOf(false) }
+    var isShown by remember { mutableStateOf(true) }
     val menus = remember { GalleryMenus(onQuit = onQuit) }
-    val state = rememberWindowState(size = DpSize(width = 1280.dp, height = 860.dp))
-    Window(onCloseRequest = onQuit, title = TITLE, state = state) {
-        ApplicationThemeProvider(theme = galleryThemeOf(isDark)) {
-            WindowMenubar(platform = platform, content = menus::describe)
+    val tray = rememberTrayState()
+    val state = rememberChromeWindowState(window = rememberWindowState(size = DpSize(width = 1280.dp, height = 860.dp)))
+    val icon = remember { TrayIcon(light = GalleryMark(isDark = false), dark = GalleryMark(isDark = true)) }
+    ApplicationThemeProvider(theme = galleryThemeOf(isDark)) {
+        ApplicationMenu(
+            onQuitRequest = { request -> request.confirm() },
+            onAbout = { tray.sendNotification(TrayNotification(title = TITLE, message = "The gallery of Kiro.")) },
+            onReopen = { isShown = true },
+        )
+        Tray(
+            icon = icon,
+            tooltip = TITLE,
+            state = tray,
+            onAction = { isShown = true },
+            menu = {
+                item(label = "Show $TITLE", onClick = { isShown = true })
+                checkbox(label = "Dark Theme", checked = isDark, onCheckedChange = { dark -> isDark = dark })
+                separator()
+                item(label = "Quit", onClick = onQuit)
+            },
+        )
+        ChromeWindow(
+            onCloseRequest = onQuit,
+            title = TITLE,
+            state = state,
+            options = WindowOptions(isVisible = isShown),
+            platform = platform,
+            titleBar = {
+                start { WindowMenubar(platform = platform, content = menus::describe) }
+                center { WindowTitle(TITLE) }
+            },
+        ) {
             Gallery(isDark = isDark, onDarkChange = { dark -> isDark = dark })
         }
     }

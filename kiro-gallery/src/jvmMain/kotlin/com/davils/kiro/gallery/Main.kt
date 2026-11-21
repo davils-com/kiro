@@ -17,8 +17,9 @@
 package com.davils.kiro.gallery
 
 import androidx.compose.ui.window.application
+import com.davils.kiro.ui.window.application.DesktopEnvironment
 
-private const val SCREEN_MENU_BAR_PROPERTY: String = "apple.laf.useScreenMenuBar"
+private const val NAME: String = "Kiro UI"
 
 /**
  * Starts the gallery of Kiro as a desktop application.
@@ -26,6 +27,6 @@ private const val SCREEN_MENU_BAR_PROPERTY: String = "apple.laf.useScreenMenuBar
  * @since 1.0.0
  */
 public fun main() {
-    System.setProperty(SCREEN_MENU_BAR_PROPERTY, true.toString())
+    DesktopEnvironment.prepare(name = NAME)
     application { GalleryWindow(onQuit = ::exitApplication) }
 }

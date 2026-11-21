@@ -17,6 +17,7 @@
 package com.davils.kiro.gallery.page
 
 import com.davils.kiro.ui.icons.IconGraphic
+import com.davils.kiro.ui.icons.lucide.AppWindow
 import com.davils.kiro.ui.icons.lucide.Bell
 import com.davils.kiro.ui.icons.lucide.Compass
 import com.davils.kiro.ui.icons.lucide.Disc3
@@ -37,5 +38,6 @@ internal enum class GalleryCategory(val label: String, val icon: IconGraphic) {
     Data(label = "Data display", icon = Lucide.Table),
     Conversation(label = "Conversation", icon = Lucide.MessagesSquare),
     Audio(label = "Audio", icon = Lucide.Disc3),
+    Window(label = "Window", icon = Lucide.AppWindow),
     Utilities(label = "Utilities", icon = Lucide.Wrench),
 }

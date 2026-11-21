@@ -37,7 +37,8 @@ plugins {
 }
 
 val galleryPackage: String = "com.davils.kiro.${name.removePrefix("kiro-").replace('-', '.')}"
-val demoDirectory: String = "src/commonMain/kotlin/${galleryPackage.replace('.', '/')}/demo"
+val demoPath: String = "kotlin/${galleryPackage.replace('.', '/')}/demo"
+val demoDirectories: List<String> = listOf("src/commonMain/$demoPath", "src/jvmMain/$demoPath")
 
 kreate {
     platform {
@@ -80,8 +81,10 @@ plugins.withType<BinaryenPlugin>().configureEach {
 
 val gallerySources = tasks.register<Sync>("galleryDemoSources") {
     description = "Copies the sources of the demos into the resources of the gallery, which shows them as code."
-    from(layout.projectDirectory.dir(demoDirectory)) {
-        include("*Demo.kt")
+    demoDirectories.forEach { directory ->
+        from(layout.projectDirectory.dir(directory)) {
+            include("*Demo.kt")
+        }
     }
     into(layout.buildDirectory.dir("generated/gallery/composeResources/files/demos"))
 }
