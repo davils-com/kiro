@@ -1,0 +1,1025 @@
+public final class com/davils/kiro/ui/window/ChromeWindowKt {
+	public static final fun ChromeWindow (Lkotlin/jvm/functions/Function0;Ljava/lang/String;Lcom/davils/kiro/ui/window/ChromeWindowState;Lcom/davils/kiro/ui/window/WindowOptions;Lcom/davils/kiro/ui/components/menubar/DesktopPlatform;Lcom/davils/kiro/ui/window/ChromeWindowStyle;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/window/ChromeWindowState {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Landroidx/compose/ui/window/WindowState;Landroidx/compose/ui/unit/DpRect;)V
+	public synthetic fun <init> (Landroidx/compose/ui/window/WindowState;Landroidx/compose/ui/unit/DpRect;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getFloatingBounds ()Landroidx/compose/ui/unit/DpRect;
+	public final fun getLayout ()Lcom/davils/kiro/ui/window/WindowLayout;
+	public final fun getPlacement ()Landroidx/compose/ui/window/WindowPlacement;
+	public final fun getRestoreBounds ()Landroidx/compose/ui/unit/DpRect;
+	public final fun getWindow ()Landroidx/compose/ui/window/WindowState;
+	public final fun isMaximized ()Z
+	public final fun setRestoreBounds$com_davils_kiro_ui_window (Landroidx/compose/ui/unit/DpRect;)V
+}
+
+public final class com/davils/kiro/ui/window/ChromeWindowStateKt {
+	public static final fun rememberChromeWindowState (Landroidx/compose/ui/window/WindowState;Landroidx/compose/ui/unit/DpRect;Landroidx/compose/runtime/Composer;II)Lcom/davils/kiro/ui/window/ChromeWindowState;
+}
+
+public final class com/davils/kiro/ui/window/ChromeWindowStyle {
+	public static final field $stable I
+	public synthetic fun <init> (JLcom/davils/kiro/ui/core/style/Border;FFJLcom/davils/kiro/ui/window/FramePreference;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-9M2qbM8 (JLcom/davils/kiro/ui/core/style/Border;FFJLcom/davils/kiro/ui/window/FramePreference;)Lcom/davils/kiro/ui/window/ChromeWindowStyle;
+	public static synthetic fun copy-9M2qbM8$default (Lcom/davils/kiro/ui/window/ChromeWindowStyle;JLcom/davils/kiro/ui/core/style/Border;FFJLcom/davils/kiro/ui/window/FramePreference;ILjava/lang/Object;)Lcom/davils/kiro/ui/window/ChromeWindowStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackground-0d7_KjU ()J
+	public final fun getBorder ()Lcom/davils/kiro/ui/core/style/Border;
+	public final fun getCornerRadius-D9Ej5fM ()F
+	public final fun getFrame ()Lcom/davils/kiro/ui/window/FramePreference;
+	public final fun getMinimumSize-MYxV2XQ ()J
+	public final fun getResizeThickness-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface com/davils/kiro/ui/window/ChromeWindowStyles {
+	public static final field Companion Lcom/davils/kiro/ui/window/ChromeWindowStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;Lcom/davils/kiro/ui/components/menubar/DesktopPlatform;)Lcom/davils/kiro/ui/window/ChromeWindowStyle;
+}
+
+public final class com/davils/kiro/ui/window/ChromeWindowStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/window/ChromeWindowStyles;
+}
+
+public final class com/davils/kiro/ui/window/ChromeWindowStylesKt {
+	public static final fun chromeWindowStyle (Lcom/davils/kiro/ui/components/menubar/DesktopPlatform;Landroidx/compose/runtime/Composer;II)Lcom/davils/kiro/ui/window/ChromeWindowStyle;
+	public static final fun getChromeWindowStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+}
+
+public final class com/davils/kiro/ui/window/FramePreference : java/lang/Enum {
+	public static final field Emulated Lcom/davils/kiro/ui/window/FramePreference;
+	public static final field Native Lcom/davils/kiro/ui/window/FramePreference;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/window/FramePreference;
+	public static fun values ()[Lcom/davils/kiro/ui/window/FramePreference;
+}
+
+public final class com/davils/kiro/ui/window/WindowLabels {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function2;)V
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function2;)Lcom/davils/kiro/ui/window/WindowLabels;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/window/WindowLabels;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lcom/davils/kiro/ui/window/WindowLabels;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBadge ()Lkotlin/jvm/functions/Function2;
+	public final fun getClose ()Ljava/lang/String;
+	public final fun getMaximize ()Ljava/lang/String;
+	public final fun getMinimize ()Ljava/lang/String;
+	public final fun getNotifications ()Ljava/lang/String;
+	public final fun getRestore ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/WindowLayout {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/ui/unit/DpRect;Landroidx/compose/ui/window/WindowPlacement;)V
+	public final fun copy (Landroidx/compose/ui/unit/DpRect;Landroidx/compose/ui/window/WindowPlacement;)Lcom/davils/kiro/ui/window/WindowLayout;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/window/WindowLayout;Landroidx/compose/ui/unit/DpRect;Landroidx/compose/ui/window/WindowPlacement;ILjava/lang/Object;)Lcom/davils/kiro/ui/window/WindowLayout;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBounds ()Landroidx/compose/ui/unit/DpRect;
+	public final fun getPlacement ()Landroidx/compose/ui/window/WindowPlacement;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/WindowLayoutKt {
+	public static final fun chromeWindowStateOf-Iw8sGQE (Lcom/davils/kiro/ui/window/WindowLayout;Ljava/util/List;J)Lcom/davils/kiro/ui/window/ChromeWindowState;
+}
+
+public final class com/davils/kiro/ui/window/WindowOptions {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Landroidx/compose/ui/graphics/painter/Painter;ZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/painter/Painter;ZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Landroidx/compose/ui/graphics/painter/Painter;ZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lcom/davils/kiro/ui/window/WindowOptions;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/window/WindowOptions;Landroidx/compose/ui/graphics/painter/Painter;ZLkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/davils/kiro/ui/window/WindowOptions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getIcon ()Landroidx/compose/ui/graphics/painter/Painter;
+	public final fun getOnKeyEvent ()Lkotlin/jvm/functions/Function1;
+	public final fun getOnPreviewKeyEvent ()Lkotlin/jvm/functions/Function1;
+	public fun hashCode ()I
+	public final fun isVisible ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/action/NotificationBellKt {
+	public static final fun NotificationBell (ILkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lcom/davils/kiro/ui/window/titlebar/TitleBarStyle;Ljava/lang/String;Lcom/davils/kiro/ui/icons/IconGraphic;Landroidx/compose/runtime/Composer;II)V
+}
+
+public abstract interface com/davils/kiro/ui/window/action/TitleBarBadge {
+}
+
+public final class com/davils/kiro/ui/window/action/TitleBarBadge$Count : com/davils/kiro/ui/window/action/TitleBarBadge {
+	public static final field $stable I
+	public fun <init> (I)V
+	public final fun copy (I)Lcom/davils/kiro/ui/window/action/TitleBarBadge$Count;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/window/action/TitleBarBadge$Count;IILjava/lang/Object;)Lcom/davils/kiro/ui/window/action/TitleBarBadge$Count;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/action/TitleBarBadge$Dot : com/davils/kiro/ui/window/action/TitleBarBadge {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/davils/kiro/ui/window/action/TitleBarBadge$Dot;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/action/TitleBarButtonKt {
+	public static final fun TitleBarButton (Lcom/davils/kiro/ui/icons/IconGraphic;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Lcom/davils/kiro/ui/window/action/TitleBarBadge;ZLcom/davils/kiro/ui/window/titlebar/TitleBarStyle;Lkotlin/jvm/functions/Function4;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/window/application/ApplicationMenuEntriesKt {
+	public static final fun applicationMenu (Lcom/davils/kiro/ui/components/menubar/MenubarScope;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lcom/davils/kiro/ui/components/menubar/DesktopPlatform;Lcom/davils/kiro/ui/window/application/ApplicationMenuLabels;)V
+	public static synthetic fun applicationMenu$default (Lcom/davils/kiro/ui/components/menubar/MenubarScope;Ljava/lang/String;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lcom/davils/kiro/ui/components/menubar/DesktopPlatform;Lcom/davils/kiro/ui/window/application/ApplicationMenuLabels;ILjava/lang/Object;)V
+}
+
+public final class com/davils/kiro/ui/window/application/ApplicationMenuKt {
+	public static final fun ApplicationMenu (Landroidx/compose/ui/window/ApplicationScope;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function0;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/window/application/ApplicationMenuLabels {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lcom/davils/kiro/ui/window/application/ApplicationMenuLabels;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/window/application/ApplicationMenuLabels;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lcom/davils/kiro/ui/window/application/ApplicationMenuLabels;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAbout ()Ljava/lang/String;
+	public final fun getQuit ()Ljava/lang/String;
+	public final fun getSettings ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/application/DesktopEnvironment {
+	public static final field $stable I
+	public static final field INSTANCE Lcom/davils/kiro/ui/window/application/DesktopEnvironment;
+	public final fun prepare (Ljava/lang/String;Lcom/davils/kiro/ui/components/menubar/DesktopPlatform;)V
+	public static synthetic fun prepare$default (Lcom/davils/kiro/ui/window/application/DesktopEnvironment;Ljava/lang/String;Lcom/davils/kiro/ui/components/menubar/DesktopPlatform;ILjava/lang/Object;)V
+}
+
+public abstract interface com/davils/kiro/ui/window/application/DesktopHandlers {
+	public abstract fun setAboutHandler (Lkotlin/jvm/functions/Function0;)V
+	public abstract fun setOpenFilesHandler (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun setOpenUriHandler (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun setQuitHandler (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun setReopenHandler (Lkotlin/jvm/functions/Function0;)V
+	public abstract fun setSettingsHandler (Lkotlin/jvm/functions/Function0;)V
+}
+
+public abstract interface com/davils/kiro/ui/window/application/DockApi {
+	public abstract fun requestAttention (Z)V
+	public abstract fun setBadge (Ljava/lang/String;)V
+	public abstract fun setIcon (Ljava/awt/Image;)V
+	public abstract fun setMenu (Ljava/util/List;)V
+	public abstract fun setProgress (Ljava/lang/Integer;)V
+}
+
+public final class com/davils/kiro/ui/window/application/DockKt {
+	public static final fun Dock (Landroidx/compose/ui/window/ApplicationScope;Ljava/lang/String;Ljava/lang/Float;Landroidx/compose/ui/graphics/painter/Painter;Lkotlin/jvm/functions/Function1;Lcom/davils/kiro/ui/window/application/DockState;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/window/application/DockState {
+	public static final field $stable I
+	public fun <init> ()V
+	public final fun requestAttention (Z)V
+	public static synthetic fun requestAttention$default (Lcom/davils/kiro/ui/window/application/DockState;ZILjava/lang/Object;)V
+}
+
+public final class com/davils/kiro/ui/window/application/DockStateKt {
+	public static final fun rememberDockState (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/window/application/DockState;
+}
+
+public final class com/davils/kiro/ui/window/application/LocalDesktopHandlersKt {
+	public static final fun getLocalDesktopHandlers ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/davils/kiro/ui/window/application/LocalDockApiKt {
+	public static final fun getLocalDockApi ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public final class com/davils/kiro/ui/window/application/QuitRequest {
+	public static final field $stable I
+	public fun <init> (Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;)V
+	public final fun cancel ()V
+	public final fun confirm ()V
+	public final fun isAnswered ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/controls/ControlPlacement : java/lang/Enum {
+	public static final field End Lcom/davils/kiro/ui/window/controls/ControlPlacement;
+	public static final field Start Lcom/davils/kiro/ui/window/controls/ControlPlacement;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/window/controls/ControlPlacement;
+	public static fun values ()[Lcom/davils/kiro/ui/window/controls/ControlPlacement;
+}
+
+public final class com/davils/kiro/ui/window/controls/LinuxControls : com/davils/kiro/ui/window/controls/WindowControls {
+	public static final field $stable I
+	public synthetic fun <init> (Ljava/util/List;Lcom/davils/kiro/ui/window/controls/ControlPlacement;FFFFFFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun Content (Lcom/davils/kiro/ui/window/titlebar/WindowActions;Lcom/davils/kiro/ui/window/titlebar/TitleBarStyle;Landroidx/compose/runtime/Composer;I)V
+	public final fun copy-F0d9qfw (Ljava/util/List;Lcom/davils/kiro/ui/window/controls/ControlPlacement;FFFFFF)Lcom/davils/kiro/ui/window/controls/LinuxControls;
+	public static synthetic fun copy-F0d9qfw$default (Lcom/davils/kiro/ui/window/controls/LinuxControls;Ljava/util/List;Lcom/davils/kiro/ui/window/controls/ControlPlacement;FFFFFFILjava/lang/Object;)Lcom/davils/kiro/ui/window/controls/LinuxControls;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getButtonSize-D9Ej5fM ()F
+	public final fun getButtons ()Ljava/util/List;
+	public final fun getGlyphSize-D9Ej5fM ()F
+	public final fun getPadding-D9Ej5fM ()F
+	public fun getPlacement ()Lcom/davils/kiro/ui/window/controls/ControlPlacement;
+	public final fun getRestoreShift ()F
+	public final fun getSpacing-D9Ej5fM ()F
+	public final fun getStrokeWidth-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/controls/MacOsControls : com/davils/kiro/ui/window/controls/WindowControls {
+	public static final field $stable I
+	public synthetic fun <init> (FLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun Content (Lcom/davils/kiro/ui/window/titlebar/WindowActions;Lcom/davils/kiro/ui/window/titlebar/TitleBarStyle;Landroidx/compose/runtime/Composer;I)V
+	public final fun copy-0680j_4 (F)Lcom/davils/kiro/ui/window/controls/MacOsControls;
+	public static synthetic fun copy-0680j_4$default (Lcom/davils/kiro/ui/window/controls/MacOsControls;FILjava/lang/Object;)Lcom/davils/kiro/ui/window/controls/MacOsControls;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getInset-D9Ej5fM ()F
+	public fun getPlacement ()Lcom/davils/kiro/ui/window/controls/ControlPlacement;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/controls/WindowButton : java/lang/Enum {
+	public static final field Close Lcom/davils/kiro/ui/window/controls/WindowButton;
+	public static final field Maximize Lcom/davils/kiro/ui/window/controls/WindowButton;
+	public static final field Minimize Lcom/davils/kiro/ui/window/controls/WindowButton;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/window/controls/WindowButton;
+	public static fun values ()[Lcom/davils/kiro/ui/window/controls/WindowButton;
+}
+
+public abstract interface com/davils/kiro/ui/window/controls/WindowControls {
+	public abstract fun Content (Lcom/davils/kiro/ui/window/titlebar/WindowActions;Lcom/davils/kiro/ui/window/titlebar/TitleBarStyle;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun getPlacement ()Lcom/davils/kiro/ui/window/controls/ControlPlacement;
+}
+
+public final class com/davils/kiro/ui/window/controls/WindowsControls : com/davils/kiro/ui/window/controls/WindowControls {
+	public static final field $stable I
+	public synthetic fun <init> (Ljava/util/List;FFFFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun Content (Lcom/davils/kiro/ui/window/titlebar/WindowActions;Lcom/davils/kiro/ui/window/titlebar/TitleBarStyle;Landroidx/compose/runtime/Composer;I)V
+	public final fun copy-rSX6ZAs (Ljava/util/List;FFFF)Lcom/davils/kiro/ui/window/controls/WindowsControls;
+	public static synthetic fun copy-rSX6ZAs$default (Lcom/davils/kiro/ui/window/controls/WindowsControls;Ljava/util/List;FFFFILjava/lang/Object;)Lcom/davils/kiro/ui/window/controls/WindowsControls;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getButtonWidth-D9Ej5fM ()F
+	public final fun getButtons ()Ljava/util/List;
+	public final fun getGlyphSize-D9Ej5fM ()F
+	public fun getPlacement ()Lcom/davils/kiro/ui/window/controls/ControlPlacement;
+	public final fun getRestoreShift ()F
+	public final fun getStrokeWidth-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/frame/CaptionInsets {
+	public static final field $stable I
+	public static final field Companion Lcom/davils/kiro/ui/window/frame/CaptionInsets$Companion;
+	public synthetic fun <init> (FFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-YgX7TsA (FF)Lcom/davils/kiro/ui/window/frame/CaptionInsets;
+	public static synthetic fun copy-YgX7TsA$default (Lcom/davils/kiro/ui/window/frame/CaptionInsets;FFILjava/lang/Object;)Lcom/davils/kiro/ui/window/frame/CaptionInsets;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLeft-D9Ej5fM ()F
+	public final fun getRight-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/frame/CaptionInsets$Companion {
+	public final fun getNone ()Lcom/davils/kiro/ui/window/frame/CaptionInsets;
+}
+
+public abstract interface com/davils/kiro/ui/window/frame/WindowFrameApi {
+	public abstract fun decorate-D5KLDUw (FZ)Lcom/davils/kiro/ui/window/frame/CaptionInsets;
+	public abstract fun extendIntoTitleBar ()V
+	public abstract fun hitTest (Z)V
+	public abstract fun isSystemMoveSupported ()Z
+	public abstract fun limit-EaSLcWc (J)V
+	public abstract fun pointer-Ctc3-3Q ()Landroidx/compose/ui/unit/DpOffset;
+	public abstract fun screenBounds ()Landroidx/compose/ui/unit/DpRect;
+	public abstract fun screenInsets ()Lcom/davils/kiro/ui/window/screen/ScreenInsets;
+	public abstract fun startSystemMove ()V
+}
+
+public final class com/davils/kiro/ui/window/host/LocalWindowHostKt {
+	public static final fun getLocalWindowHost ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public abstract interface com/davils/kiro/ui/window/host/WindowHost {
+	public abstract fun Open (Lcom/davils/kiro/ui/window/host/WindowSpec;Lkotlin/jvm/functions/Function4;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun isDecorationSupported ()Z
+}
+
+public final class com/davils/kiro/ui/window/host/WindowSpec {
+	public static final field $stable I
+	public fun <init> (Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/window/WindowState;Ljava/lang/String;Lcom/davils/kiro/ui/window/WindowOptions;ZZZ)V
+	public final fun copy (Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/window/WindowState;Ljava/lang/String;Lcom/davils/kiro/ui/window/WindowOptions;ZZZ)Lcom/davils/kiro/ui/window/host/WindowSpec;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/window/host/WindowSpec;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/window/WindowState;Ljava/lang/String;Lcom/davils/kiro/ui/window/WindowOptions;ZZZILjava/lang/Object;)Lcom/davils/kiro/ui/window/host/WindowSpec;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getOnCloseRequest ()Lkotlin/jvm/functions/Function0;
+	public final fun getOptions ()Lcom/davils/kiro/ui/window/WindowOptions;
+	public final fun getState ()Landroidx/compose/ui/window/WindowState;
+	public final fun getTitle ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isResizable ()Z
+	public final fun isTransparent ()Z
+	public final fun isUndecorated ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/screen/Screen {
+	public static final field $stable I
+	public synthetic fun <init> (Ljava/lang/String;Landroidx/compose/ui/unit/DpRect;Landroidx/compose/ui/unit/DpRect;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-6MySPJk (Ljava/lang/String;Landroidx/compose/ui/unit/DpRect;Landroidx/compose/ui/unit/DpRect;Z)Lcom/davils/kiro/ui/window/screen/Screen;
+	public static synthetic fun copy-6MySPJk$default (Lcom/davils/kiro/ui/window/screen/Screen;Ljava/lang/String;Landroidx/compose/ui/unit/DpRect;Landroidx/compose/ui/unit/DpRect;ZILjava/lang/Object;)Lcom/davils/kiro/ui/window/screen/Screen;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBounds ()Landroidx/compose/ui/unit/DpRect;
+	public final fun getId-NQYrh8g ()Ljava/lang/String;
+	public final fun getWorkArea ()Landroidx/compose/ui/unit/DpRect;
+	public fun hashCode ()I
+	public final fun isPrimary ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface com/davils/kiro/ui/window/screen/ScreenApi {
+	public static final field Companion Lcom/davils/kiro/ui/window/screen/ScreenApi$Companion;
+	public abstract fun screens ()Ljava/util/List;
+}
+
+public final class com/davils/kiro/ui/window/screen/ScreenApi$Companion {
+	public final fun getSystem ()Lcom/davils/kiro/ui/window/screen/ScreenApi;
+}
+
+public final class com/davils/kiro/ui/window/screen/ScreenId {
+	public static final synthetic fun box-impl (Ljava/lang/String;)Lcom/davils/kiro/ui/window/screen/ScreenId;
+	public static fun constructor-impl (Ljava/lang/String;)Ljava/lang/String;
+	public fun equals (Ljava/lang/Object;)Z
+	public static fun equals-impl (Ljava/lang/String;Ljava/lang/Object;)Z
+	public static final fun equals-impl0 (Ljava/lang/String;Ljava/lang/String;)Z
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public static fun hashCode-impl (Ljava/lang/String;)I
+	public fun toString ()Ljava/lang/String;
+	public static fun toString-impl (Ljava/lang/String;)Ljava/lang/String;
+	public final synthetic fun unbox-impl ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/screen/ScreenInsets {
+	public static final field $stable I
+	public synthetic fun <init> (FFFFLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-a9UjIt4 (FFFF)Lcom/davils/kiro/ui/window/screen/ScreenInsets;
+	public static synthetic fun copy-a9UjIt4$default (Lcom/davils/kiro/ui/window/screen/ScreenInsets;FFFFILjava/lang/Object;)Lcom/davils/kiro/ui/window/screen/ScreenInsets;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBottom-D9Ej5fM ()F
+	public final fun getLeft-D9Ej5fM ()F
+	public final fun getRight-D9Ej5fM ()F
+	public final fun getTop-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/screen/ScreenPlacementKt {
+	public static final fun visibleBoundsOf-ewwdhdA (Landroidx/compose/ui/unit/DpRect;Ljava/util/List;JJ)Landroidx/compose/ui/unit/DpRect;
+}
+
+public final class com/davils/kiro/ui/window/splash/Splash {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Float;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Float;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Float;)Lcom/davils/kiro/ui/window/splash/Splash;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/window/splash/Splash;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Float;ILjava/lang/Object;)Lcom/davils/kiro/ui/window/splash/Splash;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCopyright ()Ljava/lang/String;
+	public final fun getCurrent ()Lcom/davils/kiro/ui/window/splash/SplashStep;
+	public final fun getEdition ()Ljava/lang/String;
+	public final fun getFailure ()Ljava/lang/String;
+	public final fun getFraction ()Ljava/lang/Float;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getProgress ()Ljava/lang/Float;
+	public final fun getSteps ()Ljava/util/List;
+	public final fun getSubtitle ()Ljava/lang/String;
+	public final fun getVendor ()Ljava/lang/String;
+	public final fun getVersion ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun isFailed ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/splash/SplashFailureStyle {
+	public static final field $stable I
+	public synthetic fun <init> (Lcom/davils/kiro/ui/icons/IconGraphic;JLandroidx/compose/ui/text/TextStyle;IFFLcom/davils/kiro/ui/components/button/ButtonVariant;Lcom/davils/kiro/ui/components/button/ButtonVariant;Lcom/davils/kiro/ui/components/button/ButtonSize;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-rH6VFVk (Lcom/davils/kiro/ui/icons/IconGraphic;JLandroidx/compose/ui/text/TextStyle;IFFLcom/davils/kiro/ui/components/button/ButtonVariant;Lcom/davils/kiro/ui/components/button/ButtonVariant;Lcom/davils/kiro/ui/components/button/ButtonSize;)Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;
+	public static synthetic fun copy-rH6VFVk$default (Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;Lcom/davils/kiro/ui/icons/IconGraphic;JLandroidx/compose/ui/text/TextStyle;IFFLcom/davils/kiro/ui/components/button/ButtonVariant;Lcom/davils/kiro/ui/components/button/ButtonVariant;Lcom/davils/kiro/ui/components/button/ButtonSize;ILjava/lang/Object;)Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getActionGap-D9Ej5fM ()F
+	public final fun getButtonSize ()Lcom/davils/kiro/ui/components/button/ButtonSize;
+	public final fun getCloseVariant ()Lcom/davils/kiro/ui/components/button/ButtonVariant;
+	public final fun getColor-0d7_KjU ()J
+	public final fun getGap-D9Ej5fM ()F
+	public final fun getIcon ()Lcom/davils/kiro/ui/icons/IconGraphic;
+	public final fun getMaxLines ()I
+	public final fun getRetryVariant ()Lcom/davils/kiro/ui/components/button/ButtonVariant;
+	public final fun getTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/splash/SplashLabels {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)V
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lcom/davils/kiro/ui/window/splash/SplashLabels;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/window/splash/SplashLabels;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lcom/davils/kiro/ui/window/splash/SplashLabels;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getClose ()Ljava/lang/String;
+	public final fun getRetry ()Ljava/lang/String;
+	public final fun getStarting ()Ljava/lang/String;
+	public final fun getStatus ()Lkotlin/jvm/functions/Function1;
+	public final fun getVersion ()Lkotlin/jvm/functions/Function1;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/splash/SplashStep {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/davils/kiro/ui/window/splash/SplashStepStatus;)V
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lcom/davils/kiro/ui/window/splash/SplashStepStatus;)Lcom/davils/kiro/ui/window/splash/SplashStep;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/window/splash/SplashStep;Ljava/lang/String;Ljava/lang/String;Lcom/davils/kiro/ui/window/splash/SplashStepStatus;ILjava/lang/Object;)Lcom/davils/kiro/ui/window/splash/SplashStep;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()Ljava/lang/String;
+	public final fun getLabel ()Ljava/lang/String;
+	public final fun getStatus ()Lcom/davils/kiro/ui/window/splash/SplashStepStatus;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/splash/SplashStepStatus : java/lang/Enum {
+	public static final field Done Lcom/davils/kiro/ui/window/splash/SplashStepStatus;
+	public static final field Failed Lcom/davils/kiro/ui/window/splash/SplashStepStatus;
+	public static final field Pending Lcom/davils/kiro/ui/window/splash/SplashStepStatus;
+	public static final field Running Lcom/davils/kiro/ui/window/splash/SplashStepStatus;
+	public static final field Skipped Lcom/davils/kiro/ui/window/splash/SplashStepStatus;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/window/splash/SplashStepStatus;
+	public static fun values ()[Lcom/davils/kiro/ui/window/splash/SplashStepStatus;
+}
+
+public final class com/davils/kiro/ui/window/splash/SplashWindowKt {
+	public static final fun SplashWindow-pzduO1o (Lkotlin/jvm/functions/Function0;Ljava/lang/String;Landroidx/compose/ui/graphics/painter/Painter;Lcom/davils/kiro/ui/window/splash/SplashWindowStyle;JLkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/window/splash/SplashWindowStyle {
+	public static final field $stable I
+	public synthetic fun <init> (JLcom/davils/kiro/ui/core/style/Border;FJLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-C6t1_Ew (JLcom/davils/kiro/ui/core/style/Border;FJ)Lcom/davils/kiro/ui/window/splash/SplashWindowStyle;
+	public static synthetic fun copy-C6t1_Ew$default (Lcom/davils/kiro/ui/window/splash/SplashWindowStyle;JLcom/davils/kiro/ui/core/style/Border;FJILjava/lang/Object;)Lcom/davils/kiro/ui/window/splash/SplashWindowStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackground-0d7_KjU ()J
+	public final fun getBorder ()Lcom/davils/kiro/ui/core/style/Border;
+	public final fun getCornerRadius-D9Ej5fM ()F
+	public final fun getSize-MYxV2XQ ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface com/davils/kiro/ui/window/splash/SplashWindowStyles {
+	public static final field Companion Lcom/davils/kiro/ui/window/splash/SplashWindowStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/window/splash/SplashWindowStyle;
+}
+
+public final class com/davils/kiro/ui/window/splash/SplashWindowStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/window/splash/SplashWindowStyles;
+}
+
+public final class com/davils/kiro/ui/window/splash/SplashWindowStylesKt {
+	public static final fun getSplashWindowStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun splashWindowStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/window/splash/SplashWindowStyle;
+}
+
+public final class com/davils/kiro/ui/window/splash/centered/CenteredSplashKt {
+	public static final fun CenteredSplash (Lcom/davils/kiro/ui/window/splash/Splash;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lcom/davils/kiro/ui/window/splash/centered/CenteredSplashStyle;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/window/splash/centered/CenteredSplashStyle {
+	public static final field $stable I
+	public synthetic fun <init> (JLcom/davils/kiro/ui/motion/scene/Scene;JJJFFFFFFFFFJJIFFJJLandroidx/compose/animation/core/Easing;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;Lcom/davils/kiro/ui/window/splash/SplashLabels;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-MH-x_lI (JLcom/davils/kiro/ui/motion/scene/Scene;JJJFFFFFFFFFJJIFFJJLandroidx/compose/animation/core/Easing;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;Lcom/davils/kiro/ui/window/splash/SplashLabels;)Lcom/davils/kiro/ui/window/splash/centered/CenteredSplashStyle;
+	public static synthetic fun copy-MH-x_lI$default (Lcom/davils/kiro/ui/window/splash/centered/CenteredSplashStyle;JLcom/davils/kiro/ui/motion/scene/Scene;JJJFFFFFFFFFJJIFFJJLandroidx/compose/animation/core/Easing;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;Lcom/davils/kiro/ui/window/splash/SplashLabels;ILjava/lang/Object;)Lcom/davils/kiro/ui/window/splash/centered/CenteredSplashStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContent-0d7_KjU ()J
+	public final fun getFailure ()Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;
+	public final fun getFooterGap-D9Ej5fM ()F
+	public final fun getFooterStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getGap-D9Ej5fM ()F
+	public final fun getLabels ()Lcom/davils/kiro/ui/window/splash/SplashLabels;
+	public final fun getLogoSize-D9Ej5fM ()F
+	public final fun getMuted-0d7_KjU ()J
+	public final fun getNameStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getPadding-D9Ej5fM ()F
+	public final fun getRingCap-KaPHkGw ()I
+	public final fun getRingColor-0d7_KjU ()J
+	public final fun getRingDuration-UwyO8pc ()J
+	public final fun getRingEasing ()Landroidx/compose/animation/core/Easing;
+	public final fun getRingGap-D9Ej5fM ()F
+	public final fun getRingPeriod-UwyO8pc ()J
+	public final fun getRingStart ()F
+	public final fun getRingSweep ()F
+	public final fun getRingTrack-0d7_KjU ()J
+	public final fun getRingWidth-D9Ej5fM ()F
+	public final fun getScene ()Lcom/davils/kiro/ui/motion/scene/Scene;
+	public final fun getSize-MYxV2XQ ()J
+	public final fun getStepStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getSubtitleStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getTitleGap-D9Ej5fM ()F
+	public final fun getVeil-0d7_KjU ()J
+	public final fun getVeilHold ()F
+	public final fun getVeilSpread-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface com/davils/kiro/ui/window/splash/centered/CenteredSplashStyles {
+	public static final field Companion Lcom/davils/kiro/ui/window/splash/centered/CenteredSplashStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/window/splash/centered/CenteredSplashStyle;
+}
+
+public final class com/davils/kiro/ui/window/splash/centered/CenteredSplashStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/window/splash/centered/CenteredSplashStyles;
+}
+
+public final class com/davils/kiro/ui/window/splash/centered/CenteredSplashStylesKt {
+	public static final fun centeredSplashStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/window/splash/centered/CenteredSplashStyle;
+	public static final fun getCenteredSplashStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+}
+
+public final class com/davils/kiro/ui/window/splash/checklist/ChecklistSplashKt {
+	public static final fun ChecklistSplash (Lcom/davils/kiro/ui/window/splash/Splash;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lcom/davils/kiro/ui/window/splash/checklist/ChecklistSplashStyle;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function4;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/window/splash/checklist/ChecklistSplashStyle {
+	public static final field $stable I
+	public synthetic fun <init> (JLcom/davils/kiro/ui/motion/scene/Scene;FLcom/davils/kiro/ui/core/style/Border;JJJFFFFLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;FFFLandroidx/compose/ui/text/TextStyle;JJJJJLcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/components/spinner/SpinnerStyle;Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;Lcom/davils/kiro/ui/window/splash/SplashLabels;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-4dfoyCw (JLcom/davils/kiro/ui/motion/scene/Scene;FLcom/davils/kiro/ui/core/style/Border;JJJFFFFLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;FFFLandroidx/compose/ui/text/TextStyle;JJJJJLcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/components/spinner/SpinnerStyle;Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;Lcom/davils/kiro/ui/window/splash/SplashLabels;)Lcom/davils/kiro/ui/window/splash/checklist/ChecklistSplashStyle;
+	public static synthetic fun copy-4dfoyCw$default (Lcom/davils/kiro/ui/window/splash/checklist/ChecklistSplashStyle;JLcom/davils/kiro/ui/motion/scene/Scene;FLcom/davils/kiro/ui/core/style/Border;JJJFFFFLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;FFFLandroidx/compose/ui/text/TextStyle;JJJJJLcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/icons/IconGraphic;Lcom/davils/kiro/ui/components/spinner/SpinnerStyle;Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;Lcom/davils/kiro/ui/window/splash/SplashLabels;ILjava/lang/Object;)Lcom/davils/kiro/ui/window/splash/checklist/ChecklistSplashStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackground-0d7_KjU ()J
+	public final fun getBandFraction ()F
+	public final fun getContent-0d7_KjU ()J
+	public final fun getDivider ()Lcom/davils/kiro/ui/core/style/Border;
+	public final fun getDoneColor-0d7_KjU ()J
+	public final fun getDoneIcon ()Lcom/davils/kiro/ui/icons/IconGraphic;
+	public final fun getFailedColor-0d7_KjU ()J
+	public final fun getFailedIcon ()Lcom/davils/kiro/ui/icons/IconGraphic;
+	public final fun getFailure ()Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;
+	public final fun getGap-D9Ej5fM ()F
+	public final fun getHeaderGap-D9Ej5fM ()F
+	public final fun getIconGap-D9Ej5fM ()F
+	public final fun getIconSize-D9Ej5fM ()F
+	public final fun getLabels ()Lcom/davils/kiro/ui/window/splash/SplashLabels;
+	public final fun getLogoSize-D9Ej5fM ()F
+	public final fun getMuted-0d7_KjU ()J
+	public final fun getNameStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getPadding-D9Ej5fM ()F
+	public final fun getPendingColor-0d7_KjU ()J
+	public final fun getPendingIcon ()Lcom/davils/kiro/ui/icons/IconGraphic;
+	public final fun getRunningColor-0d7_KjU ()J
+	public final fun getScene ()Lcom/davils/kiro/ui/motion/scene/Scene;
+	public final fun getSize-MYxV2XQ ()J
+	public final fun getSkippedColor-0d7_KjU ()J
+	public final fun getSkippedIcon ()Lcom/davils/kiro/ui/icons/IconGraphic;
+	public final fun getSpinner ()Lcom/davils/kiro/ui/components/spinner/SpinnerStyle;
+	public final fun getStepGap-D9Ej5fM ()F
+	public final fun getStepStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getVersionStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface com/davils/kiro/ui/window/splash/checklist/ChecklistSplashStyles {
+	public static final field Companion Lcom/davils/kiro/ui/window/splash/checklist/ChecklistSplashStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/window/splash/checklist/ChecklistSplashStyle;
+}
+
+public final class com/davils/kiro/ui/window/splash/checklist/ChecklistSplashStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/window/splash/checklist/ChecklistSplashStyles;
+}
+
+public final class com/davils/kiro/ui/window/splash/checklist/ChecklistSplashStylesKt {
+	public static final fun checklistSplashStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/window/splash/checklist/ChecklistSplashStyle;
+	public static final fun getChecklistSplashStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+}
+
+public final class com/davils/kiro/ui/window/splash/hero/HeroSplashKt {
+	public static final fun HeroSplash (Lcom/davils/kiro/ui/window/splash/Splash;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lcom/davils/kiro/ui/window/splash/hero/HeroSplashStyle;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/window/splash/hero/HeroSplashStyle {
+	public static final field $stable I
+	public synthetic fun <init> (JLcom/davils/kiro/ui/motion/scene/Scene;JFFJJFFFFLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Lcom/davils/kiro/ui/components/progress/ProgressStyle;Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;Lcom/davils/kiro/ui/window/splash/SplashLabels;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-_kgDN_c (JLcom/davils/kiro/ui/motion/scene/Scene;JFFJJFFFFLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Lcom/davils/kiro/ui/components/progress/ProgressStyle;Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;Lcom/davils/kiro/ui/window/splash/SplashLabels;)Lcom/davils/kiro/ui/window/splash/hero/HeroSplashStyle;
+	public static synthetic fun copy-_kgDN_c$default (Lcom/davils/kiro/ui/window/splash/hero/HeroSplashStyle;JLcom/davils/kiro/ui/motion/scene/Scene;JFFJJFFFFLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Lcom/davils/kiro/ui/components/progress/ProgressStyle;Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;Lcom/davils/kiro/ui/window/splash/SplashLabels;ILjava/lang/Object;)Lcom/davils/kiro/ui/window/splash/hero/HeroSplashStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContent-0d7_KjU ()J
+	public final fun getFailure ()Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;
+	public final fun getFooterStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getGap-D9Ej5fM ()F
+	public final fun getLabels ()Lcom/davils/kiro/ui/window/splash/SplashLabels;
+	public final fun getLogoSize-D9Ej5fM ()F
+	public final fun getMuted-0d7_KjU ()J
+	public final fun getNameStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getPadding-D9Ej5fM ()F
+	public final fun getProgress ()Lcom/davils/kiro/ui/components/progress/ProgressStyle;
+	public final fun getScene ()Lcom/davils/kiro/ui/motion/scene/Scene;
+	public final fun getScrim-0d7_KjU ()J
+	public final fun getScrimEnd ()F
+	public final fun getScrimStart ()F
+	public final fun getSize-MYxV2XQ ()J
+	public final fun getStepStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getSubtitleStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getTitleGap-D9Ej5fM ()F
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface com/davils/kiro/ui/window/splash/hero/HeroSplashStyles {
+	public static final field Companion Lcom/davils/kiro/ui/window/splash/hero/HeroSplashStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/window/splash/hero/HeroSplashStyle;
+}
+
+public final class com/davils/kiro/ui/window/splash/hero/HeroSplashStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/window/splash/hero/HeroSplashStyles;
+}
+
+public final class com/davils/kiro/ui/window/splash/hero/HeroSplashStylesKt {
+	public static final fun getHeroSplashStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun heroSplashStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/window/splash/hero/HeroSplashStyle;
+}
+
+public final class com/davils/kiro/ui/window/splash/minimal/MinimalSplashKt {
+	public static final fun MinimalSplash (Lcom/davils/kiro/ui/window/splash/Splash;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lcom/davils/kiro/ui/window/splash/minimal/MinimalSplashStyle;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/window/splash/minimal/MinimalSplashStyle {
+	public static final field $stable I
+	public synthetic fun <init> (JLcom/davils/kiro/ui/motion/scene/Scene;JLcom/davils/kiro/ui/core/style/Border;FLcom/davils/kiro/ui/core/elevation/BoxShadow;FJFFFLandroidx/compose/ui/text/TextStyle;ZLcom/davils/kiro/ui/components/spinner/SpinnerStyle;Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;Lcom/davils/kiro/ui/window/splash/SplashLabels;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-a6doLAM (JLcom/davils/kiro/ui/motion/scene/Scene;JLcom/davils/kiro/ui/core/style/Border;FLcom/davils/kiro/ui/core/elevation/BoxShadow;FJFFFLandroidx/compose/ui/text/TextStyle;ZLcom/davils/kiro/ui/components/spinner/SpinnerStyle;Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;Lcom/davils/kiro/ui/window/splash/SplashLabels;)Lcom/davils/kiro/ui/window/splash/minimal/MinimalSplashStyle;
+	public static synthetic fun copy-a6doLAM$default (Lcom/davils/kiro/ui/window/splash/minimal/MinimalSplashStyle;JLcom/davils/kiro/ui/motion/scene/Scene;JLcom/davils/kiro/ui/core/style/Border;FLcom/davils/kiro/ui/core/elevation/BoxShadow;FJFFFLandroidx/compose/ui/text/TextStyle;ZLcom/davils/kiro/ui/components/spinner/SpinnerStyle;Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;Lcom/davils/kiro/ui/window/splash/SplashLabels;ILjava/lang/Object;)Lcom/davils/kiro/ui/window/splash/minimal/MinimalSplashStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBorder ()Lcom/davils/kiro/ui/core/style/Border;
+	public final fun getCard-0d7_KjU ()J
+	public final fun getCardPadding-D9Ej5fM ()F
+	public final fun getContent-0d7_KjU ()J
+	public final fun getCornerRadius-D9Ej5fM ()F
+	public final fun getFailure ()Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;
+	public final fun getGap-D9Ej5fM ()F
+	public final fun getLabels ()Lcom/davils/kiro/ui/window/splash/SplashLabels;
+	public final fun getLogoSize-D9Ej5fM ()F
+	public final fun getNameStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getPadding-D9Ej5fM ()F
+	public final fun getScene ()Lcom/davils/kiro/ui/motion/scene/Scene;
+	public final fun getShadow ()Lcom/davils/kiro/ui/core/elevation/BoxShadow;
+	public final fun getSize-MYxV2XQ ()J
+	public final fun getSpinner ()Lcom/davils/kiro/ui/components/spinner/SpinnerStyle;
+	public fun hashCode ()I
+	public final fun isNameShown ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface com/davils/kiro/ui/window/splash/minimal/MinimalSplashStyles {
+	public static final field Companion Lcom/davils/kiro/ui/window/splash/minimal/MinimalSplashStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/window/splash/minimal/MinimalSplashStyle;
+}
+
+public final class com/davils/kiro/ui/window/splash/minimal/MinimalSplashStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/window/splash/minimal/MinimalSplashStyles;
+}
+
+public final class com/davils/kiro/ui/window/splash/minimal/MinimalSplashStylesKt {
+	public static final fun getMinimalSplashStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun minimalSplashStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/window/splash/minimal/MinimalSplashStyle;
+}
+
+public final class com/davils/kiro/ui/window/splash/split/SplitSplashKt {
+	public static final fun SplitSplash (Lcom/davils/kiro/ui/window/splash/Splash;Landroidx/compose/ui/Modifier;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lcom/davils/kiro/ui/window/splash/split/SplitSplashStyle;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/window/splash/split/SplitSplashStyle {
+	public static final field $stable I
+	public synthetic fun <init> (JJLcom/davils/kiro/ui/core/style/Border;Lcom/davils/kiro/ui/motion/scene/Scene;JJFFFFFFFLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;JFFFFFLcom/davils/kiro/ui/components/spinner/SpinnerStyle;Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;Lcom/davils/kiro/ui/window/splash/SplashLabels;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-H0SbhEM (JJLcom/davils/kiro/ui/core/style/Border;Lcom/davils/kiro/ui/motion/scene/Scene;JJFFFFFFFLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;JFFFFFLcom/davils/kiro/ui/components/spinner/SpinnerStyle;Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;Lcom/davils/kiro/ui/window/splash/SplashLabels;)Lcom/davils/kiro/ui/window/splash/split/SplitSplashStyle;
+	public static synthetic fun copy-H0SbhEM$default (Lcom/davils/kiro/ui/window/splash/split/SplitSplashStyle;JJLcom/davils/kiro/ui/core/style/Border;Lcom/davils/kiro/ui/motion/scene/Scene;JJFFFFFFFLandroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;Landroidx/compose/ui/text/TextStyle;JFFFFFLcom/davils/kiro/ui/components/spinner/SpinnerStyle;Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;Lcom/davils/kiro/ui/window/splash/SplashLabels;ILjava/lang/Object;)Lcom/davils/kiro/ui/window/splash/split/SplitSplashStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContent-0d7_KjU ()J
+	public final fun getDivider ()Lcom/davils/kiro/ui/core/style/Border;
+	public final fun getEditionStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getFailure ()Lcom/davils/kiro/ui/window/splash/SplashFailureStyle;
+	public final fun getFooterStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getGap-D9Ej5fM ()F
+	public final fun getHeaderGap-D9Ej5fM ()F
+	public final fun getIndicatorGap-D9Ej5fM ()F
+	public final fun getLabels ()Lcom/davils/kiro/ui/window/splash/SplashLabels;
+	public final fun getLogoSize-D9Ej5fM ()F
+	public final fun getMuted-0d7_KjU ()J
+	public final fun getNameStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getPadding-D9Ej5fM ()F
+	public final fun getPanel-0d7_KjU ()J
+	public final fun getScene ()Lcom/davils/kiro/ui/motion/scene/Scene;
+	public final fun getSize-MYxV2XQ ()J
+	public final fun getSpinner ()Lcom/davils/kiro/ui/components/spinner/SpinnerStyle;
+	public final fun getStepGap-D9Ej5fM ()F
+	public final fun getStepStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getSubtitleStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getTitleGap-D9Ej5fM ()F
+	public final fun getVendorAlpha ()F
+	public final fun getVendorColor-0d7_KjU ()J
+	public final fun getVendorGap-D9Ej5fM ()F
+	public final fun getVendorLogoSize-D9Ej5fM ()F
+	public final fun getVendorRotation ()F
+	public final fun getVendorSaturation ()F
+	public final fun getVendorStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getVersionStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface com/davils/kiro/ui/window/splash/split/SplitSplashStyles {
+	public static final field Companion Lcom/davils/kiro/ui/window/splash/split/SplitSplashStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/window/splash/split/SplitSplashStyle;
+}
+
+public final class com/davils/kiro/ui/window/splash/split/SplitSplashStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/window/splash/split/SplitSplashStyles;
+}
+
+public final class com/davils/kiro/ui/window/splash/split/SplitSplashStylesKt {
+	public static final fun getSplitSplashStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun splitSplashStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/window/splash/split/SplitSplashStyle;
+}
+
+public final class com/davils/kiro/ui/window/testing/DesktopMock : com/davils/kiro/ui/window/application/DesktopHandlers, com/davils/kiro/ui/window/application/DockApi {
+	public static final field $stable I
+	public fun <init> ()V
+	public final fun getAttentionRequests ()Ljava/util/List;
+	public final fun getBadge ()Ljava/lang/String;
+	public final fun getHasAboutHandler ()Z
+	public final fun getHasOpenFilesHandler ()Z
+	public final fun getHasOpenUriHandler ()Z
+	public final fun getHasQuitHandler ()Z
+	public final fun getHasReopenHandler ()Z
+	public final fun getHasSettingsHandler ()Z
+	public final fun getIcon ()Ljava/awt/Image;
+	public final fun getMenu ()Ljava/util/List;
+	public final fun getProgress ()Ljava/lang/Integer;
+	public final fun getQuitAnswers ()Ljava/util/List;
+	public final fun open (Ljava/net/URI;)V
+	public final fun open (Ljava/util/List;)V
+	public final fun reopen ()V
+	public fun requestAttention (Z)V
+	public final fun requestQuit ()V
+	public fun setAboutHandler (Lkotlin/jvm/functions/Function0;)V
+	public fun setBadge (Ljava/lang/String;)V
+	public fun setIcon (Ljava/awt/Image;)V
+	public fun setMenu (Ljava/util/List;)V
+	public fun setOpenFilesHandler (Lkotlin/jvm/functions/Function1;)V
+	public fun setOpenUriHandler (Lkotlin/jvm/functions/Function1;)V
+	public fun setProgress (Ljava/lang/Integer;)V
+	public fun setQuitHandler (Lkotlin/jvm/functions/Function1;)V
+	public fun setReopenHandler (Lkotlin/jvm/functions/Function0;)V
+	public fun setSettingsHandler (Lkotlin/jvm/functions/Function0;)V
+	public final fun showAbout ()V
+	public final fun showSettings ()V
+}
+
+public final class com/davils/kiro/ui/window/testing/DetachedWindowHost : com/davils/kiro/ui/window/host/WindowHost {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Lcom/davils/kiro/ui/window/frame/WindowFrameApi;Z)V
+	public synthetic fun <init> (Lcom/davils/kiro/ui/window/frame/WindowFrameApi;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun Open (Lcom/davils/kiro/ui/window/host/WindowSpec;Lkotlin/jvm/functions/Function4;Landroidx/compose/runtime/Composer;I)V
+	public final fun getOpened ()Ljava/util/List;
+	public fun isDecorationSupported ()Z
+}
+
+public final class com/davils/kiro/ui/window/testing/ScreenMock : com/davils/kiro/ui/window/screen/ScreenApi {
+	public static final field $stable I
+	public static final field Companion Lcom/davils/kiro/ui/window/testing/ScreenMock$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getAvailable ()Ljava/util/List;
+	public fun screens ()Ljava/util/List;
+	public final fun setAvailable (Ljava/util/List;)V
+}
+
+public final class com/davils/kiro/ui/window/testing/ScreenMock$Companion {
+	public final fun getPRIMARY ()Lcom/davils/kiro/ui/window/screen/Screen;
+	public final fun getSECONDARY ()Lcom/davils/kiro/ui/window/screen/Screen;
+}
+
+public final class com/davils/kiro/ui/window/testing/TrayHostMock : com/davils/kiro/ui/window/tray/TrayHost {
+	public static final field $stable I
+	public fun <init> ()V
+	public fun <init> (Z)V
+	public synthetic fun <init> (ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun Show (Landroidx/compose/ui/window/ApplicationScope;Lcom/davils/kiro/ui/window/tray/TraySpec;Landroidx/compose/runtime/Composer;I)V
+	public final fun getNotifications ()Ljava/util/List;
+	public final fun getShown ()Ljava/util/List;
+	public fun isSupported ()Z
+}
+
+public final class com/davils/kiro/ui/window/testing/WindowFrameMock : com/davils/kiro/ui/window/frame/WindowFrameApi {
+	public static final field $stable I
+	public fun <init> ()V
+	public synthetic fun <init> (Landroidx/compose/ui/unit/DpOffset;JLandroidx/compose/ui/unit/DpRect;Lcom/davils/kiro/ui/window/screen/ScreenInsets;Lcom/davils/kiro/ui/window/frame/CaptionInsets;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public synthetic fun <init> (Landroidx/compose/ui/unit/DpOffset;JLandroidx/compose/ui/unit/DpRect;Lcom/davils/kiro/ui/window/screen/ScreenInsets;Lcom/davils/kiro/ui/window/frame/CaptionInsets;ZLkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun decorate-D5KLDUw (FZ)Lcom/davils/kiro/ui/window/frame/CaptionInsets;
+	public fun extendIntoTitleBar ()V
+	public final fun getDecoratedHeight-lTKBWiU ()Landroidx/compose/ui/unit/Dp;
+	public final fun getHitTests ()Ljava/util/List;
+	public final fun getLimited-rqqXlrw ()Landroidx/compose/ui/unit/DpSize;
+	public final fun getPointer-Ctc3-3Q ()Landroidx/compose/ui/unit/DpOffset;
+	public final fun getSystemMoves ()I
+	public fun hitTest (Z)V
+	public final fun isDecoratedDark ()Z
+	public final fun isExtended ()Z
+	public fun isSystemMoveSupported ()Z
+	public fun limit-EaSLcWc (J)V
+	public fun pointer-Ctc3-3Q ()Landroidx/compose/ui/unit/DpOffset;
+	public fun screenBounds ()Landroidx/compose/ui/unit/DpRect;
+	public fun screenInsets ()Lcom/davils/kiro/ui/window/screen/ScreenInsets;
+	public final fun setPointer-IXka2vM (Landroidx/compose/ui/unit/DpOffset;)V
+	public fun startSystemMove ()V
+}
+
+public final class com/davils/kiro/ui/window/titlebar/TitleBarKt {
+	public static final fun TitleBar (Lcom/davils/kiro/ui/window/titlebar/WindowActions;Landroidx/compose/ui/Modifier;Lcom/davils/kiro/ui/window/titlebar/TitleBarStyle;Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composer;II)V
+}
+
+public abstract interface com/davils/kiro/ui/window/titlebar/TitleBarScope {
+	public abstract fun center (Lkotlin/jvm/functions/Function3;)V
+	public abstract fun end (Lkotlin/jvm/functions/Function3;)V
+	public abstract fun start (Lkotlin/jvm/functions/Function3;)V
+}
+
+public final class com/davils/kiro/ui/window/titlebar/TitleBarStyle {
+	public static final field $stable I
+	public synthetic fun <init> (FJJJJLcom/davils/kiro/ui/core/style/Border;Landroidx/compose/ui/text/TextStyle;FFLcom/davils/kiro/ui/window/titlebar/TitlePlacement;Lcom/davils/kiro/ui/window/controls/WindowControls;Lcom/davils/kiro/ui/core/style/StateColors;Lcom/davils/kiro/ui/core/style/StateColors;Lcom/davils/kiro/ui/components/button/ButtonVariant;Lcom/davils/kiro/ui/components/button/ButtonSize;JJLandroidx/compose/ui/text/TextStyle;FFFJILandroidx/compose/animation/core/AnimationSpec;Lcom/davils/kiro/ui/window/WindowLabels;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy-48F5r9o (FJJJJLcom/davils/kiro/ui/core/style/Border;Landroidx/compose/ui/text/TextStyle;FFLcom/davils/kiro/ui/window/titlebar/TitlePlacement;Lcom/davils/kiro/ui/window/controls/WindowControls;Lcom/davils/kiro/ui/core/style/StateColors;Lcom/davils/kiro/ui/core/style/StateColors;Lcom/davils/kiro/ui/components/button/ButtonVariant;Lcom/davils/kiro/ui/components/button/ButtonSize;JJLandroidx/compose/ui/text/TextStyle;FFFJILandroidx/compose/animation/core/AnimationSpec;Lcom/davils/kiro/ui/window/WindowLabels;)Lcom/davils/kiro/ui/window/titlebar/TitleBarStyle;
+	public static synthetic fun copy-48F5r9o$default (Lcom/davils/kiro/ui/window/titlebar/TitleBarStyle;FJJJJLcom/davils/kiro/ui/core/style/Border;Landroidx/compose/ui/text/TextStyle;FFLcom/davils/kiro/ui/window/titlebar/TitlePlacement;Lcom/davils/kiro/ui/window/controls/WindowControls;Lcom/davils/kiro/ui/core/style/StateColors;Lcom/davils/kiro/ui/core/style/StateColors;Lcom/davils/kiro/ui/components/button/ButtonVariant;Lcom/davils/kiro/ui/components/button/ButtonSize;JJLandroidx/compose/ui/text/TextStyle;FFFJILandroidx/compose/animation/core/AnimationSpec;Lcom/davils/kiro/ui/window/WindowLabels;ILjava/lang/Object;)Lcom/davils/kiro/ui/window/titlebar/TitleBarStyle;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBackground-0d7_KjU ()J
+	public final fun getBadgeColor-0d7_KjU ()J
+	public final fun getBadgeContent-0d7_KjU ()J
+	public final fun getBadgeDotSize-D9Ej5fM ()F
+	public final fun getBadgeLimit ()I
+	public final fun getBadgeMinSize-D9Ej5fM ()F
+	public final fun getBadgeOffset-RKDOV3M ()J
+	public final fun getBadgePadding-D9Ej5fM ()F
+	public final fun getBadgeTextStyle ()Landroidx/compose/ui/text/TextStyle;
+	public final fun getButtonSize ()Lcom/davils/kiro/ui/components/button/ButtonSize;
+	public final fun getButtonVariant ()Lcom/davils/kiro/ui/components/button/ButtonVariant;
+	public final fun getCloseColors ()Lcom/davils/kiro/ui/core/style/StateColors;
+	public final fun getColorAnimation ()Landroidx/compose/animation/core/AnimationSpec;
+	public final fun getContent-0d7_KjU ()J
+	public final fun getControlColors ()Lcom/davils/kiro/ui/core/style/StateColors;
+	public final fun getControls ()Lcom/davils/kiro/ui/window/controls/WindowControls;
+	public final fun getDivider ()Lcom/davils/kiro/ui/core/style/Border;
+	public final fun getGap-D9Ej5fM ()F
+	public final fun getHeight-D9Ej5fM ()F
+	public final fun getHorizontalPadding-D9Ej5fM ()F
+	public final fun getInactiveBackground-0d7_KjU ()J
+	public final fun getInactiveContent-0d7_KjU ()J
+	public final fun getLabels ()Lcom/davils/kiro/ui/window/WindowLabels;
+	public final fun getTitlePlacement ()Lcom/davils/kiro/ui/window/titlebar/TitlePlacement;
+	public final fun getTitleStyle ()Landroidx/compose/ui/text/TextStyle;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public abstract interface com/davils/kiro/ui/window/titlebar/TitleBarStyles {
+	public static final field Companion Lcom/davils/kiro/ui/window/titlebar/TitleBarStyles$Companion;
+	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;Lcom/davils/kiro/ui/components/menubar/DesktopPlatform;)Lcom/davils/kiro/ui/window/titlebar/TitleBarStyle;
+}
+
+public final class com/davils/kiro/ui/window/titlebar/TitleBarStyles$Companion {
+	public final fun getDefault ()Lcom/davils/kiro/ui/window/titlebar/TitleBarStyles;
+}
+
+public final class com/davils/kiro/ui/window/titlebar/TitleBarStylesKt {
+	public static final fun getTitleBarStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
+	public static final fun titleBarStyle (Lcom/davils/kiro/ui/components/menubar/DesktopPlatform;Landroidx/compose/runtime/Composer;II)Lcom/davils/kiro/ui/window/titlebar/TitleBarStyle;
+}
+
+public final class com/davils/kiro/ui/window/titlebar/TitlePlacement : java/lang/Enum {
+	public static final field SlotCenter Lcom/davils/kiro/ui/window/titlebar/TitlePlacement;
+	public static final field Start Lcom/davils/kiro/ui/window/titlebar/TitlePlacement;
+	public static final field WindowCenter Lcom/davils/kiro/ui/window/titlebar/TitlePlacement;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/window/titlebar/TitlePlacement;
+	public static fun values ()[Lcom/davils/kiro/ui/window/titlebar/TitlePlacement;
+}
+
+public abstract interface com/davils/kiro/ui/window/titlebar/WindowActions {
+	public abstract fun close ()V
+	public abstract fun isMaximized ()Z
+	public abstract fun minimize ()V
+	public abstract fun toggleMaximize ()V
+}
+
+public abstract interface com/davils/kiro/ui/window/titlebar/WindowTitleBarScope : com/davils/kiro/ui/window/titlebar/TitleBarScope, androidx/compose/ui/window/FrameWindowScope {
+}
+
+public final class com/davils/kiro/ui/window/titlebar/WindowTitleKt {
+	public static final fun WindowTitle (Ljava/lang/String;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/window/tray/LocalTrayHostKt {
+	public static final fun getLocalTrayHost ()Landroidx/compose/runtime/ProvidableCompositionLocal;
+}
+
+public abstract interface com/davils/kiro/ui/window/tray/TrayHost {
+	public abstract fun Show (Landroidx/compose/ui/window/ApplicationScope;Lcom/davils/kiro/ui/window/tray/TraySpec;Landroidx/compose/runtime/Composer;I)V
+	public abstract fun isSupported ()Z
+}
+
+public final class com/davils/kiro/ui/window/tray/TrayIcon {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/ui/graphics/painter/Painter;Landroidx/compose/ui/graphics/painter/Painter;Landroidx/compose/ui/graphics/painter/Painter;)V
+	public synthetic fun <init> (Landroidx/compose/ui/graphics/painter/Painter;Landroidx/compose/ui/graphics/painter/Painter;Landroidx/compose/ui/graphics/painter/Painter;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Landroidx/compose/ui/graphics/painter/Painter;Landroidx/compose/ui/graphics/painter/Painter;Landroidx/compose/ui/graphics/painter/Painter;)Lcom/davils/kiro/ui/window/tray/TrayIcon;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/window/tray/TrayIcon;Landroidx/compose/ui/graphics/painter/Painter;Landroidx/compose/ui/graphics/painter/Painter;Landroidx/compose/ui/graphics/painter/Painter;ILjava/lang/Object;)Lcom/davils/kiro/ui/window/tray/TrayIcon;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDark ()Landroidx/compose/ui/graphics/painter/Painter;
+	public final fun getLight ()Landroidx/compose/ui/graphics/painter/Painter;
+	public final fun getTemplate ()Landroidx/compose/ui/graphics/painter/Painter;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/tray/TrayKt {
+	public static final fun Tray (Landroidx/compose/ui/window/ApplicationScope;Lcom/davils/kiro/ui/window/tray/TrayIcon;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lcom/davils/kiro/ui/window/tray/TrayState;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Lcom/davils/kiro/ui/components/menubar/DesktopPlatform;Landroidx/compose/runtime/Composer;II)V
+}
+
+public final class com/davils/kiro/ui/window/tray/TrayNotification {
+	public static final field $stable I
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/davils/kiro/ui/window/tray/TrayNotificationType;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Lcom/davils/kiro/ui/window/tray/TrayNotificationType;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lcom/davils/kiro/ui/window/tray/TrayNotificationType;)Lcom/davils/kiro/ui/window/tray/TrayNotification;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/window/tray/TrayNotification;Ljava/lang/String;Ljava/lang/String;Lcom/davils/kiro/ui/window/tray/TrayNotificationType;ILjava/lang/Object;)Lcom/davils/kiro/ui/window/tray/TrayNotification;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMessage ()Ljava/lang/String;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getType ()Lcom/davils/kiro/ui/window/tray/TrayNotificationType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/tray/TrayNotificationType : java/lang/Enum {
+	public static final field Error Lcom/davils/kiro/ui/window/tray/TrayNotificationType;
+	public static final field Info Lcom/davils/kiro/ui/window/tray/TrayNotificationType;
+	public static final field None Lcom/davils/kiro/ui/window/tray/TrayNotificationType;
+	public static final field Warning Lcom/davils/kiro/ui/window/tray/TrayNotificationType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lcom/davils/kiro/ui/window/tray/TrayNotificationType;
+	public static fun values ()[Lcom/davils/kiro/ui/window/tray/TrayNotificationType;
+}
+
+public final class com/davils/kiro/ui/window/tray/TraySpec {
+	public static final field $stable I
+	public fun <init> (Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;Ljava/util/List;Lcom/davils/kiro/ui/window/tray/TrayState;Lkotlin/jvm/functions/Function0;)V
+	public final fun copy (Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;Ljava/util/List;Lcom/davils/kiro/ui/window/tray/TrayState;Lkotlin/jvm/functions/Function0;)Lcom/davils/kiro/ui/window/tray/TraySpec;
+	public static synthetic fun copy$default (Lcom/davils/kiro/ui/window/tray/TraySpec;Landroidx/compose/ui/graphics/painter/Painter;Ljava/lang/String;Ljava/util/List;Lcom/davils/kiro/ui/window/tray/TrayState;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Lcom/davils/kiro/ui/window/tray/TraySpec;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getEntries ()Ljava/util/List;
+	public final fun getIcon ()Landroidx/compose/ui/graphics/painter/Painter;
+	public final fun getOnAction ()Lkotlin/jvm/functions/Function0;
+	public final fun getState ()Lcom/davils/kiro/ui/window/tray/TrayState;
+	public final fun getTooltip ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/davils/kiro/ui/window/tray/TrayState {
+	public static final field $stable I
+	public fun <init> ()V
+	public final fun sendNotification (Lcom/davils/kiro/ui/window/tray/TrayNotification;)V
+}
+
+public final class com/davils/kiro/ui/window/tray/TrayStateKt {
+	public static final fun rememberTrayState (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/window/tray/TrayState;
+}
+
