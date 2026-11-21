@@ -28,13 +28,14 @@ val forbiddenGroups: List<String> = listOf(
     "org.jetbrains.compose.material",
     "org.jetbrains.compose.material3",
 )
+val composeTestConfigurations: Set<String> = setOf("jvmUnitTestImplementation", "unitTestImplementation")
 val resourcePackage: String = "com.davils.kiro.${name.removePrefix("kiro-").replace('-', '.')}.resources"
 
 configurations.configureEach {
     forbiddenGroups.forEach { group -> exclude(group = group) }
 }
 
-configurations.matching { configuration -> configuration.name == "jvmUnitTestImplementation" }.configureEach {
+configurations.matching { configuration -> configuration.name in composeTestConfigurations }.configureEach {
     dependencies.addAllLater(composeTesting.map { bundle -> bundle.map { library -> library } })
 }
 

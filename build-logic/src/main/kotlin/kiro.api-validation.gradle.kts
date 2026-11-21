@@ -22,13 +22,21 @@ kreate {
     project {
         apiValidation {
             enabled = true
-            klib = true
-
             semver {
                 enabled = true
                 tagPrefix = ""
                 requireBreakingCommit = true
                 runOnCheck = true
+            }
+        }
+    }
+}
+
+pluginManager.withPlugin("org.jetbrains.kotlin.multiplatform") {
+    kreate {
+        project {
+            apiValidation {
+                klib = true
             }
         }
     }
