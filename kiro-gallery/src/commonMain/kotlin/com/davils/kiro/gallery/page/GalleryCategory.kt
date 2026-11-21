@@ -25,6 +25,7 @@ import com.davils.kiro.ui.icons.lucide.LayoutDashboard
 import com.davils.kiro.ui.icons.lucide.Lucide
 import com.davils.kiro.ui.icons.lucide.MessagesSquare
 import com.davils.kiro.ui.icons.lucide.PanelsTopLeft
+import com.davils.kiro.ui.icons.lucide.Sparkles
 import com.davils.kiro.ui.icons.lucide.Table
 import com.davils.kiro.ui.icons.lucide.TextCursorInput
 import com.davils.kiro.ui.icons.lucide.Wrench
@@ -38,6 +39,7 @@ internal enum class GalleryCategory(val label: String, val icon: IconGraphic) {
     Data(label = "Data display", icon = Lucide.Table),
     Conversation(label = "Conversation", icon = Lucide.MessagesSquare),
     Audio(label = "Audio", icon = Lucide.Disc3),
+    Motion(label = "Motion", icon = Lucide.Sparkles),
     Window(label = "Window", icon = Lucide.AppWindow),
     Utilities(label = "Utilities", icon = Lucide.Wrench),
 }
