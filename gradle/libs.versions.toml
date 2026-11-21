@@ -9,6 +9,7 @@ serialization = "1.13.0"
 datetime = "0.8.0"
 kotlinpoet = "2.4.0"
 lucide = "1.71.0"
+jbr-api = "1.9.0"
 kotest = "6.2.7"
 # Floors for the classpaths of build tools, raised past known vulnerabilities.
 tooling-jackson = "2.22.3"
@@ -41,6 +42,7 @@ skiko-runtime-macos-x64 = { module = "org.jetbrains.skiko:skiko-awt-runtime-maco
 skiko-runtime-macos-arm64 = { module = "org.jetbrains.skiko:skiko-awt-runtime-macos-arm64", version.ref = "skiko" }
 skiko-runtime-windows-x64 = { module = "org.jetbrains.skiko:skiko-awt-runtime-windows-x64", version.ref = "skiko" }
 skiko-runtime-windows-arm64 = { module = "org.jetbrains.skiko:skiko-awt-runtime-windows-arm64", version.ref = "skiko" }
+jbr-api = { module = "org.jetbrains.runtime:jbr-api", version.ref = "jbr-api" }
 lucide-icons = { module = "lucide-icons:lucide-icons", version.ref = "lucide" }
 
 [bundles]
