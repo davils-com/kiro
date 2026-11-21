@@ -26,6 +26,7 @@ kreate {
 
 dependencies {
     commonMainImplementation(project(":kiro-ui:kiro-ui-components"))
+    commonMainImplementation(project(":kiro-ui:kiro-ui-audio"))
     commonMainImplementation(libs.compose.resources)
     jvmMainImplementation(libs.bundles.gallery.desktop)
 }

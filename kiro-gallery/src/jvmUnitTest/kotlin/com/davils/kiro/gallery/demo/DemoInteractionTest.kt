@@ -19,8 +19,11 @@ package com.davils.kiro.gallery.demo
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.SemanticsActions
+import androidx.compose.ui.test.ComposeUiTest
 import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.SemanticsMatcher
+import androidx.compose.ui.test.SemanticsNodeInteraction
+import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.performSemanticsAction
 import com.davils.kiro.gallery.fixture.click
@@ -64,6 +67,10 @@ private val texts: List<String> = listOf(
     "InputOTP",
     "Textarea",
 )
+
+@OptIn(ExperimentalTestApi::class)
+private fun ComposeUiTest.described(label: String): SemanticsNodeInteraction =
+    onAllNodesWithContentDescription(label).onFirst()
 
 private fun demoNamed(file: String): @Composable () -> Unit = demos
     .flatMap { demo -> demo.sections }
@@ -119,6 +126,19 @@ class DemoInteractionTest : FunSpec({
                 click("Open start")
                 escape("Nightly maintenance")
             }
+        }
+
+        test("play, pause and open the queue of the audio players") {
+            shown(content = demoNamed("AudioPlayerBar")) {
+                click(described("Play"))
+                click(described("Queue"))
+            }
+            shown(content = demoNamed("AudioPlayerCard")) { click(described("Next")) }
+            shown(content = demoNamed("AudioPlayerFull")) {
+                click(described("Queue"))
+                click("Packet Loss")
+            }
+            shown(content = demoNamed("AudioPlayerMini")) { click(described("Play")) }
         }
 
         test("open and close their floating panels") {

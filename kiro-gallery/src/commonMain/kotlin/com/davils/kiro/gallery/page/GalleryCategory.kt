@@ -19,6 +19,7 @@ package com.davils.kiro.gallery.page
 import com.davils.kiro.ui.icons.IconGraphic
 import com.davils.kiro.ui.icons.lucide.Bell
 import com.davils.kiro.ui.icons.lucide.Compass
+import com.davils.kiro.ui.icons.lucide.Disc3
 import com.davils.kiro.ui.icons.lucide.LayoutDashboard
 import com.davils.kiro.ui.icons.lucide.Lucide
 import com.davils.kiro.ui.icons.lucide.MessagesSquare
@@ -35,5 +36,6 @@ internal enum class GalleryCategory(val label: String, val icon: IconGraphic) {
     Feedback(label = "Feedback", icon = Lucide.Bell),
     Data(label = "Data display", icon = Lucide.Table),
     Conversation(label = "Conversation", icon = Lucide.MessagesSquare),
+    Audio(label = "Audio", icon = Lucide.Disc3),
     Utilities(label = "Utilities", icon = Lucide.Wrench),
 }

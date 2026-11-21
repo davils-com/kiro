@@ -16,6 +16,7 @@
 
 package com.davils.kiro.gallery.demo
 
+import com.davils.kiro.gallery.page.DemoSection
 import com.davils.kiro.gallery.page.GalleryCategory
 import com.davils.kiro.gallery.page.GalleryDemo
 
@@ -25,6 +26,16 @@ internal val demos: List<GalleryDemo> = listOf(
     GalleryDemo(name = "Alert Dialog", category = GalleryCategory.Overlays) { AlertDialogDemo() },
     GalleryDemo(name = "Aspect Ratio", category = GalleryCategory.Layout) { AspectRatioDemo() },
     GalleryDemo(name = "Attachment", category = GalleryCategory.Conversation) { AttachmentDemo() },
+    GalleryDemo(
+        name = "Audio Player",
+        category = GalleryCategory.Audio,
+        sections = listOf(
+            DemoSection(name = "Audio Player Bar") { AudioPlayerBarDemo() },
+            DemoSection(name = "Audio Player Card") { AudioPlayerCardDemo() },
+            DemoSection(name = "Audio Player Full") { AudioPlayerFullDemo() },
+            DemoSection(name = "Audio Player Mini") { AudioPlayerMiniDemo() },
+        ),
+    ),
     GalleryDemo(name = "Avatar", category = GalleryCategory.Data) { AvatarDemo() },
     GalleryDemo(name = "Badge", category = GalleryCategory.Feedback) { BadgeDemo() },
     GalleryDemo(name = "Brand Mark", category = GalleryCategory.Utilities) { BrandMarkDemo() },

@@ -20,6 +20,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.test.ExperimentalTestApi
+import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithText
 import com.davils.kiro.gallery.demo.demos
 import com.davils.kiro.gallery.fixture.click
@@ -74,6 +76,18 @@ class DemoPageTest : FunSpec({
                         demo.sections.forEach { section -> onNodeWithText(section.file).assertExists() }
                     }
                 }
+            }
+        }
+
+        test("gives every section of a demo its own box and code block") {
+            val audio = demos.first { demo -> demo.category == GalleryCategory.Audio }
+
+            shown(content = { DemoPage(audio) }) {
+                audio.sections.forEach { section ->
+                    onNodeWithText(section.name).assertExists()
+                    onNodeWithText(section.file).assertExists()
+                }
+                onAllNodesWithText(SHOW_CODE).assertCountEquals(audio.sections.size)
             }
         }
 
