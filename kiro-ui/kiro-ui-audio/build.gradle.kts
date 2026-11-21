@@ -20,7 +20,8 @@ plugins {
 
 kreate {
     project {
-        description = "The audio players of Kiro: a bar, a card, a full view and a mini player, tinted by their cover."
+        description = "The audio players of Kiro: a bar, a card, a full view and a mini player, tinted by their cover, " +
+            "and the audio visualizers: meters, scopes, analyzers, desktop visualizers, the waveform and timeline clips."
     }
 }
 

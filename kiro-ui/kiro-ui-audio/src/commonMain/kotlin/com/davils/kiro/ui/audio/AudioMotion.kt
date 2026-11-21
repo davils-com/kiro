@@ -17,10 +17,12 @@
 package com.davils.kiro.ui.audio
 
 import androidx.compose.animation.core.FiniteAnimationSpec
+import androidx.compose.animation.core.LinearEasing
 import androidx.compose.animation.core.snap
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import com.davils.kiro.ui.core.motion.Motion
+import kotlin.time.Duration
 
 internal fun <T> Motion.resizing(): FiniteAnimationSpec<T> {
     if (isReduced) return snap()
@@ -35,4 +37,9 @@ internal fun <T> Motion.fading(): FiniteAnimationSpec<T> {
 internal fun <T> Motion.springing(): FiniteAnimationSpec<T> {
     if (isReduced) return snap()
     return spring(dampingRatio = springs.spatial.dampingRatio, stiffness = springs.spatial.stiffness)
+}
+
+internal fun <T> Motion.following(duration: Duration): FiniteAnimationSpec<T> {
+    if (isReduced) return snap()
+    return tween(durationMillis = duration.inWholeMilliseconds.toInt(), easing = LinearEasing)
 }
