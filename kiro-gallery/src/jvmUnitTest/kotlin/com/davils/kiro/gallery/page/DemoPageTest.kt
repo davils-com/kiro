@@ -65,13 +65,10 @@ class DemoPageTest : FunSpec({
     }
 
     context("page") {
-        test("shows every component with its code in the light and the dark theme") {
-            listOf(Theme.light(), Theme.dark()).forEach { theme ->
-                var current by mutableStateOf(demos.first())
-
-                shown(theme = theme, content = { DemoPage(current) }) {
-                    demos.forEach { demo ->
-                        current = demo
+        mapOf("light" to Theme.light(), "dark" to Theme.dark()).forEach { (name, theme) ->
+            demos.forEach { demo ->
+                test("shows ${demo.name} with its code in the $name theme") {
+                    shown(theme = theme, autoAdvance = false, content = { DemoPage(demo) }) {
                         waitForIdle()
                         demo.sections.forEach { section -> onNodeWithText(section.file).assertExists() }
                     }

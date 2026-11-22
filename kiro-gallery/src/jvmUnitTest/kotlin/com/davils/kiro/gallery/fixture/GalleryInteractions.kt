@@ -69,8 +69,14 @@ internal fun ComposeUiTest.role(role: Role, index: Int = 0): SemanticsNodeIntera
     onAllNodes(SemanticsMatcher.expectValue(SemanticsProperties.Role, role))[index]
 
 @OptIn(ExperimentalTestApi::class)
-internal fun shown(theme: Theme = Theme.light(), content: @Composable () -> Unit, steps: ComposeUiTest.() -> Unit) {
+internal fun shown(
+    theme: Theme = Theme.light(),
+    autoAdvance: Boolean = true,
+    content: @Composable () -> Unit,
+    steps: ComposeUiTest.() -> Unit,
+) {
     runComposeUiTest {
+        mainClock.autoAdvance = autoAdvance
         setContent { ThemeProvider(theme = theme, content = content) }
         steps()
     }
