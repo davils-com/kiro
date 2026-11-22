@@ -76,5 +76,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - **The assurance gate aggregates every published module.** `kiro-ui-audio` was missing from it.
+- **The `Spectrogram` draws its frequency marks when it is lower than a label.** Placing a label threw an
+  `IllegalArgumentException`, which broke the gallery.
 - **The scopes of the components carry their public names.** The public interfaces of the scopes, such as
   `MenubarScope` and `CardScope`, had been named after their internal implementations.

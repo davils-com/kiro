@@ -82,6 +82,24 @@ class SpectrumTest : FunSpec({
         }
     }
 
+    test("draws the frequency marks of a spectrogram lower than its labels") {
+        val state = SpectrogramState(capacity = 4)
+        state.push(spectrumOf())
+        runComposeUiTest {
+            setContent {
+                Themed {
+                    Spectrogram(
+                        state = state,
+                        modifier = Modifier.testTag(TAG),
+                        style = spectrogramStyle().copy(height = 4.dp),
+                    )
+                }
+            }
+            onRoot().captureToImage()
+            onNodeWithTag(TAG).assertHeightIsEqualTo(4.dp)
+        }
+    }
+
     test("shows a changed style") {
         runComposeUiTest {
             setContent {

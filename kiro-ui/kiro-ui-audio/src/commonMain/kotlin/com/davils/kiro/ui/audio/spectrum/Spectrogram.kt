@@ -112,10 +112,8 @@ private fun DrawScope.drawMarks(
                 strokeWidth = style.gridWidth.toPx(),
             )
             val label = labels[index]
-            val top = (y - label.size.height / 2f).coerceIn(
-                minimumValue = 0f,
-                maximumValue = size.height - label.size.height,
-            )
+            val room = (size.height - label.size.height).coerceAtLeast(minimumValue = 0f)
+            val top = (y - label.size.height / 2f).coerceIn(minimumValue = 0f, maximumValue = room)
             drawText(label, topLeft = Offset(x = 0f, y = top))
         }
     }
