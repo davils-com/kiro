@@ -18,6 +18,7 @@ package com.davils.kiro.ui.motion.shader
 
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import com.davils.kiro.ui.motion.art.gradient.GradientArt
 import com.davils.kiro.ui.motion.fixture.Render
 import com.davils.kiro.ui.motion.fixture.colors
 import com.davils.kiro.ui.motion.fixture.drawEmpty
@@ -28,7 +29,6 @@ import com.davils.kiro.ui.motion.fixture.print
 import com.davils.kiro.ui.motion.fixture.render
 import com.davils.kiro.ui.motion.fixture.rendererOf
 import com.davils.kiro.ui.motion.input.ArtInputs
-import com.davils.kiro.ui.motion.shader.mesh.MeshGradientArt
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.ints.shouldBeGreaterThan
 import io.kotest.matchers.ints.shouldBeLessThanOrEqual
@@ -82,7 +82,7 @@ private fun tinted(
         PointerUniform(name = "pointer"),
         ProgressUniform(name = "progress", missing = 0f),
     ),
-    fallback = MeshGradientArt(),
+    fallback = GradientArt(),
     backend = backend,
 )
 
@@ -125,8 +125,8 @@ class ShaderArtTest : FunSpec({
 
         broken.rendererOf().shouldBeInstanceOf<WashRenderer>()
         broken.colors() shouldBeGreaterThan FEW
-        canvas.print() shouldBe MeshGradientArt().print()
-        broken.copy(fallback = MeshGradientArt()).print() shouldBe MeshGradientArt().print()
+        canvas.print() shouldBe GradientArt().print()
+        broken.copy(fallback = GradientArt()).print() shouldBe GradientArt().print()
         shaderEffects.contains(source = broken.source) shouldBe true
     }
 
@@ -155,7 +155,7 @@ class ShaderArtTest : FunSpec({
         val still = ShaderArt(source = TINTED, uniforms = listOf(SizeUniform(name = "size")))
 
         still.isStatic shouldBe true
-        still.copy(fallback = MeshGradientArt()).isStatic shouldBe false
+        still.copy(fallback = GradientArt()).isStatic shouldBe false
         tinted().isStatic shouldBe false
         still.copy(uniforms = listOf(PointerUniform(name = "pointer"))).isStatic shouldBe false
         still.copy(uniforms = listOf(ProgressUniform(name = "progress", missing = 0f))).isStatic shouldBe false
