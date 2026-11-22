@@ -18,7 +18,7 @@ package com.davils.kiro.ui.motion.fixture
 
 import com.davils.kiro.ui.core.Theme
 import com.davils.kiro.ui.motion.art.Art
-import com.davils.kiro.ui.motion.art.gradient.AuroraArtStyle
+import com.davils.kiro.ui.motion.art.geometry.OrbitArtStyle
 import com.davils.kiro.ui.motion.quality.QualityLevel
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.ints.shouldBeGreaterThan
@@ -43,7 +43,7 @@ private val primitives: Map<Class<*>?, (String?) -> List<Any?>> = mapOf(
 )
 
 private fun durationGetter(): String {
-    val methods = AuroraArtStyle::class.java.methods
+    val methods = OrbitArtStyle::class.java.methods
     return methods.first { method -> method.name.startsWith(DURATION_GETTER) }.name
 }
 
