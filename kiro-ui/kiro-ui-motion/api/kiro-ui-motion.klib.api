@@ -252,15 +252,6 @@ abstract fun interface com.davils.kiro.ui.motion.art.geometry/WireframeArtStyles
     }
 }
 
-abstract fun interface com.davils.kiro.ui.motion.art.gradient/AuroraArtStyles { // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyles|null[0]
-    abstract fun resolve(com.davils.kiro.ui.core/Theme): com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyles.resolve|resolve(com.davils.kiro.ui.core.Theme){}[0]
-
-    final object Companion { // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyles.Companion|null[0]
-        final val Default // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyles.Companion.Default|{}Default[0]
-            final fun <get-Default>(): com.davils.kiro.ui.motion.art.gradient/AuroraArtStyles // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyles.Companion.Default.<get-Default>|<get-Default>(){}[0]
-    }
-}
-
 abstract fun interface com.davils.kiro.ui.motion.art.gradient/GradientArtStyles { // com.davils.kiro.ui.motion.art.gradient/GradientArtStyles|null[0]
     abstract fun resolve(com.davils.kiro.ui.core/Theme): com.davils.kiro.ui.motion.art.gradient/GradientArtStyle // com.davils.kiro.ui.motion.art.gradient/GradientArtStyles.resolve|resolve(com.davils.kiro.ui.core.Theme){}[0]
 
@@ -1193,55 +1184,6 @@ final class com.davils.kiro.ui.motion.art.geometry/WireframeArtStyle { // com.da
     final fun equals(kotlin/Any?): kotlin/Boolean // com.davils.kiro.ui.motion.art.geometry/WireframeArtStyle.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // com.davils.kiro.ui.motion.art.geometry/WireframeArtStyle.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // com.davils.kiro.ui.motion.art.geometry/WireframeArtStyle.toString|toString(){}[0]
-}
-
-final class com.davils.kiro.ui.motion.art.gradient/AuroraArt : com.davils.kiro.ui.motion.art/Art { // com.davils.kiro.ui.motion.art.gradient/AuroraArt|null[0]
-    constructor <init>(com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle? = ...) // com.davils.kiro.ui.motion.art.gradient/AuroraArt.<init>|<init>(com.davils.kiro.ui.motion.art.gradient.AuroraArtStyle?){}[0]
-
-    final val style // com.davils.kiro.ui.motion.art.gradient/AuroraArt.style|{}style[0]
-        final fun <get-style>(): com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle? // com.davils.kiro.ui.motion.art.gradient/AuroraArt.style.<get-style>|<get-style>(){}[0]
-
-    final fun copy(com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle? = ...): com.davils.kiro.ui.motion.art.gradient/AuroraArt // com.davils.kiro.ui.motion.art.gradient/AuroraArt.copy|copy(com.davils.kiro.ui.motion.art.gradient.AuroraArtStyle?){}[0]
-    final fun equals(kotlin/Any?): kotlin/Boolean // com.davils.kiro.ui.motion.art.gradient/AuroraArt.equals|equals(kotlin.Any?){}[0]
-    final fun hashCode(): kotlin/Int // com.davils.kiro.ui.motion.art.gradient/AuroraArt.hashCode|hashCode(){}[0]
-    final fun prepare(com.davils.kiro.ui.motion.art/ArtContext): com.davils.kiro.ui.motion.art/ArtRenderer // com.davils.kiro.ui.motion.art.gradient/AuroraArt.prepare|prepare(com.davils.kiro.ui.motion.art.ArtContext){}[0]
-    final fun toString(): kotlin/String // com.davils.kiro.ui.motion.art.gradient/AuroraArt.toString|toString(){}[0]
-}
-
-final class com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle { // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle|null[0]
-    constructor <init>(kotlin/Int, kotlin/Int, kotlin/Float, kotlin/Float, androidx.compose.ui.unit/Dp, kotlin/Float, androidx.compose.ui.unit/Dp, androidx.compose.ui.unit/Dp, kotlin.time/Duration, kotlin/Float, kotlin/Float, androidx.compose.ui.graphics/BlendMode, kotlin.collections/List<androidx.compose.ui.graphics/Color>?) // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.<init>|<init>(kotlin.Int;kotlin.Int;kotlin.Float;kotlin.Float;androidx.compose.ui.unit.Dp;kotlin.Float;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;kotlin.time.Duration;kotlin.Float;kotlin.Float;androidx.compose.ui.graphics.BlendMode;kotlin.collections.List<androidx.compose.ui.graphics.Color>?){}[0]
-
-    final val alpha // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.alpha|{}alpha[0]
-        final fun <get-alpha>(): kotlin/Float // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.alpha.<get-alpha>|<get-alpha>(){}[0]
-    final val amplitude // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.amplitude|{}amplitude[0]
-        final fun <get-amplitude>(): androidx.compose.ui.unit/Dp // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.amplitude.<get-amplitude>|<get-amplitude>(){}[0]
-    final val bands // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.bands|{}bands[0]
-        final fun <get-bands>(): kotlin/Int // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.bands.<get-bands>|<get-bands>(){}[0]
-    final val blendMode // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.blendMode|{}blendMode[0]
-        final fun <get-blendMode>(): androidx.compose.ui.graphics/BlendMode // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.blendMode.<get-blendMode>|<get-blendMode>(){}[0]
-    final val colors // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.colors|{}colors[0]
-        final fun <get-colors>(): kotlin.collections/List<androidx.compose.ui.graphics/Color>? // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.colors.<get-colors>|<get-colors>(){}[0]
-    final val gap // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.gap|{}gap[0]
-        final fun <get-gap>(): kotlin/Float // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.gap.<get-gap>|<get-gap>(){}[0]
-    final val lift // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.lift|{}lift[0]
-        final fun <get-lift>(): kotlin/Float // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.lift.<get-lift>|<get-lift>(){}[0]
-    final val period // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.period|{}period[0]
-        final fun <get-period>(): kotlin.time/Duration // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.period.<get-period>|<get-period>(){}[0]
-    final val ripple // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.ripple|{}ripple[0]
-        final fun <get-ripple>(): kotlin/Float // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.ripple.<get-ripple>|<get-ripple>(){}[0]
-    final val segments // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.segments|{}segments[0]
-        final fun <get-segments>(): kotlin/Int // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.segments.<get-segments>|<get-segments>(){}[0]
-    final val thickness // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.thickness|{}thickness[0]
-        final fun <get-thickness>(): androidx.compose.ui.unit/Dp // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.thickness.<get-thickness>|<get-thickness>(){}[0]
-    final val top // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.top|{}top[0]
-        final fun <get-top>(): kotlin/Float // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.top.<get-top>|<get-top>(){}[0]
-    final val wavelength // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.wavelength|{}wavelength[0]
-        final fun <get-wavelength>(): androidx.compose.ui.unit/Dp // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.wavelength.<get-wavelength>|<get-wavelength>(){}[0]
-
-    final fun copy(kotlin/Int = ..., kotlin/Int = ..., kotlin/Float = ..., kotlin/Float = ..., androidx.compose.ui.unit/Dp = ..., kotlin/Float = ..., androidx.compose.ui.unit/Dp = ..., androidx.compose.ui.unit/Dp = ..., kotlin.time/Duration = ..., kotlin/Float = ..., kotlin/Float = ..., androidx.compose.ui.graphics/BlendMode = ..., kotlin.collections/List<androidx.compose.ui.graphics/Color>? = ...): com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.copy|copy(kotlin.Int;kotlin.Int;kotlin.Float;kotlin.Float;androidx.compose.ui.unit.Dp;kotlin.Float;androidx.compose.ui.unit.Dp;androidx.compose.ui.unit.Dp;kotlin.time.Duration;kotlin.Float;kotlin.Float;androidx.compose.ui.graphics.BlendMode;kotlin.collections.List<androidx.compose.ui.graphics.Color>?){}[0]
-    final fun equals(kotlin/Any?): kotlin/Boolean // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.equals|equals(kotlin.Any?){}[0]
-    final fun hashCode(): kotlin/Int // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.hashCode|hashCode(){}[0]
-    final fun toString(): kotlin/String // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle.toString|toString(){}[0]
 }
 
 final class com.davils.kiro.ui.motion.art.gradient/GradientArt : com.davils.kiro.ui.motion.art/Art { // com.davils.kiro.ui.motion.art.gradient/GradientArt|null[0]
@@ -3079,12 +3021,8 @@ final val com.davils.kiro.ui.motion.art.geometry/com_davils_kiro_ui_motion_art_g
 final val com.davils.kiro.ui.motion.art.geometry/com_davils_kiro_ui_motion_art_geometry_OrbitArtStyle$stableprop // com.davils.kiro.ui.motion.art.geometry/com_davils_kiro_ui_motion_art_geometry_OrbitArtStyle$stableprop|#static{}com_davils_kiro_ui_motion_art_geometry_OrbitArtStyle$stableprop[0]
 final val com.davils.kiro.ui.motion.art.geometry/com_davils_kiro_ui_motion_art_geometry_WireframeArt$stableprop // com.davils.kiro.ui.motion.art.geometry/com_davils_kiro_ui_motion_art_geometry_WireframeArt$stableprop|#static{}com_davils_kiro_ui_motion_art_geometry_WireframeArt$stableprop[0]
 final val com.davils.kiro.ui.motion.art.geometry/com_davils_kiro_ui_motion_art_geometry_WireframeArtStyle$stableprop // com.davils.kiro.ui.motion.art.geometry/com_davils_kiro_ui_motion_art_geometry_WireframeArtStyle$stableprop|#static{}com_davils_kiro_ui_motion_art_geometry_WireframeArtStyle$stableprop[0]
-final val com.davils.kiro.ui.motion.art.gradient/AuroraArtStyleKey // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyleKey|{}AuroraArtStyleKey[0]
-    final fun <get-AuroraArtStyleKey>(): com.davils.kiro.ui.core.style/StyleKey<com.davils.kiro.ui.motion.art.gradient/AuroraArtStyles> // com.davils.kiro.ui.motion.art.gradient/AuroraArtStyleKey.<get-AuroraArtStyleKey>|<get-AuroraArtStyleKey>(){}[0]
 final val com.davils.kiro.ui.motion.art.gradient/GradientArtStyleKey // com.davils.kiro.ui.motion.art.gradient/GradientArtStyleKey|{}GradientArtStyleKey[0]
     final fun <get-GradientArtStyleKey>(): com.davils.kiro.ui.core.style/StyleKey<com.davils.kiro.ui.motion.art.gradient/GradientArtStyles> // com.davils.kiro.ui.motion.art.gradient/GradientArtStyleKey.<get-GradientArtStyleKey>|<get-GradientArtStyleKey>(){}[0]
-final val com.davils.kiro.ui.motion.art.gradient/com_davils_kiro_ui_motion_art_gradient_AuroraArt$stableprop // com.davils.kiro.ui.motion.art.gradient/com_davils_kiro_ui_motion_art_gradient_AuroraArt$stableprop|#static{}com_davils_kiro_ui_motion_art_gradient_AuroraArt$stableprop[0]
-final val com.davils.kiro.ui.motion.art.gradient/com_davils_kiro_ui_motion_art_gradient_AuroraArtStyle$stableprop // com.davils.kiro.ui.motion.art.gradient/com_davils_kiro_ui_motion_art_gradient_AuroraArtStyle$stableprop|#static{}com_davils_kiro_ui_motion_art_gradient_AuroraArtStyle$stableprop[0]
 final val com.davils.kiro.ui.motion.art.gradient/com_davils_kiro_ui_motion_art_gradient_GradientArt$stableprop // com.davils.kiro.ui.motion.art.gradient/com_davils_kiro_ui_motion_art_gradient_GradientArt$stableprop|#static{}com_davils_kiro_ui_motion_art_gradient_GradientArt$stableprop[0]
 final val com.davils.kiro.ui.motion.art.gradient/com_davils_kiro_ui_motion_art_gradient_GradientArtStyle$stableprop // com.davils.kiro.ui.motion.art.gradient/com_davils_kiro_ui_motion_art_gradient_GradientArtStyle$stableprop|#static{}com_davils_kiro_ui_motion_art_gradient_GradientArtStyle$stableprop[0]
 final val com.davils.kiro.ui.motion.art.grid/FlickeringGridArtStyleKey // com.davils.kiro.ui.motion.art.grid/FlickeringGridArtStyleKey|{}FlickeringGridArtStyleKey[0]
@@ -3237,9 +3175,6 @@ final fun com.davils.kiro.ui.motion.art.geometry/com_davils_kiro_ui_motion_art_g
 final fun com.davils.kiro.ui.motion.art.geometry/isometricCityArtStyle(androidx.compose.runtime/Composer?, kotlin/Int): com.davils.kiro.ui.motion.art.geometry/IsometricCityArtStyle // com.davils.kiro.ui.motion.art.geometry/isometricCityArtStyle|isometricCityArtStyle(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
 final fun com.davils.kiro.ui.motion.art.geometry/orbitArtStyle(androidx.compose.runtime/Composer?, kotlin/Int): com.davils.kiro.ui.motion.art.geometry/OrbitArtStyle // com.davils.kiro.ui.motion.art.geometry/orbitArtStyle|orbitArtStyle(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
 final fun com.davils.kiro.ui.motion.art.geometry/wireframeArtStyle(androidx.compose.runtime/Composer?, kotlin/Int): com.davils.kiro.ui.motion.art.geometry/WireframeArtStyle // com.davils.kiro.ui.motion.art.geometry/wireframeArtStyle|wireframeArtStyle(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
-final fun com.davils.kiro.ui.motion.art.gradient/auroraArtStyle(androidx.compose.runtime/Composer?, kotlin/Int): com.davils.kiro.ui.motion.art.gradient/AuroraArtStyle // com.davils.kiro.ui.motion.art.gradient/auroraArtStyle|auroraArtStyle(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
-final fun com.davils.kiro.ui.motion.art.gradient/com_davils_kiro_ui_motion_art_gradient_AuroraArt$stableprop_getter(): kotlin/Int // com.davils.kiro.ui.motion.art.gradient/com_davils_kiro_ui_motion_art_gradient_AuroraArt$stableprop_getter|com_davils_kiro_ui_motion_art_gradient_AuroraArt$stableprop_getter(){}[0]
-final fun com.davils.kiro.ui.motion.art.gradient/com_davils_kiro_ui_motion_art_gradient_AuroraArtStyle$stableprop_getter(): kotlin/Int // com.davils.kiro.ui.motion.art.gradient/com_davils_kiro_ui_motion_art_gradient_AuroraArtStyle$stableprop_getter|com_davils_kiro_ui_motion_art_gradient_AuroraArtStyle$stableprop_getter(){}[0]
 final fun com.davils.kiro.ui.motion.art.gradient/com_davils_kiro_ui_motion_art_gradient_GradientArt$stableprop_getter(): kotlin/Int // com.davils.kiro.ui.motion.art.gradient/com_davils_kiro_ui_motion_art_gradient_GradientArt$stableprop_getter|com_davils_kiro_ui_motion_art_gradient_GradientArt$stableprop_getter(){}[0]
 final fun com.davils.kiro.ui.motion.art.gradient/com_davils_kiro_ui_motion_art_gradient_GradientArtStyle$stableprop_getter(): kotlin/Int // com.davils.kiro.ui.motion.art.gradient/com_davils_kiro_ui_motion_art_gradient_GradientArtStyle$stableprop_getter|com_davils_kiro_ui_motion_art_gradient_GradientArtStyle$stableprop_getter(){}[0]
 final fun com.davils.kiro.ui.motion.art.gradient/gradientArtStyle(androidx.compose.runtime/Composer?, kotlin/Int): com.davils.kiro.ui.motion.art.gradient/GradientArtStyle // com.davils.kiro.ui.motion.art.gradient/gradientArtStyle|gradientArtStyle(androidx.compose.runtime.Composer?;kotlin.Int){}[0]

@@ -563,57 +563,6 @@ public final class com/davils/kiro/ui/motion/art/geometry/WireframeSolid : java/
 	public static fun values ()[Lcom/davils/kiro/ui/motion/art/geometry/WireframeSolid;
 }
 
-public final class com/davils/kiro/ui/motion/art/gradient/AuroraArt : com/davils/kiro/ui/motion/art/Art {
-	public static final field $stable I
-	public fun <init> ()V
-	public fun <init> (Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;)V
-	public synthetic fun <init> (Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun copy (Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;)Lcom/davils/kiro/ui/motion/art/gradient/AuroraArt;
-	public static synthetic fun copy$default (Lcom/davils/kiro/ui/motion/art/gradient/AuroraArt;Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/gradient/AuroraArt;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getStyle ()Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;
-	public fun hashCode ()I
-	public fun prepare (Lcom/davils/kiro/ui/motion/art/ArtContext;)Lcom/davils/kiro/ui/motion/art/ArtRenderer;
-	public fun toString ()Ljava/lang/String;
-}
-
-public final class com/davils/kiro/ui/motion/art/gradient/AuroraArtStyle {
-	public static final field $stable I
-	public synthetic fun <init> (IIFFFFFFJFFILjava/util/List;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public final fun copy-RV7S1_Y (IIFFFFFFJFFILjava/util/List;)Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;
-	public static synthetic fun copy-RV7S1_Y$default (Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;IIFFFFFFJFFILjava/util/List;ILjava/lang/Object;)Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;
-	public fun equals (Ljava/lang/Object;)Z
-	public final fun getAlpha ()F
-	public final fun getAmplitude-D9Ej5fM ()F
-	public final fun getBands ()I
-	public final fun getBlendMode-0nO6VwU ()I
-	public final fun getColors ()Ljava/util/List;
-	public final fun getGap ()F
-	public final fun getLift ()F
-	public final fun getPeriod-UwyO8pc ()J
-	public final fun getRipple ()F
-	public final fun getSegments ()I
-	public final fun getThickness-D9Ej5fM ()F
-	public final fun getTop ()F
-	public final fun getWavelength-D9Ej5fM ()F
-	public fun hashCode ()I
-	public fun toString ()Ljava/lang/String;
-}
-
-public abstract interface class com/davils/kiro/ui/motion/art/gradient/AuroraArtStyles {
-	public static final field Companion Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyles$Companion;
-	public abstract fun resolve (Lcom/davils/kiro/ui/core/Theme;)Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;
-}
-
-public final class com/davils/kiro/ui/motion/art/gradient/AuroraArtStyles$Companion {
-	public final fun getDefault ()Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyles;
-}
-
-public final class com/davils/kiro/ui/motion/art/gradient/AuroraArtStylesKt {
-	public static final fun auroraArtStyle (Landroidx/compose/runtime/Composer;I)Lcom/davils/kiro/ui/motion/art/gradient/AuroraArtStyle;
-	public static final fun getAuroraArtStyleKey ()Lcom/davils/kiro/ui/core/style/StyleKey;
-}
-
 public final class com/davils/kiro/ui/motion/art/gradient/GradientArt : com/davils/kiro/ui/motion/art/Art {
 	public static final field $stable I
 	public fun <init> ()V
