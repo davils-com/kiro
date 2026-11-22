@@ -183,8 +183,6 @@ internal val demos: List<GalleryDemo> = listOf(
         category = GalleryCategory.Motion,
         sections = listOf(
             DemoSection(name = "Grain Art") { GrainArtDemo() },
-            DemoSection(name = "Mesh Gradient Art") { MeshGradientArtDemo() },
-            DemoSection(name = "Silk Art") { SilkArtDemo() },
         ),
     ),
     GalleryDemo(name = "Sheet", category = GalleryCategory.Overlays) { SheetDemo() },
