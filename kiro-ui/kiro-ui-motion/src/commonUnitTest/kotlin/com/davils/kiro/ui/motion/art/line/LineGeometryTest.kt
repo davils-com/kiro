@@ -16,7 +16,6 @@
 
 package com.davils.kiro.ui.motion.art.line
 
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import io.kotest.core.spec.style.FunSpec
 import io.kotest.matchers.floats.plusOrMinus
@@ -27,7 +26,6 @@ private const val HEIGHT: Float = 200f
 private const val HALF: Float = 0.5f
 private const val QUARTER: Float = 0.25f
 private const val TOLERANCE: Float = 0.0001f
-private const val COUNT: Int = 4
 
 class LineGeometryTest : FunSpec({
     val size = Size(width = WIDTH, height = HEIGHT)
@@ -49,21 +47,5 @@ class LineGeometryTest : FunSpec({
         middle.endInclusive shouldBe (HALF * (1f + HALF) plusOrMinus TOLERANCE)
         middle.start shouldBe (QUARTER plusOrMinus TOLERANCE)
         beamWindowOf(progress = HALF, segment = 2f).start shouldBe 0f
-    }
-
-    test("spreads the rings evenly over a period") {
-        rippleFractionOf(phase = 0.0, index = 1, count = COUNT, offset = 0f) shouldBe QUARTER
-        rippleFractionOf(phase = 0.0, index = COUNT, count = COUNT, offset = 0f) shouldBe 0f
-        rippleFractionOf(phase = 0.0, index = 1, count = 0, offset = HALF) shouldBe HALF
-    }
-
-    test("moves the origin towards the pointer") {
-        val base = Offset(x = WIDTH, y = HEIGHT)
-
-        rippleOriginOf(base = base, pointer = null, follow = 1f) shouldBe base
-        val halfway = Offset(x = WIDTH * HALF, y = HEIGHT * HALF)
-
-        rippleOriginOf(base = base, pointer = Offset.Zero, follow = HALF) shouldBe halfway
-        rippleOriginOf(base = base, pointer = Offset.Zero, follow = 2f) shouldBe Offset.Zero
     }
 })

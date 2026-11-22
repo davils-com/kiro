@@ -306,15 +306,6 @@ abstract fun interface com.davils.kiro.ui.motion.art.line/BeamsArtStyles { // co
     }
 }
 
-abstract fun interface com.davils.kiro.ui.motion.art.line/RippleArtStyles { // com.davils.kiro.ui.motion.art.line/RippleArtStyles|null[0]
-    abstract fun resolve(com.davils.kiro.ui.core/Theme): com.davils.kiro.ui.motion.art.line/RippleArtStyle // com.davils.kiro.ui.motion.art.line/RippleArtStyles.resolve|resolve(com.davils.kiro.ui.core.Theme){}[0]
-
-    final object Companion { // com.davils.kiro.ui.motion.art.line/RippleArtStyles.Companion|null[0]
-        final val Default // com.davils.kiro.ui.motion.art.line/RippleArtStyles.Companion.Default|{}Default[0]
-            final fun <get-Default>(): com.davils.kiro.ui.motion.art.line/RippleArtStyles // com.davils.kiro.ui.motion.art.line/RippleArtStyles.Companion.Default.<get-Default>|<get-Default>(){}[0]
-    }
-}
-
 abstract fun interface com.davils.kiro.ui.motion.art.particle/BokehArtStyles { // com.davils.kiro.ui.motion.art.particle/BokehArtStyles|null[0]
     abstract fun resolve(com.davils.kiro.ui.core/Theme): com.davils.kiro.ui.motion.art.particle/BokehArtStyle // com.davils.kiro.ui.motion.art.particle/BokehArtStyles.resolve|resolve(com.davils.kiro.ui.core.Theme){}[0]
 
@@ -1508,65 +1499,6 @@ final class com.davils.kiro.ui.motion.art.line/BeamsArtStyle { // com.davils.kir
     final fun equals(kotlin/Any?): kotlin/Boolean // com.davils.kiro.ui.motion.art.line/BeamsArtStyle.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // com.davils.kiro.ui.motion.art.line/BeamsArtStyle.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // com.davils.kiro.ui.motion.art.line/BeamsArtStyle.toString|toString(){}[0]
-}
-
-final class com.davils.kiro.ui.motion.art.line/RippleArt : com.davils.kiro.ui.motion.art/Art { // com.davils.kiro.ui.motion.art.line/RippleArt|null[0]
-    constructor <init>(com.davils.kiro.ui.motion.art.line/RippleArtStyle? = ...) // com.davils.kiro.ui.motion.art.line/RippleArt.<init>|<init>(com.davils.kiro.ui.motion.art.line.RippleArtStyle?){}[0]
-
-    final val isStatic // com.davils.kiro.ui.motion.art.line/RippleArt.isStatic|{}isStatic[0]
-        final fun <get-isStatic>(): kotlin/Boolean // com.davils.kiro.ui.motion.art.line/RippleArt.isStatic.<get-isStatic>|<get-isStatic>(){}[0]
-    final val style // com.davils.kiro.ui.motion.art.line/RippleArt.style|{}style[0]
-        final fun <get-style>(): com.davils.kiro.ui.motion.art.line/RippleArtStyle? // com.davils.kiro.ui.motion.art.line/RippleArt.style.<get-style>|<get-style>(){}[0]
-
-    final fun copy(com.davils.kiro.ui.motion.art.line/RippleArtStyle? = ...): com.davils.kiro.ui.motion.art.line/RippleArt // com.davils.kiro.ui.motion.art.line/RippleArt.copy|copy(com.davils.kiro.ui.motion.art.line.RippleArtStyle?){}[0]
-    final fun equals(kotlin/Any?): kotlin/Boolean // com.davils.kiro.ui.motion.art.line/RippleArt.equals|equals(kotlin.Any?){}[0]
-    final fun hashCode(): kotlin/Int // com.davils.kiro.ui.motion.art.line/RippleArt.hashCode|hashCode(){}[0]
-    final fun prepare(com.davils.kiro.ui.motion.art/ArtContext): com.davils.kiro.ui.motion.art/ArtRenderer // com.davils.kiro.ui.motion.art.line/RippleArt.prepare|prepare(com.davils.kiro.ui.motion.art.ArtContext){}[0]
-    final fun toString(): kotlin/String // com.davils.kiro.ui.motion.art.line/RippleArt.toString|toString(){}[0]
-}
-
-final class com.davils.kiro.ui.motion.art.line/RippleArtStyle { // com.davils.kiro.ui.motion.art.line/RippleArtStyle|null[0]
-    constructor <init>(kotlin/Float, kotlin/Float, kotlin/Int, kotlin/Float, androidx.compose.ui.unit/Dp, kotlin/Float, kotlin/Float, kotlin.time/Duration, androidx.compose.animation.core/Easing, kotlin/Int, androidx.compose.ui.unit/Dp, kotlin/Float, kotlin/Float, kotlin/Int, kotlin.collections/List<androidx.compose.ui.graphics/Color>?, androidx.compose.ui.graphics/Color?, androidx.compose.ui.graphics/Color?) // com.davils.kiro.ui.motion.art.line/RippleArtStyle.<init>|<init>(kotlin.Float;kotlin.Float;kotlin.Int;kotlin.Float;androidx.compose.ui.unit.Dp;kotlin.Float;kotlin.Float;kotlin.time.Duration;androidx.compose.animation.core.Easing;kotlin.Int;androidx.compose.ui.unit.Dp;kotlin.Float;kotlin.Float;kotlin.Int;kotlin.collections.List<androidx.compose.ui.graphics.Color>?;androidx.compose.ui.graphics.Color?;androidx.compose.ui.graphics.Color?){}[0]
-
-    final val background // com.davils.kiro.ui.motion.art.line/RippleArtStyle.background|{}background[0]
-        final fun <get-background>(): androidx.compose.ui.graphics/Color? // com.davils.kiro.ui.motion.art.line/RippleArtStyle.background.<get-background>|<get-background>(){}[0]
-    final val colors // com.davils.kiro.ui.motion.art.line/RippleArtStyle.colors|{}colors[0]
-        final fun <get-colors>(): kotlin.collections/List<androidx.compose.ui.graphics/Color>? // com.davils.kiro.ui.motion.art.line/RippleArtStyle.colors.<get-colors>|<get-colors>(){}[0]
-    final val easing // com.davils.kiro.ui.motion.art.line/RippleArtStyle.easing|{}easing[0]
-        final fun <get-easing>(): androidx.compose.animation.core/Easing // com.davils.kiro.ui.motion.art.line/RippleArtStyle.easing.<get-easing>|<get-easing>(){}[0]
-    final val fillAlpha // com.davils.kiro.ui.motion.art.line/RippleArtStyle.fillAlpha|{}fillAlpha[0]
-        final fun <get-fillAlpha>(): kotlin/Float // com.davils.kiro.ui.motion.art.line/RippleArtStyle.fillAlpha.<get-fillAlpha>|<get-fillAlpha>(){}[0]
-    final val guide // com.davils.kiro.ui.motion.art.line/RippleArtStyle.guide|{}guide[0]
-        final fun <get-guide>(): androidx.compose.ui.graphics/Color? // com.davils.kiro.ui.motion.art.line/RippleArtStyle.guide.<get-guide>|<get-guide>(){}[0]
-    final val guideAlpha // com.davils.kiro.ui.motion.art.line/RippleArtStyle.guideAlpha|{}guideAlpha[0]
-        final fun <get-guideAlpha>(): kotlin/Float // com.davils.kiro.ui.motion.art.line/RippleArtStyle.guideAlpha.<get-guideAlpha>|<get-guideAlpha>(){}[0]
-    final val guideSpacing // com.davils.kiro.ui.motion.art.line/RippleArtStyle.guideSpacing|{}guideSpacing[0]
-        final fun <get-guideSpacing>(): androidx.compose.ui.unit/Dp // com.davils.kiro.ui.motion.art.line/RippleArtStyle.guideSpacing.<get-guideSpacing>|<get-guideSpacing>(){}[0]
-    final val guides // com.davils.kiro.ui.motion.art.line/RippleArtStyle.guides|{}guides[0]
-        final fun <get-guides>(): kotlin/Int // com.davils.kiro.ui.motion.art.line/RippleArtStyle.guides.<get-guides>|<get-guides>(){}[0]
-    final val lineWidth // com.davils.kiro.ui.motion.art.line/RippleArtStyle.lineWidth|{}lineWidth[0]
-        final fun <get-lineWidth>(): androidx.compose.ui.unit/Dp // com.davils.kiro.ui.motion.art.line/RippleArtStyle.lineWidth.<get-lineWidth>|<get-lineWidth>(){}[0]
-    final val originX // com.davils.kiro.ui.motion.art.line/RippleArtStyle.originX|{}originX[0]
-        final fun <get-originX>(): kotlin/Float // com.davils.kiro.ui.motion.art.line/RippleArtStyle.originX.<get-originX>|<get-originX>(){}[0]
-    final val originY // com.davils.kiro.ui.motion.art.line/RippleArtStyle.originY|{}originY[0]
-        final fun <get-originY>(): kotlin/Float // com.davils.kiro.ui.motion.art.line/RippleArtStyle.originY.<get-originY>|<get-originY>(){}[0]
-    final val period // com.davils.kiro.ui.motion.art.line/RippleArtStyle.period|{}period[0]
-        final fun <get-period>(): kotlin.time/Duration // com.davils.kiro.ui.motion.art.line/RippleArtStyle.period.<get-period>|<get-period>(){}[0]
-    final val pointerFollow // com.davils.kiro.ui.motion.art.line/RippleArtStyle.pointerFollow|{}pointerFollow[0]
-        final fun <get-pointerFollow>(): kotlin/Float // com.davils.kiro.ui.motion.art.line/RippleArtStyle.pointerFollow.<get-pointerFollow>|<get-pointerFollow>(){}[0]
-    final val reach // com.davils.kiro.ui.motion.art.line/RippleArtStyle.reach|{}reach[0]
-        final fun <get-reach>(): kotlin/Float // com.davils.kiro.ui.motion.art.line/RippleArtStyle.reach.<get-reach>|<get-reach>(){}[0]
-    final val ringAlpha // com.davils.kiro.ui.motion.art.line/RippleArtStyle.ringAlpha|{}ringAlpha[0]
-        final fun <get-ringAlpha>(): kotlin/Float // com.davils.kiro.ui.motion.art.line/RippleArtStyle.ringAlpha.<get-ringAlpha>|<get-ringAlpha>(){}[0]
-    final val rings // com.davils.kiro.ui.motion.art.line/RippleArtStyle.rings|{}rings[0]
-        final fun <get-rings>(): kotlin/Int // com.davils.kiro.ui.motion.art.line/RippleArtStyle.rings.<get-rings>|<get-rings>(){}[0]
-    final val salt // com.davils.kiro.ui.motion.art.line/RippleArtStyle.salt|{}salt[0]
-        final fun <get-salt>(): kotlin/Int // com.davils.kiro.ui.motion.art.line/RippleArtStyle.salt.<get-salt>|<get-salt>(){}[0]
-
-    final fun copy(kotlin/Float = ..., kotlin/Float = ..., kotlin/Int = ..., kotlin/Float = ..., androidx.compose.ui.unit/Dp = ..., kotlin/Float = ..., kotlin/Float = ..., kotlin.time/Duration = ..., androidx.compose.animation.core/Easing = ..., kotlin/Int = ..., androidx.compose.ui.unit/Dp = ..., kotlin/Float = ..., kotlin/Float = ..., kotlin/Int = ..., kotlin.collections/List<androidx.compose.ui.graphics/Color>? = ..., androidx.compose.ui.graphics/Color? = ..., androidx.compose.ui.graphics/Color? = ...): com.davils.kiro.ui.motion.art.line/RippleArtStyle // com.davils.kiro.ui.motion.art.line/RippleArtStyle.copy|copy(kotlin.Float;kotlin.Float;kotlin.Int;kotlin.Float;androidx.compose.ui.unit.Dp;kotlin.Float;kotlin.Float;kotlin.time.Duration;androidx.compose.animation.core.Easing;kotlin.Int;androidx.compose.ui.unit.Dp;kotlin.Float;kotlin.Float;kotlin.Int;kotlin.collections.List<androidx.compose.ui.graphics.Color>?;androidx.compose.ui.graphics.Color?;androidx.compose.ui.graphics.Color?){}[0]
-    final fun equals(kotlin/Any?): kotlin/Boolean // com.davils.kiro.ui.motion.art.line/RippleArtStyle.equals|equals(kotlin.Any?){}[0]
-    final fun hashCode(): kotlin/Int // com.davils.kiro.ui.motion.art.line/RippleArtStyle.hashCode|hashCode(){}[0]
-    final fun toString(): kotlin/String // com.davils.kiro.ui.motion.art.line/RippleArtStyle.toString|toString(){}[0]
 }
 
 final class com.davils.kiro.ui.motion.art.particle/BokehArt : com.davils.kiro.ui.motion.art/Art { // com.davils.kiro.ui.motion.art.particle/BokehArt|null[0]
@@ -2923,12 +2855,8 @@ final val com.davils.kiro.ui.motion.art.grid/com_davils_kiro_ui_motion_art_grid_
 final val com.davils.kiro.ui.motion.art.grid/com_davils_kiro_ui_motion_art_grid_RetroGridArtStyle$stableprop // com.davils.kiro.ui.motion.art.grid/com_davils_kiro_ui_motion_art_grid_RetroGridArtStyle$stableprop|#static{}com_davils_kiro_ui_motion_art_grid_RetroGridArtStyle$stableprop[0]
 final val com.davils.kiro.ui.motion.art.line/BeamsArtStyleKey // com.davils.kiro.ui.motion.art.line/BeamsArtStyleKey|{}BeamsArtStyleKey[0]
     final fun <get-BeamsArtStyleKey>(): com.davils.kiro.ui.core.style/StyleKey<com.davils.kiro.ui.motion.art.line/BeamsArtStyles> // com.davils.kiro.ui.motion.art.line/BeamsArtStyleKey.<get-BeamsArtStyleKey>|<get-BeamsArtStyleKey>(){}[0]
-final val com.davils.kiro.ui.motion.art.line/RippleArtStyleKey // com.davils.kiro.ui.motion.art.line/RippleArtStyleKey|{}RippleArtStyleKey[0]
-    final fun <get-RippleArtStyleKey>(): com.davils.kiro.ui.core.style/StyleKey<com.davils.kiro.ui.motion.art.line/RippleArtStyles> // com.davils.kiro.ui.motion.art.line/RippleArtStyleKey.<get-RippleArtStyleKey>|<get-RippleArtStyleKey>(){}[0]
 final val com.davils.kiro.ui.motion.art.line/com_davils_kiro_ui_motion_art_line_BeamsArt$stableprop // com.davils.kiro.ui.motion.art.line/com_davils_kiro_ui_motion_art_line_BeamsArt$stableprop|#static{}com_davils_kiro_ui_motion_art_line_BeamsArt$stableprop[0]
 final val com.davils.kiro.ui.motion.art.line/com_davils_kiro_ui_motion_art_line_BeamsArtStyle$stableprop // com.davils.kiro.ui.motion.art.line/com_davils_kiro_ui_motion_art_line_BeamsArtStyle$stableprop|#static{}com_davils_kiro_ui_motion_art_line_BeamsArtStyle$stableprop[0]
-final val com.davils.kiro.ui.motion.art.line/com_davils_kiro_ui_motion_art_line_RippleArt$stableprop // com.davils.kiro.ui.motion.art.line/com_davils_kiro_ui_motion_art_line_RippleArt$stableprop|#static{}com_davils_kiro_ui_motion_art_line_RippleArt$stableprop[0]
-final val com.davils.kiro.ui.motion.art.line/com_davils_kiro_ui_motion_art_line_RippleArtStyle$stableprop // com.davils.kiro.ui.motion.art.line/com_davils_kiro_ui_motion_art_line_RippleArtStyle$stableprop|#static{}com_davils_kiro_ui_motion_art_line_RippleArtStyle$stableprop[0]
 final val com.davils.kiro.ui.motion.art.particle/BokehArtStyleKey // com.davils.kiro.ui.motion.art.particle/BokehArtStyleKey|{}BokehArtStyleKey[0]
     final fun <get-BokehArtStyleKey>(): com.davils.kiro.ui.core.style/StyleKey<com.davils.kiro.ui.motion.art.particle/BokehArtStyles> // com.davils.kiro.ui.motion.art.particle/BokehArtStyleKey.<get-BokehArtStyleKey>|<get-BokehArtStyleKey>(){}[0]
 final val com.davils.kiro.ui.motion.art.particle/FlowFieldArtStyleKey // com.davils.kiro.ui.motion.art.particle/FlowFieldArtStyleKey|{}FlowFieldArtStyleKey[0]
@@ -3065,9 +2993,6 @@ final fun com.davils.kiro.ui.motion.art.grid/retroGridArtStyle(androidx.compose.
 final fun com.davils.kiro.ui.motion.art.line/beamsArtStyle(androidx.compose.runtime/Composer?, kotlin/Int): com.davils.kiro.ui.motion.art.line/BeamsArtStyle // com.davils.kiro.ui.motion.art.line/beamsArtStyle|beamsArtStyle(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
 final fun com.davils.kiro.ui.motion.art.line/com_davils_kiro_ui_motion_art_line_BeamsArt$stableprop_getter(): kotlin/Int // com.davils.kiro.ui.motion.art.line/com_davils_kiro_ui_motion_art_line_BeamsArt$stableprop_getter|com_davils_kiro_ui_motion_art_line_BeamsArt$stableprop_getter(){}[0]
 final fun com.davils.kiro.ui.motion.art.line/com_davils_kiro_ui_motion_art_line_BeamsArtStyle$stableprop_getter(): kotlin/Int // com.davils.kiro.ui.motion.art.line/com_davils_kiro_ui_motion_art_line_BeamsArtStyle$stableprop_getter|com_davils_kiro_ui_motion_art_line_BeamsArtStyle$stableprop_getter(){}[0]
-final fun com.davils.kiro.ui.motion.art.line/com_davils_kiro_ui_motion_art_line_RippleArt$stableprop_getter(): kotlin/Int // com.davils.kiro.ui.motion.art.line/com_davils_kiro_ui_motion_art_line_RippleArt$stableprop_getter|com_davils_kiro_ui_motion_art_line_RippleArt$stableprop_getter(){}[0]
-final fun com.davils.kiro.ui.motion.art.line/com_davils_kiro_ui_motion_art_line_RippleArtStyle$stableprop_getter(): kotlin/Int // com.davils.kiro.ui.motion.art.line/com_davils_kiro_ui_motion_art_line_RippleArtStyle$stableprop_getter|com_davils_kiro_ui_motion_art_line_RippleArtStyle$stableprop_getter(){}[0]
-final fun com.davils.kiro.ui.motion.art.line/rippleArtStyle(androidx.compose.runtime/Composer?, kotlin/Int): com.davils.kiro.ui.motion.art.line/RippleArtStyle // com.davils.kiro.ui.motion.art.line/rippleArtStyle|rippleArtStyle(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
 final fun com.davils.kiro.ui.motion.art.particle/bokehArtStyle(androidx.compose.runtime/Composer?, kotlin/Int): com.davils.kiro.ui.motion.art.particle/BokehArtStyle // com.davils.kiro.ui.motion.art.particle/bokehArtStyle|bokehArtStyle(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
 final fun com.davils.kiro.ui.motion.art.particle/com_davils_kiro_ui_motion_art_particle_BokehArt$stableprop_getter(): kotlin/Int // com.davils.kiro.ui.motion.art.particle/com_davils_kiro_ui_motion_art_particle_BokehArt$stableprop_getter|com_davils_kiro_ui_motion_art_particle_BokehArt$stableprop_getter(){}[0]
 final fun com.davils.kiro.ui.motion.art.particle/com_davils_kiro_ui_motion_art_particle_BokehArtStyle$stableprop_getter(): kotlin/Int // com.davils.kiro.ui.motion.art.particle/com_davils_kiro_ui_motion_art_particle_BokehArtStyle$stableprop_getter|com_davils_kiro_ui_motion_art_particle_BokehArtStyle$stableprop_getter(){}[0]
