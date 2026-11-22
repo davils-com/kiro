@@ -16,29 +16,11 @@
 
 package com.davils.kiro.gallery.playground
 
-import com.davils.kiro.ui.motion.art.gradient.AuroraArt
-import com.davils.kiro.ui.motion.art.gradient.AuroraArtStyle
-import com.davils.kiro.ui.motion.art.gradient.AuroraArtStyles
 import com.davils.kiro.ui.motion.art.gradient.GradientArt
 import com.davils.kiro.ui.motion.art.gradient.GradientArtStyle
 import com.davils.kiro.ui.motion.art.gradient.GradientArtStyles
 
 internal val gradientSpecs: List<ArtSpec<*>> = listOf(
-    artSpec(name = "Aurora", defaults = AuroraArtStyles.Default::resolve, create = ::AuroraArt) {
-        int(AuroraArtStyle::bands, range = 1..6) { copy(bands = it) }
-        int(AuroraArtStyle::segments, range = 16..144) { copy(segments = it) }
-        float(AuroraArtStyle::top, range = 0f..0.6f) { copy(top = it) }
-        float(AuroraArtStyle::gap, range = 0f..0.3f) { copy(gap = it) }
-        dp(AuroraArtStyle::thickness, range = 40f..300f) { copy(thickness = it) }
-        float(AuroraArtStyle::lift, range = 0f..1f) { copy(lift = it) }
-        dp(AuroraArtStyle::amplitude, range = 0f..100f) { copy(amplitude = it) }
-        dp(AuroraArtStyle::wavelength, range = 200f..1500f) { copy(wavelength = it) }
-        duration(AuroraArtStyle::period, range = 6f..80f) { copy(period = it) }
-        float(AuroraArtStyle::ripple, range = 0f..1f) { copy(ripple = it) }
-        float(AuroraArtStyle::alpha, range = 0f..1f) { copy(alpha = it) }
-        pick(AuroraArtStyle::blendMode, choices = blendChoices) { copy(blendMode = it) }
-        pick(AuroraArtStyle::colors, choices = colorListChoices) { copy(colors = it) }
-    },
     artSpec(name = "Gradient", defaults = GradientArtStyles.Default::resolve, create = ::GradientArt) {
         choice(GradientArtStyle::kind) { copy(kind = it) }
         float(GradientArtStyle::strength, range = 0f..1f) { copy(strength = it) }

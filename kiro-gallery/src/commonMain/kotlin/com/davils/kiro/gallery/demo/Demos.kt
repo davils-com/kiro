@@ -108,7 +108,6 @@ internal val demos: List<GalleryDemo> = listOf(
         name = "Gradients",
         category = GalleryCategory.Motion,
         sections = listOf(
-            DemoSection(name = "Aurora Art") { AuroraArtDemo() },
             DemoSection(name = "Gradient Art") { GradientArtDemo() },
         ),
     ),
