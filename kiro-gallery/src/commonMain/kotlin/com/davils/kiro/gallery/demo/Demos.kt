@@ -134,7 +134,6 @@ internal val demos: List<GalleryDemo> = listOf(
         category = GalleryCategory.Motion,
         sections = listOf(
             DemoSection(name = "Beams Art") { BeamsArtDemo() },
-            DemoSection(name = "Ripple Art") { RippleArtDemo() },
         ),
     ),
     GalleryDemo(name = "Marker", category = GalleryCategory.Data) { MarkerDemo() },
