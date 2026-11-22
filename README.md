@@ -10,7 +10,7 @@ WebAssembly (`wasmJs`), built on Compose Foundation, without Material. It is pub
 | `kiro-ui-icons` | `com.davils:kiro-ui-icons` | The `Icon` composable and every icon of Lucide, generated from its SVGs |
 | `kiro-ui-components` | `com.davils:kiro-ui-components` | Buttons, inputs, menus, dialogs, sheets, tables, calendars, charts and more |
 | `kiro-ui-audio` | `com.davils:kiro-ui-audio` | Audio players as a bar, a card, a full view and a mini player, tinted by their cover, and audio visualizers: level meters, goniometer, oscilloscope, spectrum analyzer, spectrogram, desktop visualizers, waveform and timeline clips |
-| `kiro-ui-motion` | `com.davils:kiro-ui-motion` | Generative, animated art in layered scenes: thirty themeable arts, shader layers, presets, playback, power and quality policies, export and the typewriter |
+| `kiro-ui-motion` | `com.davils:kiro-ui-motion` | Generative, animated art in layered scenes: twenty-four themeable arts, shader layers, presets, playback, power and quality policies, export and the typewriter |
 | `kiro-ui-window` | `com.davils:kiro-ui-window` | The desktop shell (JVM only): windows with a themed title bar that still behave natively, the tray, the native application menu and splash screens |
 
 ## Every detail is yours

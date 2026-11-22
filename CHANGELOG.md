@@ -41,11 +41,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Scenes of layers with opacity, blend mode, transform, parallax, mask and their own time, drawn by `MotionCanvas`,
     which records the still parts of every art once, pauses while the window is unfocused or hidden, caps its frame
     rate, steps its quality down when frames run late and shows a still frame under reduced motion.
-  - Thirty arts, every value of them themeable: Truchet, Bauhaus, hex flip, Kumiko weave and checker morph; isometric
-    city, orbits, spirograph, polygons, wireframe solids, radar, blueprint and Lissajous figures; ridge lines, contours,
-    halftone, Voronoi and low poly; flow field, particles, starfield, meteors and bokeh; gradients and aurora; grid
-    pattern, flickering grid, retro grid and digital rain; beams and ripples.
-  - Shader arts for a mesh gradient, silk and film grain with typed uniforms and a canvas fallback.
+  - Twenty-four arts, every value of them themeable: Truchet, Bauhaus, hex flip, Kumiko weave and checker morph;
+    isometric city, orbits and wireframe solids; ridge lines, contours, halftone, Voronoi and low poly; flow field,
+    particles, starfield, meteors and bokeh; gradients; grid pattern, flickering grid, retro grid and digital rain;
+    and beams.
+  - A shader art for film grain with typed uniforms and a canvas fallback.
   - Palettes derived from the theme (`Refined` by default, `Expressive`, `Monochrome`, `Vivid`, `Pastel`, `Duotone`,
     `Night`), scene presets, playback with seeking and keyframes, pointer, progress and signal inputs, masks, export of
     frames and diagnostics.
