@@ -22,6 +22,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.BlendMode
 import androidx.compose.ui.unit.dp
 import com.davils.kiro.gallery.theme
+import com.davils.kiro.ui.motion.art.gradient.GradientArt
 import com.davils.kiro.ui.motion.art.grid.GridPatternArt
 import com.davils.kiro.ui.motion.art.grid.GridPatternKind
 import com.davils.kiro.ui.motion.art.grid.gridPatternArtStyle
@@ -30,7 +31,6 @@ import com.davils.kiro.ui.motion.host.MotionCanvas
 import com.davils.kiro.ui.motion.mask.Mask
 import com.davils.kiro.ui.motion.mask.MaskStop
 import com.davils.kiro.ui.motion.scene.scene
-import com.davils.kiro.ui.motion.shader.mesh.MeshGradientArt
 
 @Composable
 internal fun LayersDemo() {
@@ -41,7 +41,7 @@ internal fun LayersDemo() {
         stops = listOf(MaskStop(position = 0.3f, alpha = 1f), MaskStop(position = 1f, alpha = 0f)),
     )
     val layers = scene {
-        layer(MeshGradientArt())
+        layer(GradientArt())
         layer(GridPatternArt(style = dots)) {
             opacity = 0.7f
             mask = spotlight

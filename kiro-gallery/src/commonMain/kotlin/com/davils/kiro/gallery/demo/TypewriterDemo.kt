@@ -26,9 +26,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.davils.kiro.gallery.theme
+import com.davils.kiro.ui.motion.art.gradient.GradientArt
 import com.davils.kiro.ui.motion.host.MotionCanvas
 import com.davils.kiro.ui.motion.scene.scene
-import com.davils.kiro.ui.motion.shader.mesh.MeshGradientArt
 import com.davils.kiro.ui.motion.typewriter.TypewriterText
 import com.davils.kiro.ui.motion.typewriter.typewriter
 import com.davils.kiro.ui.motion.typewriter.typewriterCycle
@@ -50,7 +50,7 @@ internal fun TypewriterDemo() {
     val style = typewriterStyle()
     val large = style.copy(textStyle = style.textStyle.copy(fontSize = 30.sp, fontWeight = FontWeight.SemiBold))
     Column(verticalArrangement = Arrangement.spacedBy(24.dp)) {
-        MotionCanvas(scene = scene { layer(MeshGradientArt()) }, modifier = Modifier.artFrame(theme, height = 200.dp)) {
+        MotionCanvas(scene = scene { layer(GradientArt()) }, modifier = Modifier.artFrame(theme, height = 200.dp)) {
             TypewriterText(script = headline, modifier = Modifier.align(Alignment.Center), style = large)
         }
         TypewriterText(script = greeting)
