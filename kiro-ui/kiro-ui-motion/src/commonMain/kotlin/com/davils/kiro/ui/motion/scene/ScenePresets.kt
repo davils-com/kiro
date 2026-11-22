@@ -22,7 +22,6 @@ import com.davils.kiro.ui.motion.art.field.HalftoneArt
 import com.davils.kiro.ui.motion.art.field.RidgeArt
 import com.davils.kiro.ui.motion.art.geometry.IsometricCityArt
 import com.davils.kiro.ui.motion.art.geometry.OrbitArt
-import com.davils.kiro.ui.motion.art.geometry.SpirographArt
 import com.davils.kiro.ui.motion.art.particle.FlowFieldArt
 import com.davils.kiro.ui.motion.art.tiling.BauhausArt
 import com.davils.kiro.ui.motion.art.tiling.TruchetArt
@@ -123,17 +122,10 @@ public object ScenePresets {
     public val Flow: Scene = scene { layer(FlowFieldArt()) { mask = softEdges } }
 
     /**
-     * Spirograph curves that draw themselves and fade into echoes.
-     *
-     * @since 1.0.0
-     */
-    public val Spirograph: Scene = scene { layer(SpirographArt()) }
-
-    /**
      * Every preset, for a picker.
      *
      * @since 1.0.0
      */
     public val all: List<Scene>
-        get() = listOf(Skyline, Orbits, Signal, Topography, Maze, Composition, Halftone, Flow, Spirograph)
+        get() = listOf(Skyline, Orbits, Signal, Topography, Maze, Composition, Halftone, Flow)
 }
