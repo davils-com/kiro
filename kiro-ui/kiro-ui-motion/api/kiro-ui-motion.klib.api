@@ -453,24 +453,6 @@ abstract fun interface com.davils.kiro.ui.motion.shader.grain/GrainArtStyles { /
     }
 }
 
-abstract fun interface com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyles { // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyles|null[0]
-    abstract fun resolve(com.davils.kiro.ui.core/Theme): com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyles.resolve|resolve(com.davils.kiro.ui.core.Theme){}[0]
-
-    final object Companion { // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyles.Companion|null[0]
-        final val Default // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyles.Companion.Default|{}Default[0]
-            final fun <get-Default>(): com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyles // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyles.Companion.Default.<get-Default>|<get-Default>(){}[0]
-    }
-}
-
-abstract fun interface com.davils.kiro.ui.motion.shader.silk/SilkArtStyles { // com.davils.kiro.ui.motion.shader.silk/SilkArtStyles|null[0]
-    abstract fun resolve(com.davils.kiro.ui.core/Theme): com.davils.kiro.ui.motion.shader.silk/SilkArtStyle // com.davils.kiro.ui.motion.shader.silk/SilkArtStyles.resolve|resolve(com.davils.kiro.ui.core.Theme){}[0]
-
-    final object Companion { // com.davils.kiro.ui.motion.shader.silk/SilkArtStyles.Companion|null[0]
-        final val Default // com.davils.kiro.ui.motion.shader.silk/SilkArtStyles.Companion.Default|{}Default[0]
-            final fun <get-Default>(): com.davils.kiro.ui.motion.shader.silk/SilkArtStyles // com.davils.kiro.ui.motion.shader.silk/SilkArtStyles.Companion.Default.<get-Default>|<get-Default>(){}[0]
-    }
-}
-
 abstract fun interface com.davils.kiro.ui.motion.typewriter/TypewriterStyles { // com.davils.kiro.ui.motion.typewriter/TypewriterStyles|null[0]
     abstract fun resolve(com.davils.kiro.ui.core/Theme): com.davils.kiro.ui.motion.typewriter/TypewriterStyle // com.davils.kiro.ui.motion.typewriter/TypewriterStyles.resolve|resolve(com.davils.kiro.ui.core.Theme){}[0]
 
@@ -2536,108 +2518,6 @@ final class com.davils.kiro.ui.motion.shader.grain/GrainArtStyle { // com.davils
     final fun toString(): kotlin/String // com.davils.kiro.ui.motion.shader.grain/GrainArtStyle.toString|toString(){}[0]
 }
 
-final class com.davils.kiro.ui.motion.shader.mesh/MeshGradientArt : com.davils.kiro.ui.motion.art/Art { // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArt|null[0]
-    constructor <init>(com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle? = ...) // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArt.<init>|<init>(com.davils.kiro.ui.motion.shader.mesh.MeshGradientArtStyle?){}[0]
-
-    final val style // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArt.style|{}style[0]
-        final fun <get-style>(): com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle? // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArt.style.<get-style>|<get-style>(){}[0]
-
-    final fun copy(com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle? = ...): com.davils.kiro.ui.motion.shader.mesh/MeshGradientArt // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArt.copy|copy(com.davils.kiro.ui.motion.shader.mesh.MeshGradientArtStyle?){}[0]
-    final fun equals(kotlin/Any?): kotlin/Boolean // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArt.equals|equals(kotlin.Any?){}[0]
-    final fun hashCode(): kotlin/Int // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArt.hashCode|hashCode(){}[0]
-    final fun prepare(com.davils.kiro.ui.motion.art/ArtContext): com.davils.kiro.ui.motion.art/ArtRenderer // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArt.prepare|prepare(com.davils.kiro.ui.motion.art.ArtContext){}[0]
-    final fun toString(): kotlin/String // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArt.toString|toString(){}[0]
-}
-
-final class com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle { // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle|null[0]
-    constructor <init>(kotlin.collections/List<androidx.compose.ui.graphics/Color>?, androidx.compose.ui.graphics/Color?, kotlin/Int, kotlin/Float, kotlin/Float, kotlin/Float, kotlin/Float, kotlin/Float, kotlin.time/Duration, kotlin/Float, kotlin/Float, com.davils.kiro.ui.motion.shader/ShaderBackend) // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.<init>|<init>(kotlin.collections.List<androidx.compose.ui.graphics.Color>?;androidx.compose.ui.graphics.Color?;kotlin.Int;kotlin.Float;kotlin.Float;kotlin.Float;kotlin.Float;kotlin.Float;kotlin.time.Duration;kotlin.Float;kotlin.Float;com.davils.kiro.ui.motion.shader.ShaderBackend){}[0]
-
-    final val anchors // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.anchors|{}anchors[0]
-        final fun <get-anchors>(): kotlin/Int // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.anchors.<get-anchors>|<get-anchors>(){}[0]
-    final val backend // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.backend|{}backend[0]
-        final fun <get-backend>(): com.davils.kiro.ui.motion.shader/ShaderBackend // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.backend.<get-backend>|<get-backend>(){}[0]
-    final val background // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.background|{}background[0]
-        final fun <get-background>(): androidx.compose.ui.graphics/Color? // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.background.<get-background>|<get-background>(){}[0]
-    final val colors // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.colors|{}colors[0]
-        final fun <get-colors>(): kotlin.collections/List<androidx.compose.ui.graphics/Color>? // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.colors.<get-colors>|<get-colors>(){}[0]
-    final val dither // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.dither|{}dither[0]
-        final fun <get-dither>(): kotlin/Float // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.dither.<get-dither>|<get-dither>(){}[0]
-    final val drift // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.drift|{}drift[0]
-        final fun <get-drift>(): kotlin/Float // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.drift.<get-drift>|<get-drift>(){}[0]
-    final val intensity // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.intensity|{}intensity[0]
-        final fun <get-intensity>(): kotlin/Float // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.intensity.<get-intensity>|<get-intensity>(){}[0]
-    final val period // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.period|{}period[0]
-        final fun <get-period>(): kotlin.time/Duration // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.period.<get-period>|<get-period>(){}[0]
-    final val pointerPull // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.pointerPull|{}pointerPull[0]
-        final fun <get-pointerPull>(): kotlin/Float // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.pointerPull.<get-pointerPull>|<get-pointerPull>(){}[0]
-    final val radius // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.radius|{}radius[0]
-        final fun <get-radius>(): kotlin/Float // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.radius.<get-radius>|<get-radius>(){}[0]
-    final val softness // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.softness|{}softness[0]
-        final fun <get-softness>(): kotlin/Float // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.softness.<get-softness>|<get-softness>(){}[0]
-    final val spread // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.spread|{}spread[0]
-        final fun <get-spread>(): kotlin/Float // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.spread.<get-spread>|<get-spread>(){}[0]
-
-    final fun copy(kotlin.collections/List<androidx.compose.ui.graphics/Color>? = ..., androidx.compose.ui.graphics/Color? = ..., kotlin/Int = ..., kotlin/Float = ..., kotlin/Float = ..., kotlin/Float = ..., kotlin/Float = ..., kotlin/Float = ..., kotlin.time/Duration = ..., kotlin/Float = ..., kotlin/Float = ..., com.davils.kiro.ui.motion.shader/ShaderBackend = ...): com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.copy|copy(kotlin.collections.List<androidx.compose.ui.graphics.Color>?;androidx.compose.ui.graphics.Color?;kotlin.Int;kotlin.Float;kotlin.Float;kotlin.Float;kotlin.Float;kotlin.Float;kotlin.time.Duration;kotlin.Float;kotlin.Float;com.davils.kiro.ui.motion.shader.ShaderBackend){}[0]
-    final fun equals(kotlin/Any?): kotlin/Boolean // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.equals|equals(kotlin.Any?){}[0]
-    final fun hashCode(): kotlin/Int // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.hashCode|hashCode(){}[0]
-    final fun toString(): kotlin/String // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle.toString|toString(){}[0]
-}
-
-final class com.davils.kiro.ui.motion.shader.silk/SilkArt : com.davils.kiro.ui.motion.art/Art { // com.davils.kiro.ui.motion.shader.silk/SilkArt|null[0]
-    constructor <init>(com.davils.kiro.ui.motion.shader.silk/SilkArtStyle? = ...) // com.davils.kiro.ui.motion.shader.silk/SilkArt.<init>|<init>(com.davils.kiro.ui.motion.shader.silk.SilkArtStyle?){}[0]
-
-    final val style // com.davils.kiro.ui.motion.shader.silk/SilkArt.style|{}style[0]
-        final fun <get-style>(): com.davils.kiro.ui.motion.shader.silk/SilkArtStyle? // com.davils.kiro.ui.motion.shader.silk/SilkArt.style.<get-style>|<get-style>(){}[0]
-
-    final fun copy(com.davils.kiro.ui.motion.shader.silk/SilkArtStyle? = ...): com.davils.kiro.ui.motion.shader.silk/SilkArt // com.davils.kiro.ui.motion.shader.silk/SilkArt.copy|copy(com.davils.kiro.ui.motion.shader.silk.SilkArtStyle?){}[0]
-    final fun equals(kotlin/Any?): kotlin/Boolean // com.davils.kiro.ui.motion.shader.silk/SilkArt.equals|equals(kotlin.Any?){}[0]
-    final fun hashCode(): kotlin/Int // com.davils.kiro.ui.motion.shader.silk/SilkArt.hashCode|hashCode(){}[0]
-    final fun prepare(com.davils.kiro.ui.motion.art/ArtContext): com.davils.kiro.ui.motion.art/ArtRenderer // com.davils.kiro.ui.motion.shader.silk/SilkArt.prepare|prepare(com.davils.kiro.ui.motion.art.ArtContext){}[0]
-    final fun toString(): kotlin/String // com.davils.kiro.ui.motion.shader.silk/SilkArt.toString|toString(){}[0]
-}
-
-final class com.davils.kiro.ui.motion.shader.silk/SilkArtStyle { // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle|null[0]
-    constructor <init>(androidx.compose.ui.graphics/Color?, androidx.compose.ui.graphics/Color?, androidx.compose.ui.graphics/Color?, androidx.compose.ui.graphics/Color?, kotlin/Float, kotlin/Float, kotlin/Float, kotlin/Float, kotlin/Float, kotlin/Float, kotlin/Float, kotlin/Float, kotlin.time/Duration, kotlin/Float, kotlin/Float, com.davils.kiro.ui.motion.shader/ShaderBackend) // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.<init>|<init>(androidx.compose.ui.graphics.Color?;androidx.compose.ui.graphics.Color?;androidx.compose.ui.graphics.Color?;androidx.compose.ui.graphics.Color?;kotlin.Float;kotlin.Float;kotlin.Float;kotlin.Float;kotlin.Float;kotlin.Float;kotlin.Float;kotlin.Float;kotlin.time.Duration;kotlin.Float;kotlin.Float;com.davils.kiro.ui.motion.shader.ShaderBackend){}[0]
-
-    final val angle // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.angle|{}angle[0]
-        final fun <get-angle>(): kotlin/Float // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.angle.<get-angle>|<get-angle>(){}[0]
-    final val backend // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.backend|{}backend[0]
-        final fun <get-backend>(): com.davils.kiro.ui.motion.shader/ShaderBackend // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.backend.<get-backend>|<get-backend>(){}[0]
-    final val background // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.background|{}background[0]
-        final fun <get-background>(): androidx.compose.ui.graphics/Color? // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.background.<get-background>|<get-background>(){}[0]
-    final val color // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.color|{}color[0]
-        final fun <get-color>(): androidx.compose.ui.graphics/Color? // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.color.<get-color>|<get-color>(){}[0]
-    final val dither // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.dither|{}dither[0]
-        final fun <get-dither>(): kotlin/Float // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.dither.<get-dither>|<get-dither>(){}[0]
-    final val intensity // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.intensity|{}intensity[0]
-        final fun <get-intensity>(): kotlin/Float // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.intensity.<get-intensity>|<get-intensity>(){}[0]
-    final val period // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.period|{}period[0]
-        final fun <get-period>(): kotlin.time/Duration // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.period.<get-period>|<get-period>(){}[0]
-    final val pointerLight // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.pointerLight|{}pointerLight[0]
-        final fun <get-pointerLight>(): kotlin/Float // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.pointerLight.<get-pointerLight>|<get-pointerLight>(){}[0]
-    final val relief // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.relief|{}relief[0]
-        final fun <get-relief>(): kotlin/Float // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.relief.<get-relief>|<get-relief>(){}[0]
-    final val scale // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.scale|{}scale[0]
-        final fun <get-scale>(): kotlin/Float // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.scale.<get-scale>|<get-scale>(){}[0]
-    final val shadow // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.shadow|{}shadow[0]
-        final fun <get-shadow>(): androidx.compose.ui.graphics/Color? // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.shadow.<get-shadow>|<get-shadow>(){}[0]
-    final val shadowAlpha // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.shadowAlpha|{}shadowAlpha[0]
-        final fun <get-shadowAlpha>(): kotlin/Float // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.shadowAlpha.<get-shadowAlpha>|<get-shadowAlpha>(){}[0]
-    final val sheen // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.sheen|{}sheen[0]
-        final fun <get-sheen>(): androidx.compose.ui.graphics/Color? // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.sheen.<get-sheen>|<get-sheen>(){}[0]
-    final val sheenAlpha // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.sheenAlpha|{}sheenAlpha[0]
-        final fun <get-sheenAlpha>(): kotlin/Float // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.sheenAlpha.<get-sheenAlpha>|<get-sheenAlpha>(){}[0]
-    final val shine // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.shine|{}shine[0]
-        final fun <get-shine>(): kotlin/Float // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.shine.<get-shine>|<get-shine>(){}[0]
-    final val warp // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.warp|{}warp[0]
-        final fun <get-warp>(): kotlin/Float // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.warp.<get-warp>|<get-warp>(){}[0]
-
-    final fun copy(androidx.compose.ui.graphics/Color? = ..., androidx.compose.ui.graphics/Color? = ..., androidx.compose.ui.graphics/Color? = ..., androidx.compose.ui.graphics/Color? = ..., kotlin/Float = ..., kotlin/Float = ..., kotlin/Float = ..., kotlin/Float = ..., kotlin/Float = ..., kotlin/Float = ..., kotlin/Float = ..., kotlin/Float = ..., kotlin.time/Duration = ..., kotlin/Float = ..., kotlin/Float = ..., com.davils.kiro.ui.motion.shader/ShaderBackend = ...): com.davils.kiro.ui.motion.shader.silk/SilkArtStyle // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.copy|copy(androidx.compose.ui.graphics.Color?;androidx.compose.ui.graphics.Color?;androidx.compose.ui.graphics.Color?;androidx.compose.ui.graphics.Color?;kotlin.Float;kotlin.Float;kotlin.Float;kotlin.Float;kotlin.Float;kotlin.Float;kotlin.Float;kotlin.Float;kotlin.time.Duration;kotlin.Float;kotlin.Float;com.davils.kiro.ui.motion.shader.ShaderBackend){}[0]
-    final fun equals(kotlin/Any?): kotlin/Boolean // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.equals|equals(kotlin.Any?){}[0]
-    final fun hashCode(): kotlin/Int // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.hashCode|hashCode(){}[0]
-    final fun toString(): kotlin/String // com.davils.kiro.ui.motion.shader.silk/SilkArtStyle.toString|toString(){}[0]
-}
-
 final class com.davils.kiro.ui.motion.shader/ColorUniform : com.davils.kiro.ui.motion.shader/Uniform { // com.davils.kiro.ui.motion.shader/ColorUniform|null[0]
     constructor <init>(kotlin/String, androidx.compose.ui.graphics/Color) // com.davils.kiro.ui.motion.shader/ColorUniform.<init>|<init>(kotlin.String;androidx.compose.ui.graphics.Color){}[0]
 
@@ -3120,14 +3000,6 @@ final val com.davils.kiro.ui.motion.shader.grain/GrainArtStyleKey // com.davils.
     final fun <get-GrainArtStyleKey>(): com.davils.kiro.ui.core.style/StyleKey<com.davils.kiro.ui.motion.shader.grain/GrainArtStyles> // com.davils.kiro.ui.motion.shader.grain/GrainArtStyleKey.<get-GrainArtStyleKey>|<get-GrainArtStyleKey>(){}[0]
 final val com.davils.kiro.ui.motion.shader.grain/com_davils_kiro_ui_motion_shader_grain_GrainArt$stableprop // com.davils.kiro.ui.motion.shader.grain/com_davils_kiro_ui_motion_shader_grain_GrainArt$stableprop|#static{}com_davils_kiro_ui_motion_shader_grain_GrainArt$stableprop[0]
 final val com.davils.kiro.ui.motion.shader.grain/com_davils_kiro_ui_motion_shader_grain_GrainArtStyle$stableprop // com.davils.kiro.ui.motion.shader.grain/com_davils_kiro_ui_motion_shader_grain_GrainArtStyle$stableprop|#static{}com_davils_kiro_ui_motion_shader_grain_GrainArtStyle$stableprop[0]
-final val com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyleKey // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyleKey|{}MeshGradientArtStyleKey[0]
-    final fun <get-MeshGradientArtStyleKey>(): com.davils.kiro.ui.core.style/StyleKey<com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyles> // com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyleKey.<get-MeshGradientArtStyleKey>|<get-MeshGradientArtStyleKey>(){}[0]
-final val com.davils.kiro.ui.motion.shader.mesh/com_davils_kiro_ui_motion_shader_mesh_MeshGradientArt$stableprop // com.davils.kiro.ui.motion.shader.mesh/com_davils_kiro_ui_motion_shader_mesh_MeshGradientArt$stableprop|#static{}com_davils_kiro_ui_motion_shader_mesh_MeshGradientArt$stableprop[0]
-final val com.davils.kiro.ui.motion.shader.mesh/com_davils_kiro_ui_motion_shader_mesh_MeshGradientArtStyle$stableprop // com.davils.kiro.ui.motion.shader.mesh/com_davils_kiro_ui_motion_shader_mesh_MeshGradientArtStyle$stableprop|#static{}com_davils_kiro_ui_motion_shader_mesh_MeshGradientArtStyle$stableprop[0]
-final val com.davils.kiro.ui.motion.shader.silk/SilkArtStyleKey // com.davils.kiro.ui.motion.shader.silk/SilkArtStyleKey|{}SilkArtStyleKey[0]
-    final fun <get-SilkArtStyleKey>(): com.davils.kiro.ui.core.style/StyleKey<com.davils.kiro.ui.motion.shader.silk/SilkArtStyles> // com.davils.kiro.ui.motion.shader.silk/SilkArtStyleKey.<get-SilkArtStyleKey>|<get-SilkArtStyleKey>(){}[0]
-final val com.davils.kiro.ui.motion.shader.silk/com_davils_kiro_ui_motion_shader_silk_SilkArt$stableprop // com.davils.kiro.ui.motion.shader.silk/com_davils_kiro_ui_motion_shader_silk_SilkArt$stableprop|#static{}com_davils_kiro_ui_motion_shader_silk_SilkArt$stableprop[0]
-final val com.davils.kiro.ui.motion.shader.silk/com_davils_kiro_ui_motion_shader_silk_SilkArtStyle$stableprop // com.davils.kiro.ui.motion.shader.silk/com_davils_kiro_ui_motion_shader_silk_SilkArtStyle$stableprop|#static{}com_davils_kiro_ui_motion_shader_silk_SilkArtStyle$stableprop[0]
 final val com.davils.kiro.ui.motion.shader/com_davils_kiro_ui_motion_shader_ColorUniform$stableprop // com.davils.kiro.ui.motion.shader/com_davils_kiro_ui_motion_shader_ColorUniform$stableprop|#static{}com_davils_kiro_ui_motion_shader_ColorUniform$stableprop[0]
 final val com.davils.kiro.ui.motion.shader/com_davils_kiro_ui_motion_shader_FloatUniform$stableprop // com.davils.kiro.ui.motion.shader/com_davils_kiro_ui_motion_shader_FloatUniform$stableprop|#static{}com_davils_kiro_ui_motion_shader_FloatUniform$stableprop[0]
 final val com.davils.kiro.ui.motion.shader/com_davils_kiro_ui_motion_shader_PointerUniform$stableprop // com.davils.kiro.ui.motion.shader/com_davils_kiro_ui_motion_shader_PointerUniform$stableprop|#static{}com_davils_kiro_ui_motion_shader_PointerUniform$stableprop[0]
@@ -3275,12 +3147,6 @@ final fun com.davils.kiro.ui.motion.scene/scene(kotlin/Function1<com.davils.kiro
 final fun com.davils.kiro.ui.motion.shader.grain/com_davils_kiro_ui_motion_shader_grain_GrainArt$stableprop_getter(): kotlin/Int // com.davils.kiro.ui.motion.shader.grain/com_davils_kiro_ui_motion_shader_grain_GrainArt$stableprop_getter|com_davils_kiro_ui_motion_shader_grain_GrainArt$stableprop_getter(){}[0]
 final fun com.davils.kiro.ui.motion.shader.grain/com_davils_kiro_ui_motion_shader_grain_GrainArtStyle$stableprop_getter(): kotlin/Int // com.davils.kiro.ui.motion.shader.grain/com_davils_kiro_ui_motion_shader_grain_GrainArtStyle$stableprop_getter|com_davils_kiro_ui_motion_shader_grain_GrainArtStyle$stableprop_getter(){}[0]
 final fun com.davils.kiro.ui.motion.shader.grain/grainArtStyle(androidx.compose.runtime/Composer?, kotlin/Int): com.davils.kiro.ui.motion.shader.grain/GrainArtStyle // com.davils.kiro.ui.motion.shader.grain/grainArtStyle|grainArtStyle(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
-final fun com.davils.kiro.ui.motion.shader.mesh/com_davils_kiro_ui_motion_shader_mesh_MeshGradientArt$stableprop_getter(): kotlin/Int // com.davils.kiro.ui.motion.shader.mesh/com_davils_kiro_ui_motion_shader_mesh_MeshGradientArt$stableprop_getter|com_davils_kiro_ui_motion_shader_mesh_MeshGradientArt$stableprop_getter(){}[0]
-final fun com.davils.kiro.ui.motion.shader.mesh/com_davils_kiro_ui_motion_shader_mesh_MeshGradientArtStyle$stableprop_getter(): kotlin/Int // com.davils.kiro.ui.motion.shader.mesh/com_davils_kiro_ui_motion_shader_mesh_MeshGradientArtStyle$stableprop_getter|com_davils_kiro_ui_motion_shader_mesh_MeshGradientArtStyle$stableprop_getter(){}[0]
-final fun com.davils.kiro.ui.motion.shader.mesh/meshGradientArtStyle(androidx.compose.runtime/Composer?, kotlin/Int): com.davils.kiro.ui.motion.shader.mesh/MeshGradientArtStyle // com.davils.kiro.ui.motion.shader.mesh/meshGradientArtStyle|meshGradientArtStyle(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
-final fun com.davils.kiro.ui.motion.shader.silk/com_davils_kiro_ui_motion_shader_silk_SilkArt$stableprop_getter(): kotlin/Int // com.davils.kiro.ui.motion.shader.silk/com_davils_kiro_ui_motion_shader_silk_SilkArt$stableprop_getter|com_davils_kiro_ui_motion_shader_silk_SilkArt$stableprop_getter(){}[0]
-final fun com.davils.kiro.ui.motion.shader.silk/com_davils_kiro_ui_motion_shader_silk_SilkArtStyle$stableprop_getter(): kotlin/Int // com.davils.kiro.ui.motion.shader.silk/com_davils_kiro_ui_motion_shader_silk_SilkArtStyle$stableprop_getter|com_davils_kiro_ui_motion_shader_silk_SilkArtStyle$stableprop_getter(){}[0]
-final fun com.davils.kiro.ui.motion.shader.silk/silkArtStyle(androidx.compose.runtime/Composer?, kotlin/Int): com.davils.kiro.ui.motion.shader.silk/SilkArtStyle // com.davils.kiro.ui.motion.shader.silk/silkArtStyle|silkArtStyle(androidx.compose.runtime.Composer?;kotlin.Int){}[0]
 final fun com.davils.kiro.ui.motion.shader/com_davils_kiro_ui_motion_shader_ColorUniform$stableprop_getter(): kotlin/Int // com.davils.kiro.ui.motion.shader/com_davils_kiro_ui_motion_shader_ColorUniform$stableprop_getter|com_davils_kiro_ui_motion_shader_ColorUniform$stableprop_getter(){}[0]
 final fun com.davils.kiro.ui.motion.shader/com_davils_kiro_ui_motion_shader_FloatUniform$stableprop_getter(): kotlin/Int // com.davils.kiro.ui.motion.shader/com_davils_kiro_ui_motion_shader_FloatUniform$stableprop_getter|com_davils_kiro_ui_motion_shader_FloatUniform$stableprop_getter(){}[0]
 final fun com.davils.kiro.ui.motion.shader/com_davils_kiro_ui_motion_shader_PointerUniform$stableprop_getter(): kotlin/Int // com.davils.kiro.ui.motion.shader/com_davils_kiro_ui_motion_shader_PointerUniform$stableprop_getter|com_davils_kiro_ui_motion_shader_PointerUniform$stableprop_getter(){}[0]
