@@ -28,4 +28,5 @@ dependencies {
     commonMainApi(project(":kiro-ui:kiro-ui-core"))
     commonMainApi(project(":kiro-ui:kiro-ui-icons"))
     commonMainApi(libs.kotlinx.datetime)
+    jvmMainImplementation(libs.knot.platform)
 }

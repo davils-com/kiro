@@ -16,14 +16,9 @@
 
 package com.davils.kiro.ui.components.menubar
 
-private const val OS_NAME_PROPERTY: String = "os.name"
+import com.davils.knot.platform.OperatingSystem
 
-private val prefixes: List<Pair<String, DesktopPlatform>> = listOf(
-    "mac" to DesktopPlatform.MacOs,
-    "darwin" to DesktopPlatform.MacOs,
-    "windows" to DesktopPlatform.Windows,
-    "linux" to DesktopPlatform.Linux,
-)
+private const val OS_NAME_PROPERTY: String = "os.name"
 
 /**
  * The operating system that a desktop application runs on, as far as the menus of a window depend on it.
@@ -76,8 +71,9 @@ public enum class DesktopPlatform {
     }
 }
 
-internal fun platformOf(osName: String): DesktopPlatform {
-    val name = osName.trim().lowercase()
-    val match = prefixes.firstOrNull { (prefix, _) -> name.startsWith(prefix) }
-    return match?.second ?: DesktopPlatform.Other
+internal fun platformOf(osName: String): DesktopPlatform = when (OperatingSystem.resolve(osName.trim())) {
+    OperatingSystem.MacOs -> DesktopPlatform.MacOs
+    OperatingSystem.Windows -> DesktopPlatform.Windows
+    OperatingSystem.Linux -> DesktopPlatform.Linux
+    OperatingSystem.Wasm, null -> DesktopPlatform.Other
 }
