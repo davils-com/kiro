@@ -64,6 +64,7 @@
          <trusted-key id="33FD4BFD33554634053D73C0C2148900BCD3C2AF" group="^org[.]jetbrains($|([.].*))" regex="true"/>
          <trusted-key id="34441E504A937F43EB0DAEF96A65176A0FB1CD0B" group="org.apache.groovy"/>
          <trusted-key id="36F578E8AD2D4391E0FA6C18154C625FAD370063" group="^com[.]davils($|([.].*))" regex="true"/>
+         <trusted-key id="41CD49B4EF5876F9E9F691DABAC30622339994C4" group="org.jspecify" name="jspecify" version="1.0.0"/>
          <trusted-key id="47EB6836245D2D40E89DFB4136D4E9618F3ADAB5" group="io.github.oshai"/>
          <trusted-key id="4DB1A49729B053CAF015CEE9A6ADFC93EF34893E" group="org.hamcrest"/>
          <trusted-key id="5CBA19E56141E78D54BF716F08A4A4958D61FC3D" group="io.kotest"/>
@@ -1253,11 +1254,11 @@
          </artifact>
       </component>
       <component group="org.junit" name="junit-bom" version="5.14.3">
-         <artifact name="junit-bom-5.14.3.pom">
-            <sha256 value="08a02856e487c9357f9b29e38745f8ae805848111e72d15aad0352338f1632e1" origin="Gradle cache, equal to the SHA-1 of Maven Central" reason="The signing key is not published on the key servers"/>
-         </artifact>
          <artifact name="junit-bom-5.14.3.module">
             <sha256 value="f25c40bfa52c8b7b425d576a88f310f6432616d62ba5893203fa27dfbc9f025e" origin="Gradle cache, equal to the SHA-1 of Maven Central" reason="The signing key is not published on the key servers"/>
+         </artifact>
+         <artifact name="junit-bom-5.14.3.pom">
+            <sha256 value="08a02856e487c9357f9b29e38745f8ae805848111e72d15aad0352338f1632e1" origin="Gradle cache, equal to the SHA-1 of Maven Central" reason="The signing key is not published on the key servers"/>
          </artifact>
       </component>
       <component group="org.junit" name="junit-bom" version="6.1.3">

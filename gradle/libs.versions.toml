@@ -1,7 +1,8 @@
 [versions]
 kotlin = "2.4.21"
-kreate = "5.3.0"
-kore = "2.3.1"
+kreate = "5.5.2"
+kore = "2.5.0"
+knot = "1.2.0"
 compose = "1.12.2"
 skiko = "0.150.2"
 coroutines = "1.11.0"
@@ -12,8 +13,8 @@ lucide = "1.71.0"
 jbr-api = "1.9.0"
 kotest = "6.2.7"
 # Floors for the classpaths of build tools, raised past known vulnerabilities.
-tooling-jackson = "2.22.3"
-tooling-bouncycastle = "1.85"
+tooling-jackson = "2.23.0"
+tooling-bouncycastle = "1.87"
 
 [libraries]
 kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
@@ -23,6 +24,7 @@ kreate-gradle-plugin = { module = "com.davils.kreate:com.davils.kreate.gradle.pl
 kotlinpoet = { module = "com.squareup:kotlinpoet", version.ref = "kotlinpoet" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
 kore-core = { module = "com.davils:kore-core", version.ref = "kore" }
+knot-platform = { module = "com.davils:knot-platform", version.ref = "knot" }
 kore-testing = { module = "com.davils:kore-testing", version.ref = "kore" }
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "coroutines" }
