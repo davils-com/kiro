@@ -18,9 +18,9 @@ package com.davils.kiro.ui.audio
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
+import com.davils.kore.core.random.SecureEntropy
+import com.davils.kore.core.random.shuffled
 import kotlin.time.Duration
-import kotlin.uuid.ExperimentalUuidApi
-import kotlin.uuid.Uuid
 
 /**
  * Remembers an [AudioPlayerState] for a queue across recompositions.
@@ -38,9 +38,4 @@ internal fun progressOf(position: Duration, duration: Duration?): Float {
     return (position.inWholeMilliseconds.toFloat() / total).coerceIn(minimumValue = 0f, maximumValue = 1f)
 }
 
-@OptIn(ExperimentalUuidApi::class)
-internal fun secureShuffled(ids: List<TrackId>): List<TrackId> {
-    val keyed = ids.map { id -> Uuid.random() to id }
-    val sorted = keyed.sortedBy { (key, _) -> key }
-    return sorted.map { (_, id) -> id }
-}
+internal fun secureShuffled(ids: List<TrackId>): List<TrackId> = ids.shuffled(SecureEntropy)
