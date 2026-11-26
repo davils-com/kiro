@@ -73,6 +73,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `NativeMenuEntry` entries and `NativeEntries` translate a `MenuScope` into a menu that the operating system draws,
   so that the tray and the dock of `kiro-ui-window` reuse the entries of a Kiro menu.
 
+### Changed
+
+- **The shuffle of the audio player draws from `SecureEntropy` of Kore 2.5.0**, by Fisher and Yates, instead of
+  sorting by random UUIDs.
+- **`DesktopPlatform.current()` asks Knot 1.2.0** for the operating system; the platforms it reports are unchanged.
+- **Built with Kreate 5.5.2 and Gradle 9.9.2 on Kore 2.5.0.**
+
 ### Fixed
 
 - **The assurance gate aggregates every published module.** `kiro-ui-audio` was missing from it.
